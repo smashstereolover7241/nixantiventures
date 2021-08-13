@@ -23,7 +23,7 @@ inputs: {
             };
 
 
-            hardare.ProGo = true;
+            hardware.ProGo = true;
             flakes.enable = true;
 
           };
