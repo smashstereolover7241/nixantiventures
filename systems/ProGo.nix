@@ -12,13 +12,13 @@ inputs: {
             xorg = {
               enable = true;
               gpu = "nvidia";
-              xmonad = "true";
-              lightdm = "true";
-              libinput = "true";
+              xmonad = true;
+              lightdm = true;
+              libinput = true;
             };
 
-            networking = {
-              bluetooth.enable = true;
+            networking  = {
+              bluetooth = true;
               networkManager = true;
             };
 

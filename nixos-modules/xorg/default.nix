@@ -13,7 +13,7 @@ let
   cfg = config.teletypeOne.xorg;
 in {
   options.teletypeOne.xorg = {
-    enable = mkEnbleOption "Xorg so graphical can happen";
+    enable = mkEnableOption "Xorg so graphical can happen";
     gpu = mkOption {
       description = "Which gpu?";
       type = types.enum ["modesetting" "nvidia"];
@@ -41,7 +41,7 @@ in {
   lightdm = mkEnableOption "Enable lightdm";
   libinput = mkEnableOption "Enable libinput";
   };
-  config = mkIf cfg.enable (mkMege [
+  config = mkIf cfg.enable (mkMerge [
     {
       services.xserver = {
         enable = true;
@@ -56,16 +56,17 @@ in {
           defaultSession = "none+xmonad";
         };
 
-        libinput.enable = false;
-
-         libinput' = mkIf cfg.libinput{
-          libinput.enable = true;
-        };
       };
       hardware = {
         opengl.driSupport32Bit = true;
       };
     }
+
+
+         (mkIf (cfg.libinput == true){
+          services.xserver.libinput.enable = true;
+        })
+
     (mkIf (cfg.gpu == "nvidia") {
       services.xserver.videoDrivers = ["nvidia"];
       environment.systemPackages = mkIf (cfg.nvidia.prime)

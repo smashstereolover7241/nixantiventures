@@ -3,7 +3,7 @@ with lib;
 let
   cfg = config.teletypeOne.networking;
 in {
-  options.teletyepeOne.networking = {
+  options.teletypeOne.networking = {
     networkManager = mkEnableOption "Nmtui?";
     bluetooth = mkEnableOption "Is Bluetooth card installed?";
   };
