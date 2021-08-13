@@ -37,6 +37,10 @@ inputs: {
         hostId = "3457b394";
       };
 
+      boot.loader.grub.enable = true;
+      boot.loader.grub.version = 2;
+      boot.loader.grub.device = "nodev";
+
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";
     })
