@@ -13,37 +13,15 @@ in
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "zroot/root";
-      fsType = "zfs";
-    };
-
-  fileSystems."/nix" =
-    { device = "zroot/root/nix";
-      fsType = "zfs";
-    };
-
-  fileSystems."/home" =
-    { device = "zroot/root/home";
-      fsType = "zfs";
-    };
-
-  fileSystems."/zroot" =
-    { device = "zroot";
+    { device = "zPro";
       fsType = "zfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/065ef8a9-521f-4f2f-822b-ef024ed05361";
-      fsType = "ext2";
-    };
-
-  fileSystems."/FjordMain" =
-    { device = "zroot/FjordMainCompress";
-      fsType = "zfs";
+    { device = "/dev/disk/by-partuuid/d64a6ba7-02";
+      fsType = "ext4";
     };
 
   swapDevices = [ ];
-
-
   };
 }
