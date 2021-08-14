@@ -81,9 +81,9 @@ in {
       environment.systemPackages = with pkgs; [keepassxc];
     })
 
-    #(mkIf cfg.copilerUtil {
-      #environment.systemPackages = with pkgs; [cmake gnumake git pgkconfig];
-    #})
+    (mkIf cfg.copilerUtil {
+      environment.systemPackages = with pkgs; [cmake gnumake git pgkconfig];
+    })
 
     (mkIf cfg.haskell {
       environment.systemPackages = with pkgs; [cabal-install ghc];
