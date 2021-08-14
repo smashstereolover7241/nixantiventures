@@ -81,7 +81,7 @@ in {
       environment.systemPackages = with pkgs; [keepassxc];
     })
 
-    (mkIf cfg.copilerUtil {
+    (mkIf cfg.compilerUtil {
       environment.systemPackages = with pkgs; [cmake gnumake git pgkconfig];
     })
 
