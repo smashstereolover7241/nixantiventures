@@ -15,6 +15,10 @@ inputs: {
               termite = true;
             };
 
+            fonts = {
+              firaCode = true;
+            };
+
             xorg = {
               enable = true;
               gpu = "nvidia";
