@@ -70,7 +70,7 @@ in {
     })
 
     (mkIf cfg.textUtil {
-      environment.systemPackages = with pkgs; [vim nvim geany];
+      environment.systemPackages = with pkgs; [vim neovim geany];
     })
 
     (mkIf cfg.office {
