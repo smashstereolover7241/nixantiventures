@@ -15,13 +15,13 @@ in {
     media = mkEnableOption "Have the usual media consumption stuffs installed";
     encoding = mkEnableOption "Install tools to work with video / audio";
     pulseUtil = mkEnableOption "Install utilites to work with pulseawfulio";
-    textUtil = "Install text editors (not emacs)";
-    office = "Install office programs";
-    password = "Install password managers";
-    compilers = "Install compiler stuff";
-    haskell = "You want haskell? You get haskell.";
-    termUtil = "Utilites for the terminal";
-    painting = "Some painting applications";
+    textUtil = mkEnableOption "Install text editors (not emacs)";
+    office = mkEnableOption "Install office programs";
+    password = mkEnableOption "Install password managers";
+    compilerUtil = mkEnableOption "Install compiler stuff";
+    haskell = mkEnableOption "You want haskell? You get haskell.";
+    termUtil = mkEnableOption "Utilites for the terminal";
+    painting = mkEnableOption "Some painting applications";
   };
 
   config = (mkMerge [
@@ -81,9 +81,9 @@ in {
       environment.systemPackages = with pkgs; [keepassxc];
     })
 
-    (mkIf cfg.compilers {
-      environment.systemPackages = with pkgs; [cmake gnumake git pgkconfig];
-    })
+    #(mkIf cfg.copilerUtil {
+      #environment.systemPackages = with pkgs; [cmake gnumake git pgkconfig];
+    #})
 
     (mkIf cfg.haskell {
       environment.systemPackages = with pkgs; [cabal-install ghc];
