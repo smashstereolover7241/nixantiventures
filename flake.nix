@@ -23,6 +23,8 @@
 
         nixosConfigurations.ProGo = nixosSystem (import ./systems/ProGo.nix inputs);
         ProGo = self.nixosConfigurations.ProGo.config.system.build.toplevel;
+        nixosConfigurations.ProNoGo = nixosSystem (import ./systems/ProNoGo.nix inputs);
+        ProNoGo = self.nixosConfigurations.ProGo.config.system.build.toplevel;
 
         allSystems =
           let
@@ -39,6 +41,7 @@
               x86_64-linux = linkFarm "x86_64-linux"
                 {
                    ProGo = nixos "ProGo";
+                   ProNoGo = nixos "ProNoGo";
                 };
             };
         overlays = {

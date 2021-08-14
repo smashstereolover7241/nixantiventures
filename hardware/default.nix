@@ -8,6 +8,7 @@ in
   imports =
     [
       ./ProGo.nix
+      ./ProNoGo.nix
     ];
   config = {
     assertions = [
