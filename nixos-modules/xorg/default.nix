@@ -37,6 +37,9 @@ in {
       };
       default = {};
     };
+    modesetting = mkOption {
+      description = "Intel, yay?";
+    };
   xmonad = mkEnableOption "Enable xmonad";
   xmobar = mkEnableOption "Enable xmobar";
   lightdm = mkEnableOption "Enable lightdm";
@@ -84,6 +87,9 @@ in {
         intelBusId = cfg.nvidia.intelBusId;
         nvidiaBusId = cfg.nvidia.nvidiaBusId;
       };
+    })
+    (mkIf (cfg.gpu == "modesetting") {
+      services.xserver.videoDrivers = ["modesetting"];
     })
   ]);
 }
