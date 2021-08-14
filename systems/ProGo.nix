@@ -70,6 +70,7 @@ inputs: {
               xmobar = true;
               lightdm = true;
               libinput = true;
+              flatInput = true;
             };
 
             networking  = {
