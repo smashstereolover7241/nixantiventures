@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.teletypeOne.hardware.ProGo;
+  cfg = config.teletypeOne.hardware.ProNoGo;
 in
 {
   options.teletypeOne.hardware.ProGo = mkEnableOption "Enable ProNoGo";

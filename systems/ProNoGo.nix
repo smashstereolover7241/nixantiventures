@@ -78,7 +78,7 @@ inputs: {
               networkManager = true;
             };
 
-            hardware.ProGo = true;
+            hardware.ProNoGo = true;
             flakes.enable = true;
 
           };
