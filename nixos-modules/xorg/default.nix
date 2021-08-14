@@ -38,8 +38,10 @@ in {
       default = {};
     };
   xmonad = mkEnableOption "Enable xmonad";
+  xmobar = mkEnableOption "Enable xmobar";
   lightdm = mkEnableOption "Enable lightdm";
   libinput = mkEnableOption "Enable libinput";
+
   };
   config = mkIf cfg.enable (mkMerge [
     {
@@ -55,6 +57,8 @@ in {
           lightdm.enable = mkIf cfg.lightdm true;
           defaultSession = "none+xmonad";
         };
+
+        environment.systemPackages = mkIf cfg.xmobar (with pkgs; [xmobar]);
 
       };
       hardware = {

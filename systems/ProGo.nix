@@ -19,6 +19,7 @@ inputs: {
               enable = true;
               gpu = "nvidia";
               xmonad = true;
+              xmobar = true;
               lightdm = true;
               libinput = true;
             };
