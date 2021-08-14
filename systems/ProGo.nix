@@ -40,7 +40,7 @@ inputs: {
               textUtil = true;
               office = false;
               password = true;
-              compilers = true;
+              compilerUtil = true;
               haskell = true;
               termUtil = true;
               painting = false;
