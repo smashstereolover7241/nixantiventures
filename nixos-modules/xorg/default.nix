@@ -58,9 +58,11 @@ in {
           defaultSession = "none+xmonad";
         };
 
-        environment.systemPackages = mkIf cfg.xmobar (with pkgs; [xmobar]);
 
       };
+
+        environment.systemPackages = mkIf cfg.xmobar (with pkgs; [xmobar]);
+
       hardware = {
         opengl.driSupport32Bit = true;
       };
