@@ -3,6 +3,7 @@
 {
   imports = [
     ./main.nix
+    ./fonts.nix
     ./terminals.nix
     ./xorg
     ./flakes.nix
