@@ -11,7 +11,7 @@ in {
   config = (mkMerge [
     (mkIf (cfg.enabled) {
       programs.zsh.enable = true;
-      users.localhost.shell = pkgs.zsh;
+      users.users.localhost.shell = pkgs.zsh;
     })
     (mkIf (cfg.ohMy) {
       programs.zsh.ohMyZsh = {
