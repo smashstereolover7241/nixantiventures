@@ -76,7 +76,7 @@ in {
           services.xserver.libinput.enable = true;
         })
 
-         (mkIf cfg.flatImput {
+         (mkIf cfg.flatInput {
              services.xserver.extraConfig = ''
     Section "InputClass"
           Identifier "My Mouse"
