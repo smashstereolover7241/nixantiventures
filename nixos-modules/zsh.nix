@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfc = config.teletypeOne.zsh;
+  cfg = config.teletypeOne.zsh;
 in {
   options.teletypeOne.terminals = {
     enabled = mkEnableOption "Install zsh";
