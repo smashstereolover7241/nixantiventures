@@ -21,7 +21,7 @@ inputs: {
 
             communication = {
               free = true;
-              nonfree = true;
+              nonFree = true;
               bullshit = true;
             };
 
