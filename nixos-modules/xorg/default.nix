@@ -44,7 +44,7 @@ in {
   xmobar = mkEnableOption "Enable xmobar";
   lightdm = mkEnableOption "Enable lightdm";
   libinput = mkEnableOption "Enable libinput";
-
+  flatInput = mkEnableOption "Add extra config for non-accelerated mouse input.";
   };
   config = mkIf cfg.enable (mkMerge [
     {
@@ -76,6 +76,18 @@ in {
           services.xserver.libinput.enable = true;
         })
 
+         (mkIf cfg.flatImput {
+             services.xserver.extraConfig = ''
+    Section "InputClass"
+          Identifier "My Mouse"
+          MatchIsPointer "yes"
+          Option "AccelerationProfile" "-1"
+          Option "AccelerationScheme" "none"
+          Option "AccelSpeed" "-1"
+    EndSection
+'';
+
+        })
     (mkIf (cfg.gpu == "nvidia") {
       services.xserver.videoDrivers = ["nvidia"];
       environment.systemPackages = mkIf (cfg.nvidia.prime)
