@@ -50,7 +50,7 @@ inputs: {
 
             xorg = {
               enable = true;
-              gpu = "nvidia";
+              gpu = "modesetting";
               xmonad = true;
               xmobar = true;
               lightdm = true;
