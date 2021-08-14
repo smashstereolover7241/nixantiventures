@@ -10,7 +10,7 @@ in {
 
   config = (mkMerge [
     (mkIf (cfg.enabled) {
-      programs.zsh.syntaxHightlighting.enable = true;
+      programs.zsh.enable = true;
       users.localhost.shell = pkgs.zsh;
     })
     (mkIf (cfg.ohMy) {
