@@ -15,6 +15,8 @@ inputs: {
               termite = true;
             };
 
+            pulseaudio.enable = true;
+
             fonts = {
               firaCode = true;
             };
