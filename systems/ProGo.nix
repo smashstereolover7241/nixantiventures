@@ -15,6 +15,21 @@ inputs: {
               termite = true;
             };
 
+            filemanagers = {
+              gui = true;
+              tui = true;
+            };
+
+            zsh = {
+              enabled = true;
+              ohMy = true;
+            };
+
+            games = {
+              steam = false;
+              minecraft = false;
+            };
+
             pulseaudio.enable = true;
 
             fonts = {
