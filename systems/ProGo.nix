@@ -19,6 +19,33 @@ inputs: {
               firaCode = true;
             };
 
+            communication = {
+              free = true;
+              nonfree = true;
+              bullshit = true;
+            };
+
+            util = {
+              xmonadUtil = true;
+              neofetch = true;
+              music = true;
+              screenshot = true;
+              theming = true;
+              topFamily = true;
+              driveUtil = true;
+              emacs = true;
+              media = true;
+              encoding = false;
+              pulseUtil = true;
+              textUtil = true;
+              office = false;
+              password = true;
+              compilers = true;
+              haskell = true;
+              termUtil = true;
+              painting = false;
+            };
+
             xorg = {
               enable = true;
               gpu = "nvidia";
