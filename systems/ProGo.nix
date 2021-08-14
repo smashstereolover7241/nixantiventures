@@ -40,6 +40,7 @@ inputs: {
       boot.loader.grub.enable = true;
       boot.loader.grub.version = 2;
       boot.loader.grub.device = "nodev";
+      nixpkgs.config.allowUnfree = true;
 
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";
