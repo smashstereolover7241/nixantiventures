@@ -3,7 +3,7 @@ with lib;
 let
   cfg = config.teletypeOne.zsh;
 in {
-  options.teletypeOne.terminals = {
+  options.teletypeOne.zsh = {
     enabled = mkEnableOption "Install zsh";
     ohMy = mkEnableOption "Install ohmyzsh";
   };
