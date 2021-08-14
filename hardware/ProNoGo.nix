@@ -4,7 +4,7 @@ let
   cfg = config.teletypeOne.hardware.ProNoGo;
 in
 {
-  options.teletypeOne.hardware.ProGo = mkEnableOption "Enable ProNoGo";
+  options.teletypeOne.hardware.ProNoGo = mkEnableOption "Enable ProNoGo";
 
   config = mkIf cfg{
 
