@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = options.teletypeOne.filemanagers;
+  cfg = config.teletypeOne.filemanagers;
 in {
   options.teletypeOne.filemanagers = {
     gui = mkEnableOption "Install graphical file managers";
