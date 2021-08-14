@@ -14,7 +14,7 @@ in {
       environment.systemPackages = with pkgs; [signal-desktop element-desktop];
     })
 
-    (mkIf (cfg.nonfree) {
+    (mkIf (cfg.nonFree) {
       environment.systemPackages = with pkgs; [discord];
     })
 
