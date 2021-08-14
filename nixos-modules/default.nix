@@ -4,6 +4,7 @@
   imports = [
     ./main.nix
     ./util.nix
+    ./filemanagers.nix
     ./games.nix
     ./zsh.nix
     ./communication.nix
