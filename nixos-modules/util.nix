@@ -82,7 +82,7 @@ in {
     })
 
     (mkIf cfg.compilerUtil {
-      environment.systemPackages = with pkgs; [cmake gnumake git pgkconfig];
+      environment.systemPackages = with pkgs; [cmake gnumake git pkgconfig];
     })
 
     (mkIf cfg.haskell {
