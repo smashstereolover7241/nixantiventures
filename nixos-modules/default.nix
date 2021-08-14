@@ -3,6 +3,7 @@
 {
   imports = [
     ./main.nix
+    ./util.nix
     ./fonts.nix
     ./terminals.nix
     ./xorg
