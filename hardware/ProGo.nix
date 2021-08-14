@@ -13,13 +13,13 @@ in
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "zPro";
-      fsType = "zfs";
+    { device = "/dev/disk/by-partuuid/d64a6ba7-02";
+      fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-partuuid/d64a6ba7-02";
-      fsType = "ext4";
+    { device = "/dev/disk/by-partuuid/d64a6ba7-01";
+      fsType = "ext2";
     };
 
   swapDevices = [ ];
