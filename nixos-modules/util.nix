@@ -54,7 +54,7 @@ in {
     })
 
     (mkIf cfg.emacs {
-      environment.systemPackages = with pkgs; [emacs libtool direnv nix-direnv];
+      environment.systemPackages = with pkgs; [emacs sqlite libtool direnv nix-direnv];
     })
 
     (mkIf cfg.media {
