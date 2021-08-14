@@ -3,6 +3,7 @@
 {
   imports = [
     ./main.nix
+    ./terminals.nix
     ./xorg
     ./flakes.nix
     ./pulseaudio.nix

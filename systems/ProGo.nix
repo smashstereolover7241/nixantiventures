@@ -9,6 +9,12 @@ inputs: {
       in
         {
           teletypeOne = {
+
+            terminals = {
+              alacritty = true;
+              termite = true;
+            };
+
             xorg = {
               enable = true;
               gpu = "nvidia";
@@ -21,7 +27,6 @@ inputs: {
               bluetooth = true;
               networkManager = true;
             };
-
 
             hardware.ProGo = true;
             flakes.enable = true;
