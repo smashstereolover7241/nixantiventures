@@ -14,7 +14,7 @@ in {
     })
 
     (mkIf cfg.minecraft {
-      environment.systemPackages = with pkgs; [minecraft];
+      environment.systemPackages = with pkgs; [minecraft adoptopenjdk-jre-openj9-bin-8];
     })
   ]);
 }
