@@ -11,6 +11,8 @@ in {
   config = (mkMerge [
     (mkIf cfg.steam {
       programs.steam.enable = true;
+      environment.systemPackages = with pkgs; [lutris];
+      hardware.opengl.driSupport32Bit = true;
     })
 
     (mkIf cfg.minecraft {
