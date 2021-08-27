@@ -14,7 +14,7 @@ in
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "usb-Generic_Mass-Storage-0:0-part1";
+    { device = "/dev/disk/by-id/usb-Generic_Mass-Storage-0:0-part1";
       fsType = "ext4";
     };
   swapDevices = [ ];
