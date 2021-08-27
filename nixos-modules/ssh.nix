@@ -4,7 +4,7 @@ let
   cfg = config.teletypeOne.ssh;
 in {
   options.teletypeOne.ssh = {
-    enabled = mkEnableOption "Enable ssh";
+    enable = mkEnableOption "Enable ssh";
   };
 
   config = (mkIf (cfg.enabled) {
