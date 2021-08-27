@@ -61,6 +61,7 @@ inputs: {
               haskell = false;
               termUtil = true;
               painting = true;
+              gpg = true;
             };
 
             xorg = {

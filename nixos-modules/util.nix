@@ -96,5 +96,8 @@ in {
     (mkIf cfg.painting {
       environment.systemPackages = with pkgs; [kolourpaint];
     })
+    (mkIf cfg.gpg {
+      environment.systemPackages = with pkgs; [gnupg pinentry];
+    })
   ]);
 }
