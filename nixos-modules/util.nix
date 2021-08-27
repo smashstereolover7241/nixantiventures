@@ -99,6 +99,10 @@ in {
     })
     (mkIf cfg.gpg {
       environment.systemPackages = with pkgs; [gnupg pinentry];
+      programs.gnupg.agent = {
+        enable = true;
+        pinentryFlavor = "curses";
+      };
     })
   ]);
 }
