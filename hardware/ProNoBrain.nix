@@ -14,7 +14,7 @@ in
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "usb-Intenso_Mobile_Line_1FF79E0A-0:0-part1";
+    { device = "usb-Generic_Mass-Storage-0:0-part1";
       fsType = "ext4";
     };
   swapDevices = [ ];

@@ -95,7 +95,7 @@ inputs: {
 
       boot.loader.grub.enable = true;
       boot.loader.grub.version = 2;
-      boot.loader.grub.device = "/dev/disk/by-id/usb-Intenso_Mobile_Line_1FF79E0A-0:0";
+      boot.loader.grub.device = "usb-Generic_Mass-Storage-0:0";
       nixpkgs.config.allowUnfree = true;
 
       i18n.supportedLocales = ["all"];
