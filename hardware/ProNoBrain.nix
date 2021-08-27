@@ -4,7 +4,7 @@ let
   cfg = config.teletypeOne.hardware.ProNoBrain;
 in
 {
-  options.teletypeOne.hardware.ProGo = mkEnableOption "Enable ProNoBrain";
+  options.teletypeOne.hardware.ProNoBrain = mkEnableOption "Enable ProNoBrain";
 
   config = mkIf cfg{
 
