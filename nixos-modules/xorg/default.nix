@@ -72,6 +72,9 @@ in {
       };
     }
 
+    (mkIf cfg.kde {
+      environment.systemPackages = (with pkgs; [kde-gtk-config]);
+    })
          (mkIf (cfg.dunst == true){
            environment.systemPackages = (with pkgs; [xmobar]);
         })
