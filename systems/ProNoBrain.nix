@@ -12,7 +12,11 @@ inputs: {
 
             terminals = {
               alacritty = true;
-              termite = true;
+              termite = false;
+            };
+
+            ssh = {
+              enable = true;
             };
 
             filemanagers = {
