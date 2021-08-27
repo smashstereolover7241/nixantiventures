@@ -68,6 +68,7 @@ inputs: {
               gpu = "modesetting";
               xmonad = true;
               xmobar = true;
+              dunst = true;
               lightdm = true;
               libinput = true;
               flatInput = true;

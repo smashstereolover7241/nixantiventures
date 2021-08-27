@@ -68,6 +68,7 @@ inputs: {
               gpu = "nvidia";
               xmonad = true;
               xmobar = true;
+              dunst = true;
               lightdm = true;
               libinput = false;
               flatInput = true;
