@@ -67,6 +67,7 @@ inputs: {
               enable = true;
               gpu = "modesetting";
               xmonad = false;
+              kde = true;
               xmobar = false;
               dunst = false;
               lightdm = true;
