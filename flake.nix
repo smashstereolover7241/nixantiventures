@@ -23,8 +23,12 @@
 
         nixosConfigurations.ProGo = nixosSystem (import ./systems/ProGo.nix inputs);
         ProGo = self.nixosConfigurations.ProGo.config.system.build.toplevel;
+
         nixosConfigurations.ProNoGo = nixosSystem (import ./systems/ProNoGo.nix inputs);
         ProNoGo = self.nixosConfigurations.ProGo.config.system.build.toplevel;
+
+        nixosConfigurations.ProNoBrain = nixosSystem (import ./systems/ProNoBrain.nix inputs);
+        ProNoBrain = self.nixosConfigurations.ProGo.config.system.build.toplevel;
 
         allSystems =
           let
