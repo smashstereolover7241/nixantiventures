@@ -41,6 +41,7 @@ in {
       description = "Intel, yay?";
     };
   xmonad = mkEnableOption "Enable xmonad";
+  kde = mkEnableOption "Enable kde";
   xmobar = mkEnableOption "Enable xmobar";
   dunst = mkEnableOption "Enable dunst";
   lightdm = mkEnableOption "Enable lightdm";
@@ -51,7 +52,7 @@ in {
     {
       services.xserver = {
         enable = true;
-
+        desktopManager.plasma5.enable = mkIf cfg.kde (true);
         windowManager = mkIf cfg.xmonad {
           xmonad.enable = true;
           xmonad.enableContribAndExtras = true;
@@ -61,6 +62,7 @@ in {
           lightdm.enable = mkIf cfg.lightdm true;
           defaultSession = "none+xmonad";
         };
+
       };
 
         environment.systemPackages = mkIf cfg.xmobar (with pkgs; [xmobar]);
