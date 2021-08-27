@@ -46,6 +46,7 @@
                 {
                    ProGo = nixos "ProGo";
                    ProNoGo = nixos "ProNoGo";
+                   ProNoBrain = nixos "ProNoBrain";
                 };
             };
         overlays = {
