@@ -14,7 +14,7 @@ in
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-partlabel/NixOSUSB";
+    { device = "/dev/disk/by-label/NixOSUSB";
       fsType = "ext4";
     };
   swapDevices = [ ];
