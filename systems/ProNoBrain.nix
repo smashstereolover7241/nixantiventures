@@ -5,7 +5,7 @@ inputs: {
     ../nixos-modules/default.nix
     ({ pkgs, config, lib, ... }:
       let
-        inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
+        inherit (config.teletypeOne.pkgs) nixpkgs;
       in
         {
           teletypeOne = {
