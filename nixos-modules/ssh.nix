@@ -7,7 +7,7 @@ in {
     enable = mkEnableOption "Enable ssh";
   };
 
-  config = (mkIf (cfg.enabled) {
+  config = (mkIf (cfg.enable) {
    services.sshd.enable = true;
   });
 
