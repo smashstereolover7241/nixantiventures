@@ -14,7 +14,7 @@ in
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-id/usb-Generic_Mass-Storage-0:0-part1";
+    { device = "/dev/disk/by-partlabel/NixOSUSB";
       fsType = "ext4";
     };
   swapDevices = [ ];
