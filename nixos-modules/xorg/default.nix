@@ -42,6 +42,7 @@ in {
     };
   xmonad = mkEnableOption "Enable xmonad";
   xmobar = mkEnableOption "Enable xmobar";
+  dunst = mkEnableOption "Enable dunst";
   lightdm = mkEnableOption "Enable lightdm";
   libinput = mkEnableOption "Enable libinput";
   flatInput = mkEnableOption "Add extra config for non-accelerated mouse input.";
@@ -60,8 +61,6 @@ in {
           lightdm.enable = mkIf cfg.lightdm true;
           defaultSession = "none+xmonad";
         };
-
-
       };
 
         environment.systemPackages = mkIf cfg.xmobar (with pkgs; [xmobar]);
@@ -71,6 +70,9 @@ in {
       };
     }
 
+         (mkIf (cfg.dunst == true){
+           environment.systemPackages = (with pkgs; [xmobar]);
+        })
 
          (mkIf (cfg.libinput == true){
           services.xserver.libinput.enable = true;
