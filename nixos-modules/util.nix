@@ -22,6 +22,7 @@ in {
     haskell = mkEnableOption "You want haskell? You get haskell.";
     termUtil = mkEnableOption "Utilites for the terminal";
     painting = mkEnableOption "Some painting applications";
+    gpg = mkEnableOption "Stuff for gpg";
   };
 
   config = (mkMerge [
