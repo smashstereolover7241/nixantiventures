@@ -13,7 +13,7 @@ in {
       networking.firewall = {
         allowedUDPPorts = [ 12346 ];
       };
-      netwoking.wireguard.interfaces = {
+      networking.wireguard.interfaces = {
         wg0 = {
           ips = [ "192.168.77.6" ];
           listenPort = 12346;
