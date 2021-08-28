@@ -11,7 +11,7 @@ in
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "rtsx_pci_sdmmc" "ehci_pci" "ahci" "firewire_ohci" "sdhci_pci" "usb_storage" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ "kvm-intel" ];
   boot.kernelModules = [  ];
-  boot.kernelParams = [ "nohibernate" ];
+  boot.kernelParams = [ "nohibernate" "mem_sleep_default=deep" "idle=nomwait"];
   
   boot.extraModulePackages = [ ];
   #boot.zfs.devNodes = "/dev/disk/by-label";
