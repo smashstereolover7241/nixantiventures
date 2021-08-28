@@ -9,7 +9,7 @@ in {
 
   config = (mkIf (cfg.enable) {
    services.sshd.enable = true;
-   services.openssh.PasswortAuthentication = "no";
+   services.openssh.passwortAuthentication = "no";
   });
 
 }
