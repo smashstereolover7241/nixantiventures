@@ -8,13 +8,13 @@ in
 
   config = mkIf cfg{
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "firewire_ohci" "sdhci_pci" "usb_storage" "sd_mod" "sr_mod" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "rtsx_pci_sdmmc" "ehci_pci" "ahci" "firewire_ohci" "sdhci_pci" "usb_storage" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ "kvm-intel" ];
   boot.kernelModules = [  ];
   boot.kernelParams = [ "nohibernate" ];
   
   boot.extraModulePackages = [ ];
-  boot.zfs.devNodes = "/dev/disk/by-path";
+  #boot.zfs.devNodes = "/dev/disk/by-label";
   boot.initrd.supportedFilesystems = [ "zfs"];
   boot.supportedFilesystems = [ "zfs" ];
   fileSystems."/" =
@@ -25,15 +25,17 @@ in
   fileSystems."/nix " =
     { device = "zsRoot/root/nix";
       fsType = "zfs";
+      neededForBoot = true;
     };
 
   fileSystems."/home" =
     { device = "zsRoot/root/home";
       fsType = "zfs";
+      neededForBoot = true;
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-partuuid/1a89f7eb-8865-5843-a672-b2a50e6d2359";
+    { device = "/dev/disk/by-partuuid/169d4d6e-01";
       fsType = "ext2";
     };
   swapDevices = [ ];

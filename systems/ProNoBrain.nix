@@ -96,7 +96,7 @@ inputs: {
       networking = {
         hostName = "ProNoBrain";
         useDHCP = false;
-        hostId = "3457b356";
+        hostId = "5457b356";
       };
 
       boot.loader.grub.enable = true;
