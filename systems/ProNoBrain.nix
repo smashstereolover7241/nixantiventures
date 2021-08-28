@@ -23,7 +23,7 @@ inputs: {
               enable = true;
             };
 
-            theGradUtilities = {
+            theGrandUtilities = {
               enable = true;
             };
 
