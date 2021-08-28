@@ -7,9 +7,9 @@ in {
     enable = mkEnableOption "Install and enable the wireguard link";
   };
 
-  config = (
+  config = (mkMerge [
     (mkIf cfg.enable {
       environment.systemPackages = with pkgs; [ wireguard ];
     })
-  );
+  ]);
 }
