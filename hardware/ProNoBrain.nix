@@ -9,10 +9,14 @@ in
   config = mkIf cfg{
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "firewire_ohci" "sdhci_pci" "usb_storage" "sd_mod" "sr_mod" ];
-  boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.initrd.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [  ];
+  boot.kernelParams = [ "nohibernate" ];
+  
   boot.extraModulePackages = [ ];
-
+  boot.zfs.devNodes = "/dev/disk/by-path";
+  boot.initrd.supportedFilesystems = [ "zfs"];
+  boot.supportedFilesystems = [ "zfs" ];
   fileSystems."/" =
     { device = "zsRoot/root";
       fsType = "zfs";

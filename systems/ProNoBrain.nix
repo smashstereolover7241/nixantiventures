@@ -5,7 +5,7 @@ inputs: {
     ../nixos-modules/default.nix
     ({ pkgs, config, lib, ... }:
       let
-        inherit (config.teletypeOne.pkgs) nixpkgs;
+        inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
       in
         {
           teletypeOne = {
@@ -96,12 +96,12 @@ inputs: {
       networking = {
         hostName = "ProNoBrain";
         useDHCP = false;
-        hostId = "3457a396";
+        hostId = "3457b356";
       };
 
       boot.loader.grub.enable = true;
       boot.loader.grub.version = 2;
-      boot.loader.grub.device = "/dev/disk/by-id/usb-Generic_Mass-Storage-0:0";
+      boot.loader.grub.device = "nodev";
       nixpkgs.config.allowUnfree = true;
 
       i18n.supportedLocales = ["all"];
