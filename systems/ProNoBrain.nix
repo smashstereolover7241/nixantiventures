@@ -23,6 +23,10 @@ inputs: {
               enable = true;
             };
 
+            theGradUtilities = {
+              enable = true;
+            };
+
             filemanagers = {
               gui = true;
               tui = true;
