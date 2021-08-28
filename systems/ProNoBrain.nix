@@ -119,14 +119,5 @@ inputs: {
       system.stateVersion = "21.05";
       hardware.enableRedistributableFirmware = true;
     })
-  ] ++ [
-
-    ({ pkgs, config, lib, ... }:
-      let
-        inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
-      in
-	{
-      environment.systemPackages = with pkgs; [thunderbird-78];
-
-})];
+  ];
 }
