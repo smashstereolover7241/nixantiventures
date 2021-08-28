@@ -14,8 +14,23 @@ in
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-label/NixOSUSB";
-      fsType = "ext4";
+    { device = "zsRoot/root";
+      fsType = "zfs";
+    };
+
+  fileSystems."/nix " =
+    { device = "zsRoot/nix";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home" =
+    { device = "zsRoot/home";
+      fsType = "zfs";
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-partuuid/1a89f7eb-8865-5843-a672-b2a50e6d2359";
+      fsType = "ext2";
     };
   swapDevices = [ ];
   };
