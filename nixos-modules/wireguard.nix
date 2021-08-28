@@ -18,7 +18,7 @@ in {
           ips = [ "192.168.77.6" ];
           listenPort = 12346;
           #adress = "192.168.77.6";
-          privateKeyFile = /home/localhost/wireguard-keys/private;
+          privateKeyFile = "/home/localhost/wireguard-keys/private";
 
           peers = [
             {
