@@ -22,7 +22,7 @@ in
       fsType = "zfs";
     };
 
-  fileSystems."/nix " =
+  fileSystems."/nix" =
     { device = "zsRoot/root/nix";
       fsType = "zfs";
       neededForBoot = true;
