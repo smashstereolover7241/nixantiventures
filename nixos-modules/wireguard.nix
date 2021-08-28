@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.teletypeOne.fonts;
+  cfg = config.teletypeOne.wireguard;
 in {
   options.teletypeOne.wireguard = {
     enable = mkEnableOption "Install and enable the wireguard link";
