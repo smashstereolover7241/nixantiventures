@@ -10,6 +10,7 @@ in {
   config = (mkIf (cfg.enable) {
    services.sshd.enable = true;
    services.openssh.passwordAuthentication = false;
+   services.openssh.ports = [ 22 21 ]
   });
 
 }
