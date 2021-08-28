@@ -19,12 +19,12 @@ in
     };
 
   fileSystems."/nix " =
-    { device = "zsRoot/nix";
+    { device = "zsRoot/root/nix";
       fsType = "zfs";
     };
 
   fileSystems."/home" =
-    { device = "zsRoot/home";
+    { device = "zsRoot/root/home";
       fsType = "zfs";
     };
 
