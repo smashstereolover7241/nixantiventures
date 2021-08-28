@@ -19,6 +19,10 @@ inputs: {
               enable = true;
             };
 
+            wireguard = {
+              enable = true;
+            };
+
             filemanagers = {
               gui = true;
               tui = true;

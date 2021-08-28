@@ -5,6 +5,7 @@
     ./main.nix
     ./util.nix
     ./ssh.nix
+    ./wireguard.nix
     ./filemanagers.nix
     ./games.nix
     ./zsh.nix
