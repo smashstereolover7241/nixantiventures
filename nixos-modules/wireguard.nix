@@ -15,7 +15,7 @@ in {
       };
       networking.wireguard.interfaces = {
         wg0 = {
-          ips = [ "192.168.76.6" ];
+          ips = [ "192.168.76.1/24" ];
           listenPort = 12346;
           #adress = "192.168.77.6";
           privateKeyFile = "/home/localhost/wireguard-keys/private";
