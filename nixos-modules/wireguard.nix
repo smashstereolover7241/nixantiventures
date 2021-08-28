@@ -15,7 +15,7 @@ in {
       };
       networking.wireguard.interfaces = {
         wg0 = {
-          ips = [ "192.168.77.6" ];
+          ips = [ "192.168.76.6" ];
           listenPort = 12346;
           #adress = "192.168.77.6";
           privateKeyFile = "/home/localhost/wireguard-keys/private";
@@ -23,7 +23,7 @@ in {
           peers = [
             {
               publicKey = "cRk0cF+PHOvBaBmVe9jy9v+8ClVMGNLXmiHqEYFU/kg=";
-              allowedIPs = ["192.168.77.5"];
+              allowedIPs = ["192.168.76.6"];
               endpoint = "140.82.33.200:12346";
               persistentKeepalive = 25;
             }
