@@ -8,6 +8,6 @@ in {
   };
 
   config = (mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ perl532Packages.EmailOutlookMessage xfce.ristretto xfce.tumbler ];
+    environment.systemPackages = with pkgs; [ perl532Packages.EmailOutlookMessage xfce.ristretto xfce.tumbler tigervnc ];
   });
 }
