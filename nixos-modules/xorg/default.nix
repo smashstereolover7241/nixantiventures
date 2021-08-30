@@ -16,7 +16,7 @@ in {
     enable = mkEnableOption "Xorg so graphical can happen";
     gpu = mkOption {
       description = "Which gpu?";
-      type = types.enum ["modesetting" "nvidia"];
+      type = types.enum ["modesetting" "nvidia" "intel"];
     };
     nvidia = mkOption {
       description = "Nvidia yaaay";
@@ -38,7 +38,11 @@ in {
       default = {};
     };
     modesetting = mkOption {
-      description = "Intel, yay?";
+      description = "Intel modesetting, yay?";
+    };
+
+    intel = mkOption {
+      description = "Intel normal drivers";
     };
   xmonad = mkEnableOption "Enable xmonad";
   kde = mkEnableOption "Enable kde";
@@ -109,6 +113,10 @@ in {
     })
     (mkIf (cfg.gpu == "modesetting") {
       services.xserver.videoDrivers = ["modesetting"];
+    })
+
+    (mkIf (cfg.gpu == "intel") {
+      services.xserver.videoDrivers = ["intel"];
     })
   ]);
 }
