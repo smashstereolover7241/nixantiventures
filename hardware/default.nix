@@ -10,6 +10,7 @@ in
       ./ProGo.nix
       ./ProNoGo.nix
       ./ProNoBrain.nix
+      ./ProSlowGo.nix
     ];
   config = {
     assertions = [
