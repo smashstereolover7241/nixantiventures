@@ -7,6 +7,7 @@
     ./ssh.nix
     ./wireguard.nix
     ./theGrandUtilities.nix
+    ./pipewire.nix
     ./filemanagers.nix
     ./games.nix
     ./zsh.nix
