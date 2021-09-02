@@ -30,7 +30,8 @@ inputs: {
               minecraft = false;
             };
 
-            pulseaudio.enable = true;
+            pulseaudio.enable = false;
+            pipewire.enable = true;
 
             fonts = {
               firaCode = true;
