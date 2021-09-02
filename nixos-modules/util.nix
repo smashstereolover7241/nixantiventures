@@ -43,7 +43,7 @@ in {
     })
 
     (mkIf cfg.theming {
-      environment.systemPackages = with pkgs; [lxappearance arc-theme];
+      environment.systemPackages = with pkgs; [lxappearance arc-theme papirus-icon-theme];
     })
 
     (mkIf cfg.topFamily {
