@@ -27,7 +27,7 @@ in {
 
   config = (mkMerge [
     (mkIf cfg.xmonadUtil {
-      environment.systemPackages = with pkgs; [wmctrl rofi gmrun arandr xorg.xkill acpilight];
+      environment.systemPackages = with pkgs; [wmctrl rofi gmrun dunst arandr xorg.xkill acpilight];
     })
 
     (mkIf cfg.neofetch {
