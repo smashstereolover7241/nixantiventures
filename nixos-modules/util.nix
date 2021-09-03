@@ -83,11 +83,11 @@ in {
     })
 
     (mkIf cfg.compilerUtil {
-      environment.systemPackages = with pkgs; [cmake gnumake git pkgconfig];
+      environment.systemPackages = with pkgs; [cmake gnumake git pkgconfig zlib];
     })
 
     (mkIf cfg.haskell {
-      environment.systemPackages = with pkgs; [cabal-install ghc];
+      environment.systemPackages = with pkgs; [cabal-install ghc haskellPackages.digest];
     })
 
     (mkIf cfg.termUtil {
