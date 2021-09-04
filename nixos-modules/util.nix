@@ -95,7 +95,7 @@ in {
     })
 
     (mkIf cfg.painting {
-      environment.systemPackages = with pkgs; [kolourpaint];
+      environment.systemPackages = with pkgs; [kolourpaint gimp];
     })
     (mkIf cfg.gpg {
       environment.systemPackages = with pkgs; [gnupg pinentry];
