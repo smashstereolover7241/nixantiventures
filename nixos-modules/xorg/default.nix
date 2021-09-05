@@ -53,6 +53,7 @@ in {
   xmobar = mkEnableOption "Enable xmobar";
   dunst = mkEnableOption "Enable dunst";
   lightdm = mkEnableOption "Enable lightdm";
+  sddm = mkEnableOption "Enable sddm";
   libinput = mkEnableOption "Enable libinput";
   flatInput = mkEnableOption "Add extra config for non-accelerated mouse input.";
   };
@@ -68,6 +69,7 @@ in {
 
         displayManager = mkIf cfg.xmonad {
           lightdm.enable = mkIf cfg.lightdm true;
+          sddm.enable = mkIf cfg.sddm true;
           defaultSession = "none+xmonad";
         };
 
@@ -124,7 +126,7 @@ in {
     })
 
     (mkIf (cfg.gpu == "amd") {
-      services.xserver.videoDrivers = ["amdgpu"];
+#      services.xserver.videoDrivers = ["ati"];
     })
   ]);
 }

@@ -11,6 +11,7 @@ in
       ./ProNoGo.nix
       ./ProNoBrain.nix
       ./ProSlowGo.nix
+      ./ProVerySlowGo.nix
     ];
   config = {
     assertions = [

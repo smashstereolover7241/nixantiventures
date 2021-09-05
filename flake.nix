@@ -33,6 +33,9 @@
         nixosConfigurations.ProSlowGo = nixosSystem (import ./systems/ProSlowGo.nix inputs);
         ProSlowGo = self.nixosConfigurations.ProGo.config.system.build.toplevel;
 
+        nixosConfigurations.ProVerySlowGo = nixosSystem (import ./systems/ProVerySlowGo.nix inputs);
+        ProVerySlowGo = self.nixosConfigurations.ProGo.config.system.build.toplevel;
+
         allSystems =
           let
             pkgs = system: import nixpkgs { system = "x86_64-linux"; };
@@ -51,6 +54,7 @@
                    ProNoGo = nixos "ProNoGo";
                    ProNoBrain = nixos "ProNoBrain";
                    ProSlowGo = nixos "ProSlowGo";
+                   ProVerySlowGo = nixos "ProVerySlowGo";
                 };
             };
         overlays = {

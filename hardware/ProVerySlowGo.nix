@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.teletypeOne.hardware.ProSlowGo;
+  cfg = config.teletypeOne.hardware.ProVerySlowGo;
 in
 {
-  options.teletypeOne.hardware.ProSlowGo= mkEnableOption "Enable ProSlowGo";
+  options.teletypeOne.hardware.ProVerySlowGo= mkEnableOption "Enable ProVerySlowGo";
 
   config = mkIf cfg{
 

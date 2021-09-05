@@ -72,7 +72,8 @@ inputs: {
               xmonad = true;
               xmobar = true;
               dunst = true;
-              lightdm = true;
+              lightdm = false;
+              sddm = true;
               libinput = true;
               flatInput = false;
             };
@@ -82,7 +83,7 @@ inputs: {
               networkManager = true;
             };
 
-            hardware.ProSlowGo = true;
+            hardware.ProVerySlowGo = true;
             flakes.enable = true;
 
           };
@@ -91,7 +92,7 @@ inputs: {
   ] ++ [
     ({ pkgs, ... }: {
       networking = {
-        hostName = "ProSlowGo";
+        hostName = "ProVerySlowGo";
         useDHCP = false;
         hostId = "3532b394";
       };
