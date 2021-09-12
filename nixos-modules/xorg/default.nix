@@ -128,5 +128,9 @@ in {
     (mkIf (cfg.gpu == "amd") {
 #      services.xserver.videoDrivers = ["ati"];
     })
+
+    (mkIf (cfg.gpu == "amdgpu") {
+      services.xserver.videoDrivers = ["amdgpu"];
+    })
   ]);
 }
