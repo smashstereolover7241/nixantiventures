@@ -72,6 +72,7 @@ inputs: {
               xmonad = true;
               xmobar = true;
               dunst = true;
+              kde = false;
               lightdm = true;
               libinput = false;
               flatInput = true;
@@ -100,6 +101,8 @@ inputs: {
       boot.loader.grub.version = 2;
       boot.loader.grub.device = "nodev";
       nixpkgs.config.allowUnfree = true;
+
+  programs.adb.enable = true;
 
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";
