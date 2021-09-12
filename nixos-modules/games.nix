@@ -16,7 +16,7 @@ in {
     })
 
     (mkIf cfg.minecraft {
-      environment.systemPackages = with pkgs; [minecraft multimc];
+      environment.systemPackages = with pkgs; [minecraft lunar-client multimc];
     })
   ]);
 }
