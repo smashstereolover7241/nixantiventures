@@ -52,6 +52,7 @@ inputs: {
               free = true;
               nonFree = true;
               bullshit = false;
+              mailGui = true; 
             };
 
             util = {
