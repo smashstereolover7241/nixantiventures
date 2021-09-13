@@ -16,7 +16,7 @@ in {
     enable = mkEnableOption "Xorg so graphical can happen";
     gpu = mkOption {
       description = "Which gpu?";
-      type = types.enum ["modesetting" "nvidia" "intel" "amd"];
+      type = types.enum ["modesetting" "nvidia" "intel" "amd" "ati" "radeon" "null"];
     };
     nvidia = mkOption {
       description = "Nvidia yaaay";
@@ -45,9 +45,20 @@ in {
       description = "Intel normal drivers";
     };
 
-    amnd = mkOption {
+    amd = mkOption {
       description = "Amd drivers";
     };
+    ati = mkOption {
+      description = "Ati drivers";
+    };
+    radeon = mkOption {
+      description = "radeon drivers";
+    };
+    null = mkOption {
+      description = "Disable Video drivers";
+    };
+
+
   xmonad = mkEnableOption "Enable xmonad";
   kde = mkEnableOption "Enable kde";
   xmobar = mkEnableOption "Enable xmobar";
@@ -126,11 +137,17 @@ in {
     })
 
     (mkIf (cfg.gpu == "amd") {
-#      services.xserver.videoDrivers = ["ati"];
+      services.xserver.videoDrivers = ["amdpgu"];
     })
 
-    (mkIf (cfg.gpu == "amdgpu") {
-      services.xserver.videoDrivers = ["amdgpu"];
+    (mkIf (cfg.gpu == "ati") {
+      services.xserver.videoDrivers = ["ati"];
+    })
+
+    (mkIf (cfg.gpu == "radeon") {
+      services.xserver.videoDrivers = ["radeon"];
+    })
+    (mkIf (cfg.gpu == "null") {
     })
   ]);
 }
