@@ -65,7 +65,7 @@ inputs: {
               termUtil = true;
               painting = true;
               openvpn = true;
-              maths = true;
+              maths = false;
             };
 
             xorg = {
