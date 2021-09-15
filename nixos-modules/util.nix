@@ -23,6 +23,7 @@ in {
     termUtil = mkEnableOption "Utilites for the terminal";
     painting = mkEnableOption "Some painting applications";
     gpg = mkEnableOption "Stuff for gpg";
+    openvpn = mkEnableOption "install openvpn";
   };
 
   config = (mkMerge [
@@ -97,6 +98,11 @@ in {
     (mkIf cfg.painting {
       environment.systemPackages = with pkgs; [kolourpaint gimp];
     })
+
+    (mkIf cfg.painting {
+      environment.systemPackages = with pkgs; [openvpn];
+    })
+
     (mkIf cfg.gpg {
       environment.systemPackages = with pkgs; [gnupg pinentry];
       programs.gnupg.agent = {

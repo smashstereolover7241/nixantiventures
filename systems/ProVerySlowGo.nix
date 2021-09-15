@@ -63,7 +63,8 @@ inputs: {
               compilerUtil = true;
               haskell = true;
               termUtil = true;
-              painting = false;
+              painting = true;
+              openvpn = true;
             };
 
             xorg = {
