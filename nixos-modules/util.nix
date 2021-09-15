@@ -24,6 +24,7 @@ in {
     painting = mkEnableOption "Some painting applications";
     gpg = mkEnableOption "Stuff for gpg";
     openvpn = mkEnableOption "install openvpn";
+    maths = mkEnableOption "install math stuff";
   };
 
   config = (mkMerge [
@@ -101,6 +102,10 @@ in {
 
     (mkIf cfg.painting {
       environment.systemPackages = with pkgs; [openvpn];
+    })
+
+    (mkIf cfg.maths {
+      environment.systemPackages = with pkgs; [geogebra];
     })
 
     (mkIf cfg.gpg {
