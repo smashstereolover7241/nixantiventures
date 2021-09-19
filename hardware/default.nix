@@ -10,6 +10,7 @@ in
       ./ProGo.nix
       ./ProNoGo.nix
       ./ProNoBrain.nix
+      ./ProProGo.nix
       ./ProSlowGo.nix
       ./ProVerySlowGo.nix
     ];
