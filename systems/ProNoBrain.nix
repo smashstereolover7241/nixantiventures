@@ -12,7 +12,7 @@ inputs: {
 
             terminals = {
               alacritty = true;
-              termite = false;
+              termite = true;
             };
 
             ssh = {
