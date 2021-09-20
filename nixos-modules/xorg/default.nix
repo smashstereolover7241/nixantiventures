@@ -117,7 +117,7 @@ in {
 
         })
     (mkIf (cfg.gpu == "nvidia") {
-      services.xserver.videoDrivers = ["nvidia"];
+      services.xserver.videoDrivers = ["nvidia" "modesetting"];
       environment.systemPackages = mkIf (cfg.nvidia.prime)
         [ nvidia-offload pkgs.libglvnd ];
 
