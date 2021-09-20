@@ -4,13 +4,13 @@ let
   cfg = config.teletypeOne.hardware.ProProGo;
 in
 {
-  options.teletypeOne.hardware.ProNoGo = mkEnableOption "Enable ProProGo";
+  options.teletypeOne.hardware.ProProGo = mkEnableOption "Enable ProProGo";
 
   config = mkIf cfg{
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "tp-smapi" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelModules = [ "kvm-intel" "tp_smapi"];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
