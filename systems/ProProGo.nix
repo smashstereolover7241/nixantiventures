@@ -12,7 +12,7 @@ inputs: {
 
             terminals = {
               alacritty = true;
-              termite = false;
+              termite = true;
             };
 
             filemanagers = {
@@ -105,6 +105,7 @@ inputs: {
   programs.adb.enable = true;
 
       time.timeZone = "Europe/Berlin";
+       hardware.enableRedistributableFirmware = true; 
       system.stateVersion = "21.05";
     })
   ];
