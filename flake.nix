@@ -25,10 +25,10 @@
         ProGo = self.nixosConfigurations.ProGo.config.system.build.toplevel;
 
         nixosConfigurations.ProNoGo = nixosSystem (import ./systems/ProNoGo.nix inputs);
-        ProNoGo = self.nixosConfigurations.ProNoGo.config.system.build.toplevel;
+        ProNoGo = self.nixosConfigurations.ProGo.config.system.build.toplevel;
 
         nixosConfigurations.ProProGo = nixosSystem (import ./systems/ProProGo.nix inputs);
-        ProProGo = self.nixosConfigurations.ProProGo.config.system.build.toplevel;
+        ProProGo = self.nixosConfigurations.ProGo.config.system.build.toplevel;
 
         nixosConfigurations.ProNoBrain = nixosSystem (import ./systems/ProNoBrain.nix inputs);
         ProNoBrain = self.nixosConfigurations.ProGo.config.system.build.toplevel;

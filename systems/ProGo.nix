@@ -31,7 +31,7 @@ inputs: {
             };
 
             pulseaudio.enable = false;
-            pipwire.enable = false;
+            pipewire.enable = false;
 
             fonts = {
               firaCode = true;
