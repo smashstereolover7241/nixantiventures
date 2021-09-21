@@ -75,7 +75,7 @@ inputs: {
               kde = false;
               lightdm = true;
               libinput = true;
-              flatInput = true;
+              flatInput = false;
             };
 
             networking  = {
