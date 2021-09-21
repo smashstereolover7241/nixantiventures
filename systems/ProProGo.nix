@@ -69,6 +69,11 @@ inputs: {
             xorg = {
               enable = true;
               gpu = "nvidia";
+	      nvidia = {
+		prime = true;
+		intelBusId = "PCI:0:2:0";
+		nvidiaBusId = "PCI:1:0:0";
+		};
               xmonad = true;
               xmobar = true;
               dunst = true;
