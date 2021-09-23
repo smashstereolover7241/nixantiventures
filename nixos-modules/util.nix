@@ -57,7 +57,7 @@ in {
     })
 
     (mkIf cfg.emacs {
-      environment.systemPackages = with pkgs; [emacs sqlite libtool direnv nix-direnv];
+      environment.systemPackages = with pkgs; [emacs unzip sqlite libtool direnv nix-direnv];
     })
 
     (mkIf cfg.media {
@@ -97,7 +97,7 @@ in {
     })
 
     (mkIf cfg.painting {
-      environment.systemPackages = with pkgs; [kolourpaint gimp];
+      environment.systemPackages = with pkgs; [kolourpaint krita gimp];
     })
 
     (mkIf cfg.painting {
