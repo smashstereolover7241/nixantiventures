@@ -18,7 +18,6 @@
         supportedSystems = [ "x86_64-linux"];
         forAllSystems' = systems: f: nixpkgs.lib.genAttrs systems (system: f system);
         forAllSystems = forAllSystems' supportedSystems;
-
       in {
 
         nixosConfigurations.ProGo = nixosSystem (import ./systems/ProGo.nix inputs);
