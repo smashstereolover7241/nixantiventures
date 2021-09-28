@@ -63,6 +63,7 @@ inputs: {
               compilerUtil = true;
               haskell = true;
               termUtil = true;
+	      maths = true;
               painting = true;
             };
 

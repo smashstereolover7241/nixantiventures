@@ -105,7 +105,7 @@ in {
     })
 
     (mkIf cfg.maths {
-      environment.systemPackages = with pkgs; [geogebra];
+      environment.systemPackages = with pkgs; [xournalpp geogebra];
     })
 
     (mkIf cfg.gpg {
