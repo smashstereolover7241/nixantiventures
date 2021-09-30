@@ -11,6 +11,7 @@ in
       ./ProNoGo.nix
       ./ProNoBrain.nix
       ./ProProGo.nix
+      ./ProPenGo.nix
       ./ProSlowGo.nix
       ./ProVerySlowGo.nix
     ];
