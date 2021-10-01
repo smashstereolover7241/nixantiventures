@@ -36,7 +36,7 @@ in
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-partuuid/4f6def1b-dec4-a746-a257-dc87e9fd0b0b";
-      fsType = "ext2";
+      fsType = "vfat";
     };
   swapDevices = [ ];
   };
