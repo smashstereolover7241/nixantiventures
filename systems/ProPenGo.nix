@@ -43,7 +43,7 @@ inputs: {
             };
 
             pulseaudio.enable = false;
-            pipewire.enable = false;
+            pipewire.enable = true;
 
             fonts = {
               firaCode = true;
@@ -61,7 +61,8 @@ inputs: {
               neofetch = true;
               music = true;
               screenshot = true;
-              theming = false;
+              theming = true;
+              maths = true;
               topFamily = true;
               driveUtil = true;
               emacs = true;
