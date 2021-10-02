@@ -67,6 +67,7 @@ in {
   sddm = mkEnableOption "Enable sddm";
   libinput = mkEnableOption "Enable libinput";
   flatInput = mkEnableOption "Add extra config for non-accelerated mouse input.";
+  wacom = mkEnableOption "Install wacom drivers";
   };
   config = mkIf cfg.enable (mkMerge [
     {
@@ -116,6 +117,11 @@ in {
 '';
 
         })
+
+    (mkIf cfg.wacom {
+      services.xserver.wacom.enable = true;
+    })
+
     (mkIf (cfg.gpu == "nvidia") {
       services.xserver.videoDrivers = ["nvidia" "modesetting"];
       environment.systemPackages = mkIf (cfg.nvidia.prime)
