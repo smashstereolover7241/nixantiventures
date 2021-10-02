@@ -57,6 +57,7 @@ inputs: {
             };
 
             util = {
+              cloud = true;
               xmonadUtil = true;
               neofetch = true;
               music = true;
