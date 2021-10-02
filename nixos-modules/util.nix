@@ -25,6 +25,7 @@ in {
     gpg = mkEnableOption "Stuff for gpg";
     openvpn = mkEnableOption "install openvpn";
     maths = mkEnableOption "install math stuff";
+    fingerprint = mkEnableOption "Install fprintd";
   };
 
   config = (mkMerge [
@@ -106,6 +107,10 @@ in {
 
     (mkIf cfg.maths {
       environment.systemPackages = with pkgs; [xournalpp geogebra];
+    })
+
+    (mkIf cfg.fingerprint {
+      environment.systemPackages = with pkgs; [fprintd];
     })
 
     (mkIf cfg.gpg {
