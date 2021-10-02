@@ -26,6 +26,7 @@ in {
     openvpn = mkEnableOption "install openvpn";
     maths = mkEnableOption "install math stuff";
     fingerprint = mkEnableOption "Install fprintd";
+    cloud = mkEnableOption "Install nextcloud";
   };
 
   config = (mkMerge [
@@ -103,6 +104,10 @@ in {
 
     (mkIf cfg.painting {
       environment.systemPackages = with pkgs; [openvpn];
+    })
+
+    (mkIf cfg.cloud {
+      environment.systemPackages = with pkgs; [nextcloud];
     })
 
     (mkIf cfg.maths {
