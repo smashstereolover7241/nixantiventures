@@ -77,6 +77,7 @@ inputs: {
               termUtil = true;
               painting = true;
               gpg = false;
+              fingerprint = true;
             };
 
             xorg = {
