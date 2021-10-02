@@ -107,7 +107,7 @@ in {
     })
 
     (mkIf cfg.cloud {
-      environment.systemPackages = with pkgs; [nextcloud];
+      environment.systemPackages = with pkgs; [nextcloud-client];
     })
 
     (mkIf cfg.maths {
