@@ -110,7 +110,7 @@ in {
     })
 
     (mkIf cfg.fingerprint {
-      environment.systemPackages = with pkgs; [fprintd];
+      services.fprintd.enable = true;
     })
 
     (mkIf cfg.gpg {
