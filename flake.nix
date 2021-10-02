@@ -35,7 +35,7 @@
         ProProGo = self.nixosConfigurations.ProGo.config.system.build.toplevel;
 
         nixosConfigurations.ProPenGo = nixosSystem (import ./systems/ProPenGo.nix inputs);
-        ProPenGo = self.nixosConfigurations.ProGo.config.system.build.toplevel;
+        ProPenGo = self.nixosConfigurations.ProPenGo.config.system.build.toplevel;
 
         nixosConfigurations.ProNoBrain = nixosSystem (import ./systems/ProNoBrain.nix inputs);
         ProNoBrain = self.nixosConfigurations.ProGo.config.system.build.toplevel;
@@ -70,7 +70,7 @@
             };
         overlays = {
           # NONE LOL
-	  easystroke = inputs.easystroke;
+	  easystroke = import inputs.easystroke;
         };
         packages =
           forAllSystems (system:
