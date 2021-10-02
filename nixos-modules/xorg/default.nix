@@ -68,6 +68,7 @@ in {
   libinput = mkEnableOption "Enable libinput";
   flatInput = mkEnableOption "Add extra config for non-accelerated mouse input.";
   wacom = mkEnableOption "Install wacom drivers";
+  backlightFix = mkEnableOption "fix backlight, maybe";
   };
   config = mkIf cfg.enable (mkMerge [
     {
@@ -118,6 +119,19 @@ in {
 
         })
 
+         (mkIf cfg.backlightFix {
+             services.xserver.extraConfig = ''
+Section "Device"
+    Identifier  "Intel Graphics" 
+    Driver      "intel"
+    Option      "Backlight"  "intel_backlight"
+EndSection
+
+'';
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
+  '';
+        })
     (mkIf cfg.wacom {
       services.xserver.wacom.enable = true;
     })

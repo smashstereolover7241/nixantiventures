@@ -83,6 +83,7 @@ inputs: {
 
             xorg = {
               enable = true;
+              backlightFix = true;
               gpu = "modesetting";
               xmonad = true;
               kde = false;
