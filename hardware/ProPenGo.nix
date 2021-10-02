@@ -18,24 +18,24 @@ in
   boot.initrd.supportedFilesystems = [ "zfs"];
   boot.supportedFilesystems = [ "zfs" ];
   fileSystems."/" =
-    { device = "nvmeRoot/root";
+    { device = "ssdRoot/root";
       fsType = "zfs";
     };
 
   fileSystems."/nix" =
-    { device = "nvmeRoot/root/nix";
+    { device = "ssdRoot/root/nix";
       fsType = "zfs";
       neededForBoot = true;
     };
 
   fileSystems."/home" =
-    { device = "nvmeRoot/root/home";
+    { device = "ssdRoot/root/home";
       fsType = "zfs";
       neededForBoot = true;
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-partuuid/4f6def1b-dec4-a746-a257-dc87e9fd0b0b";
+    { device = "/dev/disk/by-partuuid/c6657c07-f2af-4e41-b9c7-cdc7b245c84a";
       fsType = "vfat";
     };
   swapDevices = [ ];
