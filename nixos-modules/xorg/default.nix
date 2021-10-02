@@ -116,7 +116,6 @@ in {
           Option "AccelSpeed" "-1"
     EndSection
 '';
-
         })
 
          (mkIf cfg.backlightFix {
@@ -131,6 +130,8 @@ EndSection
   services.udev.extraRules = ''
     ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
   '';
+ 
+           environment.systemPackages = (with pkgs; [teletypeOne.easystroke]);
         })
     (mkIf cfg.wacom {
       services.xserver.wacom.enable = true;

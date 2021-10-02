@@ -3,6 +3,11 @@
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-21.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs?ref=master";
+    easystroke = {
+      url = "github:teu5us/easystroke-nix";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      flake = false;
+      };
   };
 
   # PACKAGES
@@ -65,6 +70,7 @@
             };
         overlays = {
           # NONE LOL
+	  easystroke = inputs.easystroke;
         };
         packages =
           forAllSystems (system:
@@ -79,6 +85,7 @@
               mkPkg = name: mkPkg'' nixpkgs-unstable name name;
             in
               {
+                 easystroke = mkPkg "easystroke";
       #                        easy-hls-nix = if system == "x86_64-linux" then mkPkg "easy-hls-nix" else (import nixpkgs-unstable { inherit system; }).hello;
               });
       };
