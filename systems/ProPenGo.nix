@@ -90,6 +90,7 @@ inputs: {
               lightdm = true;
               libinput = true;
               flatInput = false;
+              wacom = true;
             };
 
             networking  = {
