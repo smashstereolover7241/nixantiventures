@@ -67,9 +67,12 @@
                    ProVerySlowGo = nixos "ProVerySlowGo";
                 };
             };
-	overlays = {
-            easystrokee = import "${inputs.easystroke}/default.nix";
-	};
+        overlays = {
+          easystroke = final: prev:
+            {
+              easystroke = import "${inputs.easystroke}/default.nix" { pkgs = final; };
+            };
+         };
         packages =
           forAllSystems (system:
             let
