@@ -5,7 +5,6 @@
     nixpkgs-master.url = "github:NixOS/nixpkgs?ref=master";
     easystroke = {
       url = "github:teu5us/easystroke-nix";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
       flake = false;
       };
   };
