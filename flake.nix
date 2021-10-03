@@ -68,9 +68,7 @@
                 };
             };
 	overlays = {
-	  easystroke = {
-	    easystroke = inputs.easystroke;
-	  };
+            easystrokee = import "${inputs.easystroke}/default.nix";
 	};
         packages =
           forAllSystems (system:
@@ -85,7 +83,7 @@
               mkPkg = name: mkPkg'' nixpkgs-unstable name name;
             in
               {
-                 easystroke = mkPkg "easystroke";
+#                 easystroke = mkPkg "easystroke";
       #                        easy-hls-nix = if system == "x86_64-linux" then mkPkg "easy-hls-nix" else (import nixpkgs-unstable { inherit system; }).hello;
               });
       };

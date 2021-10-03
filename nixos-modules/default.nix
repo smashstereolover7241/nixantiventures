@@ -3,6 +3,7 @@
 {
   imports = [
     ./main.nix
+    ./pin-nixpkgs.nix
     ./util.nix
     ./ssh.nix
     ./wireguard.nix

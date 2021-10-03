@@ -10,7 +10,8 @@ inputs: {
         {
           teletypeOne = {
 
-                overlays = inputs.self.overlays;
+                pins = inputs;
+		overlays = inputs.self.overlays;
 
 
             terminals = {

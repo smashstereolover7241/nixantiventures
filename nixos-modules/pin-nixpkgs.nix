@@ -1,4 +1,4 @@
-b, options, pkgs, ... }:
+{ config, lib, options, pkgs, ... }:
 with lib;
 let
   cfg = config.teletypeOne;
