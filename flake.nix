@@ -67,10 +67,11 @@
                    ProVerySlowGo = nixos "ProVerySlowGo";
                 };
             };
-        overlays = {
-          # NONE LOL
-	  easystroke = import inputs.easystroke;
-        };
+overlays = {
+  easytype = {
+    easytype = inputs.easytype;
+  };
+}
         packages =
           forAllSystems (system:
             let
