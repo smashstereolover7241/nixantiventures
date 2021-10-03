@@ -10,6 +10,9 @@ inputs: {
         {
           teletypeOne = {
 
+                overlays = inputs.self.overlays;
+
+
             terminals = {
               alacritty = true;
               termite = true;
@@ -121,6 +124,7 @@ inputs: {
       boot.loader.efi.canTouchEfiVariables = true;
       boot.loader.efi.efiSysMountPoint = "/boot";
       nixpkgs.config.allowUnfree = true;
+#environment.systemPackages =  [inputs.easystroke];
 
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";
