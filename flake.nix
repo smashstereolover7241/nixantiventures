@@ -68,8 +68,8 @@
                 };
             };
 	overlays = {
-	  easytype = {
-	    easytype = inputs.easytype;
+	  easystroke = {
+	    easystroke = inputs.easystroke;
 	  };
 	};
         packages =
