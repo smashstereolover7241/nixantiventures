@@ -10,6 +10,8 @@ inputs: {
         {
           teletypeOne = {
 
+            pins = inputs;
+	        	overlays = inputs.self.overlays;
             terminals = {
               alacritty = true;
               termite = true;
