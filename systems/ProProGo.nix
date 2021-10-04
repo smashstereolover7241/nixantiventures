@@ -63,18 +63,19 @@ inputs: {
               compilerUtil = true;
               haskell = true;
               termUtil = true;
-	      maths = true;
+	            maths = true;
               painting = true;
             };
 
             xorg = {
+              backlightFix = true;
               enable = true;
               gpu = "nvidia";
-	      nvidia = {
-		prime = true;
-		intelBusId = "PCI:0:2:0";
-		nvidiaBusId = "PCI:1:0:0";
-		};
+	            nvidia = {
+            		prime = true;
+    	        	intelBusId = "PCI:0:2:0";
+	            	nvidiaBusId = "PCI:1:0:0";
+	          	};
               xmonad = true;
               xmobar = true;
               dunst = true;
