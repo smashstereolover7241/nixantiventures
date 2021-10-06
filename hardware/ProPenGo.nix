@@ -8,10 +8,10 @@ in
 
   config = mkIf cfg{
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "rtsx_pci_sdmmc" "ehci_pci" "ahci" "firewire_ohci" "sdhci_pci" "usb_storage" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ "kvm-intel" ];
-  boot.kernelModules = [ ];
-  boot.kernelParams = [ ];
+  boot.kernelModules = [  ];
+  boot.kernelParams = [ "nohibernate" "mem_sleep_default=deep" "idle=nomwait"];
   
   boot.extraModulePackages = [ ];
   #boot.zfs.devNodes = "/dev/disk/by-label";
@@ -35,7 +35,7 @@ in
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-partuuid/c6657c07-f2af-4e41-b9c7-cdc7b245c84a";
+    { device = "/dev/disk/by-partuuid/b3f9c3f8-02";
       fsType = "vfat";
     };
   swapDevices = [ ];
