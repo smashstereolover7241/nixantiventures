@@ -36,7 +36,7 @@ in
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-partuuid/b3f9c3f8-02";
-      fsType = "vfat";
+      fsType = "ext2";
     };
   swapDevices = [ ];
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";

@@ -67,7 +67,7 @@ inputs: {
               music = true;
               screenshot = true;
               theming = true;
-              maths = true;
+              maths = false;
               topFamily = true;
               driveUtil = true;
               emacs = true;
@@ -121,9 +121,6 @@ inputs: {
       boot.loader.grub.enable = true;
       boot.loader.grub.version = 2;
       boot.loader.grub.device = "nodev";
-      boot.loader.grub.efiSupport = true;
-      boot.loader.efi.canTouchEfiVariables = true;
-      boot.loader.efi.efiSysMountPoint = "/boot";
       nixpkgs.config.allowUnfree = true;
 #environment.systemPackages =  [inputs.easystroke];
 
