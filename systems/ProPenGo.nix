@@ -67,7 +67,7 @@ inputs: {
               music = true;
               screenshot = true;
               theming = true;
-              maths = false;
+              maths = true;
               topFamily = true;
               driveUtil = true;
               emacs = true;
