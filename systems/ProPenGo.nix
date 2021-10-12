@@ -10,15 +10,17 @@ inputs: {
         {
           teletypeOne = {
 
-                pins = inputs;
-		overlays = inputs.self.overlays;
-
+            pins = inputs;
+		        overlays = inputs.self.overlays;
 
             terminals = {
               alacritty = true;
               termite = true;
             };
 
+            lang = {
+              rust = true;
+            };
             ssh = {
               enable = false;
             };
@@ -122,7 +124,7 @@ inputs: {
       boot.loader.grub.version = 2;
       boot.loader.grub.device = "nodev";
       nixpkgs.config.allowUnfree = true;
-#environment.systemPackages =  [inputs.easystroke];
+      environment.systemPackages =  with pkgs; [python-validity ntfs3g];
 
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";

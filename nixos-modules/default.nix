@@ -4,6 +4,7 @@
   imports = [
     ./main.nix
     ./pin-nixpkgs.nix
+    ./lang.nix
     ./util.nix
     ./ssh.nix
     ./wireguard.nix
