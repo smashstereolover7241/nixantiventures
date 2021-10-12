@@ -7,6 +7,10 @@
       url = "github:teu5us/easystroke-nix";
       flake = false;
       };
+    python-validity = {
+      url = "/home/localhost/git/workspace/python-validity";
+      flake = false;
+      };
   };
 
   # PACKAGES
@@ -71,6 +75,11 @@
           easystroke = final: prev:
             {
               easystroke = import "${inputs.easystroke}/default.nix" { pkgs = final; };
+            };
+
+          python-validity = final: prev:
+            {
+              python-validity = import "${inputs.python-validity}/default.nix" { pkgs = final; };
             };
          };
         packages =
