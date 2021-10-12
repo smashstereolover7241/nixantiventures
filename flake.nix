@@ -3,6 +3,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-21.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs?ref=master";
+    rust-overlay.url = "github:oxalica/rust-overlay";
     easystroke = {
       url = "github:teu5us/easystroke-nix";
       flake = false;
@@ -72,6 +73,7 @@
                 };
             };
         overlays = {
+          rust-overlay = inputs.rust-overlay.overlay;
           easystroke = final: prev:
             {
               easystroke = import "${inputs.easystroke}/default.nix" { pkgs = final; };
