@@ -64,12 +64,29 @@
         "type": "github"
       }
     },
+    "python-validity": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1633934827,
+        "narHash": "sha256-w0DTwebae+Jx7qwiJ0l+jGXR9sq0TXIG5M9UN+Fb2l4=",
+        "ref": "master",
+        "rev": "cfe1bb33090e0d9373484a1d015da145c5fdaf8a",
+        "revCount": 175,
+        "type": "git",
+        "url": "file:///home/localhost/git/workspace/python-validity"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:///home/localhost/git/workspace/python-validity"
+      }
+    },
     "root": {
       "inputs": {
         "easystroke": "easystroke",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "python-validity": "python-validity"
       }
     }
   },
