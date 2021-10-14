@@ -69,6 +69,7 @@ in {
   flatInput = mkEnableOption "Add extra config for non-accelerated mouse input.";
   wacom = mkEnableOption "Install wacom drivers";
   backlightFix = mkEnableOption "fix backlight, maybe";
+  stalone = mkEnableOption "install stalonetray";
   };
   config = mkIf cfg.enable (mkMerge [
     {
@@ -157,6 +158,9 @@ EndSection
       services.xserver.videoDrivers = ["intel"];
     })
 
+    (mkIf (cfg.stalone) {
+      environment.systemPackages = [ pkgs.stalonetray];
+    })
     (mkIf (cfg.gpu == "amd") {
       services.xserver.videoDrivers = ["amdpgu"];
     })

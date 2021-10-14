@@ -22,6 +22,7 @@ inputs: {
               rust = true;
               python = true;
             };
+
             ssh = {
               enable = false;
             };
@@ -100,6 +101,7 @@ inputs: {
               libinput = true;
               flatInput = false;
               wacom = true;
+              stalone = true;
             };
 
             networking  = {
