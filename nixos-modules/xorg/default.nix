@@ -159,7 +159,7 @@ EndSection
     })
 
     (mkIf (cfg.stalone) {
-      environment.systemPackages = [ pkgs.stalonetray];
+      environment.systemPackages = [ pkgs.stalonetray ];
     })
     (mkIf (cfg.gpu == "amd") {
       services.xserver.videoDrivers = ["amdpgu"];

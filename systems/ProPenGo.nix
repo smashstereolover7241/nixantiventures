@@ -15,7 +15,7 @@ inputs: {
 
             terminals = {
               alacritty = true;
-              termite = true;
+              termite = false;
             };
 
             lang = {
@@ -61,17 +61,16 @@ inputs: {
               free = true;
               nonFree = true;
               bullshit = true;
-              mailGui = true; 
+              mailGui = true;
+              mailTui = false;
             };
 
             util = {
-              cloud = true;
               xmonadUtil = true;
               neofetch = true;
               music = true;
               screenshot = true;
               theming = true;
-              maths = true;
               topFamily = true;
               driveUtil = true;
               emacs = true;
@@ -79,14 +78,17 @@ inputs: {
               encoding = false;
               pulseUtil = true;
               textUtil = true;
-              office = true;
+              office = false;
               password = true;
               compilerUtil = true;
               haskell = true;
               termUtil = true;
               painting = true;
               gpg = false;
+              openvpn = true;
+              maths = true;
               fingerprint = true;
+              cloud = true;
             };
 
             xorg = {
@@ -98,6 +100,7 @@ inputs: {
               xmobar = true;
               dunst = true;
               lightdm = true;
+              sddm = false;
               libinput = true;
               flatInput = false;
               wacom = true;
