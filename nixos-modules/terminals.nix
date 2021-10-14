@@ -5,7 +5,6 @@ let
 in {
   options.teletypeOne.terminals = {
     alacritty = mkEnableOption "Install alacritty.";
-
     termite = mkEnableOption "Install termite.";
   };
 

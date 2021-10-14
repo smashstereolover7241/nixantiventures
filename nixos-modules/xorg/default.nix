@@ -58,7 +58,6 @@ in {
       description = "Disable Video drivers";
     };
 
-
   xmonad = mkEnableOption "Enable xmonad";
   kde = mkEnableOption "Enable kde";
   xmobar = mkEnableOption "Enable xmobar";
@@ -71,6 +70,7 @@ in {
   backlightFix = mkEnableOption "fix backlight, maybe";
   stalone = mkEnableOption "install stalonetray";
   };
+
   config = mkIf cfg.enable (mkMerge [
     {
       services.xserver = {
@@ -86,54 +86,50 @@ in {
           sddm.enable = mkIf cfg.sddm true;
           defaultSession = "none+xmonad";
         };
-
       };
 
-        environment.systemPackages = mkIf cfg.xmobar (with pkgs; [xmobar]);
+      environment.systemPackages = mkIf cfg.xmobar (with pkgs; [xmobar]);
 
       hardware = {
         opengl.driSupport32Bit = true;
       };
     }
-
     (mkIf cfg.kde {
       environment.systemPackages = (with pkgs; [kde-gtk-config]);
     })
-         (mkIf (cfg.dunst == true){
-           environment.systemPackages = (with pkgs; [xmobar]);
-        })
+    (mkIf (cfg.dunst == true){
+      environment.systemPackages = (with pkgs; [xmobar]);
+    })
+    (mkIf (cfg.libinput == true){
+      services.xserver.libinput.enable = true;
+    })
 
-         (mkIf (cfg.libinput == true){
-          services.xserver.libinput.enable = true;
-        })
+    (mkIf cfg.flatInput {
+      services.xserver.extraConfig = ''
+          Section "InputClass"
+               Identifier "My Mouse"
+               MatchIsPointer "yes"
+               Option "AccelerationProfile" "-1"
+               Option "AccelerationScheme" "none"
+               Option "AccelSpeed" "-1"
+          EndSection
+          '';
+    })
 
-         (mkIf cfg.flatInput {
-             services.xserver.extraConfig = ''
-    Section "InputClass"
-          Identifier "My Mouse"
-          MatchIsPointer "yes"
-          Option "AccelerationProfile" "-1"
-          Option "AccelerationScheme" "none"
-          Option "AccelSpeed" "-1"
-    EndSection
-'';
-        })
-
-         (mkIf cfg.backlightFix {
-             services.xserver.extraConfig = ''
-Section "Device"
-    Identifier  "Intel Graphics" 
-    Driver      "intel"
-    Option      "Backlight"  "intel_backlight"
-EndSection
-
-'';
-  services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
-  '';
+   (mkIf cfg.backlightFix {
+     services.xserver.extraConfig = ''
+        Section "Device"
+          Identifier  "Intel Graphics"
+          Driver      "intel"
+          Option      "Backlight"  "intel_backlight"
+        EndSection
+        '';
+     services.udev.extraRules = ''
+        ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
+        '';
  
-         environment.systemPackages = [ pkgs.easystroke ];
-        })
+     environment.systemPackages = [ pkgs.easystroke ];
+  })
     (mkIf cfg.wacom {
       services.xserver.wacom.enable = true;
     })
