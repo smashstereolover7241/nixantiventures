@@ -84,7 +84,7 @@ inputs: {
               haskell = true;
               termUtil = true;
               painting = true;
-              gpg = false;
+              gpg = true;
               openvpn = true;
               maths = true;
               fingerprint = true;
