@@ -9,7 +9,7 @@
       flake = false;
       };
     python-validity = {
-      url = "/home/localhost/git/workspace/python-validity";
+      url = "git+https://git.irunx.org/localhost/python-validity-nixos";
       flake = false;
       };
   };

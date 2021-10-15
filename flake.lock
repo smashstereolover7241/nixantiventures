@@ -49,11 +49,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1634192630,
-        "narHash": "sha256-Etp6tmTTCVb1gGmfrbKXYoo4qUQeBEc/KGrh2TZ5Mig=",
+        "lastModified": 1634289643,
+        "narHash": "sha256-6h+zeK6IJfdVq1TwOzq9nmgVaZk13qDvstEMrm1NeSU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e518fed490f6875c65ebc6f3ddd174b83b492762",
+        "rev": "329f38c54f59aa9fb065e8dfa40231432fb2e660",
         "type": "github"
       },
       "original": {
@@ -65,11 +65,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-        "lastModified": 1633971123,
-        "narHash": "sha256-WmI4NbH1IPGFWVkuBkKoYgOnxgwSfWDgdZplJlQ93vA=",
+        "lastModified": 1634172192,
+        "narHash": "sha256-FBF4U/T+bMg4sEyT/zkgasvVquGzgdAf4y8uCosKMmo=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e4ef597edfd8a0ba5f12362932fc9b1dd01a0aef",
+        "rev": "2cf9db0e3d45b9d00f16f2836cb1297bcadc475e",
         "type": "github"
       },
       "original": {
@@ -98,13 +98,16 @@
       "flake": false,
       "locked": {
         "lastModified": 1633934827,
-        "narHash": "sha256-16XjKBjMyYimfFA0YOR0buc9EUBYHNbl9FAWFijCIuY=",
+        "narHash": "sha256-w0DTwebae+Jx7qwiJ0l+jGXR9sq0TXIG5M9UN+Fb2l4=",
+        "ref": "master",
+        "rev": "cfe1bb33090e0d9373484a1d015da145c5fdaf8a",
+        "revCount": 175,
         "type": "git",
-        "url": "file:///home/localhost/git/workspace/python-validity"
+        "url": "https://git.irunx.org/localhost/python-validity-nixos"
       },
       "original": {
         "type": "git",
-        "url": "file:///home/localhost/git/workspace/python-validity"
+        "url": "https://git.irunx.org/localhost/python-validity-nixos"
       }
     },
     "root": {
@@ -123,11 +126,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1634177806,
-        "narHash": "sha256-ZWssiqh6lVv8mSQqb4+OXm8PI+PL2kQ9ZLAkrfYi/Os=",
+        "lastModified": 1634264222,
+        "narHash": "sha256-ryXGfCo9zEzq+WJwItlSPNtC0l2bYBpjKTHQzueudy0=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "325ce5f355486e3e900ac9ec64809643fbc27732",
+        "rev": "250daa42a497cfe788ad166a9ab1cc035b7aee46",
         "type": "github"
       },
       "original": {
