@@ -1,4 +1,4 @@
- {
+{
   "nodes": {
     "easystroke": {
       "flake": false,
@@ -13,6 +13,21 @@
       "original": {
         "owner": "teu5us",
         "repo": "easystroke-nix",
+        "type": "github"
+      }
+    },
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1623875721,
+        "narHash": "sha256-A8BU7bjS5GirpAUv4QA+QnJ4CceLHkcXdRp4xITDB0s=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "f7e004a55b120c02ecb6219596820fcd32ca8772",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
         "type": "github"
       }
     },
@@ -64,12 +79,64 @@
         "type": "github"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1628186154,
+        "narHash": "sha256-r2d0wvywFnL9z4iptztdFMhaUIAaGzrSs7kSok0PgmE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "06552b72346632b6943c8032e57e702ea12413bf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "python-validity": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1633934827,
+        "narHash": "sha256-w0DTwebae+Jx7qwiJ0l+jGXR9sq0TXIG5M9UN+Fb2l4=",
+        "ref": "master",
+        "rev": "cfe1bb33090e0d9373484a1d015da145c5fdaf8a",
+        "revCount": 175,
+        "type": "git",
+        "url": "https://git.irunx.org/localhost/python-validity-nixos"
+      },
+      "original": {
+        "type": "git",
+        "url": "https://git.irunx.org/localhost/python-validity-nixos"
+      }
+    },
     "root": {
       "inputs": {
         "easystroke": "easystroke",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "python-validity": "python-validity",
+        "rust-overlay": "rust-overlay"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1634350762,
+        "narHash": "sha256-uq3vkK0T4iwRQvYvryKhlOSGiy3oHqxwXGCjf7u6tPU=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "03477e4ff28c6ce5fc6a6e21f7e1190d8d0e7ae3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     }
   },
