@@ -9,8 +9,7 @@ in {
   };
   config = (mkMerge [
     (mkIf cfg.rust {
-      environment.systemPackages = with pkgs; [pkgs.rust-bin.stable.latest.default rustup rustc];
-
+      environment.systemPackages = with pkgs; [pkgs.rust-bin.stable.latest.default rustup rustc gcc clang];
     })
     (mkIf cfg.python {
       environment.systemPackages = with pkgs; [python39Full];
