@@ -18,6 +18,11 @@ inputs: {
               termite = false;
             };
 
+            lang = {
+              rust = true;
+              python = true;
+            };
+
             filemanagers = {
               gui = true;
               tui = true;
