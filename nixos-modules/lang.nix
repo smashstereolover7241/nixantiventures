@@ -12,7 +12,7 @@ in {
       environment.systemPackages = with pkgs; [pkgs.rust-bin.stable.latest.default rustup rustc gcc clang];
     })
     (mkIf cfg.python {
-      environment.systemPackages = with pkgs; [python39Full];
+      environment.systemPackages = with pkgs; [python39Full python39Packages.pip];
     })
   ]);
 }
