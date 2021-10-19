@@ -21,6 +21,7 @@ inputs: {
             lang = {
               rust = true;
               python = true;
+              pythonML = true;
             };
 
             ssh = {

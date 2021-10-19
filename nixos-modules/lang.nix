@@ -6,6 +6,7 @@ in {
   options.teletypeOne.lang = {
     rust = mkEnableOption "Install rust language compiler and utilities";
     python = mkEnableOption "Install python 39 full";
+    pythonML = mkEnableOption "Install pythonML stuffs";
   };
   config = (mkMerge [
     (mkIf cfg.rust {
@@ -13,6 +14,9 @@ in {
     })
     (mkIf cfg.python {
       environment.systemPackages = with pkgs; [python39Full python39Packages.pip];
+    })
+    (mkIf cfg.pythonML {
+      environment.systemPackages = with pkgs; [python39Packages.tensorflow_2];
     })
   ]);
 }
