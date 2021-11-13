@@ -122,6 +122,9 @@ inputs: {
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";
       hardware.enableRedistributableFirmware = true;
+        services.printing.drivers = [ pkgs.gutenprint pkgs.cnijfilter2 ];
+  services.printing.enable = true;
+
     })
   ];
 }
