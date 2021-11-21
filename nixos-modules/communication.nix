@@ -32,7 +32,7 @@ in {
     })
 
     (mkIf cfg.mailGui {
-      environment.systemPackages = with pkgs; [thunderbird-78];
+      environment.systemPackages = with pkgs; [thunderbird];
     })
 
     (mkIf cfg.mailTui {
