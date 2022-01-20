@@ -95,7 +95,7 @@ inputs: {
             xorg = {
               enable = true;
               backlightFix = true;
-              gpu = "modesetting";
+              gpu = "intelAccelerated";
               xmonad = true;
               kde = false;
               xmobar = true;

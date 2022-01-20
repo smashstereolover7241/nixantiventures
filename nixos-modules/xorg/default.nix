@@ -16,7 +16,7 @@ in {
     enable = mkEnableOption "Xorg so graphical can happen";
     gpu = mkOption {
       description = "Which gpu?";
-      type = types.enum ["modesetting" "nvidia" "intel" "amd" "ati" "radeon" "null"];
+      type = types.enum ["modesetting" "nvidia" "intel" "amd" "ati" "radeon" "null" "intelAccelerated"];
     };
     nvidia = mkOption {
       description = "Nvidia yaaay";
