@@ -16,7 +16,7 @@ in {
       environment.systemPackages = with pkgs; [python39Full python39Packages.pip];
     })
     (mkIf cfg.pythonML {
-      environment.systemPackages = with pkgs; [python39Packages.tensorflow_2];
+#environment.systemPackages = with pkgs; [python39Packages.tensorflow_2];
     })
   ]);
 }
