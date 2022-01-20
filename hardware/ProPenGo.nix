@@ -14,32 +14,31 @@ in
   boot.kernelParams = [ "nohibernate" "mem_sleep_default=deep" "idle=nomwait"];
   
   boot.extraModulePackages = [ ];
-  #boot.zfs.devNodes = "/dev/disk/by-label";
-  boot.initrd.supportedFilesystems = [ "zfs"];
-  boot.supportedFilesystems = [ "zfs" ];
+
+  
   fileSystems."/" =
-    { device = "ssdRoot/root";
-      fsType = "zfs";
+    { device = "/dev/disk/by-uuid/39a958cf-85ae-4a82-ad1f-9f0b5380fef7";
+      fsType = "btrfs";
+      options = [ "subvol=Anixos" ];
+    };
+
+  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/36b1cdab-ec0b-40d9-86ce-a6c6a1cac020";
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/39a958cf-85ae-4a82-ad1f-9f0b5380fef7";
+      fsType = "btrfs";
+      options = [ "subvol=AnixHome" ];
     };
 
   fileSystems."/nix" =
-    { device = "ssdRoot/root/nix";
-      fsType = "zfs";
-      neededForBoot = true;
+    { device = "/dev/disk/by-uuid/39a958cf-85ae-4a82-ad1f-9f0b5380fef7";
+      fsType = "btrfs";
+      options = [ "subvol=AnixNix" ];
     };
 
-  fileSystems."/home" =
-    { device = "ssdRoot/root/home";
-      fsType = "zfs";
-      neededForBoot = true;
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-partuuid/b3f9c3f8-02";
-      fsType = "ext2";
-    };
   swapDevices = [ ];
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   };
 }
