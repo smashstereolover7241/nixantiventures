@@ -22,8 +22,15 @@ in
       options = [ "subvol=Anixos" ];
     };
 
-  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/36b1cdab-ec0b-40d9-86ce-a6c6a1cac020";
+#  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/36b1cdab-ec0b-40d9-86ce-a6c6a1cac020";
 
+  boot.initrd.luks.devices = {
+    root = {
+      device = "/dev/disk/by-uuid/36b1cdab-ec0b-40d9-86ce-a6c6a1cac020";
+      preLVM = true;
+      fallbackToPassword = true;
+    };
+  };
   fileSystems."/home" =
     { device = "/dev/disk/by-uuid/39a958cf-85ae-4a82-ad1f-9f0b5380fef7";
       fsType = "btrfs";
