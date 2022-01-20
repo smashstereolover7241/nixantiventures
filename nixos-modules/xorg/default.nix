@@ -57,7 +57,9 @@ in {
     null = mkOption {
       description = "Disable Video drivers";
     };
-
+    intelAccelerated = mkOption {
+      description = "Intel drivers, with opengl etc.";
+    };
   xmonad = mkEnableOption "Enable xmonad";
   kde = mkEnableOption "Enable kde";
   xmobar = mkEnableOption "Enable xmobar";
@@ -169,6 +171,22 @@ in {
       services.xserver.videoDrivers = ["radeon"];
     })
     (mkIf (cfg.gpu == "null") {
+    })
+
+    (mkIf (cfg.gpu == "intelAccelerated") {
+      services.xserver.videoDrivers = ["modesetting"];
+        nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  };
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver # LIBVA_DRIVER_NAME=iHD
+      vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
     })
   ]);
 }
