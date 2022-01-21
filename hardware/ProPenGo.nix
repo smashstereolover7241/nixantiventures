@@ -10,8 +10,8 @@ in
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "rtsx_pci_sdmmc" "ehci_pci" "ahci" "firewire_ohci" "sdhci_pci" "usb_storage" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ "kvm-intel" ];
-  boot.kernelModules = [  ];
-  boot.kernelParams = [ "nohibernate" "mem_sleep_default=deep" "idle=nomwait"];
+  boot.kernelModules = [ "kvm-intel" ];
+  boot.kernelParams = [ "acpi_rev_override=5" "i915.enable_guc=2" ];
   
   boot.extraModulePackages = [ ];
 
