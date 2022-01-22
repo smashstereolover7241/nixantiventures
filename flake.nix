@@ -33,22 +33,22 @@
         ProGo = self.nixosConfigurations.ProGo.config.system.build.toplevel;
 
         nixosConfigurations.ProNoGo = nixosSystem (import ./systems/ProNoGo.nix inputs);
-        ProNoGo = self.nixosConfigurations.ProGo.config.system.build.toplevel;
+        ProNoGo = self.nixosConfigurations.ProNoGo.config.system.build.toplevel;
 
         nixosConfigurations.ProProGo = nixosSystem (import ./systems/ProProGo.nix inputs);
-        ProProGo = self.nixosConfigurations.ProGo.config.system.build.toplevel;
+        ProProGo = self.nixosConfigurations.ProProGo.config.system.build.toplevel;
 
         nixosConfigurations.ProPenGo = nixosSystem (import ./systems/ProPenGo.nix inputs);
         ProPenGo = self.nixosConfigurations.ProPenGo.config.system.build.toplevel;
 
         nixosConfigurations.ProNoBrain = nixosSystem (import ./systems/ProNoBrain.nix inputs);
-        ProNoBrain = self.nixosConfigurations.ProGo.config.system.build.toplevel;
+        ProNoBrain = self.nixosConfigurations.ProNoBrain.config.system.build.toplevel;
 
         nixosConfigurations.ProSlowGo = nixosSystem (import ./systems/ProSlowGo.nix inputs);
-        ProSlowGo = self.nixosConfigurations.ProGo.config.system.build.toplevel;
+        ProSlowGo = self.nixosConfigurations.ProSlowGo.config.system.build.toplevel;
 
         nixosConfigurations.ProVerySlowGo = nixosSystem (import ./systems/ProVerySlowGo.nix inputs);
-        ProVerySlowGo = self.nixosConfigurations.ProGo.config.system.build.toplevel;
+        ProVerySlowGo = self.nixosConfigurations.ProVerySlowGo.config.system.build.toplevel;
 
         allSystems =
           let
