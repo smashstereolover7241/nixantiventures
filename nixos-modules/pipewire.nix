@@ -17,6 +17,6 @@ in {
       pulse.enable = true;
     };
 
-    environment.systemPackages = with pkgs; [ pulseaudio cadence helvum];
+    environment.systemPackages = with pkgs; [ pulseaudio cadence helvum easyeffects];
   };
 }
