@@ -115,9 +115,9 @@ inputs: {
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";
 
-virtualisation.libvirtd.enable = true;
-programs.dconf.enable = true;
-environment.systemPackages = with pkgs; [ virt-manager ];
+#virtualisation.libvirtd.enable = true;
+#programs.dconf.enable = true;
+#environment.systemPackages = with pkgs; [ virt-manager ];
 
     })
   ];
