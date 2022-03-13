@@ -9,7 +9,7 @@ in {
 
   config = (mkMerge [
     (mkIf cfg.enable {
-      environment.systemPackages = with pkgs; [ wireguard ];
+      environment.systemPackages = with pkgs; [ wireguard-tools ];
       networking.firewall = {
         allowedUDPPorts = [ 12346 ];
       };

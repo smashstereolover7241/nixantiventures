@@ -63,7 +63,7 @@ in {
     })
 
     (mkIf cfg.media {
-      environment.systemPackages = with pkgs; [firefox links vlc feh peek];
+      environment.systemPackages = with pkgs; [firefox links2 vlc feh peek];
     })
 
     (mkIf cfg.encoding {
