@@ -14,17 +14,17 @@ in
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "zroot/root";
+    { device = "sonicFS/root";
       fsType = "zfs";
     };
 
   fileSystems."/nix" =
-    { device = "zroot/root/nix";
+    { device = "sonicFS/root/nix";
       fsType = "zfs";
     };
 
   fileSystems."/home" =
-    { device = "zroot/root/home";
+    { device = "sonicFS/root/home";
       fsType = "zfs";
     };
 
@@ -34,15 +34,11 @@ in
   #  };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/aa35bfa1-9e26-4591-adbc-6bf3003d5d2f";
+    { device = "/dev/disk/by-uuid/993a732c-9fe7-4b2b-b24c-59d4a3cb0960";
       fsType = "ext2";
-    };
-
-  fileSystems."/FjordMain" =
-    { device = "zroot/FjordMainCompress";
-      fsType = "zfs";
     };
 
   swapDevices = [ ];
   };
 }
+
