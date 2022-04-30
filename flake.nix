@@ -8,10 +8,6 @@
       url = "github:teu5us/easystroke-nix";
       flake = false;
       };
-    python-validity = {
-      url = "git+https://git.irunx.org/localhost/python-validity-nixos";
-      flake = false;
-      };
   };
 
   # PACKAGES

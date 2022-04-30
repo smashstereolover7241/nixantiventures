@@ -49,11 +49,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1651273796,
-        "narHash": "sha256-kqWfHMfXUz2d9Y8KDA9D5vk03xj28Y+I2AyxzrQ14Vo=",
+        "lastModified": 1651326890,
+        "narHash": "sha256-dAEIh0cGW52ccTlcLnw5c2bIQNf6H6v0UJj9F96F4Q0=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "3080554891b4404fcbc5f09a4fe1d4ea0334d829",
+        "rev": "d7de07547a9eaf8ccac222f30fea47f7c805ca9e",
         "type": "github"
       },
       "original": {
@@ -95,29 +95,12 @@
         "type": "github"
       }
     },
-    "python-validity": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1633934827,
-        "narHash": "sha256-w0DTwebae+Jx7qwiJ0l+jGXR9sq0TXIG5M9UN+Fb2l4=",
-        "ref": "master",
-        "rev": "cfe1bb33090e0d9373484a1d015da145c5fdaf8a",
-        "revCount": 175,
-        "type": "git",
-        "url": "https://git.irunx.org/localhost/python-validity-nixos"
-      },
-      "original": {
-        "type": "git",
-        "url": "https://git.irunx.org/localhost/python-validity-nixos"
-      }
-    },
     "root": {
       "inputs": {
         "easystroke": "easystroke",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "python-validity": "python-validity",
         "rust-overlay": "rust-overlay"
       }
     },
@@ -127,11 +110,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1651200519,
-        "narHash": "sha256-71oWqoSeGTg7gLGbtHIugGc1JUzl3uyOYtzot8bKkk4=",
+        "lastModified": 1651286718,
+        "narHash": "sha256-sPGOKDL6TNRfLnwarbdlmeD0FW4BmPfOoB/AMax91pg=",
         "owner": "oxalica",
         "repo": "rust-overlay",
-        "rev": "403f362c5d921764bae021cf6c8bd669a51fddd4",
+        "rev": "8a687a6e5dc1f5c39715b01521a7aa0122529a05",
         "type": "github"
       },
       "original": {
