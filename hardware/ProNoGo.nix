@@ -35,7 +35,7 @@ in
 
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/993a732c-9fe7-4b2b-b24c-59d4a3cb0960";
-      fsType = "ext2";
+      fsType = "ext4";
     };
 
   swapDevices = [ ];
