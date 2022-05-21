@@ -14,8 +14,9 @@ inputs: {
 	        	overlays = inputs.self.overlays;
 
             terminals = {
-              alacritty = true;
+              alacritty = false;
               termite = true;
+              kitty = true;
             };
 
             filemanagers = {
@@ -66,8 +67,9 @@ inputs: {
               compilerUtil = true;
               haskell = true;
               termUtil = true;
-	            maths = true;
+	      maths = true;
               painting = true;
+	      cloud = true;
             };
 
             xorg = {
@@ -79,7 +81,8 @@ inputs: {
     	        	intelBusId = "PCI:0:2:0";
 	            	nvidiaBusId = "PCI:1:0:0";
 	          	};
-              xmonad = true;
+#              gpu = "modesetting";
+	      xmonad = true;
               xmobar = true;
               dunst = true;
               kde = false;

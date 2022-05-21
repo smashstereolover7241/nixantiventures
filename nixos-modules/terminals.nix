@@ -6,6 +6,7 @@ in {
   options.teletypeOne.terminals = {
     alacritty = mkEnableOption "Install alacritty.";
     termite = mkEnableOption "Install termite.";
+    kitty = mkEnableOption "Install kitty.";
   };
 
   config = (mkMerge [
@@ -15,6 +16,10 @@ in {
 
     (mkIf (cfg.termite) {
       environment.systemPackages = with pkgs; [termite];
+    })
+
+    (mkIf (cfg.kitty) {
+      environment.systemPackages = with pkgs; [kitty];
     })
 
   ]);
