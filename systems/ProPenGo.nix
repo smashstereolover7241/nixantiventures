@@ -64,6 +64,7 @@ inputs: {
               bullshit = true;
               mailGui = true;
               mailTui = false;
+              tdesktop = true;
             };
 
             util = {

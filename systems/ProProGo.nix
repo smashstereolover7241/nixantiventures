@@ -45,6 +45,7 @@ inputs: {
               free = true;
               nonFree = true;
               bullshit = true;
+              tdesktop = true;
               mailGui = true;
               mailTui = true;
             };

@@ -12,6 +12,7 @@ let
 in {
   options.teletypeOne.communication = {
     free = mkEnableOption "Install free communication tools.";
+    tdesktop = mkEnableOption "Install Telegram Desktop.";
     nonFree = mkEnableOption "Install nonfree communication tools.";
     bullshit = mkEnableOption "Install dumb communication tools.";
     mailGui = mkEnableOption "Install and add gui mail tools.";
@@ -25,6 +26,9 @@ in {
 
     (mkIf (cfg.nonFree) {
       environment.systemPackages = with pkgs; [discord-latest];
+    })
+    (mkIf (cfg.telegram) {
+      environment.systemPackages = with pks; [tdekstop];
     })
 
     (mkIf (cfg.bullshit) {
