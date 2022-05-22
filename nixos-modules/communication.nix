@@ -27,8 +27,8 @@ in {
     (mkIf (cfg.nonFree) {
       environment.systemPackages = with pkgs; [discord-latest];
     })
-    (mkIf (cfg.telegram) {
-      environment.systemPackages = with pks; [tdekstop];
+    (mkIf (cfg.tdesktop) {
+      environment.systemPackages = with pkgs; [tdesktop];
     })
 
     (mkIf (cfg.bullshit) {
