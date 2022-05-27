@@ -16,12 +16,13 @@ inputs: {
             terminals = {
               alacritty = true;
               termite = false;
+              kitty = true;
             };
 
             lang = {
-              rust = true;
-              python = true;
-              pythonML = true;
+              rust = false;
+              python = false;
+              pythonML = false;
             };
 
             ssh = {
