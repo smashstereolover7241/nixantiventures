@@ -14,6 +14,7 @@ in
       ./ProPenGo.nix
       ./ProSlowGo.nix
       ./ProVerySlowGo.nix
+      ./VictoryLaptop.nix
     ];
   config = {
     assertions = [

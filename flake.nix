@@ -34,6 +34,9 @@
         nixosConfigurations.ProProGo = nixosSystem (import ./systems/ProProGo.nix inputs);
         ProProGo = self.nixosConfigurations.ProProGo.config.system.build.toplevel;
 
+        nixosConfigurations.VictoryLaptop= nixosSystem (import ./systems/VictoryLaptop.nix inputs);
+        VictoryLaptop = self.nixosConfigurations.VictoryLaptop.config.system.build.toplevel;
+
         nixosConfigurations.ProPenGo = nixosSystem (import ./systems/ProPenGo.nix inputs);
         ProPenGo = self.nixosConfigurations.ProPenGo.config.system.build.toplevel;
 
@@ -66,6 +69,7 @@
                    ProNoBrain = nixos "ProNoBrain";
                    ProSlowGo = nixos "ProSlowGo";
                    ProVerySlowGo = nixos "ProVerySlowGo";
+                   VictoryLaptop = nixos "VictoryLaptop";
                 };
             };
         overlays = {

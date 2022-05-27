@@ -71,6 +71,7 @@ in {
   wacom = mkEnableOption "Install wacom drivers";
   backlightFix = mkEnableOption "fix backlight, maybe";
   stalone = mkEnableOption "install stalonetray";
+  firmware = mkEnableOption "install additional firmware";
   };
 
   config = mkIf cfg.enable (mkMerge [
@@ -104,6 +105,18 @@ in {
     })
     (mkIf (cfg.libinput == true){
       services.xserver.libinput.enable = true;
+    })
+
+    (mkIf (cfg.firmware == true){
+      environment.systemPackages = (with pkgs; [linux-firmware]);
+      hardware.enableAllFirmware = true;
+      hardware.opengl.extraPackages = with pkgs; [
+      	rocm-opencl-icd
+	rocm-opencl-runtime
+      ];
+      hardware.opengl.driSupport = true;
+      hardware.enableRedistributableFirmware = true;
+      hardware.opengl.enable = true;
     })
 
     (mkIf cfg.flatInput {
@@ -170,6 +183,7 @@ in {
     (mkIf (cfg.gpu == "radeon") {
       services.xserver.videoDrivers = ["radeon"];
     })
+
     (mkIf (cfg.gpu == "null") {
     })
 
