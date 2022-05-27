@@ -79,10 +79,6 @@
               easystroke = import "${inputs.easystroke}/default.nix" { pkgs = final; };
             };
 
-          python-validity = final: prev:
-            {
-              python-validity = import "${inputs.python-validity}/default.nix" { pkgs = final; };
-            };
          };
         packages =
           forAllSystems (system:

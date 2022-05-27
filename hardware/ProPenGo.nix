@@ -6,44 +6,40 @@ in
 {
   options.teletypeOne.hardware.ProPenGo = mkEnableOption "Enable ProPenGo";
 
-  config = mkIf cfg{
+  config = mkIf cfg {
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "rtsx_pci_sdmmc" "ehci_pci" "ahci" "firewire_ohci" "sdhci_pci" "usb_storage" "sd_mod" "sr_mod" ];
-  boot.initrd.kernelModules = [ "kvm-intel" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
-  boot.kernelParams = [ "acpi_rev_override=5" "i915.enable_guc=2" ];
-  
   boot.extraModulePackages = [ ];
 
-  
+  boot.initrd.luks.devices."p2_crypt".device = "/dev/disk/by-uuid/36b1cdab-ec0b-40d9-86ce-a6c6a1cac020";
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/39a958cf-85ae-4a82-ad1f-9f0b5380fef7";
       fsType = "btrfs";
-      options = [ "subvol=Anixos" ];
+      options = [ "subvol=nixroot" ];
     };
 
-#  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/36b1cdab-ec0b-40d9-86ce-a6c6a1cac020";
-
-  boot.initrd.luks.devices = {
-    root = {
-      device = "/dev/disk/by-uuid/36b1cdab-ec0b-40d9-86ce-a6c6a1cac020";
-      preLVM = true;
-      fallbackToPassword = true;
-    };
-  };
-  fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/39a958cf-85ae-4a82-ad1f-9f0b5380fef7";
-      fsType = "btrfs";
-      options = [ "subvol=AnixHome" ];
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/03287040-9ad3-4e0c-b3fa-5dad010a3b94";
+      fsType = "ext2";
     };
 
   fileSystems."/nix" =
     { device = "/dev/disk/by-uuid/39a958cf-85ae-4a82-ad1f-9f0b5380fef7";
       fsType = "btrfs";
-      options = [ "subvol=AnixNix" ];
+      options = [ "subvol=nixnix" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/39a958cf-85ae-4a82-ad1f-9f0b5380fef7";
+      fsType = "btrfs";
+      options = [ "subvol=nixhome" ];
     };
 
   swapDevices = [ ];
+
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
