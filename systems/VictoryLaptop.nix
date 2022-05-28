@@ -75,6 +75,7 @@ inputs: {
               termUtil = true;
               painting = true;
               cloud = true;
+              qute = true;
             };
 
             xorg = {

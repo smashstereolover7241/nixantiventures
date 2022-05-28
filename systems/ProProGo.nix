@@ -68,9 +68,10 @@ inputs: {
               compilerUtil = true;
               haskell = true;
               termUtil = true;
-	      maths = true;
+      	      maths = true;
               painting = true;
-	      cloud = true;
+	            cloud = true;
+              qute = true;
             };
 
             xorg = {

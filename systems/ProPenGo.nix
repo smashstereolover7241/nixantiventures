@@ -92,6 +92,7 @@ inputs: {
               maths = true;
               fingerprint = true;
               cloud = true;
+              qute = true;
             };
 
             xorg = {

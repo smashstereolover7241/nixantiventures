@@ -74,6 +74,7 @@ inputs: {
               haskell = true;
               termUtil = true;
               painting = true;
+              qute = true;
             };
 
             xorg = {

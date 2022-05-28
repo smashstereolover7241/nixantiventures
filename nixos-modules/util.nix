@@ -27,6 +27,7 @@ in {
     maths = mkEnableOption "install math stuff";
     fingerprint = mkEnableOption "Install fprintd";
     cloud = mkEnableOption "Install nextcloud";
+    qute = mkEnableOption "Install qutebrowser";
   };
 
   config = (mkMerge [
@@ -116,6 +117,10 @@ in {
 
     (mkIf cfg.fingerprint {
       services.fprintd.enable = true;
+    })
+
+    (mkIf cfg.qute {
+      environment.systemPackages = with pkgs; [qutebrowser];
     })
 
     (mkIf cfg.gpg {
