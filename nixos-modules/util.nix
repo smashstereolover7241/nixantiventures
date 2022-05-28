@@ -29,6 +29,7 @@ in {
     cloud = mkEnableOption "Install nextcloud";
     qute = mkEnableOption "Install qutebrowser";
     polkit = mkEnableOption "Install a policykit";
+
   };
 
   config = (mkMerge [
@@ -57,7 +58,7 @@ in {
     })
 
     (mkIf cfg.driveUtil {
-      environment.systemPackages = with pkgs; [ncdu meld hdparm libatasmart];
+      environment.systemPackages = with pkgs; [gparted ncdu meld hdparm libatasmart];
     })
 
     (mkIf cfg.emacs {
