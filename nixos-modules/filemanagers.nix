@@ -6,6 +6,7 @@ in {
   options.teletypeOne.filemanagers = {
     gui = mkEnableOption "Install graphical file managers";
     tui = mkEnableOption "Install tui file managers";
+    smb = mkEnableOption "Install smb tools.";
   };
 
   config = (mkMerge [
@@ -13,6 +14,13 @@ in {
       services.gvfs.enable = true;
       environment.systemPackages = with pkgs; [cinnamon.nemo];
     })
+    (mkIf cfg.smb {
+      services.gvfs = {
+          enable = true;
+          package = lib.mkForce pkgs.gnome3.gvfs;
+        };
+      teletypeOne.util.polkit = true; # a polkit is required to authenticate.
+     })
 
     (mkIf cfg.tui {
       environment.systemPackages = with pkgs; [w3m ranger];

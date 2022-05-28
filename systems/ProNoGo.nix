@@ -27,6 +27,7 @@ inputs: {
             filemanagers = {
               gui = true;
               tui = true;
+              smb = true;
             };
 
             zsh = {

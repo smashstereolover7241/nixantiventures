@@ -28,6 +28,7 @@ in {
     fingerprint = mkEnableOption "Install fprintd";
     cloud = mkEnableOption "Install nextcloud";
     qute = mkEnableOption "Install qutebrowser";
+    polkit = mkEnableOption "Install a policykit";
   };
 
   config = (mkMerge [
@@ -121,6 +122,10 @@ in {
 
     (mkIf cfg.qute {
       environment.systemPackages = with pkgs; [qutebrowser];
+    })
+
+    (mkIf cfg.polkit {
+      environment.systemPackages = with pkgs; [ lxqt.lxqt-policykit ];
     })
 
     (mkIf cfg.gpg {

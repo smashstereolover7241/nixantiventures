@@ -76,6 +76,7 @@ inputs: {
               painting = true;
               cloud = true;
               qute = true;
+              polkit = true;
             };
 
             xorg = {
