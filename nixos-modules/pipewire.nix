@@ -6,17 +6,25 @@ let
 in {
   options.teletypeOne.pipewire = {
     enable = mkEnableOption "Enable pipewire, maybe even with bluetooth support";
+    easyeffects = mkEnableOption "Add easyeffects";
   };
-  config = mkIf cfg.enable {
-    sound.enable = false;
-    security.rtkit.enable = true;
-    services.pipewire = {
-      enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
-      pulse.enable = true;
-    };
+  config = (mkMerge [
 
-    environment.systemPackages = with pkgs; [ pulseaudio cadence helvum easyeffects];
-  };
+    (mkIf cfg.enable {
+      sound.enable = false;
+      security.rtkit.enable = true;
+      services.pipewire = {
+        enable = true;
+        alsa.enable = true;
+        alsa.support32Bit = true;
+        pulse.enable = true;
+      };
+
+    })
+
+    (mkIf cfg.easyeffects {
+      environment.systemPackages = with pkgs; [easyeffects];
+     })
+
+  ]);
 }
