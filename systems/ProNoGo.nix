@@ -42,6 +42,7 @@ inputs: {
 
             pulseaudio.enable = false;
             pipewire.enable = true;
+            pipewire.easyeffects = true;
 
             fonts = {
               firaCode = true;
