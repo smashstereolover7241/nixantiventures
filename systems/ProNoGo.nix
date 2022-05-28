@@ -16,6 +16,7 @@ inputs: {
             terminals = {
               alacritty = true;
               termite = false;
+              kitty = true;
             };
 
             lang = {
