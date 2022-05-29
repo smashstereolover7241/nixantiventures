@@ -34,7 +34,7 @@ in {
 
   config = (mkMerge [
     (mkIf cfg.xmonadUtil {
-      environment.systemPackages = with pkgs; [wmctrl rofi gmrun dunst arandr xorg.xkill acpilight];
+      environment.systemPackages = with pkgs; [wmctrl rofi gmrun dunst arandr xorg.xkill acpilight playerctl alsa-utils];
     })
 
     (mkIf cfg.neofetch {
