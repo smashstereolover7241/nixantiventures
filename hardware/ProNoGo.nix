@@ -13,6 +13,8 @@ in
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
+  services.qemuGuest.enable = true;
+
   fileSystems."/" =
     { device = "sonicFS/root";
       fsType = "zfs";
@@ -33,10 +35,17 @@ in
   #    fsType = "zfs";
   #  };
 
+#  fileSystems."/boot" =
+#    { device = "/dev/disk/by-uuid/993a732c-9fe7-4b2b-b24c-59d4a3cb0960";
+#      fsType = "ext4";
+#    };
+
+
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/993a732c-9fe7-4b2b-b24c-59d4a3cb0960";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/A176-D6ED";
+      fsType = "vfat";
     };
+
 
   swapDevices = [ ];
   };

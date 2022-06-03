@@ -83,6 +83,7 @@ inputs: {
               enable = true;
               gpu = "nvidia";
               xmonad = true;
+	      pass = false;
               xmobar = true;
               dunst = true;
               kde = false;

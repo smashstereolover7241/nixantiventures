@@ -23,7 +23,7 @@ in {
     })
 
     (mkIf cfg.easyeffects {
-      environment.systemPackages = with pkgs; [easyeffects];
+    	environment.systemPackages = with pkgs; [easyeffects];
      })
 
   ]);

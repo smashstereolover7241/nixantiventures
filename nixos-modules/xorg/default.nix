@@ -72,6 +72,7 @@ in {
   backlightFix = mkEnableOption "fix backlight, maybe";
   stalone = mkEnableOption "install stalonetray";
   firmware = mkEnableOption "install additional firmware";
+  pass = mkEnableOption "Gpu is passed thru";
   };
 
   config = mkIf cfg.enable (mkMerge [
@@ -147,6 +148,15 @@ in {
   })
     (mkIf cfg.wacom {
       services.xserver.wacom.enable = true;
+    })
+
+    (mkIf cfg.pass {
+         services.xserver.extraConfig = ''
+		Section "Device"
+			Identifier "YAY"
+			BusID "PCI:0:6:0"
+		EndSection
+	'';
     })
 
     (mkIf (cfg.gpu == "nvidia") {
