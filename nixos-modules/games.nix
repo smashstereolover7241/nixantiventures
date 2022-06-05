@@ -6,6 +6,7 @@ in {
   options.teletypeOne.games = {
     steam = mkEnableOption "Enable steam";
     minecraft = mkEnableOption "Install minecraft launcher";
+    minecraftLibFix = mkEnableOption "Install some random libraries required to launch some modpacks";
   };
 
   config = (mkMerge [
@@ -17,6 +18,9 @@ in {
 
     (mkIf cfg.minecraft {
       environment.systemPackages = with pkgs; [minecraft lunar-client polymc];
+    })
+    (mkIf cfg.minecraftLibFix {
+      environment.systemPackages = with pkgs; [xorg.libXxf86vm xorg.libXxf86dga xorg.libXxf86misc];
     })
   ]);
 }

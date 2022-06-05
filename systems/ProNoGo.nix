@@ -41,6 +41,7 @@ inputs: {
             games = {
               steam = true;
               minecraft = true;
+	      minecraftLibFix = true;
             };
 
             pulseaudio.enable = false;
