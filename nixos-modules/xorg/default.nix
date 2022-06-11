@@ -161,6 +161,8 @@ in {
 
     (mkIf (cfg.gpu == "nvidia") {
       services.xserver.videoDrivers = ["nvidia"];
+      hardware.opengl.enable = true;
+
       environment.systemPackages = mkIf (cfg.nvidia.prime)
         [ nvidia-offload pkgs.libglvnd ];
 
