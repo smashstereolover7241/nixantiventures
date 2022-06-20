@@ -70,6 +70,7 @@ inputs: {
             };
 
             util = {
+	      lock = true;
               xmonadUtil = true;
               neofetch = true;
               music = true;
