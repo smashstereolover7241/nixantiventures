@@ -28,6 +28,9 @@
         nixosConfigurations.ProGo = nixosSystem (import ./systems/ProGo.nix inputs);
         ProGo = self.nixosConfigurations.ProGo.config.system.build.toplevel;
 
+        nixosConfigurations.ProSlimShady = nixosSystem (import ./systems/ProSlimShady.nix inputs);
+        ProSlimShady = self.nixosConfigurations.ProSlimShady.config.system.build.toplevel;
+
         nixosConfigurations.ProNoGo = nixosSystem (import ./systems/ProNoGo.nix inputs);
         ProNoGo = self.nixosConfigurations.ProNoGo.config.system.build.toplevel;
 
@@ -69,6 +72,7 @@
                    ProNoBrain = nixos "ProNoBrain";
                    ProSlowGo = nixos "ProSlowGo";
                    ProVerySlowGo = nixos "ProVerySlowGo";
+                   ProSlimShady = nixos "ProSlimShady";
                    VictoryLaptop = nixos "VictoryLaptop";
                 };
             };

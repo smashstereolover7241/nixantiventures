@@ -14,6 +14,7 @@ in
       ./ProPenGo.nix
       ./ProSlowGo.nix
       ./ProVerySlowGo.nix
+      ./ProSlimShady.nix
       ./VictoryLaptop.nix
     ];
   config = {
