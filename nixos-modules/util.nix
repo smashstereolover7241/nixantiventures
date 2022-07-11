@@ -131,6 +131,8 @@ in {
 
     (mkIf cfg.lock {
       environment.systemPackages = with pkgs; [ betterlockscreen ];
+      programs.xss-lock.enable = true;
+      programs.xss-lock.lockerCommand = "${pkgs.betterlockscreen}/bin/betterlockscreen -l blur";
     })
 
     (mkIf cfg.gpg {
