@@ -21,7 +21,7 @@ in
     };
 
   fileSystems."/nix" =
-    { device = "solidFS/nix";
+    { device = "SolidFS/nix";
       fsType = "zfs";
     };
 
