@@ -98,6 +98,7 @@ inputs: {
             };
 
             xorg = {
+	      #lock = true;
               enable = true;
               backlightFix = true;
               gpu = "intelAccelerated";

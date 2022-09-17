@@ -30,24 +30,13 @@ in
       fsType = "zfs";
     };
 
-  #fileSystems."/zroot" =
-  #  { device = "zroot";
-  #    fsType = "zfs";
-  #  };
-
-#  fileSystems."/boot" =
-#    { device = "/dev/disk/by-uuid/993a732c-9fe7-4b2b-b24c-59d4a3cb0960";
-#      fsType = "ext4";
-#    };
-
-
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/A176-D6ED";
       fsType = "vfat";
     };
 
-
   swapDevices = [ ];
+
   };
 }
 
