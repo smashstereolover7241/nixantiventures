@@ -85,7 +85,8 @@ inputs: {
 
             xorg = {
               enable = true;
-              gpu = "nvidia";
+	      firmware = true;
+              gpu = "amd";
               xmonad = true;
 	      pass = false;
               xmobar = true;

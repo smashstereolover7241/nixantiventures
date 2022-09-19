@@ -8,13 +8,19 @@ in
 
   config = mkIf cfg{
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
+
+  boot.initrd.availableKernelModules = [ "uhci_hcd" "ehci_pci" "ata_piix" "ahci" "usb_storage" "sd_mod" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd kvm-intel" ];
+  boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
     { device = "slow/root";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home" =
+    { device = "slow/home";
       fsType = "zfs";
     };
 
@@ -23,22 +29,15 @@ in
       fsType = "zfs";
     };
 
-  fileSystems."/home" =
-    { device = "slow/root/home";
-      fsType = "zfs";
-    };
-
-  #fileSystems."/slow" =
-  #  { device = "slow";
-  #    fsType = "zfs";
-  #  };
-
   fileSystems."/boot" =
-    { device = "/dev/disk/by-partuuid/d64a6ba7-01";
-      fsType = "ext2";
+    { device = "/dev/disk/by-uuid/c84cd6b3-143b-4db8-9a53-2a48fd1199ea";
+      fsType = "ext4";
     };
-
 
   swapDevices = [ ];
+
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.enableRedistributableFirmware = true;
+
   };
 }

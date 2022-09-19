@@ -185,6 +185,7 @@ in {
       environment.systemPackages = [ pkgs.stalonetray ];
     })
     (mkIf (cfg.gpu == "amd") {
+
       services.xserver.videoDrivers = ["amdpgu"];
     })
 
