@@ -120,7 +120,7 @@ inputs: {
             };
 
             hardware.ProPenGo = true;
-            flakes.enable = true;
+            #flakes.enable = true;
 
           };
         }

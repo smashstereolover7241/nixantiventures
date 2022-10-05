@@ -8,7 +8,7 @@ in {
   };
   config = {
     nix = let
-      nix = pkgs.nixFlakes;
+      nix = pkgs.nixVersions.stable;
     in {
       package = nix;
       extraOptions = ''

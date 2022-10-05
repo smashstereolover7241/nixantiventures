@@ -17,7 +17,7 @@ in {
     (mkIf cfg.smb {
       services.gvfs = {
           enable = true;
-          package = lib.mkForce pkgs.gnome3.gvfs;
+          package = lib.mkForce pkgs.gnome.gvfs;
         };
       teletypeOne.util.polkit = true; # a polkit is required to authenticate.
      })

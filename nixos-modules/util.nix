@@ -29,10 +29,15 @@ in {
     cloud = mkEnableOption "Install nextcloud";
     qute = mkEnableOption "Install qutebrowser";
     lock = mkEnableOption "Install betterlockscreen";
+    scrcpy = mkEnableOption "Install scrcpy";
     polkit = mkEnableOption "Install a policykit";
   };
 
   config = (mkMerge [
+    (mkIf cfg.scrcpy{
+      environment.systemPackages = with pkgs; [scrcpy];
+    })
+
     (mkIf cfg.xmonadUtil {
       environment.systemPackages = with pkgs; [wmctrl rofi gmrun dunst arandr xorg.xkill acpilight playerctl alsa-utils];
     })
@@ -46,7 +51,7 @@ in {
     })
 
     (mkIf cfg.screenshot {
-      environment.systemPackages = with pkgs; [gnome3.gnome-screenshot scrot];
+      environment.systemPackages = with pkgs; [gnome.gnome-screenshot scrot];
     })
 
     (mkIf cfg.theming {
@@ -90,7 +95,7 @@ in {
     })
 
     (mkIf cfg.compilerUtil {
-      environment.systemPackages = with pkgs; [cmake gnumake git pkgconfig zlib];
+      environment.systemPackages = with pkgs; [cmake gnumake git pkg-config zlib];
     })
 
     (mkIf cfg.haskell {
