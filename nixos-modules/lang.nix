@@ -7,6 +7,7 @@ in {
     rust = mkEnableOption "Install rust language compiler and utilities";
     python = mkEnableOption "Install python 39 full";
     pythonML = mkEnableOption "Install pythonML stuffs";
+    java11 = mkEnableOption "Install java11";
   };
   config = (mkMerge [
     (mkIf cfg.rust {
@@ -15,6 +16,11 @@ in {
     (mkIf cfg.python {
       environment.systemPackages = with pkgs; [python39Full python39Packages.pip];
     })
+
+    (mkIf cfg.java11 {
+      environment.systemPackages = with pkgs; [openjdk11];
+    })   
+
     (mkIf cfg.pythonML {
 #environment.systemPackages = with pkgs; [python39Packages.tensorflow_2];
     })
