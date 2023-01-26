@@ -3,10 +3,10 @@ with lib;
 let
   cfg = config.teletypeOne.communication;
   discord-latest = pkgs.discord.overrideAttrs (old: {
-    version = "0.0.21";
+    version = "0.0.24";
     src = pkgs.fetchurl {
-      url = "https://dl.discordapp.net/apps/linux/0.0.21/discord-0.0.21.tar.gz";
-      sha256 = "sha256-KDKUssPRrs/D10s5GhJ23hctatQmyqd27xS9nU7iNaM=";
+      url = "https://dl.discordapp.net/apps/linux/0.0.24/discord-0.0.24.tar.gz";
+      sha256 = "sha256-SG+34ft0mTqtg9rFiI60N6JIONyqF8c8SlnRcn5a4Xc=";
     };
   });
 in {

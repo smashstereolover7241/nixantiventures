@@ -14,15 +14,22 @@ in
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/d96d630c-38cb-483f-83e2-2ecd0980c003";
-      fsType = "btrfs";
-      options = [ "subvol=root" ];
+    { device = "mainFS/nixroot";
+      fsType = "zfs";
     };
 
-  boot.initrd.luks.devices."sda3_crypt".device = "/dev/disk/by-uuid/95f43cb6-ce30-496a-abf3-b850d206a31a";
+  fileSystems."/nix" =
+    { device = "mainFS/nixroot/nix";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home" =
+    { device = "mainFS/nixroot/home";
+      fsType = "zfs";
+    };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/93BF-1420";
+    { device = "/dev/disk/by-uuid/EE53-CA2C";
       fsType = "vfat";
     };
 
@@ -31,7 +38,7 @@ in
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   # high-resolution display
   hardware.video.hidpi.enable = lib.mkDefault true;
-
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   };
 
