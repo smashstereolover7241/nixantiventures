@@ -59,7 +59,7 @@ in {
     })
 
     (mkIf cfg.topFamily {
-      environment.systemPackages = with pkgs; [htop iotop glances bpytop];
+      environment.systemPackages = with pkgs; [htop iotop glances btop];
     })
 
     (mkIf cfg.driveUtil {
