@@ -14,22 +14,22 @@ in
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "MainFS/nixroot";
+    { device = "SsdFS/root";
       fsType = "zfs";
     };
 
   fileSystems."/home" =
-    { device = "MainFS/nixroot/home";
+    { device = "SsdFS/root/home";
       fsType = "zfs";
     };
 
   fileSystems."/nix" =
-    { device = "MainFS/nixroot/nix";
+    { device = "SsdFS/root/nix";
       fsType = "zfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/ecc1fd7a-d2f4-4d89-a53b-f7db38e73203";
+    { device = "/dev/disk/by-uuid/69a213d7-d302-46f2-bed5-360156c11e9f";
       fsType = "ext4";
     };
 
