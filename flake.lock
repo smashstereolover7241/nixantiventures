@@ -52,19 +52,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-<<<<<<< Updated upstream
-        "lastModified": 1682028158,
-        "narHash": "sha256-QyzGqc0TqMTMRik85qt/i2rILg35hyCMaPFITACnlWs=",
+        "lastModified": 1682031679,
+        "narHash": "sha256-T6l6kA61t6hsNuaTCh83bjAeCqQfUHm1u63fdfEiX/M=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "40887bb328619f925920cf244581a93c2351c0cd",
-=======
-        "lastModified": 1677633218,
-        "narHash": "sha256-XKp6qtsTFHD2/mh7B+s9VZeySPAs6SHWOOOG5HFBupE=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "ea737a0ee0f51f0632d554e9cda5acc32a721fa0",
->>>>>>> Stashed changes
+        "rev": "4f322852fdaf6009f53ae1256ef5b48572b50c4f",
         "type": "github"
       },
       "original": {
@@ -76,19 +68,11 @@
     },
     "nixpkgs-unstable": {
       "locked": {
-<<<<<<< Updated upstream
         "lastModified": 1681828457,
         "narHash": "sha256-o4Zvs309HOhrNeVloPKqangcKHobsggVt6GFbnEPZlQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
         "rev": "555daa9d339b3df75e58ee558a4fec98ea92521e",
-=======
-        "lastModified": 1677407201,
-        "narHash": "sha256-3blwdI9o1BAprkvlByHvtEm5HAIRn/XPjtcfiunpY7s=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "7f5639fa3b68054ca0b062866dc62b22c3f11505",
->>>>>>> Stashed changes
         "type": "github"
       },
       "original": {
@@ -129,19 +113,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-<<<<<<< Updated upstream
         "lastModified": 1682024276,
         "narHash": "sha256-k8qmH9WG3C742OzqQfGmDqKqkqawIT7MwnAabk/OiZo=",
         "owner": "oxalica",
         "repo": "rust-overlay",
         "rev": "21afe9cb01cd2bb38335b09f0d0efe9cb6b0f82d",
-=======
-        "lastModified": 1677551437,
-        "narHash": "sha256-KidNaM3fTvixGQwJPrbR4hon6FjT2Doil1Fq1GaeLpA=",
-        "owner": "oxalica",
-        "repo": "rust-overlay",
-        "rev": "c1df023b1aaded1b65a1f4ad604a98a58ab4db97",
->>>>>>> Stashed changes
         "type": "github"
       },
       "original": {
