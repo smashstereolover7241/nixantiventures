@@ -144,7 +144,7 @@ in {
         ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
         '';
  
-     environment.systemPackages = [ pkgs.easystroke ];
+     environment.systemPackages = [ pkgs.easystroke  pkgs.mfcj4335dwlpr ];
   })
     (mkIf cfg.wacom {
       services.xserver.wacom.enable = true;

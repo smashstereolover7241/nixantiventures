@@ -81,6 +81,7 @@ inputs: {
             };
 
             xorg = {
+	      backlightFix = true;
               enable = true;
               gpu = "modesetting";
               xmonad = false;

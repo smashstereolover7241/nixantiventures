@@ -23,7 +23,7 @@
       , ...
     }@inputs:
       let
-        inherit (nixpkgs-unstable.lib) nixosSystem druckerrepo;
+        inherit (nixpkgs-unstable.lib) nixosSystem;
         supportedSystems = [ "x86_64-linux"];
         forAllSystems' = systems: f: nixpkgs.lib.genAttrs systems (system: f system);
         forAllSystems = forAllSystems' supportedSystems;
@@ -59,7 +59,7 @@
         allSystems =
           let
             pkgs = system: import nixpkgs { system = "x86_64-linux"; };
-#            drucker = import druckerrepo { system = "x86_64-linux"; };
+#            drucker = import inputs.druckerrepo { system = "x86_64-linux"; };
 
             linkFarm = system: attrs:
               let
@@ -89,10 +89,10 @@
               easystroke = import "${inputs.easystroke}/default.nix" { pkgs = final; };
             };
 
-          druckerlay = final: prev:
+      mfcj4335dwlpr = final: prev:
             {
-	          inherit (druckerrepo.legacyPackages.${prev.system})
-      mfcl3770cdw;
+	          inherit (inputs.druckerrepo.legacyPackages.${prev.system})
+      mfcj4335dwlpr;
             };
          };
         packages =
