@@ -2,10 +2,11 @@
   "nodes": {
     "druckerrepo": {
       "locked": {
-        "dirtyRev": "102c2a845bd51e5b8ab60f4cb15205425a0f0813-dirty",
-        "dirtyShortRev": "102c2a845bd5-dirty",
-        "lastModified": 1700833572,
-        "narHash": "sha256-BxjLOZIoTrXbA5bXRJuJMPwX42oVT1PhRsVBYnEbMb0=",
+        "lastModified": 1700861735,
+        "narHash": "sha256-UWGF2P44JQKAtoTtfLH2NnvyJJpQ0IJ1NPYSfq9ETc4=",
+        "ref": "refs/heads/master",
+        "rev": "610cec019a424f49a805192bd6b75ef1115a48b1",
+        "revCount": 552377,
         "type": "git",
         "url": "file:///home/localhost/tmp2/nixpkgs"
       },
@@ -66,11 +67,11 @@
     },
     "nixpkgs-master": {
       "locked": {
-        "lastModified": 1700860494,
-        "narHash": "sha256-1aNZeecy2Un6QTR8ZhQMPMrWO6xpzrloMtgkkpEaZyA=",
+        "lastModified": 1700861740,
+        "narHash": "sha256-p/5G3X9YJUeuZISwKulDtnod1xTQtWdU+aMTGzbS1Uw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "1244907222bc7dc5cf4396544796afa6c14c2e52",
+        "rev": "61c5728e7e502e3f57fa3d79d597f622a0394f1d",
         "type": "github"
       },
       "original": {
