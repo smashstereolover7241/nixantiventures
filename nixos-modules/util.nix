@@ -103,7 +103,7 @@ in {
     })
 
     (mkIf cfg.termUtil {
-      environment.systemPackages = with pkgs; [exa tmux];
+      environment.systemPackages = with pkgs; [eza tmux];
     })
 
     (mkIf cfg.painting {
