@@ -1,17 +1,5 @@
 {
   "nodes": {
-    "drucker": {
-      "locked": {
-        "lastModified": 1700833572,
-        "narHash": "sha256-BxjLOZIoTrXbA5bXRJuJMPwX42oVT1PhRsVBYnEbMb0=",
-        "path": "/nix/store/yprs0h4y0rgz0hp2lfrg46hg76kh5bgc-source",
-        "type": "path"
-      },
-      "original": {
-        "id": "drucker",
-        "type": "indirect"
-      }
-    },
     "druckerrepo": {
       "locked": {
         "dirtyRev": "102c2a845bd51e5b8ab60f4cb15205425a0f0813-dirty",
@@ -126,7 +114,6 @@
     },
     "root": {
       "inputs": {
-        "drucker": "drucker",
         "druckerrepo": "druckerrepo",
         "easystroke": "easystroke",
         "nixpkgs": "nixpkgs",

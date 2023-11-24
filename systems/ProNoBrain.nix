@@ -6,7 +6,6 @@ inputs: {
     ({ pkgs, config, lib, ... }:
       let
         inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
-#        inherit (config.teletypeOne.drucker) drucker;
       in
         {
           teletypeOne = {

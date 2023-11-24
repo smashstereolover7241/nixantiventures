@@ -18,12 +18,12 @@
       self
       , nixpkgs
       , nixpkgs-unstable
-      , druckerrepo
-      , drucker
+#      , druckerrepo
+#      , drucker
       , ...
     }@inputs:
       let
-        inherit (nixpkgs-unstable.lib) nixosSystem;
+        inherit (nixpkgs-unstable.lib) nixosSystem druckerrepo;
         supportedSystems = [ "x86_64-linux"];
         forAllSystems' = systems: f: nixpkgs.lib.genAttrs systems (system: f system);
         forAllSystems = forAllSystems' supportedSystems;
@@ -59,7 +59,7 @@
         allSystems =
           let
             pkgs = system: import nixpkgs { system = "x86_64-linux"; };
-            drucker = system: import druckerrepo { system = "x86_64-linux"; };
+#            drucker = import druckerrepo { system = "x86_64-linux"; };
 
             linkFarm = system: attrs:
               let
@@ -89,6 +89,11 @@
               easystroke = import "${inputs.easystroke}/default.nix" { pkgs = final; };
             };
 
+          druckerlay = final: prev:
+            {
+	          inherit (druckerrepo.legacyPackages.${prev.system})
+      mfcl3770cdw;
+            };
          };
         packages =
           forAllSystems (system:
