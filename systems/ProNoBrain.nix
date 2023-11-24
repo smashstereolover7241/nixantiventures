@@ -6,6 +6,7 @@ inputs: {
     ({ pkgs, config, lib, ... }:
       let
         inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
+#        inherit (config.teletypeOne.drucker) drucker;
       in
         {
           teletypeOne = {
@@ -118,11 +119,14 @@ inputs: {
 
       i18n.supportedLocales = ["all"];
       i18n.defaultLocale = "de_DE.UTF-8";
+	
+#      inputs.printerrepo.url = "git+file:///home/localhost/tmp2/nixpkgs";
+#      drucker = system: import printerrepo { system = "x86_64-linux"; };
 
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";
       hardware.enableRedistributableFirmware = true;
-      services.printing.drivers = [ pkgs.gutenprint pkgs.cnijfilter2 ];
+#      services.printing.drivers = [ drucker.mfcj4335dwlpr pkgs.gutenprint pkgs.mfcj470dw-cupswrapper pkgs.mfcj6510dw-cupswrapper pkgs.brlaser pkgs.cnijfilter2 ];
       environment.systemPackages = with pkgs; [firefox links2 vlc feh peek];
       services.printing.enable = true;
 

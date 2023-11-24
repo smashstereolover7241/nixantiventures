@@ -4,6 +4,8 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs?ref=master";
     rust-overlay.url = "github:oxalica/rust-overlay";
+    drucker.url = "git+file:///home/localhost/tmp2/nixpkgs";
+
     easystroke = {
       url = "github:teu5us/easystroke-nix";
       flake = false;
@@ -16,6 +18,7 @@
       self
       , nixpkgs
       , nixpkgs-unstable
+      , drucker
       , ...
     }@inputs:
       let
