@@ -8,7 +8,7 @@ in {
   };
 
   config = (mkIf cfg.enable {
-      services.printing.drivers = [ drucker.mfcj4335dwlpr pkgs.gutenprint pkgs.mfcj470dw-cupswrapper pkgs.mfcj6510dw-cupswrapper pkgs.brlaser pkgs.cnijfilter2 ];
+#      services.printing.drivers = [ drucker.mfcj4335dwlpr pkgs.gutenprint pkgs.mfcj470dw-cupswrapper pkgs.mfcj6510dw-cupswrapper pkgs.brlaser pkgs.cnijfilter2 ];
       environment.systemPackages = with pkgs; [ firefox links2 vlc feh peek xfce.ristretto xfce.tumbler tigervnc ];
   });
 }

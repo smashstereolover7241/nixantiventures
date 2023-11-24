@@ -4,7 +4,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs?ref=master";
     rust-overlay.url = "github:oxalica/rust-overlay";
-    drucker.url = "git+file:///home/localhost/tmp2/nixpkgs";
+    druckerrepo.url = "git+file:///home/localhost/tmp2/nixpkgs";
 
     easystroke = {
       url = "github:teu5us/easystroke-nix";
@@ -18,6 +18,7 @@
       self
       , nixpkgs
       , nixpkgs-unstable
+      , druckerrepo
       , drucker
       , ...
     }@inputs:
@@ -58,6 +59,8 @@
         allSystems =
           let
             pkgs = system: import nixpkgs { system = "x86_64-linux"; };
+            drucker = system: import druckerrepo { system = "x86_64-linux"; };
+
             linkFarm = system: attrs:
               let
                 pkgs' = pkgs system;
