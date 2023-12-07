@@ -11,7 +11,7 @@ inputs: {
           teletypeOne = {
 
             pins = inputs;
-	        	overlays = inputs.self.overlays;
+            overlays = inputs.self.overlays;
 
             terminals = {
               alacritty = true;
@@ -103,7 +103,6 @@ inputs: {
       };
 
       boot.loader.grub.enable = true;
-      boot.loader.grub.version = 2;
       boot.loader.grub.device = "nodev";
       nixpkgs.config.allowUnfree = true;
 

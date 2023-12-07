@@ -9,7 +9,7 @@ in {
 
   config = (mkMerge [
     (mkIf cfg.firaCode {
-      fonts.fonts = with pkgs; [fira-code];
+      fonts.packages = with pkgs; [fira-code];
     })
   ]);
 }
