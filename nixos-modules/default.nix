@@ -20,6 +20,7 @@
     ./flakes.nix
     ./pulseaudio.nix
     ./networking.nix
+    ./android.nix
     ../hardware/default.nix
   ];
 }

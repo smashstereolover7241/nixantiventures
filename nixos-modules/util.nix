@@ -29,18 +29,12 @@ in {
     cloud = mkEnableOption "Install nextcloud";
     qute = mkEnableOption "Install qutebrowser";
     lock = mkEnableOption "Install betterlockscreen";
-    scrcpy = mkEnableOption "Install scrcpy";
     polkit = mkEnableOption "Install a policykit";
     wine = mkEnableOption "Install wine";
     wineland = mkEnableOption "Install wine with native wayland";
-    adb = mkEnableOption "Install adb";
   };
 
   config = (mkMerge [
-    (mkIf cfg.scrcpy{
-      environment.systemPackages = with pkgs; [scrcpy];
-    })
-
     (mkIf cfg.xmonadUtil {
       environment.systemPackages = with pkgs; [wmctrl rofi gmrun dunst arandr xorg.xkill acpilight playerctl alsa-utils];
     })
@@ -143,10 +137,6 @@ in {
 
     (mkIf cfg.wineland {
       environment.systemPackages = with pkgs; [ wineWowPackages.waylandFull ];
-    })
-
-    (mkIf cfg.adb {
-      programs.adb.enable = true;
     })
 
     (mkIf cfg.lock {

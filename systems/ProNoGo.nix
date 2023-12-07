@@ -86,7 +86,6 @@ inputs: {
               gpg = true;
               wine = true;
               wineland = true;
-              adb = true;
             };
 
             xorg = {
@@ -106,6 +105,11 @@ inputs: {
             networking  = {
               bluetooth = true;
               networkManager = true;
+            };
+
+            android = {
+              adb = true;
+              scrcpy = true;
             };
 
             hardware.ProNoGo = true;
