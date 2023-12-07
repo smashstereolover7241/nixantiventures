@@ -69,7 +69,7 @@ in {
     })
 
     (mkIf cfg.emacs {
-      environment.systemPackages = with pkgs; [emacs29 unzip sqlite libtool direnv nix-direnv];
+      environment.systemPackages = with pkgs; [emacs xorg.xwininfo xdotool xclip unzip sqlite libtool direnv nix-direnv];
     })
 
     (mkIf cfg.media {
