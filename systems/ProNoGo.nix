@@ -24,7 +24,7 @@ inputs: {
 
             lang = {
               rust = true;
-              python = true;
+              python = false;
             };
 
             filemanagers = {
@@ -62,6 +62,8 @@ inputs: {
             };
 
             util = {
+	      lock = true;
+	      cloud = true;
               xmonadUtil = true;
               neofetch = true;
               music = true;
@@ -81,6 +83,7 @@ inputs: {
               termUtil = true;
               painting = true;
               qute = true;
+	      gpg = true;
             };
 
             xorg = {
