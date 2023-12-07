@@ -84,6 +84,8 @@ inputs: {
               painting = true;
               qute = true;
 	      gpg = true;
+	      wine = true;
+	      wineland = true;
             };
 
             xorg = {

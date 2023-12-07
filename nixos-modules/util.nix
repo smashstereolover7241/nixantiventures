@@ -31,6 +31,8 @@ in {
     lock = mkEnableOption "Install betterlockscreen";
     scrcpy = mkEnableOption "Install scrcpy";
     polkit = mkEnableOption "Install a policykit";
+    wine = mkEnableOption "Install wine";
+    wineland = mkEnableOption "Install wine with native wayland";
   };
 
   config = (mkMerge [
@@ -132,6 +134,14 @@ in {
 
     (mkIf cfg.polkit {
       environment.systemPackages = with pkgs; [ lxqt.lxqt-policykit ];
+    })
+
+    (mkIf cfg.wine {
+      environment.systemPackages = with pkgs; [ wineWowPackages.staging ];
+    })
+
+    (mkIf cfg.wineland {
+      environment.systemPackages = with pkgs; [ wineWowPackages.waylandFull ];
     })
 
     (mkIf cfg.lock {
