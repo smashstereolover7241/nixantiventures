@@ -4,105 +4,104 @@ inputs: {
   modules = [
     ../nixos-modules/default.nix
     ({ pkgs, config, lib, ... }:
-      let
-        inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
-      in
-        {
-          teletypeOne = {
+    let
+      inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
+    in
+    {
+      teletypeOne = {
 
-            pins = inputs;
-	        	overlays = inputs.self.overlays;
+        pins = inputs;
+        overlays = inputs.self.overlays;
 
-            terminals = {
-              alacritty = false;
-              termite = true;
-              kitty = true;
-            };
+        terminals = {
+          alacritty = false;
+          termite = true;
+          kitty = true;
+        };
 
-            filemanagers = {
-              gui = true;
-              tui = true;
-            };
+        filemanagers = {
+          gui = true;
+          tui = true;
+        };
 
-            zsh = {
-              enabled = true;
-              ohMy = true;
-            };
+        zsh = {
+          enabled = true;
+          ohMy = true;
+        };
 
-            games = {
-              steam = true;
-              minecraft = true;
-            };
+        games = {
+          steam = true;
+          minecraft = true;
+        };
 
-            pulseaudio.enable = false;
-            pipewire.enable = true;
+        pulseaudio.enable = false;
+        pipewire.enable = true;
 
-            fonts = {
-              firaCode = true;
-            };
+        fonts = {
+          firaCode = true;
+        };
 
-            communication = {
-              free = true;
-              nonFree = true;
-              bullshit = true;
-              tdesktop = true;
-              mailGui = true;
-              mailTui = true;
-            };
+        communication = {
+          free = true;
+          nonFree = true;
+          bullshit = true;
+          tdesktop = true;
+          mailGui = true;
+          mailTui = true;
+        };
 
-            util = {
-              xmonadUtil = true;
-              neofetch = true;
-              music = true;
-              screenshot = true;
-              theming = true;
-              topFamily = true;
-              driveUtil = true;
-              emacs = true;
-              media = true;
-              encoding = true;
-              pulseUtil = true;
-              textUtil = true;
-              office = true;
-              password = true;
-              compilerUtil = true;
-              haskell = true;
-              termUtil = true;
-      	      maths = true;
-              painting = true;
-	            cloud = true;
-              qute = true;
-            };
+        util = {
+          xmonadUtil = true;
+          neofetch = true;
+          music = true;
+          screenshot = true;
+          theming = true;
+          topFamily = true;
+          driveUtil = true;
+          emacs = true;
+          media = true;
+          encoding = true;
+          pulseUtil = true;
+          textUtil = true;
+          office = true;
+          password = true;
+          compilerUtil = true;
+          haskell = true;
+          termUtil = true;
+          maths = true;
+          painting = true;
+          cloud = true;
+          qute = true;
+        };
 
-            xorg = {
-              backlightFix = true;
-              enable = true;
-              gpu = "nvidia";
-	            nvidia = {
-            		prime = true;
-    	        	intelBusId = "PCI:0:2:0";
-	            	nvidiaBusId = "PCI:1:0:0";
-	          	};
-#              gpu = "modesetting";
-	      xmonad = true;
-              xmobar = true;
-              dunst = true;
-              kde = false;
-              lightdm = true;
-              libinput = true;
-              flatInput = false;
-            };
-
-            networking  = {
-              bluetooth = true;
-              networkManager = true;
-            };
-
-            hardware.ProProGo = true;
-            flakes.enable = true;
-
+        xorg = {
+          backlightFix = true;
+          enable = true;
+          gpu = "nvidia";
+          nvidia = {
+            prime = true;
+            intelBusId = "PCI:0:2:0";
+            nvidiaBusId = "PCI:1:0:0";
           };
-        }
+          xmonad = true;
+          xmobar = true;
+          dunst = true;
+          kde = false;
+          lightdm = true;
+          libinput = true;
+          flatInput = false;
+        };
+
+        networking  = {
+          bluetooth = true;
+          networkManager = true;
+        };
+
+        hardware.ProProGo = true;
+        flakes.enable = true;
+
+      };
+    }
     )
   ] ++ [
     ({ pkgs, ... }: {
@@ -116,10 +115,10 @@ inputs: {
       boot.loader.grub.device = "nodev";
       nixpkgs.config.allowUnfree = true;
 
-  programs.adb.enable = true;
+      programs.adb.enable = true;
 
       time.timeZone = "Europe/Berlin";
-       hardware.enableRedistributableFirmware = true; 
+      hardware.enableRedistributableFirmware = true;
       system.stateVersion = "21.05";
     })
   ];

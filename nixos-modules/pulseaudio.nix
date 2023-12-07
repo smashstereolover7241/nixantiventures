@@ -11,8 +11,8 @@ in {
     sound.enable = true;
     hardware = {
       pulseaudio = {
-       enable = true;
-       package = mkIf bluetooth-enable pkgs.pulseaudioFull;
+        enable = true;
+        package = mkIf bluetooth-enable pkgs.pulseaudioFull;
       };
       pulseaudio.support32Bit = true;
     };

@@ -29,30 +29,30 @@ in
 
   config = mkMerge [
     (optionalAttrs
-      (options ? "nix") {
-        nix = {
-          registry = mapAttrs (_: v: {
-            flake = v; 
-          }) cfg.pins;
-          nixPath = mapAttrsToList (n: v: "${n}=${v}") cfg.pins;
-        };
-      })
+    (options ? "nix") {
+      nix = {
+        registry = mapAttrs (_: v: {
+          flake = v;
+        }) cfg.pins;
+        nixPath = mapAttrsToList (n: v: "${n}=${v}") cfg.pins;
+      };
+    })
     (optionalAttrs
-      (options ? "nixpkgs")
-      {
-        nixpkgs.config = cfg.config;
-        nixpkgs.overlays = mapAttrsToList (_: v: v) cfg.overlays;
-      })
+    (options ? "nixpkgs")
+    {
+      nixpkgs.config = cfg.config;
+      nixpkgs.overlays = mapAttrsToList (_: v: v) cfg.overlays;
+    })
     {
 
       teletypeOne.pkgs =
         mapAttrs
-          (n: v: import v {
-            inherit system;
-            config = cfg.config;
-            overlays = (mapAttrsToList (_: v: v) cfg.overlays);
-          })
-          (filterAttrs (n: v: builtins.hasAttr "legacyPackages" v) cfg.pins);
+        (n: v: import v {
+          inherit system;
+          config = cfg.config;
+          overlays = (mapAttrsToList (_: v: v) cfg.overlays);
+        })
+        (filterAttrs (n: v: builtins.hasAttr "legacyPackages" v) cfg.pins);
     }
   ];
 }

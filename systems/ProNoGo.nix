@@ -11,10 +11,10 @@ inputs: {
           teletypeOne = {
 
             pins = inputs;
-	        	overlays = inputs.self.overlays;
+            overlays = inputs.self.overlays;
 
-	    theGrandUtilities.enable = true;
-	    ssh.enable = true;
+            theGrandUtilities.enable = true;
+            ssh.enable = true;
 
             terminals = {
               alacritty = true;
@@ -41,7 +41,7 @@ inputs: {
             games = {
               steam = true;
               minecraft = true;
-	      minecraftLibFix = true;
+              minecraftLibFix = true;
             };
 
             pulseaudio.enable = false;
@@ -62,8 +62,8 @@ inputs: {
             };
 
             util = {
-	      lock = true;
-	      cloud = true;
+              lock = true;
+              cloud = true;
               xmonadUtil = true;
               neofetch = true;
               music = true;
@@ -83,18 +83,18 @@ inputs: {
               termUtil = true;
               painting = true;
               qute = true;
-	      gpg = true;
-	      wine = true;
-	      wineland = true;
+              gpg = true;
+              wine = true;
+              wineland = true;
             };
 
             xorg = {
               enable = true;
-	      firmware = true;
+              firmware = true;
               gpu = "amd";
               xmonad = false;
-	      kde = true;
-	      pass = false;
+              kde = true;
+              pass = false;
               xmobar = false;
               dunst = false;
               lightdm = true;
@@ -125,14 +125,10 @@ inputs: {
       boot.loader.grub.device = "nodev";
       nixpkgs.config.allowUnfree = true;
 
-  programs.adb.enable = true;
+      programs.adb.enable = true;
 
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";
-
-#virtualisation.libvirtd.enable = true;
-#programs.dconf.enable = true;
-#environment.systemPackages = with pkgs; [ virt-manager ];
 
     })
   ];

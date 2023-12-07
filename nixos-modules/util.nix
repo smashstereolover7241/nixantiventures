@@ -112,7 +112,7 @@ in {
       environment.systemPackages = with pkgs; [kolourpaint krita gimp];
     })
 
-    (mkIf cfg.painting {
+    (mkIf cfg.openvpn {
       environment.systemPackages = with pkgs; [openvpn];
     })
 

@@ -4,92 +4,92 @@ inputs: {
   modules = [
     ../nixos-modules/default.nix
     ({ pkgs, config, lib, ... }:
-      let
-        inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
-      in
-        {
-          teletypeOne = {
+    let
+      inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
+    in
+    {
+      teletypeOne = {
 
-            pins = inputs;
-	        	overlays = inputs.self.overlays;
+        pins = inputs;
+        overlays = inputs.self.overlays;
 
-            terminals = {
-              alacritty = true;
-              termite = true;
-            };
+        terminals = {
+          alacritty = true;
+          termite = true;
+        };
 
-            filemanagers = {
-              gui = true;
-              tui = true;
-            };
+        filemanagers = {
+          gui = true;
+          tui = true;
+        };
 
-            zsh = {
-              enabled = true;
-              ohMy = true;
-            };
+        zsh = {
+          enabled = true;
+          ohMy = true;
+        };
 
-            games = {
-              steam = false;
-              minecraft = false;
-            };
+        games = {
+          steam = false;
+          minecraft = false;
+        };
 
-            pulseaudio.enable = false;
-            pipewire.enable = true;
+        pulseaudio.enable = false;
+        pipewire.enable = true;
 
-            fonts = {
-              firaCode = true;
-            };
+        fonts = {
+          firaCode = true;
+        };
 
-            communication = {
-              free = true;
-              nonFree = true;
-              bullshit = false;
-              mailGui = true;
-              mailTui = true;
-            };
+        communication = {
+          free = true;
+          nonFree = true;
+          bullshit = false;
+          mailGui = true;
+          mailTui = true;
+        };
 
-            util = {
-              xmonadUtil = true;
-              neofetch = true;
-              music = true;
-              screenshot = true;
-              theming = true;
-              topFamily = true;
-              driveUtil = true;
-              emacs = true;
-              media = true;
-              encoding = false;
-              pulseUtil = true;
-              textUtil = true;
-              office = false;
-              password = true;
-              compilerUtil = true;
-              haskell = true;
-              termUtil = true;
-              painting = false;
-            };
+        util = {
+          xmonadUtil = true;
+          neofetch = true;
+          music = true;
+          screenshot = true;
+          theming = true;
+          topFamily = true;
+          driveUtil = true;
+          emacs = true;
+          media = true;
+          encoding = false;
+          pulseUtil = true;
+          textUtil = true;
+          office = false;
+          password = true;
+          compilerUtil = true;
+          haskell = true;
+          termUtil = true;
+          painting = false;
+        };
 
-            xorg = {
-              enable = true;
-              gpu = "null";
-              xmonad = true;
-              xmobar = true;
-              dunst = true;
-              lightdm = true;
-              libinput = true;
-              flatInput = false;
-            };
+        xorg = {
+          enable = true;
+          gpu = "null";
+          xmonad = true;
+          xmobar = true;
+          dunst = true;
+          lightdm = true;
+          libinput = true;
+          flatInput = false;
+        };
 
-            networking  = {
-              bluetooth = false;
-              networkManager = true;
-            };
+        networking  = {
+          bluetooth = false;
+          networkManager = true;
+        };
 
-            hardware.ProSlowGo = true;
-            flakes.enable = true;
+        hardware.ProSlowGo = true;
+        flakes.enable = true;
 
-          };
-        }
+      };
+    }
     )
   ] ++ [
     ({ pkgs, ... }: {
@@ -106,7 +106,6 @@ inputs: {
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";
       hardware.enableRedistributableFirmware = true;
-#      services.xserver.displayManager.sddm.enable = true;
     })
   ];
 }

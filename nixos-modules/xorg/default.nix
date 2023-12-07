@@ -60,19 +60,19 @@ in {
     intelAccelerated = mkOption {
       description = "Intel drivers, with opengl etc.";
     };
-  xmonad = mkEnableOption "Enable xmonad";
-  kde = mkEnableOption "Enable kde";
-  xmobar = mkEnableOption "Enable xmobar";
-  dunst = mkEnableOption "Enable dunst";
-  lightdm = mkEnableOption "Enable lightdm";
-  sddm = mkEnableOption "Enable sddm";
-  libinput = mkEnableOption "Enable libinput";
-  flatInput = mkEnableOption "Add extra config for non-accelerated mouse input.";
-  wacom = mkEnableOption "Install wacom drivers";
-  backlightFix = mkEnableOption "fix backlight, maybe";
-  stalone = mkEnableOption "install stalonetray";
-  firmware = mkEnableOption "install additional firmware";
-  pass = mkEnableOption "Gpu is passed thru";
+    xmonad = mkEnableOption "Enable xmonad";
+    kde = mkEnableOption "Enable kde";
+    xmobar = mkEnableOption "Enable xmobar";
+    dunst = mkEnableOption "Enable dunst";
+    lightdm = mkEnableOption "Enable lightdm";
+    sddm = mkEnableOption "Enable sddm";
+    libinput = mkEnableOption "Enable libinput";
+    flatInput = mkEnableOption "Add extra config for non-accelerated mouse input.";
+    wacom = mkEnableOption "Install wacom drivers";
+    backlightFix = mkEnableOption "fix backlight, maybe";
+    stalone = mkEnableOption "install stalonetray";
+    firmware = mkEnableOption "install additional firmware";
+    pass = mkEnableOption "Gpu is passed thru";
   };
 
   config = mkIf cfg.enable (mkMerge [
@@ -112,8 +112,8 @@ in {
       environment.systemPackages = (with pkgs; [linux-firmware]);
       hardware.enableAllFirmware = true;
       hardware.opengl.extraPackages = with pkgs; [
-      	rocm-opencl-icd
-	rocm-opencl-runtime
+        rocm-opencl-icd
+        rocm-opencl-runtime
       ];
       hardware.opengl.driSupport = true;
       hardware.enableRedistributableFirmware = true;
@@ -122,42 +122,42 @@ in {
 
     (mkIf cfg.flatInput {
       services.xserver.extraConfig = ''
-          Section "InputClass"
-               Identifier "My Mouse"
-               MatchIsPointer "yes"
-               Option "AccelerationProfile" "-1"
-               Option "AccelerationScheme" "none"
-               Option "AccelSpeed" "-1"
-          EndSection
-          '';
+        Section "InputClass"
+        Identifier "My Mouse"
+        MatchIsPointer "yes"
+        Option "AccelerationProfile" "-1"
+        Option "AccelerationScheme" "none"
+        Option "AccelSpeed" "-1"
+        EndSection
+      '';
     })
 
-   (mkIf cfg.backlightFix {
-     services.xserver.extraConfig = ''
+    (mkIf cfg.backlightFix {
+      services.xserver.extraConfig = ''
         Section "Device"
-          Identifier  "Intel Graphics"
-          Driver      "intel"
-          Option      "Backlight"  "intel_backlight"
+        Identifier  "Intel Graphics"
+        Driver      "intel"
+        Option      "Backlight"  "intel_backlight"
         EndSection
-        '';
-     services.udev.extraRules = ''
+      '';
+      services.udev.extraRules = ''
         ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
-        '';
- 
-     environment.systemPackages = [ pkgs.easystroke ];
-    # wtf??? environment.systemPackages = [ pkgs.easystroke  pkgs.mfcj4335dwlpr ];
-  })
+      '';
+
+      environment.systemPackages = [ pkgs.easystroke ];
+      # wtf??? environment.systemPackages = [ pkgs.easystroke  pkgs.mfcj4335dwlpr ];
+    })
     (mkIf cfg.wacom {
       services.xserver.wacom.enable = true;
     })
 
     (mkIf cfg.pass {
-         services.xserver.extraConfig = ''
-		Section "Device"
-			Identifier "YAY"
-			BusID "PCI:0:6:0"
-		EndSection
-	'';
+      services.xserver.extraConfig = ''
+        Section "Device"
+        Identifier "YAY"
+        BusID "PCI:0:6:0"
+        EndSection
+      '';
     })
 
     (mkIf (cfg.gpu == "nvidia") {
@@ -165,7 +165,7 @@ in {
       hardware.opengl.enable = true;
 
       environment.systemPackages = mkIf (cfg.nvidia.prime)
-        [ nvidia-offload pkgs.libglvnd ];
+      [ nvidia-offload pkgs.libglvnd ];
 
       hardware.nvidia.prime = mkIf cfg.nvidia.prime {
         offload.enable = true;
@@ -203,19 +203,19 @@ in {
 
     (mkIf (cfg.gpu == "intelAccelerated") {
       services.xserver.videoDrivers = ["intel"];
-        nixpkgs.config.packageOverrides = pkgs: {
-    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
-  };
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    extraPackages = with pkgs; [
-      intel-media-driver # LIBVA_DRIVER_NAME=iHD
-      vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
-  };
+      nixpkgs.config.packageOverrides = pkgs: {
+        vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+      };
+      hardware.opengl = {
+        enable = true;
+        driSupport = true;
+        extraPackages = with pkgs; [
+          intel-media-driver # LIBVA_DRIVER_NAME=iHD
+          vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+          vaapiVdpau
+          libvdpau-va-gl
+        ];
+      };
     })
   ]);
 }

@@ -11,7 +11,7 @@ inputs: {
           teletypeOne = {
 
             pins = inputs;
-	    overlays = inputs.self.overlays;
+            overlays = inputs.self.overlays;
 
             terminals = {
               alacritty = true;

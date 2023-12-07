@@ -16,11 +16,11 @@ in {
     })
     (mkIf cfg.smb {
       services.gvfs = {
-          enable = true;
-          package = lib.mkForce pkgs.gnome.gvfs;
-        };
+        enable = true;
+        package = lib.mkForce pkgs.gnome.gvfs;
+      };
       teletypeOne.util.polkit = true; # a polkit is required to authenticate.
-     })
+    })
 
     (mkIf cfg.tui {
       environment.systemPackages = with pkgs; [w3m ranger];

@@ -32,8 +32,7 @@ in {
     })
 
     (mkIf (cfg.bullshit) {
-## removed, to be removed from flake some day
-#      environment.systemPackages = with pkgs; [teams];
+      environment.systemPackages = with pkgs; [teams-for-linux];
     })
 
     (mkIf cfg.mailGui {
@@ -42,11 +41,7 @@ in {
 
     (mkIf cfg.mailTui {
       environment.systemPackages = with pkgs; [neomutt curl isync msmtp pass lynx notmuch abook urlview];
-      programs.gnupg.agent = {
-        enable = true;
-        enableSSHSupport = true;
-        pinentryFlavor = "curses";
-      };
+      teletypeOne.util.gpg = true; # gpg is requried
     })
   ]);
 }

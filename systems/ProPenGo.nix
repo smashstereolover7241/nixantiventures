@@ -11,7 +11,7 @@ inputs: {
           teletypeOne = {
 
             pins = inputs;
-		        overlays = inputs.self.overlays;
+            overlays = inputs.self.overlays;
 
             terminals = {
               alacritty = true;
@@ -21,7 +21,7 @@ inputs: {
 
             lang = {
               rust = false;
-	      java11 = true;
+              java11 = true;
               python = true;
               pythonML = false;
             };
@@ -71,7 +71,7 @@ inputs: {
             };
 
             util = {
-	      lock = true;
+              lock = true;
               xmonadUtil = true;
               neofetch = true;
               music = true;
@@ -99,7 +99,6 @@ inputs: {
             };
 
             xorg = {
-	      #lock = true;
               enable = true;
               backlightFix = true;
               gpu = "intelAccelerated";
@@ -121,7 +120,6 @@ inputs: {
             };
 
             hardware.ProPenGo = true;
-            #flakes.enable = true;
 
           };
         }
@@ -137,8 +135,6 @@ inputs: {
       boot.loader.grub.enable = true;
       boot.loader.grub.device = "nodev";
       nixpkgs.config.allowUnfree = true;
-#      environment.systemPackages =  with pkgs; [spotify python-validity ntfs3g];
-
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";
       hardware.enableRedistributableFirmware = true;

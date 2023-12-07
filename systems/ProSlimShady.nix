@@ -4,125 +4,125 @@ inputs: {
   modules = [
     ../nixos-modules/default.nix
     ({ pkgs, config, lib, ... }:
-      let
-        inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
-      in
-        {
-          teletypeOne = {
+    let
+      inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
+    in
+    {
+      teletypeOne = {
 
-            pins = inputs;
-            overlays = inputs.self.overlays;
+        pins = inputs;
+        overlays = inputs.self.overlays;
 
-            terminals = {
-              alacritty = true;
-              termite = false;
-              kitty = true;
-            };
+        terminals = {
+          alacritty = true;
+          termite = false;
+          kitty = true;
+        };
 
-            lang = {
-              rust = false;
-              python = false;
-              pythonML = false;
-            };
+        lang = {
+          rust = false;
+          python = false;
+          pythonML = false;
+        };
 
-            ssh = {
-              enable = false;
-            };
+        ssh = {
+          enable = false;
+        };
 
-            wireguard = {
-              enable = false;
-            };
+        wireguard = {
+          enable = false;
+        };
 
-            theGrandUtilities = {
-              enable = false;
-            };
+        theGrandUtilities = {
+          enable = false;
+        };
 
-            filemanagers = {
-              gui = true;
-              tui = true;
-            };
+        filemanagers = {
+          gui = true;
+          tui = true;
+        };
 
-            zsh = {
-              enabled = true;
-              ohMy = true;
-            };
+        zsh = {
+          enabled = true;
+          ohMy = true;
+        };
 
-            games = {
-              steam = true;
-              minecraft = false;
-            };
+        games = {
+          steam = true;
+          minecraft = false;
+        };
 
-            pulseaudio.enable = false;
-            pipewire.enable = true;
-            pipewire.easyeffects = true;
+        pulseaudio.enable = false;
+        pipewire.enable = true;
+        pipewire.easyeffects = true;
 
-            fonts = {
-              firaCode = true;
-            };
+        fonts = {
+          firaCode = true;
+        };
 
-            communication = {
-              free = true;
-              nonFree = true;
-              bullshit = true;
-              mailGui = true;
-              mailTui = false;
-              tdesktop = true;
-            };
+        communication = {
+          free = true;
+          nonFree = true;
+          bullshit = true;
+          mailGui = true;
+          mailTui = false;
+          tdesktop = true;
+        };
 
-            util = {
-	      lock = true;
-              xmonadUtil = true;
-              neofetch = true;
-              music = true;
-              screenshot = true;
-              theming = true;
-              topFamily = true;
-              driveUtil = true;
-              emacs = true;
-              media = true;
-              encoding = false;
-              pulseUtil = true;
-              textUtil = true;
-              office = false;
-              password = true;
-              compilerUtil = true;
-              haskell = true;
-              termUtil = true;
-              painting = true;
-              gpg = true;
-              openvpn = true;
-              maths = true;
-              fingerprint = true;
-              cloud = true;
-              qute = true;
-            };
+        util = {
+          lock = true;
+          xmonadUtil = true;
+          neofetch = true;
+          music = true;
+          screenshot = true;
+          theming = true;
+          topFamily = true;
+          driveUtil = true;
+          emacs = true;
+          media = true;
+          encoding = false;
+          pulseUtil = true;
+          textUtil = true;
+          office = false;
+          password = true;
+          compilerUtil = true;
+          haskell = true;
+          termUtil = true;
+          painting = true;
+          gpg = true;
+          openvpn = true;
+          maths = true;
+          fingerprint = true;
+          cloud = true;
+          qute = true;
+        };
 
-            xorg = {
-              enable = true;
-              backlightFix = true;
-              gpu = "intelAccelerated";
-              xmonad = true;
-              kde = false;
-              xmobar = true;
-              dunst = true;
-              lightdm = false;
-              sddm = true;
-              libinput = true;
-              flatInput = false;
-              wacom = false;
-              stalone = false;
-            };
+        xorg = {
+          enable = true;
+          backlightFix = true;
+          gpu = "intelAccelerated";
+          xmonad = true;
+          kde = false;
+          xmobar = true;
+          dunst = true;
+          lightdm = false;
+          sddm = true;
+          libinput = true;
+          flatInput = false;
+          wacom = false;
+          stalone = false;
+        };
 
-            networking  = {
-              bluetooth = true;
-              networkManager = true;
-            };
+        networking  = {
+          bluetooth = true;
+          networkManager = true;
+        };
 
-            hardware.ProSlimShady = true;
-            flakes.enable = true;
+        hardware.ProSlimShady = true;
+        flakes.enable = true;
 
-          };
-        }
+      };
+    }
     )
   ] ++ [
     ({ pkgs, ... }: {
@@ -135,7 +135,7 @@ inputs: {
       boot.loader.grub.enable = true;
       boot.loader.grub.device = "nodev";
       nixpkgs.config.allowUnfree = true;
-#      environment.systemPackages =  with pkgs; [spotify python-validity ntfs3g];
+      #      environment.systemPackages =  with pkgs; [spotify python-validity ntfs3g];
 
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";
