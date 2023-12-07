@@ -4,7 +4,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs?ref=master";
     rust-overlay.url = "github:oxalica/rust-overlay";
-    druckerrepo.url = "git+file:///home/localhost/tmp2/nixpkgs";
+#    druckerrepo.url = "git+https://git.irunx.org/localhost/nixpkgs";
 
     easystroke = {
       url = "github:teu5us/easystroke-nix";
@@ -89,11 +89,11 @@
               easystroke = import "${inputs.easystroke}/default.nix" { pkgs = final; };
             };
 
-      mfcj4335dwlpr = final: prev:
-            {
-	          inherit (inputs.druckerrepo.legacyPackages.${prev.system})
-      mfcj4335dwlpr;
-            };
+#      mfcj4335dwlpr = final: prev:
+#            {
+#	          inherit (inputs.druckerrepo.legacyPackages.${prev.system})
+#      mfcj4335dwlpr;
+#            };
          };
         packages =
           forAllSystems (system:

@@ -32,7 +32,8 @@ in {
     })
 
     (mkIf (cfg.bullshit) {
-      environment.systemPackages = with pkgs; [teams];
+## removed, to be removed from flake some day
+#      environment.systemPackages = with pkgs; [teams];
     })
 
     (mkIf cfg.mailGui {

@@ -8,7 +8,8 @@ in
 
   config = mkIf cfg{
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
+
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
@@ -16,26 +17,28 @@ in
   services.qemuGuest.enable = true;
 
   fileSystems."/" =
-    { device = "sonicFS/root";
-      fsType = "zfs";
-    };
-
-  fileSystems."/nix" =
-    { device = "SolidFS/nix";
+    { device = "mainFS/root";
       fsType = "zfs";
     };
 
   fileSystems."/home" =
-    { device = "sonicFS/root/home";
+    { device = "mainFS/home";
+      fsType = "zfs";
+    };
+
+  fileSystems."/nix" =
+    { device = "storeFS/nix";
       fsType = "zfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/A176-D6ED";
+    { device = "/dev/disk/by-uuid/7BFD-BE97";
       fsType = "vfat";
     };
 
   swapDevices = [ ];
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   };
 }
