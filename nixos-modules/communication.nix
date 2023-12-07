@@ -41,7 +41,7 @@ in {
 
     (mkIf cfg.mailTui {
       environment.systemPackages = with pkgs; [neomutt curl isync msmtp pass lynx notmuch abook urlview];
-      teletypeOne.util.gpg = true; # gpg is requried
+      teletypeOne.util.gpg = true; # gpg is required
     })
   ]);
 }
