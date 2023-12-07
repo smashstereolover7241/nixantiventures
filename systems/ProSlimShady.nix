@@ -135,7 +135,6 @@ inputs: {
       boot.loader.grub.enable = true;
       boot.loader.grub.device = "nodev";
       nixpkgs.config.allowUnfree = true;
-      #      environment.systemPackages =  with pkgs; [spotify python-validity ntfs3g];
 
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";

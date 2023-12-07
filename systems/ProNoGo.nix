@@ -62,9 +62,9 @@ inputs: {
             };
 
             util = {
-              lock = true;
+              lock = false;
               cloud = true;
-              xmonadUtil = true;
+              xmonadUtil = false;
               neofetch = true;
               music = true;
               screenshot = true;
@@ -79,13 +79,14 @@ inputs: {
               office = true;
               password = true;
               compilerUtil = true;
-              haskell = true;
+              haskell = false;
               termUtil = true;
               painting = true;
               qute = true;
               gpg = true;
               wine = true;
               wineland = true;
+              adb = true;
             };
 
             xorg = {
@@ -124,8 +125,6 @@ inputs: {
       boot.loader.grub.enable = true;
       boot.loader.grub.device = "nodev";
       nixpkgs.config.allowUnfree = true;
-
-      programs.adb.enable = true;
 
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";

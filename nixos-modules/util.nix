@@ -33,6 +33,7 @@ in {
     polkit = mkEnableOption "Install a policykit";
     wine = mkEnableOption "Install wine";
     wineland = mkEnableOption "Install wine with native wayland";
+    adb = mkEnableOption "Install adb";
   };
 
   config = (mkMerge [
@@ -142,6 +143,10 @@ in {
 
     (mkIf cfg.wineland {
       environment.systemPackages = with pkgs; [ wineWowPackages.waylandFull ];
+    })
+
+    (mkIf cfg.adb {
+      programs.adb.enable = true;
     })
 
     (mkIf cfg.lock {

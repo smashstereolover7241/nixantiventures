@@ -122,7 +122,6 @@ inputs: {
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";
       hardware.enableRedistributableFirmware = true;
-      environment.systemPackages = with pkgs; [firefox links2 vlc feh peek];
       services.printing.enable = true;
 
     })

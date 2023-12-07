@@ -138,6 +138,7 @@ inputs: {
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";
       hardware.enableRedistributableFirmware = true;
+
     })
   ];
 }

@@ -8,6 +8,6 @@ in {
   };
 
   config = (mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [ firefox links2 vlc feh peek xfce.ristretto xfce.tumbler tigervnc ];
+    environment.systemPackages = with pkgs; [ firefox links2 vlc feh peek firefox links2 vlc feh peek xfce.ristretto xfce.tumbler tigervnc ];
   });
 }
