@@ -90,11 +90,11 @@ inputs: {
               enable = true;
 	      firmware = true;
               gpu = "amd";
-              xmonad = true;
+              xmonad = false;
+	      kde = true;
 	      pass = false;
-              xmobar = true;
-              dunst = true;
-              kde = false;
+              xmobar = false;
+              dunst = false;
               lightdm = true;
               libinput = false;
               flatInput = true;
