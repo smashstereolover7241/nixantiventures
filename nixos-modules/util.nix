@@ -132,7 +132,7 @@ in {
     })
 
     (mkIf cfg.wine {
-      environment.systemPackages = with pkgs; [ wineWowPackages.staging ];
+      environment.systemPackages = with pkgs; [ wineWowPackages.stable ];
     })
 
     (mkIf cfg.wineland {
