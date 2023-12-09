@@ -21,8 +21,8 @@ in
       fsType = "zfs";
     };
 
-  fileSystems."/game3" =
-    { device = "mainFS/game";
+  fileSystems."/game4" =
+    { device = "storeFS/game";
       fsType = "zfs";
     };
 
