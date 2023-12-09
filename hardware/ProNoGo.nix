@@ -21,6 +21,11 @@ in
       fsType = "zfs";
     };
 
+  fileSystems."/game3" =
+    { device = "mainFS/game";
+      fsType = "zfs";
+    };
+
   fileSystems."/home" =
     { device = "mainFS/home";
       fsType = "zfs";
