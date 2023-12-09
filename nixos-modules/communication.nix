@@ -21,7 +21,7 @@ in {
 
   config = (mkMerge [
     (mkIf (cfg.free) {
-      environment.systemPackages = with pkgs; [signal-desktop element-desktop revolt-desktop];
+      environment.systemPackages = with pkgs; [signal-desktop mumble element-desktop revolt-desktop];
     })
 
     (mkIf (cfg.nonFree) {
