@@ -69,6 +69,7 @@ in {
     libinput = mkEnableOption "Enable libinput";
     flatInput = mkEnableOption "Add extra config for non-accelerated mouse input.";
     wacom = mkEnableOption "Install wacom drivers";
+    wacomFix = mkEnableOption "Fix wacom (X200T)";
     backlightFix = mkEnableOption "fix backlight, maybe";
     stalone = mkEnableOption "install stalonetray";
     firmware = mkEnableOption "install additional firmware";
@@ -149,6 +150,31 @@ in {
     })
     (mkIf cfg.wacom {
       services.xserver.wacom.enable = true;
+    })
+
+    (mkIf cfg.wacomFix {
+     #couldn't get it working with a single service, so 2 it is 
+     systemd.services.inputattach = {
+        wantedBy = [ "multi-user.target" ];
+        description = "inputattach thingy";
+        serviceConfig = {
+          Type = "simple";
+#	  ExecStartPre="/run/current-system/sw/bin/sleep 5"; # takes a moment to show up
+	  ExecStart="/run/current-system/sw/bin/isdv4-serial-inputattach /dev/ttyS0";
+        };
+      };
+     #Need to reattach the device after every suspend
+     systemd.services.inputreattach = {
+        wantedBy = [ "suspend.target" ];
+        after = [ "suspend.target" ];
+        description = "inputattach thingy";
+        serviceConfig = {
+          Type = "simple";
+	  ExecStartPre="/run/current-system/sw/bin/sleep 5"; # takes a moment to show up
+	  ExecStart="/run/current-system/sw/bin/isdv4-serial-inputattach /dev/ttyS0";
+        };
+      };
+
     })
 
     (mkIf cfg.pass {

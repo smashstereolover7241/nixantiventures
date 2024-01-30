@@ -56,6 +56,9 @@
         nixosConfigurations.ProVerySlowGo = nixosSystem (import ./systems/ProVerySlowGo.nix inputs);
         ProVerySlowGo = self.nixosConfigurations.ProVerySlowGo.config.system.build.toplevel;
 
+        nixosConfigurations.Samantha = nixosSystem (import ./systems/Samantha.nix inputs);
+        Samantha = self.nixosConfigurations.Samantha.config.system.build.toplevel;
+
         allSystems =
           let
             pkgs = system: import nixpkgs { system = "x86_64-linux"; };
@@ -80,6 +83,7 @@
                    ProVerySlowGo = nixos "ProVerySlowGo";
                    ProSlimShady = nixos "ProSlimShady";
                    VictoryLaptop = nixos "VictoryLaptop";
+                   Samantha = nixos "Samantha";
                 };
             };
         overlays = {
