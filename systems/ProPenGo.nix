@@ -21,8 +21,8 @@ inputs: {
 
             lang = {
               rust = false;
-              java11 = true;
-              python = true;
+              java11 = false;
+              python = false;
               pythonML = false;
             };
 

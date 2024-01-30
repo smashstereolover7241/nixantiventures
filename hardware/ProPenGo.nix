@@ -13,29 +13,24 @@ in
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  boot.initrd.luks.devices."p2_crypt".device = "/dev/disk/by-uuid/36b1cdab-ec0b-40d9-86ce-a6c6a1cac020";
-
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/39a958cf-85ae-4a82-ad1f-9f0b5380fef7";
-      fsType = "btrfs";
-      options = [ "subvol=nixroot" ];
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/03287040-9ad3-4e0c-b3fa-5dad010a3b94";
-      fsType = "ext2";
+    { device = "ssdFS";
+      fsType = "zfs";
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/39a958cf-85ae-4a82-ad1f-9f0b5380fef7";
-      fsType = "btrfs";
-      options = [ "subvol=nixnix" ];
+    { device = "ssdFS/nix";
+      fsType = "zfs";
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/39a958cf-85ae-4a82-ad1f-9f0b5380fef7";
-      fsType = "btrfs";
-      options = [ "subvol=nixhome" ];
+    { device = "ssdFS/home";
+      fsType = "zfs";
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/F1B7-1EF2";
+      fsType = "vfat";
     };
 
   swapDevices = [ ];
