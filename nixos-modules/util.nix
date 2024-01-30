@@ -32,6 +32,7 @@ in {
     polkit = mkEnableOption "Install a policykit";
     wine = mkEnableOption "Install wine";
     wineland = mkEnableOption "Install wine with native wayland";
+    notes = mkEnableOption "Install notetaking apps (logseq)";
   };
 
   config = (mkMerge [
@@ -137,6 +138,10 @@ in {
 
     (mkIf cfg.wineland {
       environment.systemPackages = with pkgs; [ wineWowPackages.waylandFull ];
+    })
+
+    (mkIf cfg.notes {
+      environment.systemPackages = with pkgs; [ logseq ];
     })
 
     (mkIf cfg.lock {
