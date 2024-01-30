@@ -151,10 +151,11 @@ in {
     })
 
     (mkIf cfg.gpg {
-      environment.systemPackages = with pkgs; [gnupg pinentry];
+      environment.systemPackages = with pkgs; [gnupg pinentry pinentry-gtk2 pinentry-curses];
       programs.gnupg.agent = {
         enable = true;
-        pinentryFlavor = "curses";
+        pinentryFlavor = "gtk2";
+        enableSSHSupport = true;
       };
     })
   ]);
