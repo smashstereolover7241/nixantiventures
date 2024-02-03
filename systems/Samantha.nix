@@ -59,6 +59,12 @@ inputs: {
 
             fonts = {
               firaCode = true;
+              all_the_icons = true;
+            };
+
+            android = {
+              adb = true;
+              scrcpy = true;
             };
 
             communication = {
@@ -96,7 +102,7 @@ inputs: {
               fingerprint = true;
               cloud = true;
               qute = true;
-	      notes = true;
+              notes = true;
             };
 
             xorg = {
@@ -112,7 +118,7 @@ inputs: {
               libinput = true;
               flatInput = false;
               wacom = true;
-	      wacomFix = true;
+              wacomFix = true;
               stalone = true;
             };
 

@@ -13,7 +13,7 @@ in {
       fonts.packages = with pkgs; [ fira-code ];
     })
 
-    (mkIf cfg.firaCode {
+    (mkIf cfg.all_the_icons {
       fonts.packages = with pkgs; [ emacs-all-the-icons-fonts ];
     })
 
