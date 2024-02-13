@@ -77,6 +77,7 @@ inputs: {
               lock = false;
               cloud = false;
               xmonadUtil = false;
+              hyprlandUtil = false;
               neofetch = false;
               music = false;
               screenshot = false;
@@ -116,6 +117,8 @@ inputs: {
               };
               xmonad = false;
               xmobar = false;
+              hyprland = false;
+              waybar = false;
               stalone = false;
               kde = false;
               dunst = false;

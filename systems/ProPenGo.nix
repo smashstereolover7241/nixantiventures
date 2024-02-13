@@ -71,8 +71,10 @@ inputs: {
             };
 
             util = {
+	      polkit = true;
               lock = true;
-              xmonadUtil = true;
+              xmonadUtil = false;
+              hyprlandUtil = true;
               neofetch = true;
               music = true;
               screenshot = true;
@@ -102,9 +104,11 @@ inputs: {
               enable = true;
               backlightFix = true;
               gpu = "intelAccelerated";
-              xmonad = true;
+              xmonad = false;
+	      hyprland = true;
               kde = false;
-              xmobar = true;
+              xmobar = false;
+              waybar = true;
               dunst = true;
               lightdm = true;
               sddm = false;

@@ -5,6 +5,7 @@ let
 in {
   options.teletypeOne.util = {
     xmonadUtil = mkEnableOption "Install utility programs for xmonad";
+    hyprlandUtil = mkEnableOption "Install utility programs for hyprland";
     neofetch = mkEnableOption "Install requirements for neofetch";
     music = mkEnableOption "Install (terminal) music applications";
     screenshot = mkEnableOption "Install all the usual screenshot tools";
@@ -38,6 +39,11 @@ in {
   config = (mkMerge [
     (mkIf cfg.xmonadUtil {
       environment.systemPackages = with pkgs; [wmctrl rofi gmrun dunst arandr xorg.xkill acpilight playerctl alsa-utils];
+    })
+
+    (mkIf cfg.hyprlandUtil {
+      environment.systemPackages = with pkgs; [swaylock hyprshot hyprland-protocols xdg-desktop-portal-hyprland
+ hyprshade wmctrl wofi gmrun dunst arandr xorg.xkill acpilight playerctl alsa-utils];
     })
 
     (mkIf cfg.neofetch {

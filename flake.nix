@@ -4,7 +4,7 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs?ref=master";
     rust-overlay.url = "github:oxalica/rust-overlay";
-#    druckerrepo.url = "git+https://git.irunx.org/localhost/nixpkgs";
+    hyprland.url = "github:hyprwm/Hyprland";
 
     easystroke = {
       url = "github:teu5us/easystroke-nix";
@@ -18,12 +18,10 @@
       self
       , nixpkgs
       , nixpkgs-unstable
-#      , druckerrepo
-#      , drucker
       , ...
     }@inputs:
       let
-        inherit (nixpkgs-unstable.lib) nixosSystem;
+        inherit (nixpkgs-unstable.lib) hyprland nixosSystem;
         supportedSystems = [ "x86_64-linux"];
         forAllSystems' = systems: f: nixpkgs.lib.genAttrs systems (system: f system);
         forAllSystems = forAllSystems' supportedSystems;

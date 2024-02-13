@@ -62,7 +62,9 @@ in {
     };
     xmonad = mkEnableOption "Enable xmonad";
     kde = mkEnableOption "Enable kde";
+    hyprland = mkEnableOption "Enable hyprland";
     xmobar = mkEnableOption "Enable xmobar";
+    waybar = mkEnableOption "Enable waybar";
     dunst = mkEnableOption "Enable dunst";
     lightdm = mkEnableOption "Enable lightdm";
     sddm = mkEnableOption "Enable sddm";
@@ -86,12 +88,17 @@ in {
           xmonad.enableContribAndExtras = true;
         };
 
-        displayManager = mkIf cfg.xmonad {
+        displayManager = {
           lightdm.enable = mkIf cfg.lightdm true;
           sddm.enable = mkIf cfg.sddm true;
-          defaultSession = "none+xmonad";
+          defaultSession = mkIf cfg.xmonad "none+xmonad";
         };
       };
+	programs.hyprland = mkIf cfg.hyprland {
+	  enable = true;
+#	  package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+          xwayland.enable = true;
+	};
 
       environment.systemPackages = mkIf cfg.xmobar (with pkgs; [xmobar]);
 
@@ -102,6 +109,10 @@ in {
     (mkIf cfg.kde {
       environment.systemPackages = (with pkgs; [kde-gtk-config]);
     })
+    (mkIf cfg.waybar {
+      environment.systemPackages = (with pkgs; [waybar]);
+    })
+
     (mkIf (cfg.dunst == true){
       environment.systemPackages = (with pkgs; [xmobar]);
     })
@@ -145,8 +156,6 @@ in {
         ACTION=="add", SUBSYSTEM=="backlight", KERNEL=="intel_backlight", MODE="0666", RUN+="${pkgs.coreutils}/bin/chmod a+w /sys/class/backlight/%k/brightness"
       '';
 
-# this shouldnt be here, it's also broken....      environment.systemPackages = [ pkgs.easystroke ];
-      # wtf??? environment.systemPackages = [ pkgs.easystroke  pkgs.mfcj4335dwlpr ];
     })
     (mkIf cfg.wacom {
       services.xserver.wacom.enable = true;
