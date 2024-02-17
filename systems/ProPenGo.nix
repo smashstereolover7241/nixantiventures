@@ -19,6 +19,7 @@ inputs: {
 	      hyprland.enable = false;
 	      hyprland.full = true;
 	      hyprland.swayidle.enable = true;
+	      hyprland.hyprpaper.enable = true;
 	   };
            home.stateVersion = "20.09";
 	   };

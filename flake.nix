@@ -5,13 +5,16 @@
     nixpkgs-master.url = "github:NixOS/nixpkgs?ref=master";
     rust-overlay.url = "github:oxalica/rust-overlay";
     hyprland.url = "github:hyprwm/Hyprland";
+    hyprpaper = {
+      url = "github:hyprwm/hyprpaper";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     hyprland-hm.url = "github:hyprwm/Hyprland";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows =
         "nixpkgs-unstable"; 
     };
-
 
     easystroke = {
       url = "github:teu5us/easystroke-nix";
@@ -101,6 +104,11 @@
               easystroke = import "${inputs.easystroke}/default.nix" { pkgs = final; };
             };
 
+          hyprpaper = final: prev:
+            {
+              hyprpaper = import "${inputs.hyprpaper}/default.nix" { pkgs = final; };
+            };
+
 #      mfcj4335dwlpr = final: prev:
 #            {
 #	          inherit (inputs.druckerrepo.legacyPackages.${prev.system})
@@ -120,7 +128,7 @@
               mkPkg = name: mkPkg'' nixpkgs-unstable name name;
             in
               {
-#                 easystroke = mkPkg "easystroke";
+		 hyprpaper = mkPkg "hyprpaper";
       #                        easy-hls-nix = if system == "x86_64-linux" then mkPkg "easy-hls-nix" else (import nixpkgs-unstable { inherit system; }).hello;
               });
       };
