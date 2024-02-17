@@ -59,6 +59,7 @@ inputs: {
 
             fonts = {
               firaCode = true;
+	      ricing_fonts = true;
             };
 
             communication = {
