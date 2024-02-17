@@ -8,7 +8,7 @@
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows =
-        "nixpkgs"; # Use system packages list where available
+        "nixpkgs-unstable"; 
     };
 
 
