@@ -3,6 +3,7 @@ with lib;
 {
   imports = [
     ./waybar
+    ./hyprland
     ./test.nix
   ];
 }
