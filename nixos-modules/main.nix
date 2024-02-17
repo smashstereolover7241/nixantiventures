@@ -9,7 +9,7 @@ in {
 
       uid = 1000;
 
-      extraGroups = [ "wheel" "audio" "video" "network" "input" ]
+      extraGroups = [ "networkmanager" "wheel" "audio" "video" "network" "input" ]
                     ++ (optional nm-enable "network-manager");
     };
     groups.localhost = {
