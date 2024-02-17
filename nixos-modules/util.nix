@@ -44,6 +44,11 @@ in {
     (mkIf cfg.hyprlandUtil {
       environment.systemPackages = with pkgs; [swaylock hyprshot hyprland-protocols xdg-desktop-portal-hyprland
  hyprshade wmctrl wofi gmrun dunst arandr xorg.xkill acpilight playerctl alsa-utils];
+	security.pam.services.swaylock = {
+	    text = ''
+	      auth include login
+	    '';
+	  };
     })
 
     (mkIf cfg.neofetch {
@@ -51,7 +56,7 @@ in {
     })
 
     (mkIf cfg.music {
-      environment.systemPackages = with pkgs; [ncmpcpp mpd];
+      environment.systemPackages = with pkgs; [ncmpcpp mpd mpc-cli];
       services.mpd = {
 	  enable = true;
 	  musicDirectory = "/home/localhost/music";
