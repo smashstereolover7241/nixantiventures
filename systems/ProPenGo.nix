@@ -13,6 +13,7 @@ inputs: {
 	{ ... } : {
 	   imports = [ ../home-manager/modules/default.nix ];
 	   teletypeOne.hm = {
+	      test.enable = true;
 	      waybar.enable = true;
 	   };
            home.stateVersion = "20.09";

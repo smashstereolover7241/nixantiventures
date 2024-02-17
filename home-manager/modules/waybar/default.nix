@@ -77,8 +77,5 @@ in
         '';
       };
     };
-      home.file = {
-         ".config/test.txt".source = ./test.txt;
-      };
    };
 }
