@@ -42,7 +42,7 @@ in {
     })
 
     (mkIf cfg.hyprlandUtil {
-      environment.systemPackages = with pkgs; [swaylock hyprshot hyprland-protocols xdg-desktop-portal-hyprland
+      environment.systemPackages = with pkgs; [swaylock-effects swayidle hyprshot hyprland-protocols xdg-desktop-portal-hyprland
  hyprshade wmctrl wofi gmrun dunst arandr xorg.xkill acpilight playerctl alsa-utils];
 	security.pam.services.swaylock = {
 	    text = ''
