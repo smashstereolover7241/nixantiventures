@@ -25,7 +25,7 @@ in
         splash = false
 
         #fully disable ipc
-        # ipc = off
+        ipc = off
     '';
    };
 }
