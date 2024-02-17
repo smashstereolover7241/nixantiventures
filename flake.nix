@@ -5,6 +5,12 @@
     nixpkgs-master.url = "github:NixOS/nixpkgs?ref=master";
     rust-overlay.url = "github:oxalica/rust-overlay";
     hyprland.url = "github:hyprwm/Hyprland";
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs.follows =
+        "nixpkgs"; # Use system packages list where available
+    };
+
 
     easystroke = {
       url = "github:teu5us/easystroke-nix";
@@ -18,10 +24,12 @@
       self
       , nixpkgs
       , nixpkgs-unstable
+      , home-manager
       , ...
     }@inputs:
       let
         inherit (nixpkgs-unstable.lib) hyprland nixosSystem;
+	inherit (home-manager.lib) homeManagerConfiguration;
         supportedSystems = [ "x86_64-linux"];
         forAllSystems' = systems: f: nixpkgs.lib.genAttrs systems (system: f system);
         forAllSystems = forAllSystems' supportedSystems;
@@ -69,6 +77,7 @@
                 pkgs'.linkFarm "allSystems-${system}"
                 (pkgs'.lib.mapAttrsToList (n: v: { name = n; path = v; }) attrs);
                 nixos = name: self.nixosConfigurations.${name}.config.system.build.toplevel;
+		hm = name: self.homeConfigurations.${name}.activationPackage;
           in
             {
               x86_64-linux = linkFarm "x86_64-linux"

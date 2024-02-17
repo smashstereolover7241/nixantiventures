@@ -3,11 +3,21 @@ inputs: {
 
   modules = [
     ../nixos-modules/default.nix
+    inputs.home-manager.nixosModules.home-manager
     ({ pkgs, config, lib, ... }:
       let
         inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
       in
-        {
+      {
+	home-manager.users."localhost" = 
+	{ ... } : {
+	   imports = [ ../home-manager/modules/default.nix ];
+	   teletypeOne.hm = {
+	      waybar.enable = true;
+	   };
+           home.stateVersion = "20.09";
+	   };
+        
           teletypeOne = {
 
             pins = inputs;
@@ -59,7 +69,7 @@ inputs: {
 
             fonts = {
               firaCode = true;
-	      ricing_fonts = true;
+	            ricing_fonts = true;
             };
 
             communication = {
@@ -72,7 +82,7 @@ inputs: {
             };
 
             util = {
-	      polkit = true;
+	            polkit = true;
               lock = true;
               xmonadUtil = false;
               hyprlandUtil = true;
@@ -106,7 +116,7 @@ inputs: {
               backlightFix = true;
               gpu = "intelAccelerated";
               xmonad = false;
-	      hyprland = true;
+	            hyprland = true;
               kde = false;
               xmobar = false;
               waybar = true;
@@ -127,8 +137,8 @@ inputs: {
             hardware.ProPenGo = true;
 
           };
-        }
-    )
+        
+    }) 
   ] ++ [
     ({ pkgs, ... }: {
       networking = {
