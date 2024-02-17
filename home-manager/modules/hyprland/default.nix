@@ -20,6 +20,8 @@ in
       (mkIf cfg.full {
          # enable all the things
 	 teletypeOne.hm.hyprland.swayidle.enable = true;
+	 teletypeOne.hm.hyprland.swaylock.enable = true;
+	 teletypeOne.hm.hyprland.hyprpaper.enable = true;
       })
    ]);
 }
