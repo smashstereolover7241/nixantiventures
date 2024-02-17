@@ -15,6 +15,8 @@ inputs: {
 	   teletypeOne.hm = {
 	      test.enable = true;
 	      waybar.enable = true;
+	      hyprland.enable = true;
+	      hyprland.full = true;
 	      hyprland.swayidle.enable = true;
 	   };
            home.stateVersion = "20.09";
