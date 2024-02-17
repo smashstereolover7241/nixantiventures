@@ -14,11 +14,12 @@ in
       };
    };
    config = mkIf cfg.enable (mkMerge [
-      
-       ## do things ?
-        (mkIf cfg.full {
-           # do other things
-	   teletypeOne.hm.hyprland.swayidle.enable = true;
-        })
+      {
+         wayland.windowManager.hyprland.enable = true;
+      }
+      (mkIf cfg.full {
+         # enable all the things
+	 teletypeOne.hm.hyprland.swayidle.enable = true;
+      })
    ]);
 }

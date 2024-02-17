@@ -5,6 +5,7 @@
     nixpkgs-master.url = "github:NixOS/nixpkgs?ref=master";
     rust-overlay.url = "github:oxalica/rust-overlay";
     hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-hm.url = "github:hyprwm/Hyprland";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows =
@@ -29,7 +30,7 @@
     }@inputs:
       let
         inherit (nixpkgs-unstable.lib) hyprland nixosSystem;
-	inherit (home-manager.lib) homeManagerConfiguration;
+	inherit (home-manager.lib) hyprland-hm homeManagerConfiguration;
         supportedSystems = [ "x86_64-linux"];
         forAllSystems' = systems: f: nixpkgs.lib.genAttrs systems (system: f system);
         forAllSystems = forAllSystems' supportedSystems;

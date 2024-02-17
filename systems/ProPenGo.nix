@@ -4,6 +4,7 @@ inputs: {
   modules = [
     ../nixos-modules/default.nix
     inputs.home-manager.nixosModules.home-manager
+
     ({ pkgs, config, lib, ... }:
       let
         inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
@@ -15,7 +16,7 @@ inputs: {
 	   teletypeOne.hm = {
 	      test.enable = true;
 	      waybar.enable = true;
-	      hyprland.enable = true;
+	      hyprland.enable = false;
 	      hyprland.full = true;
 	      hyprland.swayidle.enable = true;
 	   };
@@ -86,7 +87,7 @@ inputs: {
             };
 
             util = {
-	            polkit = true;
+              polkit = true;
               lock = true;
               xmonadUtil = false;
               hyprlandUtil = true;
@@ -120,7 +121,7 @@ inputs: {
               backlightFix = true;
               gpu = "intelAccelerated";
               xmonad = false;
-	            hyprland = true;
+              hyprland = true;
               kde = false;
               xmobar = false;
               waybar = true;
