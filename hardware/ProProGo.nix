@@ -8,34 +8,35 @@ in
 
   config = mkIf cfg{
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" "tp_smapi"];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "mainFS/nixroot";
+    { device = "ssdFS";
       fsType = "zfs";
     };
 
   fileSystems."/nix" =
-    { device = "mainFS/nixroot/nix";
+    { device = "ssdFS/nix";
       fsType = "zfs";
     };
 
   fileSystems."/home" =
-    { device = "mainFS/nixroot/home";
+    { device = "ssdFS/home";
       fsType = "zfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/EE53-CA2C";
+    { device = "/dev/disk/by-uuid/5F0A-97B0";
       fsType = "vfat";
     };
 
   swapDevices = [ ];
 
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
+#  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+#  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
   };

@@ -29,7 +29,7 @@ in
 		];
 
                monitor = [
-	          ",preferred,auto,1"
+	          ",preferred,auto,1.5"
 	       ];
 
                xwayland = {
