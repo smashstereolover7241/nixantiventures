@@ -117,6 +117,7 @@ inputs: {
               fingerprint = true;
               cloud = true;
               qute = true;
+	      swaylockFix = true;
             };
 
             xorg = {

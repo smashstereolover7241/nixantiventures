@@ -34,6 +34,7 @@ in {
     wine = mkEnableOption "Install wine";
     wineland = mkEnableOption "Install wine with native wayland";
     notes = mkEnableOption "Install notetaking apps (logseq)";
+    swaylockFix = mkEnableOption "Add fix for swaylock";
   };
 
   config = (mkMerge [
@@ -42,13 +43,16 @@ in {
     })
 
     (mkIf cfg.hyprlandUtil {
-      environment.systemPackages = with pkgs; [swaylock-effects light hyprshot hyprland-protocols xdg-desktop-portal-hyprland
- hyprshade wmctrl wofi gmrun dunst arandr xorg.xkill acpilight playerctl alsa-utils];
-	security.pam.services.swaylock = {
-	    text = ''
-	      auth include login
-	    '';
-	  };
+      environment.systemPackages = with pkgs; [light hyprshot hyprland-protocols xdg-desktop-portal-hyprland
+ hyprshade wmctrl wofi gmrun dunst arandr acpilight playerctl alsa-utils];
+    })
+
+    (mkIf cfg.swaylockFix {
+    	security.pam.services.swaylock = {
+	   text = ''
+	     auth include login
+	   '';
+	 };
     })
 
     (mkIf cfg.neofetch {

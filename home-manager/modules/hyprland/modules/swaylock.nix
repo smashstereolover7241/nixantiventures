@@ -5,10 +5,11 @@ let
 in
 {
    options.teletypeOne.hm.hyprland.swaylock = {
-      enable = mkEnableOption "Enable swayidle";
+      enable = mkEnableOption "Enable swaylock; As it is (seemingly) not possible to enable the swaylock fix via the home module, remember to activate it manually!";
    };
    config = mkIf cfg.enable {
       programs.swaylock.enable = true;
+      programs.swaylock.package = pkgs.swaylock-effects;
       xdg = {
       configFile = {
         "swaylock/config".text = ''

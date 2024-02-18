@@ -105,6 +105,7 @@ inputs: {
               fingerprint = false;
               notes = false;
               polkit = false;
+	      swaylockFix = false;
             };
 
             xorg = {
