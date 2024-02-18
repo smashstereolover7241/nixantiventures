@@ -21,6 +21,7 @@ inputs: {
 	    hyprland.scaling = "1.5";
             hyprland.swayidle.enable = true;
             hyprland.hyprpaper.enable = true;
+            hyprland.hyprpaper.paperName = "~/papers/a.jpg";
             hyprland.swaylock.enable = true;
         };
               home.stateVersion = "20.09";
