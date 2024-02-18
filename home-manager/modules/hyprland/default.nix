@@ -12,6 +12,11 @@ in
       full = mkOption {
          description = "Change utils to opt-out";
       };
+      scaling = mkOption {
+         description = "Change scaling for all screens";
+	 type = types.str;
+	 default = "1";
+      };
    };
    config = mkIf cfg.enable (mkMerge [
       {
@@ -29,7 +34,7 @@ in
 		];
 
                monitor = [
-	          ",preferred,auto,1.5"
+	          ",preferred,auto,${cfg.scaling}"
 	       ];
 
                xwayland = {

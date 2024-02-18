@@ -18,6 +18,7 @@ inputs: {
             waybar.enable = true;
             hyprland.enable = true;
             hyprland.full = true;
+	    hyprland.scaling = "1.5";
             hyprland.swayidle.enable = true;
             hyprland.hyprpaper.enable = true;
             hyprland.swaylock.enable = true;
