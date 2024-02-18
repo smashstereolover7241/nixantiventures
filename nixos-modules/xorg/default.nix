@@ -135,7 +135,7 @@ in {
     })
 
     (mkIf (cfg.dunst == true){
-      environment.systemPackages = (with pkgs; [xmobar]);
+      environment.systemPackages = (with pkgs; [dunst]);
     })
     (mkIf (cfg.libinput == true){
       services.xserver.libinput.enable = true;
