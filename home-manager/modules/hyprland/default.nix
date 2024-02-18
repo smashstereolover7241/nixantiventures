@@ -251,6 +251,12 @@ in
                   "$mainMod, mouse:272, movewindow"
                   "$mainMod, mouse:273, resizewindow"
 	       ];
+
+	       windowrulev2 = [
+                  "workspace 11, class:(Element)"
+                  "workspace 12, class:(discord)"
+                  "workspace 3, class:(org.qutebrowser.qutebrowser)"
+	       ];
 	    };
 	 };
       }
