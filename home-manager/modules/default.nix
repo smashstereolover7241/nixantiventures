@@ -4,6 +4,7 @@ with lib;
   imports = [
     ./waybar
     ./hyprland
+    ./cli
     ./test.nix
   ];
 }

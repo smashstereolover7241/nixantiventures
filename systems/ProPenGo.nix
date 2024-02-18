@@ -15,6 +15,7 @@ inputs: {
 	   imports = [ ../home-manager/modules/default.nix ];
 	   teletypeOne.hm = {
 	      test.enable = true;
+	      zsh.enable = false;
 	      waybar.enable = true;
 	      hyprland.enable = true;
 	      hyprland.full = true;
