@@ -253,9 +253,9 @@ in
 	       ];
 
 	       windowrulev2 = [
-                  "workspace 11, class:(Element)"
-                  "workspace 12, class:(discord)"
-                  "workspace 3, class:(org.qutebrowser.qutebrowser)"
+                  "workspace 11 silent, class:(Element)"
+                  "workspace 12 silent, class:(discord)"
+                  "workspace 3 silent, class:(org.qutebrowser.qutebrowser)"
 	       ];
 	    };
 	 };
