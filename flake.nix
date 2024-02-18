@@ -128,7 +128,7 @@
               mkPkg = name: mkPkg'' nixpkgs-unstable name name;
             in
               {
-		 hyprpaper = mkPkg "hyprpaper";
+#		 hyprpaper = mkPkg "hyprpaper";
       #                        easy-hls-nix = if system == "x86_64-linux" then mkPkg "easy-hls-nix" else (import nixpkgs-unstable { inherit system; }).hello;
               });
       };
