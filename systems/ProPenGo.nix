@@ -16,7 +16,7 @@ inputs: {
 	   teletypeOne.hm = {
 	      test.enable = true;
 	      waybar.enable = true;
-	      hyprland.enable = false;
+	      hyprland.enable = true;
 	      hyprland.full = true;
 	      hyprland.swayidle.enable = true;
 	      hyprland.hyprpaper.enable = true;
@@ -123,7 +123,7 @@ inputs: {
               backlightFix = true;
               gpu = "intelAccelerated";
               xmonad = false;
-              hyprland = true;
+              hyprland = false;
               kde = false;
               xmobar = false;
               waybar = true;
