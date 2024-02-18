@@ -10,6 +10,15 @@ let
     export __VK_LAYER_NV_optimus=NVIDIA_only
     exec -a "$0" "$@"
   '';
+    swayConfig = pkgs.writeText "greetd-sway-config" ''
+    # `-l` activates layer-shell mode. Notice that `swaymsg exit` will run after gtkgreet.
+    exec "${pkgs.greetd.gtkgreet}/bin/gtkgreet -l; swaymsg exit"
+    bindsym Mod4+shift+e exec swaynag \
+      -t warning \
+      -m 'What do you want to do?' \
+      -b 'Poweroff' 'systemctl poweroff' \
+      -b 'Reboot' 'systemctl reboot'
+  '';
   cfg = config.teletypeOne.xorg;
 in {
   options.teletypeOne.xorg = {
@@ -68,6 +77,7 @@ in {
     dunst = mkEnableOption "Enable dunst";
     lightdm = mkEnableOption "Enable lightdm";
     sddm = mkEnableOption "Enable sddm";
+    gtkgreet = mkEnableOption "Enable gtkgreet";
     libinput = mkEnableOption "Enable libinput";
     flatInput = mkEnableOption "Add extra config for non-accelerated mouse input.";
     wacom = mkEnableOption "Install wacom drivers";
@@ -94,10 +104,27 @@ in {
           defaultSession = mkIf cfg.xmonad "none+xmonad";
         };
       };
-	programs.hyprland = mkIf cfg.hyprland {
-	  enable = true;
-          xwayland.enable = true;
-	};
+
+      services.greetd = mkIf cfg.gtkgreet {
+	 enable = true;
+         settings = {
+            default_session = {
+               command = "${pkgs.sway}/bin/sway --config ${swayConfig}";
+            };
+         };
+      };
+
+      environment.etc = mkIf cfg.gtkgreet {
+         "greetd/environments".text = ''
+            Hyprland 
+            zsh 
+         '';
+      };
+
+      programs.hyprland = mkIf cfg.hyprland {
+	 enable = true;
+         xwayland.enable = true;
+      };
 
       environment.systemPackages = mkIf cfg.xmobar (with pkgs; [xmobar]);
 

@@ -126,6 +126,7 @@ inputs: {
               pass = false;
               lightdm = false;
               sddm = false;
+	      gtkgreet = false;
               libinput = false;
               flatInput = false;
               wacom = false;

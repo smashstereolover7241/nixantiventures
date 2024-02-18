@@ -128,12 +128,13 @@ inputs: {
               xmobar = false;
               waybar = true;
               dunst = true;
-              lightdm = true;
+              lightdm = false;
               sddm = false;
+	      gtkgreet = true;
               libinput = true;
               flatInput = false;
               wacom = true;
-              stalone = true;
+              stalone = false;
             };
 
             networking  = {
