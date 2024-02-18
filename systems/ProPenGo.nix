@@ -63,7 +63,7 @@ inputs: {
 
             zsh = {
               enabled = true;
-              ohMy = true;
+              ohMy = false;
             };
 
             games = {
