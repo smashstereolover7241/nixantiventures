@@ -67,7 +67,7 @@ inputs: {
             };
 
             games = {
-              steam = true;
+              steam = false;
               minecraft = false;
             };
 
