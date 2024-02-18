@@ -117,7 +117,17 @@ _: {
     };
 
     "temperature" = {
-      hwmon-path = "/sys/devices/platform/coretemp.0/hwmon/hwmon7/temp1_input";
+      hwmon-path = [
+      "/sys/devices/platform/coretemp.0/hwmon/hwmon1/temp1_input"
+      "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
+      "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp1_input"
+      "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input"
+      "/sys/devices/platform/coretemp.0/hwmon/hwmon5/temp1_input"
+      "/sys/devices/platform/coretemp.0/hwmon/hwmon6/temp1_input"
+      "/sys/devices/platform/coretemp.0/hwmon/hwmon7/temp1_input"
+      "/sys/devices/platform/coretemp.0/hwmon/hwmon8/temp1_input"
+      "/sys/devices/platform/coretemp.0/hwmon/hwmon9/temp1_input"
+      ];
       critical-threshold = 80;
       format = " {temperatureC}°C";
     };
