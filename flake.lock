@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "easystroke": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1620667870,
-        "narHash": "sha256-CYt/9eypLACe8YLb5zFbdRkaXjOL5SxvnW6SsJyauGc=",
-        "owner": "teu5us",
-        "repo": "easystroke-nix",
-        "rev": "96b9b4b49488baf510927be3a1b3f0dd31755141",
-        "type": "github"
-      },
-      "original": {
-        "owner": "teu5us",
-        "repo": "easystroke-nix",
-        "type": "github"
-      }
-    },
     "flake-utils": {
       "inputs": {
         "systems": "systems_3"
@@ -346,7 +330,6 @@
     },
     "root": {
       "inputs": {
-        "easystroke": "easystroke",
         "home-manager": "home-manager",
         "hyprland": "hyprland",
         "hyprland-hm": "hyprland-hm",

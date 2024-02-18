@@ -15,11 +15,6 @@
       inputs.nixpkgs.follows =
         "nixpkgs-unstable"; 
     };
-
-    easystroke = {
-      url = "github:teu5us/easystroke-nix";
-      flake = false;
-      };
   };
 
   # PACKAGES
