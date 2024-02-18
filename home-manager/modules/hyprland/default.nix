@@ -29,8 +29,9 @@ in
 	       "$fileManager" = "nemo";
 	       "$menu" = "wofi --show drun";
 	       "env" = [
-	          "XCURSOR_SIZE,24"
+	          "XCURSOR_SIZE,32"
 		  "QT_QPA_PLATFORMTHEME,qt5ct"
+		  "GDK_SCALE,${cfg.scaling}"
 		];
 
                monitor = [
