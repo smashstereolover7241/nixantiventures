@@ -20,10 +20,8 @@ inputs: {
             };
 
             lang = {
-              rust = false;
               java11 = false;
               python = false;
-              pythonML = false;
             };
 
             ssh = {

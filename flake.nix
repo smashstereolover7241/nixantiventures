@@ -3,7 +3,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-21.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs?ref=master";
-    rust-overlay.url = "github:oxalica/rust-overlay";
     hyprland.url = "github:hyprwm/Hyprland";
     hyprpaper = {
       url = "github:hyprwm/hyprpaper";
@@ -93,22 +92,10 @@
                 };
             };
         overlays = {
-          rust-overlay = inputs.rust-overlay.overlay;
-          easystroke = final: prev:
-            {
-              easystroke = import "${inputs.easystroke}/default.nix" { pkgs = final; };
-            };
-
           hyprpaper = final: prev:
             {
               hyprpaper = import "${inputs.hyprpaper}/default.nix" { pkgs = final; };
             };
-
-#      mfcj4335dwlpr = final: prev:
-#            {
-#	          inherit (inputs.druckerrepo.legacyPackages.${prev.system})
-#      mfcj4335dwlpr;
-#            };
          };
         packages =
           forAllSystems (system:

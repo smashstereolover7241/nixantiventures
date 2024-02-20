@@ -23,7 +23,6 @@ inputs: {
             };
 
             lang = {
-              rust = true;
               python = false;
             };
 

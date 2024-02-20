@@ -20,9 +20,7 @@ inputs: {
         };
 
         lang = {
-          rust = false;
           python = false;
-          pythonML = false;
         };
 
         ssh = {
