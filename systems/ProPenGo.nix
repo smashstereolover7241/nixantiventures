@@ -87,6 +87,11 @@ inputs: {
               tdesktop = true;
             };
 
+            android = {
+               scrcpy = true;
+	       adb = true;
+	    };
+
             util = {
               polkit = true;
               lock = true;
