@@ -93,6 +93,7 @@ inputs: {
 	    };
 
             util = {
+	      yt-dlp = true;
               polkit = true;
               lock = true;
               xmonadUtil = false;

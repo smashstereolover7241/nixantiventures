@@ -74,6 +74,7 @@ inputs: {
 
             util = {
               lock = false;
+	      yt-dlp = false;
               cloud = false;
               xmonadUtil = false;
               hyprlandUtil = false;
