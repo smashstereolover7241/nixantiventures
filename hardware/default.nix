@@ -17,6 +17,7 @@ in
       ./ProSlimShady.nix
       ./VictoryLaptop.nix
       ./Samantha.nix
+      ./sample.nix
     ];
   config = {
     assertions = [

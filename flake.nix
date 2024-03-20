@@ -63,6 +63,10 @@
         nixosConfigurations.Samantha = nixosSystem (import ./systems/Samantha.nix inputs);
         Samantha = self.nixosConfigurations.Samantha.config.system.build.toplevel;
 
+        nixosConfigurations.sample = nixosSystem (import ./systems/sample.nix inputs);
+        sample = self.nixosConfigurations.sample.config.system.build.toplevel;
+	# to have sample tested as output
+
         allSystems =
           let
             pkgs = system: import nixpkgs { system = "x86_64-linux"; };

@@ -14,132 +14,132 @@ inputs: {
             overlays = inputs.self.overlays;
 
             terminals = {
-              alacritty = false;
-              termite = false;
-              kitty = false;
+              alacritty = true;
+              termite = true;
+              kitty = true;
             };
 
             filemanagers = {
-              gui = false;
-              tui = false;
-              smb = false;
+              gui = true;
+              tui = true;
+              smb = true;
             };
 
             lang = {
-              python = false;
-              java11 = false;
+              python = true;
+              java11 = true;
             };
 
             ssh = {
-              enable = false;
+              enable = true;
             };
 
             wireguard = {
-              enable = false;
+              enable = true;
             };
 
             theGrandUtilities = {
-              enable = false;
+              enable = true;
             };
 
             zsh = {
-              enabled = false;
-              ohMy = false;
+              enabled = true;
+              ohMy = true;
             };
 
             games = {
-              steam = false;
-              minecraft = false;
-              minecraftLibFix = false;
+              steam = true;
+              minecraft = true;
+              minecraftLibFix = true;
             };
 
             pulseaudio.enable = false;
-            pipewire.enable = false;
-            pipewire.easyeffects = false;
+            pipewire.enable = true;
+            pipewire.easyeffects = true;
 
             fonts = {
-              firaCode = false;
-              all_the_icons = false;
-	      ricing_fonts = false;
+              firaCode = true;
+              all_the_icons = true;
+	      ricing_fonts = true;
             };
 
             communication = {
-              free = false;
-              nonFree = false;
-              bullshit = false;
-              mailTui = false;
-              mailGui = false;
-              tdesktop = false;
+              free = true;
+              nonFree = true;
+              bullshit = true;
+              mailTui = true;
+              mailGui = true;
+              tdesktop = true;
             };
 
             util = {
-              lock = false;
-              cloud = false;
-              xmonadUtil = false;
-              hyprlandUtil = false;
-              neofetch = false;
-              music = false;
-              screenshot = false;
-              theming = false;
-              topFamily = false;
-              driveUtil = false;
-              emacs = false;
-              media = false;
-              encoding = false;
-              pulseUtil = false;
-              textUtil = false;
-              office = false;
-              password = false;
-              compilerUtil = false;
-              haskell = false;
-              termUtil = false;
-              painting = false;
-              gpg = false;
-              qute = false;
-              wine = false;
-              wineland = false;
-              openvpn = false;
-              maths = false;
-              fingerprint = false;
-              notes = false;
-              polkit = false;
-	      swaylockFix = false;
+              lock = true;
+              cloud = true;
+              xmonadUtil = true;
+              hyprlandUtil = true;
+              neofetch = true;
+              music = true;
+              screenshot = true;
+              theming = true;
+              topFamily = true;
+              driveUtil = true;
+              emacs = true;
+              media = true;
+              encoding = true;
+              pulseUtil = true;
+              textUtil = true;
+              office = true;
+              password = true;
+              compilerUtil = true;
+              haskell = true;
+              termUtil = true;
+              painting = true;
+              gpg = true;
+              qute = true;
+              wine = true;
+              wineland = true;
+              openvpn = true;
+              maths = true;
+              fingerprint = true;
+              notes = true;
+              polkit = true;
+	      swaylockFix = true;
             };
 
             xorg = {
-              enable = false;
+              enable = true;
               gpu = "modesetting";
-              backlightFix = false;
+              backlightFix = true;
               nvidia = {
-                prime = false;
+                prime = true;
                 intelBusId = "PCI:0:2:0";
                 nvidiaBusId = "PCI:1:0:0";
               };
-              xmonad = false;
-              xmobar = false;
-              hyprland = false;
-              waybar = false;
-              stalone = false;
-              kde = false;
-              dunst = false;
-              pass = false;
-              lightdm = false;
+              xmonad = true;
+              xmobar = true;
+              hyprland = true;
+              waybar = true;
+              stalone = true;
+              kde = true;
+              dunst = true;
+              pass = true;
+              lightdm = true;
               sddm = false;
-	      gtkgreet = false;
-              libinput = false;
-              flatInput = false;
-              wacom = false;
-              firmware = false;
+	      gtkgreet = true;
+              libinput = true;
+              flatInput = true;
+              wacom = true;
+              firmware = true;
             };
 
             networking  = {
-              bluetooth = false;
-              networkManager = false;
+              bluetooth = true;
+              networkManager = true;
             };
 
             android = {
-              adb = false;
-              scrcpy = false;
+              adb = true;
+              scrcpy = true;
             };
 
             hardware.sample = true;
