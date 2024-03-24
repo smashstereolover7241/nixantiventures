@@ -118,7 +118,7 @@ inputs: {
               gpg = true;
               openvpn = true;
               maths = true;
-              fingerprint = true;
+              fingerprint = false;
               cloud = true;
               qute = true;
 	      swaylockFix = true;
