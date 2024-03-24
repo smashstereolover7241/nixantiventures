@@ -1,6 +1,7 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-21.05";
+  # nixpkgs.url = "github:NixOS/nixpkgs?ref=23.11";
+    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs?ref=master";
     hyprland.url = "github:hyprwm/Hyprland";

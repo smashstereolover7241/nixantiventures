@@ -87,7 +87,13 @@ inputs: {
               tdesktop = true;
             };
 
+            android = {
+               scrcpy = true;
+	       adb = true;
+	    };
+
             util = {
+	      yt-dlp = true;
               polkit = true;
               lock = true;
               xmonadUtil = false;

@@ -35,6 +35,7 @@ in {
     wineland = mkEnableOption "Install wine with native wayland";
     notes = mkEnableOption "Install notetaking apps (logseq)";
     swaylockFix = mkEnableOption "Add fix for swaylock";
+    yt-dlp = mkEnableOption "Install yt-dlp";
   };
 
   config = (mkMerge [
@@ -176,6 +177,10 @@ in {
       environment.systemPackages = with pkgs; [ logseq ];
     })
 
+    (mkIf cfg.yt-dlp {
+      environment.systemPackages = with pkgs; [ yt-dlp ];
+    })
+
     (mkIf cfg.lock {
       environment.systemPackages = with pkgs; [ betterlockscreen ];
       programs.xss-lock.enable = true;
@@ -186,7 +191,7 @@ in {
       environment.systemPackages = with pkgs; [gnupg pinentry pinentry-gtk2 pinentry-curses];
       programs.gnupg.agent = {
         enable = true;
-        pinentryFlavor = "gtk2";
+        pinentryPackage = pkgs.pinentry-gtk2;
         enableSSHSupport = true;
       };
     })
