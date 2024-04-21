@@ -90,7 +90,7 @@ inputs: {
             xorg = {
               enable = true;
               firmware = true;
-              gpu = "amd";
+              gpu = "nvidia";
               xmonad = false;
               kde = true;
               pass = false;
@@ -128,6 +128,9 @@ inputs: {
       boot.loader.grub.enable = true;
       boot.loader.grub.device = "nodev";
       nixpkgs.config.allowUnfree = true;
+
+      services.logrotate.checkConfig = false;
+      #workaround to make it build, yay
 
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";
