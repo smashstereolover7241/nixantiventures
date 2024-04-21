@@ -11,8 +11,9 @@ in
   boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "sr_mod" ];
 
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [  ];
+  boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
+  boot.kernelParams = [ "nvidia-drm.modeset=1" ];
 
   services.qemuGuest.enable = true;
 
