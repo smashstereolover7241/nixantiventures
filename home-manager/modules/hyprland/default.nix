@@ -31,6 +31,7 @@ in
 	       "env" = [
 	          "XCURSOR_SIZE,32"
 		  "QT_QPA_PLATFORMTHEME,qt5ct"
+		  "WLR_NO_HARDWARE_CURSORS,1"
 		  "GDK_SCALE,${cfg.scaling}"
 		];
 
@@ -262,6 +263,7 @@ in
       }
       (mkIf cfg.full {
          # enable all the things
+	 # teletypeOne.hm.hyprland.enable = true; causes infinite recursion
 	 teletypeOne.hm.hyprland.swayidle.enable = true;
 	 teletypeOne.hm.hyprland.swaylock.enable = true;
 	 teletypeOne.hm.hyprland.hyprpaper.enable = true;
