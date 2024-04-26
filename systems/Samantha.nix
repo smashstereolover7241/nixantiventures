@@ -97,7 +97,7 @@ inputs: {
               gpg = true;
               openvpn = true;
               maths = false;
-              fingerprint = true;
+              fingerprint = false;
               cloud = true;
               qute = true;
               notes = true;
