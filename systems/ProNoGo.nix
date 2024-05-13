@@ -15,9 +15,9 @@ inputs: {
 	     imports = [ ../home-manager/modules/default.nix ];
              teletypeOne.hm = {
                 zsh.enable = false;
-		waybar.enable = true;
-		hyprland.enable = true;
-		hyprland.full = true;
+		waybar.enable = false;
+		hyprland.enable = false;
+		hyprland.full = false;
 	     };
              home.stateVersion = "20.09";
 	  };
@@ -76,7 +76,7 @@ inputs: {
             util = {
               lock = true;
               cloud = true;
-              xmonadUtil = false;
+              xmonadUtil = true;
 	      hyprlandUtil = true;
               neofetch = true;
               music = true;
@@ -92,30 +92,31 @@ inputs: {
               office = true;
               password = true;
               compilerUtil = true;
-              haskell = false;
+              haskell = true;
               termUtil = true;
               painting = true;
               qute = true;
               gpg = true;
               wine = true;
-              wineland = true;
-	      swaylockFix = true;
+              wineland = false;
+	      swaylockFix = false;
             };
 
             xorg = {
               enable = true;
+	      stalone = true;
               firmware = true;
               gpu = "nvidia";
-              xmonad = false;
-              kde = true;
+              xmonad = true;
+              kde = false;
               pass = false;
-              xmobar = false;
+              xmobar = true;
 	      waybar = true;
               dunst = true;
-              lightdm = false;
+              lightdm = true;
               libinput = false;
-              flatInput = false;
-	      gtkgreet = true;
+              flatInput = true;
+	      gtkgreet = false;
 	      hyprland = false;
             };
 
