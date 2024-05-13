@@ -17,7 +17,7 @@ in {
     })
 
     (mkIf cfg.minecraft {
-      environment.systemPackages = with pkgs; [minecraft lunar-client prismlauncher];
+      environment.systemPackages = with pkgs; [lunar-client prismlauncher];
     })
     (mkIf cfg.minecraftLibFix {
       environment.systemPackages = with pkgs; [xorg.libXxf86vm xorg.libXxf86dga xorg.libXxf86misc];

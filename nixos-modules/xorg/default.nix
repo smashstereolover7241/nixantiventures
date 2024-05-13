@@ -85,29 +85,30 @@ in {
 
   config = mkIf cfg.enable (mkMerge [
     {
-      services.xserver = {
-        enable = true;
-        desktopManager.plasma5.enable = mkIf cfg.kde (true);
-        windowManager = mkIf cfg.xmonad {
-          xmonad.enable = true;
-          xmonad.enableContribAndExtras = true;
-        };
-
-        displayManager = {
-          lightdm.enable = mkIf cfg.lightdm true;
-          sddm.enable = mkIf cfg.sddm true;
-          defaultSession = mkIf cfg.xmonad "none+xmonad";
-        };
+      services = {
+	      xserver = {
+		enable = true;
+		desktopManager.plasma5.enable = mkIf cfg.kde (true);
+		windowManager = mkIf cfg.xmonad {
+		  xmonad.enable = true;
+		  xmonad.enableContribAndExtras = true;
+		};
+		displayManager.lightdm.enable = mkIf cfg.lightdm true;
+	      };
+	      displayManager = {
+		  sddm.enable = mkIf cfg.sddm true;
+		  defaultSession = mkIf cfg.xmonad "none+xmonad";
+              };
+	      greetd = mkIf cfg.gtkgreet {
+		 enable = true;
+		 settings = {
+		    default_session = {
+		       command = "${pkgs.sway}/bin/sway --config ${swayConfig} --unsupported-gpu";
+		    };
+		 };
+	      };
       };
 
-      services.greetd = mkIf cfg.gtkgreet {
-	 enable = true;
-         settings = {
-            default_session = {
-               command = "${pkgs.sway}/bin/sway --config ${swayConfig} --unsupported-gpu";
-            };
-         };
-      };
 
       environment.etc = mkIf cfg.gtkgreet {
          "greetd/environments".text = ''
@@ -138,7 +139,7 @@ in {
       environment.systemPackages = (with pkgs; [dunst]);
     })
     (mkIf (cfg.libinput == true){
-      services.xserver.libinput.enable = true;
+      services.libinput.enable = true;
     })
 
     (mkIf (cfg.firmware == true){
