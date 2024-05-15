@@ -36,6 +36,7 @@ in {
     notes = mkEnableOption "Install notetaking apps (logseq)";
     swaylockFix = mkEnableOption "Add fix for swaylock";
     yt-dlp = mkEnableOption "Install yt-dlp";
+    compression = mkEnableOption "Install compression utils";
   };
 
   config = (mkMerge [
@@ -179,6 +180,10 @@ in {
 
     (mkIf cfg.yt-dlp {
       environment.systemPackages = with pkgs; [ yt-dlp ];
+    })
+
+    (mkIf cfg.compression {
+      environment.systemPackages = with pkgs; [ pigz pv ];
     })
 
     (mkIf cfg.lock {

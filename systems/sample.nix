@@ -105,6 +105,7 @@ inputs: {
               notes = true;
               polkit = true;
 	      swaylockFix = true;
+	      compression = true;
             };
 
             xorg = {

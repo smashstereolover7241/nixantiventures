@@ -100,6 +100,7 @@ inputs: {
               wine = true;
               wineland = false;
 	      swaylockFix = false;
+	      compression = true;
             };
 
             xorg = {
