@@ -20,7 +20,7 @@ in {
     enable = mkEnableOption "Xorg so graphical can happen";
     gpu = mkOption {
       description = "Which gpu?";
-      type = types.enum ["modesetting" "nvidia" "intel" "amd" "ati" "radeon" "null" "intelAccelerated"];
+      type = types.enum ["modesetting" "nvidia" "nouveau" "intel" "amd" "ati" "radeon" "null" "intelAccelerated"];
     };
     nvidia = mkOption {
       description = "Nvidia yaaay";
@@ -41,6 +41,11 @@ in {
       };
       default = {};
     };
+
+    nouveau = mkOption {
+      description = "nouveau";
+    };
+
     modesetting = mkOption {
       description = "Intel modesetting, yay?";
     };
@@ -242,9 +247,13 @@ in {
     (mkIf (cfg.stalone) {
       environment.systemPackages = [ pkgs.stalonetray ];
     })
-    (mkIf (cfg.gpu == "amd") {
 
+    (mkIf (cfg.gpu == "amd") {
       services.xserver.videoDrivers = ["amdpgu"];
+    })
+
+    (mkIf (cfg.gpu == "nouveau") {
+      services.xserver.videoDrivers = ["nouveau"];
     })
 
     (mkIf (cfg.gpu == "ati") {

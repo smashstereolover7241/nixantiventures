@@ -106,7 +106,7 @@ inputs: {
               enable = true;
 	      stalone = true;
               firmware = true;
-              gpu = "nvidia";
+              gpu = "nouveau";
               xmonad = true;
               kde = false;
               pass = false;
