@@ -14,6 +14,8 @@ in {
     driveUtil = mkEnableOption "Install drive utilities";
     emacs = mkEnableOption "Install Emacs and whatever needed for the thing";
     media = mkEnableOption "Have the usual media consumption stuffs installed";
+    firefox = mkEnableOption "Installs firefox";
+    librewolf = mkEnableOption "Installs better firefox (librewolf)";
     encoding = mkEnableOption "Install tools to work with video / audio";
     pulseUtil = mkEnableOption "Install utilites to work with pulseawfulio";
     textUtil = mkEnableOption "Install text editors (not emacs)";
@@ -103,7 +105,15 @@ in {
     })
 
     (mkIf cfg.media {
-      environment.systemPackages = with pkgs; [firefox links2 vlc feh peek];
+      environment.systemPackages = with pkgs; [links2 vlc feh peek];
+    })
+
+    (mkIf cfg.firefox {
+      environment.systemPackages = with pkgs; [firefox];
+    })
+
+    (mkIf cfg.librewolf {
+      environment.systemPackages = with pkgs; [librewolf];
     })
 
     (mkIf cfg.encoding {

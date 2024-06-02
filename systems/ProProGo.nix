@@ -80,6 +80,8 @@ inputs: {
           driveUtil = true;
           emacs = true;
           media = true;
+	  librewolf = true;
+	  firefox = true;
           encoding = true;
           pulseUtil = true;
           textUtil = true;
