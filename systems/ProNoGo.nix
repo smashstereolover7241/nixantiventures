@@ -74,10 +74,10 @@ inputs: {
             };
 
             util = {
-              lock = true;
-              cloud = true;
-              xmonadUtil = true;
-	      hyprlandUtil = true;
+              lock = false;
+              cloud = false;
+              xmonadUtil = false;
+	      hyprlandUtil = false;
               neofetch = true;
               music = true;
               screenshot = true;
@@ -86,36 +86,38 @@ inputs: {
               driveUtil = true;
               emacs = true;
               media = true;
+	      librewolf = true;
+	      firefox = true;
               encoding = true;
               pulseUtil = true;
               textUtil = true;
               office = true;
               password = true;
               compilerUtil = true;
-              haskell = true;
+              haskell = false;
               termUtil = true;
               painting = true;
               qute = true;
               gpg = true;
               wine = true;
-              wineland = false;
+              wineland = true;
 	      swaylockFix = false;
 	      compression = true;
             };
 
             xorg = {
               enable = true;
-	      stalone = true;
+	      stalone = false;
               firmware = true;
-              gpu = "nouveau";
-              xmonad = true;
-              kde = false;
+              gpu = "nvidia";
+              xmonad = false;
+              kde = true;
               pass = false;
-              xmobar = true;
-	      waybar = true;
-              dunst = true;
+              xmobar = false;
+	      waybar = false;
+              dunst = false;
               lightdm = true;
-              libinput = false;
+              libinput = true;
               flatInput = true;
 	      gtkgreet = false;
 	      hyprland = false;
