@@ -15,12 +15,31 @@ inputs: {
 
             terminals = {
               alacritty = true;
-              termite = true;
+              termite = false;
+              kitty = true;
             };
 
             filemanagers = {
               gui = true;
               tui = true;
+              smb = true;
+            };
+
+            lang = {
+              python = false;
+              java17 = true;
+            };
+
+            ssh = {
+              enable = true;
+            };
+
+            wireguard = {
+              enable = false;
+            };
+
+            theGrandUtilities = {
+              enable = false;
             };
 
             zsh = {
@@ -30,33 +49,44 @@ inputs: {
 
             games = {
               steam = false;
-              minecraft = false;
+              minecraft = true;
+              minecraftLibFix = true;
             };
 
             pulseaudio.enable = false;
-            pipewire.enable = false;
+            pipewire.enable = true;
+            pipewire.easyeffects = true;
 
             fonts = {
               firaCode = true;
+              all_the_icons = true;
+	      ricing_fonts = true;
             };
 
             communication = {
-              free = true;
-              nonFree = true;
-              bullshit = true;
+              free = false;
+              nonFree = false;
+              bullshit = false;
+              mailTui = false;
+              mailGui = false;
+              tdesktop = false;
             };
 
             util = {
+              lock = true;
+	      yt-dlp = true;
+              cloud = false;
               xmonadUtil = true;
+              hyprlandUtil = false;
               neofetch = true;
-              music = true;
+              music = false;
               screenshot = true;
               theming = true;
               topFamily = true;
               driveUtil = true;
               emacs = true;
               media = true;
-              encoding = false;
+              encoding = true;
               pulseUtil = true;
               textUtil = true;
               office = false;
@@ -65,22 +95,52 @@ inputs: {
               haskell = true;
               termUtil = true;
               painting = false;
+              gpg = true;
+              qute = true;
+              wine = false;
+              wineland = false;
+              openvpn = false;
+              maths = false;
+              fingerprint = false;
+              notes = false;
+              polkit = true;
+	      swaylockFix = false;
             };
 
             xorg = {
               enable = true;
               gpu = "modesetting";
+              backlightFix = false;
+              nvidia = {
+                prime = true;
+                intelBusId = "PCI:0:2:0";
+                nvidiaBusId = "PCI:1:0:0";
+              };
               xmonad = true;
               xmobar = true;
+              hyprland = false;
+              waybar = false;
+              stalone = true;
+              kde = false;
               dunst = true;
-              lightdm = true;
-              libinput = true;
+              pass = true;
+              lightdm = false;
+              sddm = true;
+	      gtkgreet = false;
+              libinput = false;
               flatInput = true;
+              wacom = false;
+              firmware = true;
             };
 
             networking  = {
               bluetooth = true;
               networkManager = true;
+            };
+
+            android = {
+              adb = true;
+              scrcpy = true;
             };
 
             hardware.ProGo = true;
