@@ -22,10 +22,6 @@ in
       fsType = "zfs";
     };
 
-  fileSystems."/game4" =
-    { device = "storeFS/game";
-      fsType = "zfs";
-    };
 
   fileSystems."/home" =
     { device = "mainFS/home";
@@ -34,6 +30,11 @@ in
 
   fileSystems."/nix" =
     { device = "storeFS/nix";
+      fsType = "zfs";
+    };
+
+  fileSystems."/game" =
+    { device = "storeFS/game";
       fsType = "zfs";
     };
 
