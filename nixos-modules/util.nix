@@ -39,6 +39,7 @@ in {
     swaylockFix = mkEnableOption "Add fix for swaylock";
     yt-dlp = mkEnableOption "Install yt-dlp";
     compression = mkEnableOption "Install compression utils";
+    missioncenter = mkEnableOption "Install MissionCenter";
   };
 
   config = (mkMerge [
@@ -194,6 +195,10 @@ in {
 
     (mkIf cfg.compression {
       environment.systemPackages = with pkgs; [ pigz pv ];
+    })
+
+    (mkIf cfg.compression {
+      environment.systemPackages = with pkgs; [ mission-center ];
     })
 
     (mkIf cfg.lock {

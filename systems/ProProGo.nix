@@ -98,6 +98,7 @@ inputs: {
           hyprlandUtil = false;
           wine = true;
 	  wineland = true;
+	  missioncenter = true;
         };
 
         xorg = {
