@@ -50,6 +50,7 @@ inputs: {
         games = {
           steam = false;
           minecraft = true;
+	  heroic = true;
         };
 
         pulseaudio.enable = false;

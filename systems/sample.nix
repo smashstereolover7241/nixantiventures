@@ -51,6 +51,8 @@ inputs: {
               steam = true;
               minecraft = true;
               minecraftLibFix = true;
+	      lutris = true;
+	      heroic = true;
             };
 
             pulseaudio.enable = false;
