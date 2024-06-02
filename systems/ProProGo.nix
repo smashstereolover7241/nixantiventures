@@ -15,14 +15,14 @@ inputs: {
         teletypeOne.hm = {
             test.enable = false;
             zsh.enable = true;
-            waybar.enable = true;
-            hyprland.enable = true;
-            hyprland.full = true;
+            waybar.enable = false;
+            hyprland.enable = false;
+            hyprland.full = false;
 	    hyprland.scaling = "1.5";
-            hyprland.swayidle.enable = true;
-            hyprland.hyprpaper.enable = true;
+            hyprland.swayidle.enable = false;
+            hyprland.hyprpaper.enable = false;
             hyprland.hyprpaper.paperName = "~/papers/a.jpg";
-            hyprland.swaylock.enable = true;
+            hyprland.swaylock.enable = false;
         };
               home.stateVersion = "20.09";
         };
@@ -48,7 +48,7 @@ inputs: {
         };
 
         games = {
-          steam = true;
+          steam = false;
           minecraft = true;
         };
 
@@ -92,8 +92,8 @@ inputs: {
           painting = true;
           cloud = true;
           qute = true;
-          swaylockFix = true;
-          hyprlandUtil = true;
+          swaylockFix = false;
+          hyprlandUtil = false;
 
         };
 
@@ -109,11 +109,11 @@ inputs: {
           xmonad = false;
           xmobar = false;
           dunst = true;
-          kde = false;
-          lightdm = false;
-          gtkgreet = true;
-          libinput = true;
-          flatInput = false;
+          kde = true;
+          lightdm = true;
+          gtkgreet = false;
+          libinput = false;
+          flatInput = true;
         };
 
         networking  = {
