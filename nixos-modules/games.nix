@@ -12,7 +12,7 @@ in {
   config = (mkMerge [
     (mkIf cfg.steam {
       programs.steam.enable = true;
-      environment.systemPackages = with pkgs; [lutris cacert];
+      environment.systemPackages = with pkgs; [heroic lutris cacert];
       hardware.opengl.driSupport32Bit = true;
     })
 
