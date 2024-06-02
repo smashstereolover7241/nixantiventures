@@ -7,6 +7,7 @@ in {
   options.teletypeOne.lang = {
     python = mkEnableOption "Install python 39 full";
     java11 = mkEnableOption "Install java11";
+    java17 = mkEnableOption "Install java17";
   };
 
   config = (mkMerge [
@@ -16,6 +17,9 @@ in {
 
     (mkIf cfg.java11 {
       environment.systemPackages = with pkgs; [openjdk11];
+    })   
+    (mkIf cfg.java17 {
+      environment.systemPackages = with pkgs; [openjdk17];
     })   
   ]);
 }

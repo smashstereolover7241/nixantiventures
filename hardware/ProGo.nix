@@ -4,25 +4,38 @@ let
   cfg = config.teletypeOne.hardware.ProGo;
 in
 {
-  options.teletypeOne.hardware.ProGo = mkEnableOption "Enable ProGoYoYo";
+  options.teletypeOne.hardware.ProGo= mkEnableOption "Enable ProGo";
 
   config = mkIf cfg{
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ehci_pci" "ahci" "firewire_ohci" "sdhci_pci" "usb_storage" "sd_mod" "sr_mod" ];
+  boot.initrd.availableKernelModules = [ "uhci_hcd" "ehci_pci" "ahci" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-partuuid/d64a6ba7-02";
-      fsType = "ext4";
+    { device = "ssdFS";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home" =
+    { device = "ssdFS/home";
+      fsType = "zfs";
+    };
+
+  fileSystems."/nix" =
+    { device = "ssdFS/nix";
+      fsType = "zfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-partuuid/d64a6ba7-01";
-      fsType = "ext2";
+    { device = "/dev/disk/by-uuid/732c1ff9-d271-42ec-af66-226e4c1c3064";
+      fsType = "ext4";
     };
 
   swapDevices = [ ];
+
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+
   };
 }
