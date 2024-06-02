@@ -92,11 +92,12 @@ inputs: {
           termUtil = true;
           maths = true;
           painting = true;
-          cloud = true;
+          cloud = false;
           qute = true;
           swaylockFix = false;
           hyprlandUtil = false;
-
+          wine = true;
+	  wineland = true;
         };
 
         xorg = {
