@@ -56,6 +56,7 @@ inputs: {
               minecraftLibFix = true;
 	      heroic = true;
 	      lutris = true;
+	      bottles = true;
             };
 
             pulseaudio.enable = false;

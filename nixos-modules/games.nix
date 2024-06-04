@@ -6,6 +6,7 @@ in {
   options.teletypeOne.games = {
     steam = mkEnableOption "Enable steam";
     lutris = mkEnableOption "Enable lutris";
+    bottles = mkEnableOption "Enable bottles";
     heroic = mkEnableOption "Install heroic launcher";
     minecraft = mkEnableOption "Install minecraft launcher";
     minecraftLibFix = mkEnableOption "Install some random libraries required to launch some modpacks";
@@ -23,6 +24,10 @@ in {
 
     (mkIf cfg.heroic {
       environment.systemPackages = with pkgs; [heroic];
+    })
+
+    (mkIf cfg.bottles {
+      environment.systemPackages = with pkgs; [bottles];
     })
 
     (mkIf cfg.minecraft {
