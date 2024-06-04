@@ -128,7 +128,8 @@ inputs: {
               hyprland = true;
               waybar = true;
               stalone = true;
-              kde = true;
+              kde5 = false;
+              kde6 = true;
               dunst = true;
               pass = true;
               lightdm = true;

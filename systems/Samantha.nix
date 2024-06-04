@@ -108,7 +108,8 @@ inputs: {
               backlightFix = false;
               gpu = "intelAccelerated";
               xmonad = true;
-              kde = false;
+              kde5 = false;
+              kde6 = false;
               xmobar = true;
               dunst = true;
               lightdm = false;

@@ -70,7 +70,8 @@ in {
       description = "Intel drivers, with opengl etc.";
     };
     xmonad = mkEnableOption "Enable xmonad";
-    kde = mkEnableOption "Enable kde";
+    kde5 = mkEnableOption "Enable kde5";
+    kde6 = mkEnableOption "Enable kde6";
     hyprland = mkEnableOption "Enable hyprland";
     xmobar = mkEnableOption "Enable xmobar";
     waybar = mkEnableOption "Enable waybar";
@@ -93,13 +94,14 @@ in {
       services = {
 	      xserver = {
 		enable = true;
-		desktopManager.plasma5.enable = mkIf cfg.kde (true);
+		desktopManager.plasma5.enable = mkIf cfg.kde5 (true);
+	        displayManager.lightdm.enable = mkIf cfg.lightdm true;
 		windowManager = mkIf cfg.xmonad {
 		  xmonad.enable = true;
 		  xmonad.enableContribAndExtras = true;
 		};
-		displayManager.lightdm.enable = mkIf cfg.lightdm true;
 	      };
+	      desktopManager.plasma6.enable = mkIf cfg.kde6 (true);
 	      displayManager = {
 		  sddm.enable = mkIf cfg.sddm true;
 		  defaultSession = mkIf cfg.xmonad "none+xmonad";
@@ -133,8 +135,9 @@ in {
         opengl.driSupport32Bit = true;
       };
     }
-    (mkIf cfg.kde {
-      environment.systemPackages = (with pkgs; [kde-gtk-config]);
+    (mkIf cfg.kde5 {
+#      environment.systemPackages = (with pkgs; [kde-gtk-config]);
+# let's try without
     })
     (mkIf cfg.waybar {
       environment.systemPackages = (with pkgs; [waybar]);

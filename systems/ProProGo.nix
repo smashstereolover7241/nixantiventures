@@ -114,7 +114,8 @@ inputs: {
           xmonad = false;
           xmobar = false;
           dunst = true;
-          kde = true;
+          kde5 = false;
+          kde6 = true;
           lightdm = true;
           gtkgreet = false;
           libinput = false;

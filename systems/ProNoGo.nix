@@ -114,7 +114,8 @@ inputs: {
               firmware = true;
               gpu = "nvidia";
               xmonad = false;
-              kde = true;
+              kde5 = false;
+              kde6 = true;
               pass = false;
               xmobar = false;
 	      waybar = false;

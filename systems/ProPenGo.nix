@@ -130,7 +130,7 @@ inputs: {
               gpu = "intelAccelerated";
               xmonad = false;
               hyprland = false;
-              kde = false;
+              kde5 = false;
               xmobar = false;
               waybar = true;
               dunst = true;

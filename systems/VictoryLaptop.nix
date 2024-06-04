@@ -85,7 +85,7 @@ inputs: {
           xmonad = true;
           xmobar = true;
           dunst = true;
-          kde = false;
+          kde5 = false;
           lightdm = false;
           sddm = true;
           libinput = false;
