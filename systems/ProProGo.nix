@@ -51,6 +51,7 @@ inputs: {
           steam = false;
           minecraft = true;
 	  heroic = true;
+	  bottles = true;
         };
 
         pulseaudio.enable = false;
@@ -61,6 +62,9 @@ inputs: {
           ricing_fonts = true;
         };
 
+        lang = {
+          python = true;
+	};
         communication = {
           free = true;
           nonFree = true;
