@@ -18,6 +18,7 @@ inputs: {
             waybar.enable = true;
             hyprland.enable = true;
             hyprland.full = true;
+	    hyprland.tearing = true;
 	    hyprland.scaling = "1.5";
 	    hyprland.disAcceleration = true;
 	    hyprland.accelProfile = "flat";

@@ -9,6 +9,10 @@ in
    ];
    options.teletypeOne.hm.hyprland = {
       enable = mkEnableOption "Enable hyprland n shit, just not hyprland itself atm....";
+      tearing = mkOption {
+         description = "allow tearing";
+	 default = false;
+      };
       disAcceleration = mkOption {
          description = "Disable acceleration";
 	 default = false;
@@ -76,7 +80,7 @@ in
                   "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
                   "col.inactive_border" = "rgba(595959aa)";
                   layout = "dwindle";
-                  allow_tearing = false;
+                  allow_tearing = cfg.tearing;
                };
 
 	       decoration = {
