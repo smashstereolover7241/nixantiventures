@@ -49,7 +49,7 @@ in {
 
     (mkIf cfg.hyprlandUtil {
       environment.systemPackages = with pkgs; [light hyprshot hyprland-protocols xdg-desktop-portal-hyprland
- hyprshade wmctrl wofi gmrun dunst arandr acpilight playerctl alsa-utils];
+ hyprshade wmctrl wofi gmrun dunst arandr acpilight playerctl alsa-utils nwg-drawer];
     })
 
     (mkIf cfg.swaylockFix {
