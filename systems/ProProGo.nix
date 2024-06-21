@@ -15,14 +15,14 @@ inputs: {
         teletypeOne.hm = {
             test.enable = false;
             zsh.enable = true;
-            waybar.enable = false;
-            hyprland.enable = false;
-            hyprland.full = false;
+            waybar.enable = true;
+            hyprland.enable = true;
+            hyprland.full = true;
 	    hyprland.scaling = "1.5";
-            hyprland.swayidle.enable = false;
-            hyprland.hyprpaper.enable = false;
+            hyprland.swayidle.enable = true;
+            hyprland.hyprpaper.enable = true;
             hyprland.hyprpaper.paperName = "~/papers/a.jpg";
-            hyprland.swaylock.enable = false;
+            hyprland.swaylock.enable = true;
         };
               home.stateVersion = "20.09";
         };
@@ -99,8 +99,8 @@ inputs: {
           painting = true;
           cloud = false;
           qute = true;
-          swaylockFix = false;
-          hyprlandUtil = false;
+          swaylockFix = true;
+          hyprlandUtil = true;
           wine = true;
 	  wineland = true;
 	  missioncenter = true;
@@ -119,9 +119,9 @@ inputs: {
           xmobar = false;
           dunst = true;
           kde5 = false;
-          kde6 = true;
-          lightdm = true;
-          gtkgreet = false;
+          kde6 = false;
+          lightdm = false;
+          gtkgreet = true;
           libinput = false;
           flatInput = true;
         };
