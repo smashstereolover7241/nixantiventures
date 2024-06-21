@@ -15,7 +15,7 @@ in {
   config = (mkMerge [
     (mkIf cfg.steam {
       programs.steam.enable = true;
-      hardware.opengl.driSupport32Bit = true;
+      hardware.graphics.enable32Bit = true;
     })
 
     (mkIf cfg.lutris {

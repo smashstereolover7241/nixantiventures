@@ -132,7 +132,7 @@ in {
       environment.systemPackages = mkIf cfg.xmobar (with pkgs; [xmobar]);
 
       hardware = {
-        opengl.driSupport32Bit = true;
+        graphics.enable32Bit = true;
       };
     }
     (mkIf cfg.kde5 {
@@ -153,13 +153,12 @@ in {
     (mkIf (cfg.firmware == true){
       environment.systemPackages = (with pkgs; [linux-firmware]);
       hardware.enableAllFirmware = true;
-      hardware.opengl.extraPackages = with pkgs; [
+      hardware.graphics.extraPackages = with pkgs; [
         rocm-opencl-icd
         rocm-opencl-runtime
       ];
-      hardware.opengl.driSupport = true;
       hardware.enableRedistributableFirmware = true;
-      hardware.opengl.enable = true;
+      hardware.graphics.enable = true;
     })
 
     (mkIf cfg.flatInput {
@@ -228,10 +227,9 @@ in {
     (mkIf (cfg.gpu == "nvidia") {
       services.xserver.videoDrivers = ["nvidia"];
 
-      hardware.opengl = {
+      hardware.graphics= {
         enable = true;
-        driSupport = true;
-        driSupport32Bit = true;
+        enable32Bit = true;
       };
 
       environment.systemPackages = mkIf (cfg.nvidia.prime)
@@ -280,9 +278,8 @@ in {
       nixpkgs.config.packageOverrides = pkgs: {
         vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
       };
-      hardware.opengl = {
+      hardware.graphics = {
         enable = true;
-        driSupport = true;
         extraPackages = with pkgs; [
           intel-media-driver # LIBVA_DRIVER_NAME=iHD
           vaapiIntel         # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)

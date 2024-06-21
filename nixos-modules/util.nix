@@ -186,7 +186,8 @@ in {
     })
 
     (mkIf cfg.notes {
-      environment.systemPackages = with pkgs; [ logseq ];
+      ##### Depends on too old electron, should currently not be used #####
+      #environment.systemPackages = with pkgs; [ logseq ];
     })
 
     (mkIf cfg.yt-dlp {
