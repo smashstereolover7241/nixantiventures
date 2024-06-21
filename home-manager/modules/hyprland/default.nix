@@ -9,6 +9,17 @@ in
    ];
    options.teletypeOne.hm.hyprland = {
       enable = mkEnableOption "Enable hyprland n shit, just not hyprland itself atm....";
+      disAcceleration = mkOption {
+         description = "Disable acceleration";
+	 default = false;
+      };
+
+      accelProfile = mkOption {
+         description = "Couldnt fucking be arsed to make it tru/fals";
+	 type = types.enum ["flat" "adaptive"];
+	 default = "adaptive";
+      };
+
       full = mkOption {
          description = "Change utils to opt-out";
       };
@@ -40,7 +51,7 @@ in
 	       ];
 
                xwayland = {
-                  force_zero_scaling = true;
+                  force_zero_scaling = false;
                };
 
 	       input = {
@@ -50,10 +61,11 @@ in
                   kb_options = "";
                   kb_rules = "";
                   follow_mouse = 1;
-#		  accel_profile = "flat";
                   touchpad = {
                      natural_scroll = 0;
                   };
+		  accel_profile = "${cfg.accelProfile}";
+		  force_no_accel = cfg.disAcceleration;
                   sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
                };
 

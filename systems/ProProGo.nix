@@ -19,6 +19,8 @@ inputs: {
             hyprland.enable = true;
             hyprland.full = true;
 	    hyprland.scaling = "1.5";
+	    hyprland.disAcceleration = true;
+	    hyprland.accelProfile = "flat";
             hyprland.swayidle.enable = true;
             hyprland.hyprpaper.enable = true;
             hyprland.hyprpaper.paperName = "~/papers/a.jpg";
