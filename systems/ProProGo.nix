@@ -51,7 +51,7 @@ inputs: {
         };
 
         games = {
-          steam = false;
+          steam = true;
           minecraft = true;
 	  heroic = true;
 	  bottles = true;
