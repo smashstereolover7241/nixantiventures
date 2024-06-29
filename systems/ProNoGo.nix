@@ -36,7 +36,8 @@ inputs: {
             };
 
             lang = {
-              python = false;
+              python = true;
+	      java17 = true;
             };
 
             filemanagers = {
@@ -135,6 +136,7 @@ inputs: {
             android = {
               adb = true;
               scrcpy = true;
+	      ass = true;
             };
 
             hardware.ProNoGo = true;
