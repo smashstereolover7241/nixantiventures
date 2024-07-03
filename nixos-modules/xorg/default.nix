@@ -72,7 +72,6 @@ in {
     xmonad = mkEnableOption "Enable xmonad";
     kde5 = mkEnableOption "Enable kde5";
     kde6 = mkEnableOption "Enable kde6";
-    hyprland = mkEnableOption "Enable hyprland";
     xmobar = mkEnableOption "Enable xmobar";
     waybar = mkEnableOption "Enable waybar";
     dunst = mkEnableOption "Enable dunst";
@@ -122,11 +121,6 @@ in {
             Hyprland 
             zsh 
          '';
-      };
-
-      programs.hyprland = mkIf cfg.hyprland {
-	 enable = true;
-         xwayland.enable = true;
       };
 
       environment.systemPackages = mkIf cfg.xmobar (with pkgs; [xmobar]);

@@ -16,8 +16,6 @@ inputs: {
              teletypeOne.hm = {
                 zsh.enable = false;
 		waybar.enable = false;
-		hyprland.enable = false;
-		hyprland.full = false;
 	     };
              home.stateVersion = "20.09";
 	  };
@@ -81,7 +79,7 @@ inputs: {
               lock = false;
               cloud = false;
               xmonadUtil = false;
-	      hyprlandUtil = false;
+	      swayUtil = false;
               neofetch = true;
               music = true;
               screenshot = true;
@@ -125,7 +123,6 @@ inputs: {
               libinput = true;
               flatInput = true;
 	      gtkgreet = false;
-	      hyprland = false;
             };
 
             networking  = {

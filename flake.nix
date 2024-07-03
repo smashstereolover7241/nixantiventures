@@ -4,12 +4,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs?ref=nixos-unstable";
     nixpkgs-master.url = "github:NixOS/nixpkgs?ref=master";
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprpaper = {
-      url = "github:hyprwm/hyprpaper";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-    hyprland-hm.url = "github:hyprwm/Hyprland";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows =
@@ -27,8 +21,8 @@
       , ...
     }@inputs:
       let
-        inherit (nixpkgs-unstable.lib) hyprland nixosSystem;
-	inherit (home-manager.lib) hyprland-hm homeManagerConfiguration;
+        inherit (nixpkgs-unstable.lib) nixosSystem;
+	inherit (home-manager.lib) homeManagerConfiguration;
         supportedSystems = [ "x86_64-linux"];
         forAllSystems' = systems: f: nixpkgs.lib.genAttrs systems (system: f system);
         forAllSystems = forAllSystems' supportedSystems;
@@ -97,10 +91,7 @@
                 };
             };
         overlays = {
-          hyprpaper = final: prev:
-            {
-              hyprpaper = import "${inputs.hyprpaper}/default.nix" { pkgs = final; };
-            };
+           #
          };
         packages =
           forAllSystems (system:
@@ -115,8 +106,7 @@
               mkPkg = name: mkPkg'' nixpkgs-unstable name name;
             in
               {
-#		 hyprpaper = mkPkg "hyprpaper";
-      #                        easy-hls-nix = if system == "x86_64-linux" then mkPkg "easy-hls-nix" else (import nixpkgs-unstable { inherit system; }).hello;
+	        #
               });
       };
 }

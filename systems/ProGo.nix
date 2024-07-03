@@ -77,7 +77,7 @@ inputs: {
 	      yt-dlp = true;
               cloud = false;
               xmonadUtil = true;
-              hyprlandUtil = false;
+              swayUtil = false;
               neofetch = true;
               music = false;
               screenshot = true;
@@ -118,7 +118,6 @@ inputs: {
               };
               xmonad = true;
               xmobar = true;
-              hyprland = false;
               waybar = false;
               stalone = true;
               kde6 = false;

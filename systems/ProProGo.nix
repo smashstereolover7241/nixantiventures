@@ -16,13 +16,6 @@ inputs: {
             test.enable = false;
             zsh.enable = true;
             waybar.enable = false;
-            hyprland.enable = false;
-            hyprland.full = false;
-	    hyprland.tearing = false;
-	    hyprland.disAcceleration = false;
-            hyprland.swayidle.enable = false;
-            hyprland.hyprpaper.enable = false;
-            hyprland.swaylock.enable = false;
         };
               home.stateVersion = "20.09";
         };
@@ -100,7 +93,7 @@ inputs: {
           cloud = false;
           qute = true;
           swaylockFix = true;
-          hyprlandUtil = true;
+          swayUtil = true;
           wine = true;
 	  wineland = true;
 	  missioncenter = true;

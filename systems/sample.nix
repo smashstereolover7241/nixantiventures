@@ -80,7 +80,7 @@ inputs: {
 	      yt-dlp = true;
               cloud = true;
               xmonadUtil = true;
-              hyprlandUtil = true;
+              swayUtil = true;
               neofetch = true;
               music = true;
               screenshot = true;
@@ -125,7 +125,6 @@ inputs: {
               };
               xmonad = true;
               xmobar = true;
-              hyprland = true;
               waybar = true;
               stalone = true;
               kde5 = false;

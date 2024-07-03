@@ -17,11 +17,6 @@ inputs: {
 	      test.enable = true;
 	      zsh.enable = true;
 	      waybar.enable = true;
-	      hyprland.enable = true;
-	      hyprland.full = true;
-	      hyprland.swayidle.enable = true;
-	      hyprland.hyprpaper.enable = true;
-	      hyprland.swaylock.enable = true;
 	   };
            home.stateVersion = "20.09";
 	   };
@@ -97,7 +92,7 @@ inputs: {
               polkit = true;
               lock = true;
               xmonadUtil = false;
-              hyprlandUtil = true;
+              swayUtil = true;
               neofetch = true;
               music = true;
               screenshot = true;
@@ -129,7 +124,6 @@ inputs: {
               backlightFix = true;
               gpu = "intelAccelerated";
               xmonad = false;
-              hyprland = false;
               kde5 = false;
               xmobar = false;
               waybar = true;
