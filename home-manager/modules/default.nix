@@ -4,6 +4,7 @@ with lib;
   imports = [
     ./waybar
     ./cli
+    ./sway
     ./test.nix
   ];
 }
