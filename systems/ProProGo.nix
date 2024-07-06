@@ -45,6 +45,7 @@ inputs: {
           minecraft = true;
 	  heroic = true;
 	  bottles = true;
+	  wheel = true;
         };
 
         pulseaudio.enable = false;

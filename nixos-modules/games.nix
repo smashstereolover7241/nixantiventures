@@ -8,6 +8,7 @@ in {
     lutris = mkEnableOption "Enable lutris";
     bottles = mkEnableOption "Enable bottles";
     heroic = mkEnableOption "Install heroic launcher";
+    wheel = mkEnableOption "Install wheel utils";
     minecraft = mkEnableOption "Install minecraft launcher";
     minecraftLibFix = mkEnableOption "Install some random libraries required to launch some modpacks";
   };
@@ -28,6 +29,10 @@ in {
 
     (mkIf cfg.bottles {
       environment.systemPackages = with pkgs; [bottles];
+    })
+
+    (mkIf cfg.wheel {
+      environment.systemPackages = with pkgs; [oversteer];
     })
 
     (mkIf cfg.minecraft {

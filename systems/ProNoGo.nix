@@ -56,6 +56,7 @@ inputs: {
 	      heroic = true;
 	      lutris = true;
 	      bottles = true;
+	      wheel = true;
             };
 
             pulseaudio.enable = false;
