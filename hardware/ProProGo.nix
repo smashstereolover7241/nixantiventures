@@ -10,8 +10,8 @@ in
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-intel" "tp_smapi"];
-  boot.extraModulePackages = [ ];
+  boot.kernelModules = [ "kvm-intel" "tp_smapi" "new-lg4ff" ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ new-lg4ff ];
 
   fileSystems."/" =
     { device = "ssdFS";
