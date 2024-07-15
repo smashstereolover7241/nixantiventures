@@ -11,7 +11,6 @@ in {
   config = (mkMerge [
 
     (mkIf cfg.enable {
-      sound.enable = false;
       security.rtkit.enable = true;
       services.pipewire = {
         enable = true;
