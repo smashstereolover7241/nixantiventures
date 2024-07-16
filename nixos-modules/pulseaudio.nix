@@ -8,7 +8,6 @@ in {
     enable = mkEnableOption "Enable pulseaudio, maybe even with bluetooth support";
   };
   config = mkIf cfg.enable {
-    sound.enable = true;
     hardware = {
       pulseaudio = {
         enable = true;

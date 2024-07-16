@@ -86,7 +86,7 @@ in {
     })
 
     (mkIf cfg.screenshot {
-      environment.systemPackages = with pkgs; [gnome.gnome-screenshot scrot];
+      environment.systemPackages = with pkgs; [gnome-screenshot scrot];
     })
 
     (mkIf cfg.theming {
