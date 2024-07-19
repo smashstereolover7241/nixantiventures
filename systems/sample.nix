@@ -30,6 +30,11 @@ inputs: {
               java11 = true;
             };
 
+            emulation = {
+              enable = true;
+	      virtmanager = true;
+            };
+
             ssh = {
               enable = true;
             };

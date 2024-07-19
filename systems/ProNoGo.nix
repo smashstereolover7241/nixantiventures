@@ -49,6 +49,11 @@ inputs: {
               ohMy = true;
             };
 
+            emulation = {
+              enabled = true;
+              virtmanager = true;
+            };
+
             games = {
               steam = true;
               minecraft = true;

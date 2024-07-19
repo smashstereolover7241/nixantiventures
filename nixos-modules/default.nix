@@ -21,6 +21,7 @@
     ./pulseaudio.nix
     ./networking.nix
     ./android.nix
+    ./emulation.nix
     ../hardware/default.nix
   ];
 }
