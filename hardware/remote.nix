@@ -13,25 +13,29 @@ in
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "ssdFS";
-      fsType = "zfs";
-    };
+  boot.supportedFilesystems = [ "zfs" ];
 
-  fileSystems."/nix" =
-    { device = "ssdFS/nix";
+  fileSystems."/" =
+    { device = "srvZFS/root";
       fsType = "zfs";
     };
 
   fileSystems."/home" =
-    { device = "ssdFS/home";
+    { device = "srvZFS/root/home";
       fsType = "zfs";
     };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/ländersache";
-      fsType = "vfat";
+  fileSystems."/nix" =
+    { device = "srvZFS/root/nix";
+      fsType = "zfs";
     };
+
+  boot.initrd.luks.devices = {
+   root = {
+     device = "/dev/disk/by-uuid/3f441467-5cb1-4378-9f6c-7a241e24c156";
+     preLVM = true;
+   };
+  };
 
   swapDevices = [ ];
 

@@ -14,25 +14,25 @@ inputs: {
             overlays = inputs.self.overlays;
 
             terminals = {
-              alacritty = true;
-              termite = true;
-              kitty = true;
+              alacritty = false;
+              termite = false;
+              kitty = false;
             };
 
             filemanagers = {
-              gui = true;
-              tui = true;
-              smb = true;
+              gui = false;
+              tui = false;
+              smb = false;
             };
 
             lang = {
-              python = true;
-              java11 = true;
+              python = false;
+              java11 = false;
             };
 
             emulation = {
-              enabled = true;
-	      virtmanager = true;
+              enabled = false;
+	      virtmanager = false;
             };
 
             ssh = {
@@ -40,120 +40,118 @@ inputs: {
             };
 
             wireguard = {
-              enable = true;
+              enable = false;
             };
 
             theGrandUtilities = {
-              enable = true;
+              enable = false;
             };
 
             zsh = {
-              enabled = true;
-              ohMy = true;
+              enabled = false;
+              ohMy = false;
             };
 
             games = {
-              steam = true;
-              minecraft = true;
-              minecraftLibFix = true;
-	      lutris = true;
-	      heroic = true;
-	      wheel = true;
-	      bottles = true;
+              steam = false;
+              minecraft = false;
+              minecraftLibFix = false;
+	      lutris = false;
+	      heroic = false;
+	      wheel = false;
+	      bottles = false;
             };
 
             pulseaudio.enable = false;
-            pipewire.enable = true;
-            pipewire.easyeffects = true;
+            pipewire.enable = false;
+            pipewire.easyeffects = false;
 
             fonts = {
-              firaCode = true;
-              all_the_icons = true;
-	      ricing_fonts = true;
+              firaCode = false;
+              all_the_icons = false;
+	      ricing_fonts = false;
             };
 
             communication = {
-              free = true;
-              nonFree = true;
-              bullshit = true;
-              mailTui = true;
-              mailGui = true;
-              tdesktop = true;
+              free = false;
+              nonFree = false;
+              bullshit = false;
+              mailTui = false;
+              mailGui = false;
+              tdesktop = false;
             };
 
             util = {
-              lock = true;
-	      yt-dlp = true;
-              cloud = true;
-              xmonadUtil = true;
-              swayUtil = true;
-              neofetch = true;
-              music = true;
-              screenshot = true;
-              theming = true;
-              topFamily = true;
-              driveUtil = true;
-              emacs = true;
-              media = true;
-	      firefox = true;
-	      librewolf = true;
-              encoding = true;
-              pulseUtil = true;
-              textUtil = true;
-              office = true;
-              password = true;
-              compilerUtil = true;
-              haskell = true;
-              termUtil = true;
-              painting = true;
-              gpg = true;
-              qute = true;
-              wine = true;
-              wineland = true;
-              openvpn = true;
-              maths = true;
-              fingerprint = true;
-              notes = true;
-              polkit = true;
-	      swaylockFix = true;
-	      compression = true;
-	      missioncenter= true;
+              lock = false;
+	      yt-dlp = false;
+              cloud = false;
+              xmonadUtil = false;
+              swayUtil = false;
+              neofetch = false;
+              music = false;
+              screenshot = false;
+              theming = false;
+              topFamily = false;
+              driveUtil = false;
+              emacs = false;
+              media = false;
+	      firefox = false;
+	      librewolf = false;
+              encoding = false;
+              pulseUtil = false;
+              textUtil = false;
+              office = false;
+              password = false;
+              compilerUtil = false;
+              haskell = false;
+              termUtil = false;
+              painting = false;
+              gpg = false;
+              qute = false;
+              wine = false;
+              wineland = false;
+              openvpn = false;
+              maths = false;
+              fingerprint = false;
+              notes = false;
+              polkit = false;
+	      swaylockFix = false;
+	      compression = false;
+	      missioncenter= false;
             };
 
             xorg = {
-              enable = true;
-              gpu = "modesetting";
-              backlightFix = true;
+              enable = false;
+              gpu = "none";
+              backlightFix = false;
               nvidia = {
-                prime = true;
-                intelBusId = "PCI:0:2:0";
-                nvidiaBusId = "PCI:1:0:0";
+                prime = false;
               };
-              xmonad = true;
-              xmobar = true;
-              waybar = true;
-              stalone = true;
+              xmonad = false;
+              xmobar = false;
+              waybar = false;
+              stalone = false;
               kde5 = false;
-              kde6 = true;
-              dunst = true;
-              pass = true;
-              lightdm = true;
+              kde6 = false;
+              dunst = false;
+              pass = false;
+              lightdm = false;
               sddm = false;
-	      gtkgreet = true;
-              libinput = true;
-              flatInput = true;
-              wacom = true;
-              firmware = true;
+	      gtkgreet = false;
+              libinput = false;
+              flatInput = false;
+              wacom = false;
+              firmware = false;
             };
 
             networking  = {
-              bluetooth = true;
+              bluetooth = false;
               networkManager = true;
             };
 
             android = {
-              adb = true;
-              scrcpy = true;
+              adb = false;
+              scrcpy = false;
             };
 
             hardware.remote = true;
@@ -171,7 +169,8 @@ inputs: {
       };
 
       boot.loader.grub.enable = true;
-      boot.loader.grub.device = "nodev";
+      boot.loader.grub.device = "/dev/vda";
+      boot.loader.grub.enableCryptodisk = true;
       nixpkgs.config.allowUnfree = true;
 
       time.timeZone = "Europe/Berlin";
