@@ -1,6 +1,5 @@
 inputs: {
   system = "x86_64-linux";
-
   modules = [
     ../nixos-modules/default.nix
     inputs.home-manager.nixosModules.home-manager
@@ -10,15 +9,15 @@ inputs: {
         inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
       in
         {
-	  home-manager.users."localhost" = 
-	  { ... } : {
-	     imports = [ ../home-manager/modules/default.nix ];
+    home-manager.users."localhost" =
+    { ... } : {
+       imports = [ ../home-manager/modules/default.nix ];
              teletypeOne.hm = {
                 zsh.enable = false;
-		waybar.enable = false;
-	     };
+                waybar.enable = false;
+              };
              home.stateVersion = "20.09";
-	  };
+          };
           teletypeOne = {
 
             pins = inputs;
@@ -34,7 +33,7 @@ inputs: {
 
             lang = {
               python = true;
-	      java17 = true;
+              java17 = true;
             };
 
             filemanagers = {
@@ -57,10 +56,10 @@ inputs: {
               steam = true;
               minecraft = true;
               minecraftLibFix = true;
-	      heroic = true;
-	      lutris = true;
-	      bottles = true;
-	      wheel = true;
+              heroic = true;
+              lutris = true;
+              bottles = true;
+              wheel = true;
             };
 
             pulseaudio.enable = false;
@@ -84,7 +83,7 @@ inputs: {
               lock = false;
               cloud = false;
               xmonadUtil = false;
-	      swayUtil = false;
+              swayUtil = false;
               neofetch = true;
               music = true;
               screenshot = true;
@@ -93,8 +92,8 @@ inputs: {
               driveUtil = true;
               emacs = true;
               media = true;
-	      librewolf = true;
-	      firefox = true;
+              librewolf = true;
+              firefox = true;
               encoding = true;
               pulseUtil = true;
               textUtil = true;
@@ -108,13 +107,13 @@ inputs: {
               gpg = true;
               wine = true;
               wineland = true;
-	      swaylockFix = false;
-	      compression = true;
+              swaylockFix = false;
+              compression = true;
             };
 
             xorg = {
               enable = true;
-	      stalone = false;
+              stalone = false;
               firmware = true;
               gpu = "nvidia";
               xmonad = false;
@@ -122,12 +121,12 @@ inputs: {
               kde6 = true;
               pass = false;
               xmobar = false;
-	      waybar = false;
+              waybar = false;
               dunst = false;
               lightdm = true;
               libinput = true;
               flatInput = true;
-	      gtkgreet = false;
+              gtkgreet = false;
             };
 
             networking  = {
@@ -138,7 +137,7 @@ inputs: {
             android = {
               adb = true;
               scrcpy = true;
-	      ass = true;
+              ass = true;
             };
 
             hardware.ProNoGo = true;
