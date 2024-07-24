@@ -20,6 +20,12 @@ in
       fsType = "zfs";
     };
 
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/ADD8-5916";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
+
   fileSystems."/home" =
     { device = "srvZFS/root/home";
       fsType = "zfs";
