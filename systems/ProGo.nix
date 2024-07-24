@@ -57,7 +57,7 @@ inputs: {
             fonts = {
               firaCode = true;
               all_the_icons = true;
-	      ricing_fonts = true;
+              ricing_fonts = true;
             };
 
             communication = {
@@ -71,7 +71,7 @@ inputs: {
 
             util = {
               lock = true;
-	      yt-dlp = true;
+              yt-dlp = true;
               cloud = false;
               xmonadUtil = true;
               swayUtil = false;
@@ -101,7 +101,7 @@ inputs: {
               fingerprint = false;
               notes = false;
               polkit = true;
-	      swaylockFix = false;
+              swaylockFix = false;
             };
 
             xorg = {
@@ -122,7 +122,7 @@ inputs: {
               pass = true;
               lightdm = false;
               sddm = true;
-	      gtkgreet = false;
+              gtkgreet = false;
               libinput = false;
               flatInput = true;
               wacom = false;
