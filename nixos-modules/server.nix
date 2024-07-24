@@ -6,6 +6,7 @@ in {
   options.teletypeOne.server = {
     ssh = mkEnableOption "Enable ssh";
     wireguard = mkEnableOption "stud";
+    utilPkgs = mkEnableOption "Option to get basics on servers";
   };
 
   config = (mkMerge [
@@ -36,6 +37,9 @@ in {
           ];
         };
       };
+    })
+    (mkIf cfg.utilPkgs {
+      environment.systemPackages = with pkgs; [ vim neovim git neofetch ]; # neofetch cause obv...
     })
   ]);
 

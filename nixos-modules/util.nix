@@ -40,7 +40,6 @@ in {
     yt-dlp = mkEnableOption "Install yt-dlp";
     compression = mkEnableOption "Install compression utils";
     missioncenter = mkEnableOption "Install MissionCenter";
-    serverUtil = mkEnableOption "Small option to get basics on servers";
   };
 
   config = (mkMerge [
@@ -207,10 +206,6 @@ in {
       environment.systemPackages = with pkgs; [ betterlockscreen ];
       programs.xss-lock.enable = true;
       programs.xss-lock.lockerCommand = "${pkgs.betterlockscreen}/bin/betterlockscreen -l blur";
-    })
-
-    (mkIf cfg.serverUtil {
-      environment.systemPackages = with pkgs; [ vim neovim git neofetch ]; # neofetch cause obv...
     })
 
     (mkIf cfg.gpg {

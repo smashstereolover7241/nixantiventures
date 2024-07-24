@@ -38,6 +38,7 @@ inputs: {
             server = {
               ssh = true;
               wireguard = true;
+              utilPkgs = true;
             };
 
             theGrandUtilities = {
@@ -115,7 +116,6 @@ inputs: {
               swaylockFix = true;
               compression = true;
               missioncenter= true;
-              serverUtil = true;
             };
 
             xorg = {

@@ -25,7 +25,6 @@ inputs: {
             overlays = inputs.self.overlays;
 
             theGrandUtilities.enable = true;
-            ssh.enable = true;
 
             terminals = {
               alacritty = true;
