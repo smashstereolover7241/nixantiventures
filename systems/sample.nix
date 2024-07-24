@@ -31,7 +31,7 @@ inputs: {
             };
 
             emulation = {
-              enable = true;
+              enabled = true;
 	      virtmanager = true;
             };
 
