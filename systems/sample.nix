@@ -144,6 +144,7 @@ inputs: {
               flatInput = true;
               wacom = true;
               firmware = true;
+	      serverUtil = true;
             };
 
             networking  = {

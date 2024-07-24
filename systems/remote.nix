@@ -117,7 +117,8 @@ inputs: {
               polkit = false;
 	      swaylockFix = false;
 	      compression = false;
-	      missioncenter= false;
+	      missioncenter = false;
+	      serverUtil = true;
             };
 
             xorg = {

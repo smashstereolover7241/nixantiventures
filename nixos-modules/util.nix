@@ -40,6 +40,7 @@ in {
     yt-dlp = mkEnableOption "Install yt-dlp";
     compression = mkEnableOption "Install compression utils";
     missioncenter = mkEnableOption "Install MissionCenter";
+    serverUtil = mkEnableOption "Small option to get basics on servers";
   };
 
   config = (mkMerge [
