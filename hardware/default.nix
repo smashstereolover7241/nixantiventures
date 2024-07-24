@@ -18,6 +18,7 @@ in
       ./VictoryLaptop.nix
       ./Samantha.nix
       ./sample.nix
+      ./remote.nix
     ];
   config = {
     assertions = [
