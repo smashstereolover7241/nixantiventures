@@ -185,7 +185,7 @@ boot.initrd = {
     ssh = {
       enable = true;
       port = 9875;
-      authorizedKeys = [ "ssh-rsa AAAAC3NzaC1lZDI1NTE5AAAAIL4l4g4cP18QYi29pes7qXaWspme9u5fIM1m9RmxWCIP" ];
+      authorizedKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL4l4g4cP18QYi29pes7qXaWspme9u5fIM1m9RmxWCIP" ];
       hostKeys = [ "/etc/secrets/initrd/ssh_host_ed25519_key" ];
     };
     postCommands = ''

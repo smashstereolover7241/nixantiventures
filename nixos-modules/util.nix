@@ -208,6 +208,10 @@ in {
       programs.xss-lock.lockerCommand = "${pkgs.betterlockscreen}/bin/betterlockscreen -l blur";
     })
 
+    (mkIf cfg.serverUtil {
+      environment.systemPackages = with pkgs; [ vim neovim git neofetch ]; # neofetch cause obv...
+    })
+
     (mkIf cfg.gpg {
       environment.systemPackages = with pkgs; [gnupg pinentry pinentry-gtk2 pinentry-curses];
       programs.gnupg.agent = {
