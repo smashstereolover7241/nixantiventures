@@ -186,7 +186,7 @@ boot.initrd = {
       enable = true;
       port = 9875;
       authorizedKeys = [ "ssh-rsa AAAAC3NzaC1lZDI1NTE5AAAAIL4l4g4cP18QYi29pes7qXaWspme9u5fIM1m9RmxWCIP" ];
-#      hostKeys = [ "/etc/secrets/initrd/ssh_host_ed25519_key" ];
+      hostKeys = [ "/etc/secrets/initrd/ssh_host_ed25519_key" ];
     };
     postCommands = ''
       # Automatically ask for the password on SSH login
