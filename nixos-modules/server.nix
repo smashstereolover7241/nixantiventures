@@ -1,14 +1,20 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.teletypeOne.wireguard;
+  cfg = config.teletypeOne.server;
 in {
-  options.teletypeOne.wireguard = {
-    enable = mkEnableOption "Install and enable the wireguard link";
+  options.teletypeOne.server = {
+    ssh = mkEnableOption "Enable ssh";
+    wireguard = mkEnableOption "stud";
   };
 
   config = (mkMerge [
-    (mkIf cfg.enable {
+    (mkIf cfg.ssh {
+      services.sshd.enable = true;
+      services.openssh.settings.PasswordAuthentication = false;
+      services.openssh.ports = [ 1529 ];
+    })
+    (mkIf cfg.wireguard {
       environment.systemPackages = with pkgs; [ wireguard-tools ];
       networking.firewall = {
         allowedUDPPorts = [ 12346 ];
@@ -32,4 +38,5 @@ in {
       };
     })
   ]);
+
 }

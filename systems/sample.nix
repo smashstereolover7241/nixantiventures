@@ -32,15 +32,12 @@ inputs: {
 
             emulation = {
               enabled = true;
-	      virtmanager = true;
+              virtmanager = true;
             };
 
-            ssh = {
-              enable = true;
-            };
-
-            wireguard = {
-              enable = true;
+            server = {
+              ssh = true;
+              wireguard = true;
             };
 
             theGrandUtilities = {
@@ -56,10 +53,10 @@ inputs: {
               steam = true;
               minecraft = true;
               minecraftLibFix = true;
-	      lutris = true;
-	      heroic = true;
-	      wheel = true;
-	      bottles = true;
+              lutris = true;
+              heroic = true;
+              wheel = true;
+              bottles = true;
             };
 
             pulseaudio.enable = false;
@@ -69,7 +66,7 @@ inputs: {
             fonts = {
               firaCode = true;
               all_the_icons = true;
-	      ricing_fonts = true;
+              ricing_fonts = true;
             };
 
             communication = {
@@ -83,7 +80,7 @@ inputs: {
 
             util = {
               lock = true;
-	      yt-dlp = true;
+              yt-dlp = true;
               cloud = true;
               xmonadUtil = true;
               swayUtil = true;
@@ -95,8 +92,8 @@ inputs: {
               driveUtil = true;
               emacs = true;
               media = true;
-	      firefox = true;
-	      librewolf = true;
+              firefox = true;
+              librewolf = true;
               encoding = true;
               pulseUtil = true;
               textUtil = true;
@@ -115,9 +112,10 @@ inputs: {
               fingerprint = true;
               notes = true;
               polkit = true;
-	      swaylockFix = true;
-	      compression = true;
-	      missioncenter= true;
+              swaylockFix = true;
+              compression = true;
+              missioncenter= true;
+              serverUtil = true;
             };
 
             xorg = {
@@ -139,12 +137,11 @@ inputs: {
               pass = true;
               lightdm = true;
               sddm = false;
-	      gtkgreet = true;
+              gtkgreet = true;
               libinput = true;
               flatInput = true;
               wacom = true;
               firmware = true;
-	      serverUtil = true;
             };
 
             networking  = {

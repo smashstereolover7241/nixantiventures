@@ -24,12 +24,9 @@ inputs: {
               python = false;
             };
 
-            ssh = {
-              enable = false;
-            };
-
-            wireguard = {
-              enable = false;
+            server = {
+              ssh = false;
+              wireguard = false;
             };
 
             theGrandUtilities = {

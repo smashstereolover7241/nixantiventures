@@ -18,12 +18,9 @@ inputs: {
               termite = true;
             };
 
-            ssh = {
-              enable = true;
-            };
-
-            wireguard = {
-              enable = true;
+            server = {
+              ssh = false;
+              wireguard = false;
             };
 
             theGrandUtilities = {

@@ -6,8 +6,7 @@
     ./pin-nixpkgs.nix
     ./lang.nix
     ./util.nix
-    ./ssh.nix
-    ./wireguard.nix
+    ./server.nix
     ./theGrandUtilities.nix
     ./pipewire.nix
     ./filemanagers.nix

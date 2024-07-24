@@ -30,12 +30,9 @@ inputs: {
               java17 = true;
             };
 
-            ssh = {
-              enable = true;
-            };
-
-            wireguard = {
-              enable = false;
+            server = {
+              ssh = false;
+              wireguard = false;
             };
 
             theGrandUtilities = {

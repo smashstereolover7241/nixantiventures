@@ -32,15 +32,12 @@ inputs: {
 
             emulation = {
               enabled = false;
-	      virtmanager = false;
+              virtmanager = false;
             };
 
-            ssh = {
-              enable = true;
-            };
-
-            wireguard = {
-              enable = false;
+            server = {
+              ssh = true;
+              wireguard = false;
             };
 
             theGrandUtilities = {
@@ -56,10 +53,10 @@ inputs: {
               steam = false;
               minecraft = false;
               minecraftLibFix = false;
-	      lutris = false;
-	      heroic = false;
-	      wheel = false;
-	      bottles = false;
+              lutris = false;
+              heroic = false;
+              wheel = false;
+              bottles = false;
             };
 
             pulseaudio.enable = false;
@@ -69,7 +66,7 @@ inputs: {
             fonts = {
               firaCode = false;
               all_the_icons = false;
-	      ricing_fonts = false;
+              ricing_fonts = false;
             };
 
             communication = {
@@ -83,7 +80,7 @@ inputs: {
 
             util = {
               lock = false;
-	      yt-dlp = false;
+              yt-dlp = false;
               cloud = false;
               xmonadUtil = false;
               swayUtil = false;
@@ -95,8 +92,8 @@ inputs: {
               driveUtil = false;
               emacs = false;
               media = false;
-	      firefox = false;
-	      librewolf = false;
+              firefox = false;
+              librewolf = false;
               encoding = false;
               pulseUtil = false;
               textUtil = false;
@@ -115,10 +112,10 @@ inputs: {
               fingerprint = false;
               notes = false;
               polkit = false;
-	      swaylockFix = false;
-	      compression = false;
-	      missioncenter = false;
-	      serverUtil = true;
+              swaylockFix = false;
+              compression = false;
+              missioncenter = false;
+              serverUtil = true;
             };
 
             xorg = {
@@ -138,7 +135,7 @@ inputs: {
               pass = false;
               lightdm = false;
               sddm = false;
-	      gtkgreet = false;
+              gtkgreet = false;
               libinput = false;
               flatInput = false;
               wacom = false;
@@ -177,25 +174,24 @@ inputs: {
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";
 
-boot.initrd = {
-  availableKernelModules = [ "virtio_net" ];
-  network = {
-    enable = true;
-    udhcpc.enable = true;
-    flushBeforeStage2 = true;
-    ssh = {
-      enable = true;
-      port = 9875;
-      authorizedKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL4l4g4cP18QYi29pes7qXaWspme9u5fIM1m9RmxWCIP" ];
-      hostKeys = [ "/etc/secrets/initrd/ssh_host_ed25519_key" ];
-    };
-    postCommands = ''
-      # Automatically ask for the password on SSH login
-      echo 'cryptsetup-askpass || echo "Unlock was successful; exiting SSH session" && exit 1' >> /root/.profile
-    '';
-  };
-};
-
+      boot.initrd = {
+        availableKernelModules = [ "virtio_net" ];
+        network = {
+          enable = true;
+          udhcpc.enable = true;
+          flushBeforeStage2 = true;
+          ssh = {
+            enable = true;
+            port = 9875;
+            authorizedKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL4l4g4cP18QYi29pes7qXaWspme9u5fIM1m9RmxWCIP" ];
+            hostKeys = [ "/etc/secrets/initrd/ssh_host_ed25519_key" ];
+          };
+          postCommands = ''
+            # Automatically ask for the password on SSH login
+            echo 'cryptsetup-askpass || echo "Unlock was successful; exiting SSH session" && exit 1' >> /root/.profile
+          '';
+        };
+      };
     })
   ];
 }
