@@ -139,7 +139,7 @@ in {
     })
 
     (mkIf cfg.compilerUtil {
-      environment.systemPackages = with pkgs; [cmake gnumake git pkg-config zlib];
+      environment.systemPackages = with pkgs; [cmake ninja gcc gnumake git pkg-config zlib];
     })
 
     (mkIf cfg.haskell {
