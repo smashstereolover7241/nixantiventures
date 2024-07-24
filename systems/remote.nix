@@ -175,6 +175,26 @@ inputs: {
 
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";
+
+boot.initrd = {
+  availableKernelModules = [ "virtio_net" ];
+  network = {
+    enable = true;
+    udhcpc.enable = true;
+    flushBeforeStage2 = true;
+    ssh = {
+      enable = true;
+      port = 9875;
+      authorizedKeys = [ "ssh-rsa AAAAC3NzaC1lZDI1NTE5AAAAIL4l4g4cP18QYi29pes7qXaWspme9u5fIM1m9RmxWCIP" ];
+#      hostKeys = [ "/etc/secrets/initrd/ssh_host_ed25519_key" ];
+    };
+    postCommands = ''
+      # Automatically ask for the password on SSH login
+      echo 'cryptsetup-askpass || echo "Unlock was successful; exiting SSH session" && exit 1' >> /root/.profile
+    '';
+  };
+};
+
     })
   ];
 }
