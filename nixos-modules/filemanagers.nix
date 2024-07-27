@@ -12,7 +12,7 @@ in {
   config = (mkMerge [
     (mkIf cfg.gui {
       services.gvfs.enable = true;
-      environment.systemPackages = with pkgs; [cinnamon.nemo];
+      environment.systemPackages = with pkgs; [nemo];
     })
     (mkIf cfg.smb {
       services.gvfs = {
