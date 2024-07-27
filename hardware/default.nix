@@ -14,7 +14,7 @@ in
       ./ProPenGo.nix
       ./ProSlowGo.nix
       ./ProVerySlowGo.nix
-      ./ProSlimShady.nix
+      ./Ana.nix
       ./VictoryLaptop.nix
       ./Samantha.nix
       ./sample.nix

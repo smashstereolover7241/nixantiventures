@@ -124,7 +124,7 @@ inputs: {
           networkManager = true;
         };
 
-        hardware.ProSlimShady = true;
+        hardware.Ana= true;
         flakes.enable = true;
 
       };
@@ -133,7 +133,7 @@ inputs: {
   ] ++ [
     ({ pkgs, ... }: {
       networking = {
-        hostName = "ProSlimShady";
+        hostName = "Ana";
         useDHCP = false;
         hostId = "5457b35a";
       };

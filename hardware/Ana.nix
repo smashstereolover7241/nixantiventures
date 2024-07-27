@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.teletypeOne.hardware.ProSlimShady;
+  cfg = config.teletypeOne.hardware.Ana;
 in
 {
-  options.teletypeOne.hardware.ProSlimShady = mkEnableOption "Enable ProSlimShady";
+  options.teletypeOne.hardware.Ana= mkEnableOption "Enable Ana"; #X230
 
   config = mkIf cfg {
 
