@@ -45,6 +45,7 @@ inputs: {
         filemanagers = {
           gui = true;
           tui = true;
+	  smb = true;
         };
 
         zsh = {
@@ -53,7 +54,7 @@ inputs: {
         };
 
         games = {
-          steam = true;
+          steam = false;
           minecraft = false;
         };
 
@@ -64,6 +65,7 @@ inputs: {
         fonts = {
 	  ricing_fonts = true;
           firaCode = true;
+	  all_the_icons = true;
         };
 
         communication = {
@@ -124,7 +126,7 @@ inputs: {
           networkManager = true;
         };
 
-        hardware.Ana= true;
+        hardware.Ana = true;
         flakes.enable = true;
 
       };
