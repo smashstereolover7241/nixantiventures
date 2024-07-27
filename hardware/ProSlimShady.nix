@@ -14,24 +14,31 @@ in
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "SsdFS/root";
+    { device = "anaFS/nixos";
       fsType = "zfs";
     };
 
   fileSystems."/home" =
-    { device = "SsdFS/root/home";
+    { device = "anaFS/nixos/home";
       fsType = "zfs";
     };
 
   fileSystems."/nix" =
-    { device = "SsdFS/root/nix";
+    { device = "anaFS/nixos/nix";
       fsType = "zfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/69a213d7-d302-46f2-bed5-360156c11e9f";
-      fsType = "ext4";
+    { device = "/dev/disk/by-uuid/9323-B9C3";
+      fsType = "vfat";
     };
+
+  boot.initrd.luks.devices = {
+   root = {
+     device = "/dev/disk/by-uuid/439af819-76a9-4732-8a92-f1a82d4f51e5";
+     preLVM = true;
+   };
+  };
 
   swapDevices = [ ];
 
