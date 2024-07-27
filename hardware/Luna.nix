@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.teletypeOne.hardware.ProGo;
+  cfg = config.teletypeOne.hardware.Luna;
 in
 {
-  options.teletypeOne.hardware.ProGo= mkEnableOption "Enable ProGo";
+  options.teletypeOne.hardware.Luna= mkEnableOption "Enable Luna";
 
   config = mkIf cfg{
 

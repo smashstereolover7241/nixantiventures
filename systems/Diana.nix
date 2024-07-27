@@ -3,11 +3,24 @@ inputs: {
 
   modules = [
     ../nixos-modules/default.nix
+    inputs.home-manager.nixosModules.home-manager
+
     ({ pkgs, config, lib, ... }:
       let
         inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
       in
-        {
+      {
+	home-manager.users."localhost" = 
+	{ ... } : {
+	   imports = [ ../home-manager/modules/default.nix ];
+	   teletypeOne.hm = {
+	      test.enable = true;
+	      zsh.enable = true;
+	      waybar.enable = true;
+	   };
+           home.stateVersion = "20.09";
+	   };
+        
           teletypeOne = {
 
             pins = inputs;
@@ -19,35 +32,32 @@ inputs: {
               kitty = true;
             };
 
-            filemanagers = {
-              gui = true;
-              tui = true;
-              smb = true;
-            };
-
             lang = {
+              java11 = false;
               python = false;
-              java17 = true;
             };
 
             server = {
               ssh = false;
-              wireguard = false;
             };
 
             theGrandUtilities = {
               enable = false;
             };
 
+            filemanagers = {
+              gui = true;
+              tui = true;
+            };
+
             zsh = {
               enabled = true;
-              ohMy = true;
+              ohMy = false;
             };
 
             games = {
               steam = false;
-              minecraft = true;
-              minecraftLibFix = true;
+              minecraft = false;
             };
 
             pulseaudio.enable = false;
@@ -56,34 +66,38 @@ inputs: {
 
             fonts = {
               firaCode = true;
-              all_the_icons = true;
-              ricing_fonts = true;
+	            ricing_fonts = true;
             };
 
             communication = {
-              free = false;
-              nonFree = false;
-              bullshit = false;
+              free = true;
+              nonFree = true;
+              bullshit = true;
+              mailGui = true;
               mailTui = false;
-              mailGui = false;
-              tdesktop = false;
+              tdesktop = true;
             };
 
+            android = {
+               scrcpy = true;
+	       adb = true;
+	    };
+
             util = {
+	      yt-dlp = true;
+              polkit = true;
               lock = true;
-              yt-dlp = true;
-              cloud = false;
-              xmonadUtil = true;
-              swayUtil = false;
+              xmonadUtil = false;
+              swayUtil = true;
               neofetch = true;
-              music = false;
+              music = true;
               screenshot = true;
               theming = true;
               topFamily = true;
               driveUtil = true;
               emacs = true;
               media = true;
-              encoding = true;
+              encoding = false;
               pulseUtil = true;
               textUtil = true;
               office = false;
@@ -91,42 +105,32 @@ inputs: {
               compilerUtil = true;
               haskell = true;
               termUtil = true;
-              painting = false;
+              painting = true;
               gpg = true;
-              qute = true;
-              wine = false;
-              wineland = false;
-              openvpn = false;
-              maths = false;
+              openvpn = true;
+              maths = true;
               fingerprint = false;
-              notes = false;
-              polkit = true;
-              swaylockFix = false;
+              cloud = true;
+              qute = true;
+	      swaylockFix = true;
             };
 
             xorg = {
               enable = true;
-              gpu = "modesetting";
-              backlightFix = false;
-              nvidia = {
-                prime = true;
-                intelBusId = "PCI:0:2:0";
-                nvidiaBusId = "PCI:1:0:0";
-              };
-              xmonad = true;
-              xmobar = true;
-              waybar = false;
-              stalone = true;
-              kde6 = false;
+              backlightFix = true;
+              gpu = "intelAccelerated";
+              xmonad = false;
+              kde5 = false;
+              xmobar = false;
+              waybar = true;
               dunst = true;
-              pass = true;
               lightdm = false;
-              sddm = true;
-              gtkgreet = false;
-              libinput = false;
-              flatInput = true;
-              wacom = false;
-              firmware = true;
+              sddm = false;
+	      gtkgreet = true;
+              libinput = true;
+              flatInput = false;
+              wacom = true;
+              stalone = false;
             };
 
             networking  = {
@@ -134,31 +138,26 @@ inputs: {
               networkManager = true;
             };
 
-            android = {
-              adb = true;
-              scrcpy = true;
-            };
-
-            hardware.ProGo = true;
-            flakes.enable = true;
+            hardware.Diana = true;
 
           };
-        }
-    )
+        
+    }) 
   ] ++ [
     ({ pkgs, ... }: {
       networking = {
-        hostName = "ProGo";
+        hostName = "Diana";
         useDHCP = false;
-        hostId = "3457b394";
+        hostId = "5457b35a";
       };
 
       boot.loader.grub.enable = true;
       boot.loader.grub.device = "nodev";
       nixpkgs.config.allowUnfree = true;
-
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";
+      hardware.enableRedistributableFirmware = true;
+
     })
   ];
 }

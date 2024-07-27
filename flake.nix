@@ -28,8 +28,8 @@
         forAllSystems = forAllSystems' supportedSystems;
       in {
 
-        nixosConfigurations.ProGo = nixosSystem (import ./systems/ProGo.nix inputs); #W530
-        ProGo = self.nixosConfigurations.ProGo.config.system.build.toplevel;
+        nixosConfigurations.Luna = nixosSystem (import ./systems/Luna.nix inputs); #W530
+        Luna = self.nixosConfigurations.Luna.config.system.build.toplevel;
 
         nixosConfigurations.Ana = nixosSystem (import ./systems/Ana.nix inputs); #X230
         Ana = self.nixosConfigurations.Ana.config.system.build.toplevel;
@@ -37,14 +37,14 @@
         nixosConfigurations.ProNoGo = nixosSystem (import ./systems/ProNoGo.nix inputs); #Desktop
         ProNoGo = self.nixosConfigurations.ProNoGo.config.system.build.toplevel;
 
-        nixosConfigurations.ProProGo = nixosSystem (import ./systems/ProProGo.nix inputs); #P50
-        ProProGo = self.nixosConfigurations.ProProGo.config.system.build.toplevel;
+        nixosConfigurations.Ashley = nixosSystem (import ./systems/Ashley.nix inputs); #P50
+        Ashley = self.nixosConfigurations.Ashley.config.system.build.toplevel;
 
-        nixosConfigurations.VictoryLaptop= nixosSystem (import ./systems/VictoryLaptop.nix inputs); #satellite
+        nixosConfigurations.VictoryLaptop = nixosSystem (import ./systems/VictoryLaptop.nix inputs); #satellite
         VictoryLaptop = self.nixosConfigurations.VictoryLaptop.config.system.build.toplevel;
 
-        nixosConfigurations.ProPenGo = nixosSystem (import ./systems/ProPenGo.nix inputs); #Yoga 370
-        ProPenGo = self.nixosConfigurations.ProPenGo.config.system.build.toplevel;
+        nixosConfigurations.Diana = nixosSystem (import ./systems/Diana.nix inputs); #Yoga 370
+        Diana = self.nixosConfigurations.Diana.config.system.build.toplevel;
 
         nixosConfigurations.ProNoBrain = nixosSystem (import ./systems/ProNoBrain.nix inputs); #Yoga 370, other one
         ProNoBrain = self.nixosConfigurations.ProNoBrain.config.system.build.toplevel;

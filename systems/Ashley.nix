@@ -125,7 +125,7 @@ inputs: {
           networkManager = true;
         };
 
-        hardware.ProProGo = true;
+        hardware.Ashley = true;
         flakes.enable = true;
 
       };
@@ -134,7 +134,7 @@ inputs: {
   ] ++ [
     ({ pkgs, ... }: {
       networking = {
-        hostName = "ProProGo";
+        hostName = "Ashley";
         useDHCP = false;
         hostId = "3532b394";
       };

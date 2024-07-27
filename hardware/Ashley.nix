@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.teletypeOne.hardware.ProProGo;
+  cfg = config.teletypeOne.hardware.Ashley;
 in
 {
-  options.teletypeOne.hardware.ProProGo = mkEnableOption "Enable ProProGo";
+  options.teletypeOne.hardware.Ashley= mkEnableOption "Enable Ashley";
 
   config = mkIf cfg{
 

@@ -7,11 +7,11 @@ in
   options = {};
   imports =
     [
-      ./ProGo.nix
+      ./Luna.nix
       ./ProNoGo.nix
       ./ProNoBrain.nix
-      ./ProProGo.nix
-      ./ProPenGo.nix
+      ./Ashley.nix
+      ./Diana.nix
       ./ProSlowGo.nix
       ./ProVerySlowGo.nix
       ./Ana.nix
