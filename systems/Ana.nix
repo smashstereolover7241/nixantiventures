@@ -103,6 +103,7 @@ inputs: {
           fingerprint = true;
           cloud = true;
           qute = true;
+	  librewolf = true;
         };
 
         xorg = {
