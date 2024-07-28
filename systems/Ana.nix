@@ -14,6 +14,7 @@ inputs: {
         imports = [ ../home-manager/modules/default.nix ];
 	teletypeOne.hm = {
 	  zsh.enable = true;
+	  editors.emacs.enable = true;
 	};
 	home.stateVersion = "20.09";
 

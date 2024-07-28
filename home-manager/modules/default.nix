@@ -5,6 +5,8 @@ with lib;
     ./waybar
     ./cli
     ./sway
+    ./editors
+    ./editors
     ./test.nix
   ];
 }

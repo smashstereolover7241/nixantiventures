@@ -9,6 +9,11 @@
       inputs.nixpkgs.follows =
         "nixpkgs-unstable"; 
     };
+    doomemacs = {
+      url = "github:doomemacs/doomemacs";
+      flake = false;
+    };
+
   };
 
   # PACKAGES
