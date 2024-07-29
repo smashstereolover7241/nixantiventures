@@ -9,12 +9,14 @@ inputs: {
       inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
     in
     {
+        home-manager.extraSpecialArgs = { inherit inputs;}; # !!! LOOK AT THIS! EMACS!! (emacs does not work without this)
      	home-manager.users."localhost" = 
       { ... } : {
         imports = [ ../home-manager/modules/default.nix ];
         teletypeOne.hm = {
             test.enable = false;
             zsh.enable = true;
+	    editors.emacs.enable = true;
             waybar.enable = false;
         };
               home.stateVersion = "20.09";
@@ -77,7 +79,7 @@ inputs: {
           theming = true;
           topFamily = true;
           driveUtil = true;
-          emacs = true;
+          emacs = false;
           media = true;
 	  librewolf = true;
 	  firefox = true;

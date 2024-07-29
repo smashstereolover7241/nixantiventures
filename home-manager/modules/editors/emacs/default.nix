@@ -13,7 +13,7 @@ in
    };
    config = mkIf cfg.enable (mkMerge [
       (let
-         emacsPkg = customEmacsPackages pkgs.emacs29-pgtk;
+         emacsPkg = customEmacsPackages pkgs.emacs29;
       in
       {
         home.packages = with pkgs; [
@@ -25,17 +25,21 @@ in
 	  imagemagick
 	  fd
 	  zstd
+	  rsync
 
 	  emacsPkg
 	  ];
 
-	programs.zsh.envExtra = envExtra; #doom is now on path :)
+	programs.zsh.envExtra = envExtra; #doom is now on path :) ## do not forget to doom sync
           
 	xdg.configFile."doom" = {
 	  source = ./doomConfig;
 	  force = true;
 	};
-#	home.packages = [emacsPkg];
+	home.activation.installDoomEmacs = lib.hm.dag.entryAfter ["writeBoundary"] ''
+	  ${pkgs.rsync}/bin/rsync -avz --chmod=D2755,F744 ${inputs.doomemacs}/ ${config.xdg.configHome}/emacs/
+	  # maybe auto sync here
+	  '';
       })
    ]);
 }

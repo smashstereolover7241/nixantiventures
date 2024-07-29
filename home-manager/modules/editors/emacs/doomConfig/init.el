@@ -1,4 +1,3 @@
-(setq use-package-inject-hooks t)
 ;;; init.el -*- lexical-binding: t; -*-
 
 ;; This file controls what Doom modules are enabled and what order they load
@@ -187,7 +186,3 @@
        :config
        ;;literate
        (default +bindings +smartparens))
-
- (defadvice! fixed-doom-module-list (fn &rest args)
-    :around #'doom-module-list
-    (nreverse (apply fn args)))

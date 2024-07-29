@@ -33,6 +33,9 @@
 
 ;; Recursive stuff
 ;; (setq org-agenda-files (directory-files-recursively "~/org/" "\\.org$"))
+(use-package! org-krita
+  :config
+  (add-hook 'org-mode-hook 'org-krita-mode))
 ;; Add more priorities
 (setq   org-enable-priority-commands t
     org-highest-priority ?A
@@ -67,10 +70,46 @@
 
 
 ;; now set the evil bindings
+;;(require 'evil-org)
+;;(use-package evil
+;;  :init
+
+;;  (use-package key-chord
+;;    :config
+;;        (setq key-chord-two-keys-delay 0.15)
+;;        (key-chord-define evil-insert-state-map "jj" 'evil-normal-state)
+;;        (key-chord-mode 0))
+ ;; :bind (:map evil-motion-state-map
+  ;;             ("ä" . 'avy-goto-char)
+;;               ("ü" . 'avy-goto-line)
+;;               ("ö" . 'avy-goto-char-timer)
+;;	      :map evil-motion-state-map
+;;	      ("<left>" . 'ignore)
+;;	      ("<right>" . 'ignore)
+;;	      ("<up>" . 'ignore)
+;;	      ("<down>" . 'ignore)
+;;	      :map evil-insert-state-map
+;;	      ("C-;" . 'evil-insert-digraph)
+;;	      ("<left>" . 'ignore)
+;;	      ("<right>" . 'ignore)
+;;	      ("<up>" . 'ignore)
+;;	      ("<down>" . 'ignore)
+;;)
+;;  )
 (setq avy-all-windows t)
 
 ;;theming
 
+(use-package doom-themes
+  :custom
+  (doom-themes-treemacs-theme "doom-colors")
+  (doom-themes-enable-bold t)
+  (doom-themes-enable-italic t)
+  :config
+  (load-theme 'doom-tomorrow-night t)
+  (doom-themes-visual-bell-config)
+  (doom-themes-treemacs-config)
+  (doom-themes-org-config))
 
 ;;Org mode
 
@@ -79,4 +118,5 @@
 ;;  :init
 ;;  (add-hook 'org-mode-hook #'org-bullets-mode))
 
-
+(require 'org-superstar)
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))

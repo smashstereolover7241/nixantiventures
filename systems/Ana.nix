@@ -9,6 +9,7 @@ inputs: {
       inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
     in
     {
+      home-manager.extraSpecialArgs = { inherit inputs;}; # !!! LOOK AT THIS! EMACS!! (emacs does not work without this)
       home-manager.users."localhost" =
       { ... } : {
         imports = [ ../home-manager/modules/default.nix ];

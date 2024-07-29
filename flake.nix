@@ -73,7 +73,6 @@
         allSystems =
           let
             pkgs = system: import nixpkgs { system = "x86_64-linux"; };
-#            drucker = import inputs.druckerrepo { system = "x86_64-linux"; };
 
             linkFarm = system: attrs:
               let
