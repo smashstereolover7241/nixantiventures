@@ -44,6 +44,7 @@ inputs: {
 
         games = {
           steam = true;
+	  lutris = true;
           minecraft = true;
 	  heroic = true;
 	  bottles = true;
