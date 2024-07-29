@@ -91,28 +91,28 @@ in {
   config = mkIf cfg.enable (mkMerge [
     {
       services = {
-	      xserver = {
-		enable = true;
-		desktopManager.plasma5.enable = mkIf cfg.kde5 (true);
-	        displayManager.lightdm.enable = mkIf cfg.lightdm true;
-		windowManager = mkIf cfg.xmonad {
-		  xmonad.enable = true;
-		  xmonad.enableContribAndExtras = true;
-		};
-	      };
-	      desktopManager.plasma6.enable = mkIf cfg.kde6 (true);
-	      displayManager = {
-		  sddm.enable = mkIf cfg.sddm true;
-		  defaultSession = mkIf cfg.xmonad "none+xmonad";
-              };
-	      greetd = mkIf cfg.gtkgreet {
-		 enable = true;
-		 settings = {
-		    default_session = {
-		       command = "${pkgs.sway}/bin/sway --config ${swayConfig} --unsupported-gpu";
-		    };
-		 };
-	      };
+        xserver = {
+          enable = true;
+          desktopManager.plasma5.enable = mkIf cfg.kde5 (true);
+          displayManager.lightdm.enable = mkIf cfg.lightdm true;
+          windowManager = mkIf cfg.xmonad {
+            xmonad.enable = true;
+            xmonad.enableContribAndExtras = true;
+          };
+        };
+        desktopManager.plasma6.enable = mkIf cfg.kde6 (true);
+        displayManager = {
+          sddm.enable = mkIf cfg.sddm true;
+          defaultSession = mkIf cfg.xmonad "none+xmonad";
+        };
+        greetd = mkIf cfg.gtkgreet {
+          enable = true;
+          settings = {
+            default_session = {
+              command = "${pkgs.sway}/bin/sway --config ${swayConfig} --unsupported-gpu";
+            };
+          };
+        };
       };
 
 
@@ -185,28 +185,27 @@ in {
     })
 
     (mkIf cfg.wacomFix {
-     #couldn't get it working with a single service, so 2 it is 
-     systemd.services.inputattach = {
+      #couldn't get it working with a single service, so 2 it is
+      systemd.services.inputattach = {
         wantedBy = [ "multi-user.target" ];
         description = "inputattach thingy";
         serviceConfig = {
           Type = "simple";
-#	  ExecStartPre="/run/current-system/sw/bin/sleep 5"; # takes a moment to show up
-	  ExecStart="/run/current-system/sw/bin/isdv4-serial-inputattach /dev/ttyS0";
+          #     ExecStartPre="/run/current-system/sw/bin/sleep 5"; # takes a moment to show up
+          ExecStart="/run/current-system/sw/bin/isdv4-serial-inputattach /dev/ttyS0";
         };
       };
-     #Need to reattach the device after every suspend
-     systemd.services.inputreattach = {
+      #Need to reattach the device after every suspend
+      systemd.services.inputreattach = {
         wantedBy = [ "suspend.target" ];
         after = [ "suspend.target" ];
         description = "inputattach thingy";
         serviceConfig = {
           Type = "simple";
-	  ExecStartPre="/run/current-system/sw/bin/sleep 5"; # takes a moment to show up
-	  ExecStart="/run/current-system/sw/bin/isdv4-serial-inputattach /dev/ttyS0";
+          ExecStartPre="/run/current-system/sw/bin/sleep 5"; # takes a moment to show up
+          ExecStart="/run/current-system/sw/bin/isdv4-serial-inputattach /dev/ttyS0";
         };
       };
-
     })
 
     (mkIf cfg.pass {

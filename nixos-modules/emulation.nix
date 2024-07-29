@@ -13,21 +13,20 @@ in {
     (mkIf (cfg.enabled) {
       environment.systemPackages = with pkgs; [qemu];
       virtualisation.libvirtd = {
-      enable = true;
-      qemu = {
-         package = pkgs.qemu_kvm;
-	 swtpm.enable = true;
-	 ovmf = {
-	    enable = true;
-	    packages = [(pkgs.OVMF.override {
-	       secureBoot = true;
-	       tpmSupport = true;
-	    }).fd];
-	};
-      };
+        enable = true;
+        qemu = {
+          package = pkgs.qemu_kvm;
+          swtpm.enable = true;
+          ovmf = {
+            enable = true;
+            packages = [(pkgs.OVMF.override {
+              secureBoot = true;
+              tpmSupport = true;
+            }).fd];
+          };
+        };
       };
     })
-
 
     (mkIf (cfg.virtmanager) {
       programs.virt-manager.enable = true;

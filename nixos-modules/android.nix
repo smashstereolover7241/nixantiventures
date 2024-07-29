@@ -16,7 +16,6 @@ in {
 
     (mkIf cfg.ass{
       environment.systemPackages = with pkgs; [android-studio];
-#      environment.systemPackages = with pkgs; [androidenv.androidPkgs_9_0.androidsdk];
     })
 
     (mkIf cfg.scrcpy{

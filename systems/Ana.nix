@@ -13,13 +13,13 @@ inputs: {
       home-manager.users."localhost" =
       { ... } : {
         imports = [ ../home-manager/modules/default.nix ];
-	teletypeOne.hm = {
-	  zsh.enable = true;
-	  editors.emacs.enable = true;
-	};
-	home.stateVersion = "20.09";
-
+        teletypeOne.hm = {
+          zsh.enable = true;
+          editors.emacs.enable = true;
+        };
+        home.stateVersion = "20.09";
       };
+
       teletypeOne = {
 
         pins = inputs;
@@ -47,7 +47,7 @@ inputs: {
         filemanagers = {
           gui = true;
           tui = true;
-	  smb = true;
+          smb = true;
         };
 
         zsh = {
@@ -65,9 +65,9 @@ inputs: {
         pipewire.easyeffects = true;
 
         fonts = {
-	  ricing_fonts = true;
+          ricing_fonts = true;
           firaCode = true;
-	  all_the_icons = true;
+          all_the_icons = true;
         };
 
         communication = {
@@ -105,7 +105,7 @@ inputs: {
           fingerprint = true;
           cloud = true;
           qute = true;
-	  librewolf = true;
+          librewolf = true;
         };
 
         xorg = {

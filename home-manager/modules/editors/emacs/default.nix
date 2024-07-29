@@ -17,29 +17,29 @@ in
       in
       {
         home.packages = with pkgs; [
-	  git 
-	  (ripgrep.override {withPCRE2 = true;})
-	  gnutls
+          git
+          (ripgrep.override {withPCRE2 = true;})
+          gnutls
 
-	  fd
-	  imagemagick
-	  fd
-	  zstd
-	  rsync
+          fd
+          imagemagick
+          fd
+          zstd
+          rsync
 
-	  emacsPkg
-	  ];
+          emacsPkg
+        ];
 
-	programs.zsh.envExtra = envExtra; #doom is now on path :) ## do not forget to doom sync
+        programs.zsh.envExtra = envExtra; #doom is now on path :) ## do not forget to doom sync
           
-	xdg.configFile."doom" = {
-	  source = ./doomConfig;
-	  force = true;
-	};
-	home.activation.installDoomEmacs = lib.hm.dag.entryAfter ["writeBoundary"] ''
-	  ${pkgs.rsync}/bin/rsync -avz --chmod=D2755,F744 ${inputs.doomemacs}/ ${config.xdg.configHome}/emacs/
-	  # maybe auto sync here
-	  '';
+        xdg.configFile."doom" = {
+          source = ./doomConfig;
+          force = true;
+        };
+        home.activation.installDoomEmacs = lib.hm.dag.entryAfter ["writeBoundary"] ''
+          ${pkgs.rsync}/bin/rsync -avz --chmod=D2755,F744 ${inputs.doomemacs}/ ${config.xdg.configHome}/emacs/
+        # maybe auto sync here
+        '';
       })
    ]);
 }

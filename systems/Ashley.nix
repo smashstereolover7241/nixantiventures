@@ -9,18 +9,18 @@ inputs: {
       inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
     in
     {
-        home-manager.extraSpecialArgs = { inherit inputs;}; # !!! LOOK AT THIS! EMACS!! (emacs does not work without this)
-     	home-manager.users."localhost" = 
+      home-manager.extraSpecialArgs = { inherit inputs;}; # !!! LOOK AT THIS! EMACS!! (emacs does not work without this)
+      home-manager.users."localhost" =
       { ... } : {
         imports = [ ../home-manager/modules/default.nix ];
         teletypeOne.hm = {
             test.enable = false;
             zsh.enable = true;
-	    editors.emacs.enable = true;
+            editors.emacs.enable = true;
             waybar.enable = false;
         };
-              home.stateVersion = "20.09";
-        };
+        home.stateVersion = "20.09";
+      };
       teletypeOne = {
 
         pins = inputs;
@@ -44,11 +44,11 @@ inputs: {
 
         games = {
           steam = true;
-	  lutris = true;
+          lutris = true;
           minecraft = true;
-	  heroic = true;
-	  bottles = true;
-	  wheel = true;
+          heroic = true;
+          bottles = true;
+          wheel = true;
         };
 
         pulseaudio.enable = false;
@@ -57,11 +57,13 @@ inputs: {
         fonts = {
           firaCode = true;
           ricing_fonts = true;
+          all_the_icons = true;
         };
 
         lang = {
           python = true;
-	};
+        };
+
         communication = {
           free = true;
           nonFree = true;
@@ -72,7 +74,7 @@ inputs: {
         };
 
         util = {
-	  polkit = true;
+          polkit = true;
           xmonadUtil = true;
           neofetch = true;
           music = true;
@@ -82,8 +84,8 @@ inputs: {
           driveUtil = true;
           emacs = false;
           media = true;
-	  librewolf = true;
-	  firefox = true;
+          librewolf = true;
+          firefox = true;
           encoding = true;
           pulseUtil = true;
           textUtil = true;
@@ -99,8 +101,8 @@ inputs: {
           swaylockFix = true;
           swayUtil = true;
           wine = true;
-	  wineland = true;
-	  missioncenter = true;
+          wineland = true;
+          missioncenter = true;
         };
 
         xorg = {

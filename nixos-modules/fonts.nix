@@ -32,6 +32,6 @@ in {
           powerline-symbols
           # sf-mono-liga-bin
         ];
-    })
+      })
   ]);
 }

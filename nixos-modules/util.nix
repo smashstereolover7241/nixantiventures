@@ -49,15 +49,15 @@ in {
 
     (mkIf cfg.swayUtil {
       environment.systemPackages = with pkgs; [light  
- wmctrl wofi gmrun dunst arandr acpilight playerctl alsa-utils nwg-drawer wdisplays];
+        wmctrl wofi gmrun dunst arandr acpilight playerctl alsa-utils nwg-drawer wdisplays];
     })
 
     (mkIf cfg.swaylockFix {
-    	security.pam.services.swaylock = {
-	   text = ''
-	     auth include login
-	   '';
-	 };
+      security.pam.services.swaylock = {
+        text = ''
+          auth include login
+        '';
+      };
     })
 
     (mkIf cfg.neofetch {
@@ -67,22 +67,21 @@ in {
     (mkIf cfg.music {
       environment.systemPackages = with pkgs; [ncmpcpp mpd mpc-cli];
       services.mpd = {
-	  enable = true;
-	  musicDirectory = "/home/localhost/music";
-	  user = "localhost";
-#environment.XDG_RUNTIME_DIR = "/run/user/1000";
-	  extraConfig = ''
-		  audio_output {
-		    type "pipewire"
-		    name "PipeWire alla"
-		  }
-	  '';
+        enable = true;
+        musicDirectory = "/home/localhost/music";
+        user = "localhost";
+        #environment.XDG_RUNTIME_DIR = "/run/user/1000";
+        extraConfig = ''
+          audio_output {
+            type "pipewire"
+            name "PipeWire alla"
+          }
+        '';
 
-	  # Optional:
-#	  network.listenAddress = "any"; # if you want to allow non-localhost connections
-	  startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
-};
-
+        # Optional:
+        #     network.listenAddress = "any"; # if you want to allow non-localhost connections
+        startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
+      };
     })
 
     (mkIf cfg.screenshot {

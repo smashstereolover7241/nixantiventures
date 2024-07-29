@@ -9,14 +9,14 @@ inputs: {
         inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
       in
         {
-    home-manager.users."localhost" =
-    { ... } : {
-       imports = [ ../home-manager/modules/default.nix ];
-             teletypeOne.hm = {
-                zsh.enable = false;
-                waybar.enable = false;
-              };
-             home.stateVersion = "20.09";
+        home-manager.users."localhost" =
+        { ... } : {
+          imports = [ ../home-manager/modules/default.nix ];
+            teletypeOne.hm = {
+              zsh.enable = false;
+              waybar.enable = false;
+            };
+            home.stateVersion = "20.09";
           };
           teletypeOne = {
 

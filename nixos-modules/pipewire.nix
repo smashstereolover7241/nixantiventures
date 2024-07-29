@@ -9,7 +9,6 @@ in {
     easyeffects = mkEnableOption "Add easyeffects";
   };
   config = (mkMerge [
-
     (mkIf cfg.enable {
       security.rtkit.enable = true;
       services.pipewire = {
@@ -18,12 +17,9 @@ in {
         alsa.support32Bit = true;
         pulse.enable = true;
       };
-
     })
-
     (mkIf cfg.easyeffects {
       environment.systemPackages = with pkgs; [easyeffects];
     })
-
   ]);
 }

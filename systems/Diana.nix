@@ -11,17 +11,17 @@ inputs: {
       in
       {
         home-manager.extraSpecialArgs = { inherit inputs;}; # !!! LOOK AT THIS! EMACS!! (emacs does not work without this)
-	home-manager.users."localhost" = 
-	{ ... } : {
-	   imports = [ ../home-manager/modules/default.nix ];
-	   teletypeOne.hm = {
-	      test.enable = true;
-	      zsh.enable = true;
-	      waybar.enable = true;
-	   };
-           home.stateVersion = "20.09";
-	   };
-        
+        home-manager.users."localhost" =
+        { ... } : {
+            imports = [ ../home-manager/modules/default.nix ];
+            teletypeOne.hm = {
+              test.enable = true;
+              zsh.enable = true;
+              waybar.enable = true;
+            };
+            home.stateVersion = "20.09";
+          };
+
           teletypeOne = {
 
             pins = inputs;
@@ -67,7 +67,7 @@ inputs: {
 
             fonts = {
               firaCode = true;
-	            ricing_fonts = true;
+              ricing_fonts = true;
             };
 
             communication = {
@@ -81,11 +81,11 @@ inputs: {
 
             android = {
                scrcpy = true;
-	       adb = true;
-	    };
+               adb = true;
+            };
 
             util = {
-	      yt-dlp = true;
+              yt-dlp = true;
               polkit = true;
               lock = true;
               xmonadUtil = false;
@@ -113,7 +113,7 @@ inputs: {
               fingerprint = false;
               cloud = true;
               qute = true;
-	      swaylockFix = true;
+              swaylockFix = true;
             };
 
             xorg = {
@@ -127,7 +127,7 @@ inputs: {
               dunst = true;
               lightdm = false;
               sddm = false;
-	      gtkgreet = true;
+              gtkgreet = true;
               libinput = true;
               flatInput = false;
               wacom = true;

@@ -7,6 +7,5 @@ in
 imports = [
       ./swayidle.nix
       ./swaylock.nix
-];
-
+   ];
 }
