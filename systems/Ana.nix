@@ -88,7 +88,7 @@ inputs: {
           theming = true;
           topFamily = true;
           driveUtil = true;
-          emacs = true;
+          emacs = false;
           media = true;
           encoding = false;
           pulseUtil = true;
