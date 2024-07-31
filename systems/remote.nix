@@ -38,6 +38,7 @@ inputs: {
             server = {
               ssh = true;
               wireguard = false;
+              wireguardServer = true;
               utilPkgs = true;
             };
 

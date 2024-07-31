@@ -37,7 +37,8 @@ inputs: {
 
             server = {
               ssh = true;
-              wireguard = true;
+              wireguard = false; #otherwise it complains about dual private key
+              wireguardServer = true;
               utilPkgs = true;
             };
 
