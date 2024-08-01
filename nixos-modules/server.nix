@@ -81,9 +81,9 @@ in {
             # List of allowed peers.
             { # Feel free to give a meaning full name
               # Public key of the peer (not a file path).
-              publicKey = "FRhws1kkiUBQ91UGTMWzuPH5wUn9v16tfJFQnu7r4TM";
+              publicKey = "FRhws1kkiUBQ91UGTMWzuPH5wUn9v16tfJFQnu7r4TM=";
               # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
-              allowedIPs = [ "10.100.0.2/32" ];
+              allowedIPs = [ "10.51.0.2/32" ];
             }
           ];
         };
