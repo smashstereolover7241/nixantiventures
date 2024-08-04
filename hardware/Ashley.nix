@@ -14,22 +14,22 @@ in
   boot.extraModulePackages = with config.boot.kernelPackages; [ new-lg4ff ];
 
   fileSystems."/" =
-    { device = "ssdFS";
+    { device = "storeFS/nixos";
       fsType = "zfs";
     };
 
   fileSystems."/nix" =
-    { device = "ssdFS/nix";
+    { device = "storeFS/nixos/nix";
       fsType = "zfs";
     };
 
   fileSystems."/home" =
-    { device = "ssdFS/home";
+    { device = "storeFS/nixos/home";
       fsType = "zfs";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/5F0A-97B0";
+    { device = "/dev/disk/by-uuid/3F50-EC00";
       fsType = "vfat";
     };
 

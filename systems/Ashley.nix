@@ -97,7 +97,7 @@ inputs: {
           maths = true;
           painting = true;
           cloud = false;
-          qute = true;
+          qute = false;
           swaylockFix = true;
           swayUtil = true;
           wine = true;
@@ -149,6 +149,7 @@ inputs: {
       nixpkgs.config.allowUnfree = true;
 
       programs.adb.enable = true;
+      services.logrotate.checkConfig = false;
 
       time.timeZone = "Europe/Berlin";
       hardware.enableRedistributableFirmware = true;
