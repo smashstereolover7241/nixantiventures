@@ -55,13 +55,19 @@ inputs: {
               mailGui = true; 
             };
 
+            monitoring = {
+              htop = true;
+              iotop = true;
+              btop = true;
+              glances = true;
+            };
+
             util = {
               xmonadUtil = false;
               neofetch = true;
               music = false;
               screenshot = true;
               theming = false;
-              topFamily = true;
               driveUtil = true;
               emacs = false;
               media = true;

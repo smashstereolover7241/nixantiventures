@@ -80,6 +80,14 @@ inputs: {
               tdesktop = true;
             };
 
+            monitoring = {
+              htop = true;
+              iotop = true;
+              btop = true;
+              glances = true;
+              nvtop = true;
+            };
+
             util = {
               lock = true;
               yt-dlp = true;
@@ -90,7 +98,6 @@ inputs: {
               music = true;
               screenshot = true;
               theming = true;
-              topFamily = true;
               driveUtil = true;
               emacs = true;
               media = true;

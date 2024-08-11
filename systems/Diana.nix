@@ -84,6 +84,13 @@ inputs: {
                adb = true;
             };
 
+            monitoring = {
+              htop = true;
+              iotop = true;
+              btop = true;
+              glances = true;
+            };
+
             util = {
               yt-dlp = true;
               polkit = true;
@@ -94,7 +101,6 @@ inputs: {
               music = true;
               screenshot = true;
               theming = true;
-              topFamily = true;
               driveUtil = true;
               emacs = true;
               media = true;

@@ -73,6 +73,13 @@ inputs: {
           mailTui = true;
         };
 
+        monitoring = {
+          htop = true;
+          iotop = true;
+          btop = true;
+          glances = true;
+        };
+
         util = {
           polkit = true;
           xmonadUtil = true;
@@ -80,7 +87,6 @@ inputs: {
           music = true;
           screenshot = true;
           theming = true;
-          topFamily = true;
           driveUtil = true;
           emacs = false;
           media = true;

@@ -48,13 +48,19 @@ inputs: {
           mailTui = true;
         };
 
+        monitoring = {
+          htop = true;
+          iotop = true;
+          btop = true;
+          glances = true;
+        };
+
         util = {
           xmonadUtil = true;
           neofetch = true;
           music = true;
           screenshot = true;
           theming = true;
-          topFamily = true;
           driveUtil = true;
           emacs = true;
           media = true;

@@ -79,6 +79,13 @@ inputs: {
           tdesktop = true;
         };
 
+        monitoring = {
+          htop = true;
+          iotop = true;
+          btop = true;
+          glances = true;
+        };
+
         util = {
           lock = true;
           xmonadUtil = true;
@@ -86,7 +93,6 @@ inputs: {
           music = true;
           screenshot = true;
           theming = true;
-          topFamily = true;
           driveUtil = true;
           emacs = false;
           media = true;

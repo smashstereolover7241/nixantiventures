@@ -10,7 +10,6 @@ in {
     music = mkEnableOption "Install (terminal) music applications";
     screenshot = mkEnableOption "Install all the usual screenshot tools";
     theming = mkEnableOption "Install tools for theming.";
-    topFamily = mkEnableOption "Install all the top tools!";
     driveUtil = mkEnableOption "Install drive utilities";
     emacs = mkEnableOption "Install Emacs and whatever needed for the thing";
     media = mkEnableOption "Have the usual media consumption stuffs installed";
@@ -90,10 +89,6 @@ in {
 
     (mkIf cfg.theming {
       environment.systemPackages = with pkgs; [lxappearance arc-theme papirus-icon-theme];
-    })
-
-    (mkIf cfg.topFamily {
-      environment.systemPackages = with pkgs; [htop iotop glances btop];
     })
 
     (mkIf cfg.driveUtil {
