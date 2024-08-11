@@ -194,7 +194,7 @@ inputs: {
         };
       };
       virtualisation.docker.enable = true;
-      virtualisation.docker.storagedriver = "zfs";
+      virtualisation.docker.storageDriver = "zfs";
     })
   ];
 }
