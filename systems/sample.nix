@@ -86,6 +86,7 @@ inputs: {
               btop = true;
               glances = true;
               nvtop = true;
+              missioncenter = true;
             };
 
             util = {
@@ -123,7 +124,6 @@ inputs: {
               polkit = true;
               swaylockFix = true;
               compression = true;
-              missioncenter = true;
             };
 
             xorg = {

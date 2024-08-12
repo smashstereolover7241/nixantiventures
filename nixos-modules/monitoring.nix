@@ -9,6 +9,7 @@ in {
     btop = mkEnableOption "Install glances";
     glances = mkEnableOption "Install glances";
     nvtop = mkEnableOption "Install nvtop";
+    missioncenter = mkEnableOption "Install mission-center";
   };
   config = (mkMerge [
 
@@ -30,6 +31,10 @@ in {
 
     (mkIf cfg.nvtop {
       environment.systemPackages = with pkgs; [nvtop];
+    })
+
+    (mkIf cfg.missioncenter {
+      environment.systemPackages = with pkgs; [mission-center];
     })
   ]);
 }

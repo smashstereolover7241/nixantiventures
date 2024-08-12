@@ -78,6 +78,7 @@ inputs: {
           iotop = true;
           btop = true;
           glances = true;
+          missioncenter = true;
         };
 
         util = {
@@ -108,7 +109,6 @@ inputs: {
           swayUtil = true;
           wine = true;
           wineland = true;
-          missioncenter = true;
         };
 
         xorg = {
