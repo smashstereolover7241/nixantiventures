@@ -88,6 +88,12 @@ inputs: {
               glances = true;
             };
 
+            internet = {
+              firefox = true;
+              librewolf = true;
+              qute = true;
+            };
+
             util = {
               lock = false;
               cloud = false;
@@ -100,8 +106,6 @@ inputs: {
               driveUtil = true;
               emacs = true;
               media = true;
-              librewolf = true;
-              firefox = true;
               encoding = true;
               pulseUtil = true;
               textUtil = true;
@@ -111,7 +115,6 @@ inputs: {
               haskell = false;
               termUtil = true;
               painting = true;
-              qute = true;
               gpg = true;
               swaylockFix = false;
               compression = true;

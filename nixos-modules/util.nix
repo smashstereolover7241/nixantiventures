@@ -5,23 +5,18 @@ let
 in {
   options.teletypeOne.util = {
     xmonadUtil = mkEnableOption "Install utility programs for xmonad";
+    haskell = mkEnableOption "You want haskell? You get haskell.";
     swayUtil = mkEnableOption "Install utility programs for wayland tiling wms";
     neofetch = mkEnableOption "Install requirements for neofetch";
-    music = mkEnableOption "Install (terminal) music applications";
     screenshot = mkEnableOption "Install all the usual screenshot tools";
     theming = mkEnableOption "Install tools for theming.";
     driveUtil = mkEnableOption "Install drive utilities";
     emacs = mkEnableOption "Install Emacs and whatever needed for the thing";
-    media = mkEnableOption "Have the usual media consumption stuffs installed";
-    firefox = mkEnableOption "Installs firefox";
-    librewolf = mkEnableOption "Installs better firefox (librewolf)";
-    encoding = mkEnableOption "Install tools to work with video / audio";
     pulseUtil = mkEnableOption "Install utilites to work with pulseawfulio";
     textUtil = mkEnableOption "Install text editors (not emacs)";
     office = mkEnableOption "Install office programs";
     password = mkEnableOption "Install password managers";
     compilerUtil = mkEnableOption "Install compiler stuff";
-    haskell = mkEnableOption "You want haskell? You get haskell.";
     termUtil = mkEnableOption "Utilites for the terminal";
     painting = mkEnableOption "Some painting applications";
     gpg = mkEnableOption "Stuff for gpg";
@@ -29,13 +24,14 @@ in {
     maths = mkEnableOption "install math stuff";
     fingerprint = mkEnableOption "Install fprintd";
     cloud = mkEnableOption "Install nextcloud";
-    qute = mkEnableOption "Install qutebrowser";
     lock = mkEnableOption "Install betterlockscreen";
     polkit = mkEnableOption "Install a policykit";
     notes = mkEnableOption "Install notetaking apps (logseq)";
     swaylockFix = mkEnableOption "Add fix for swaylock";
-    yt-dlp = mkEnableOption "Install yt-dlp";
     compression = mkEnableOption "Install compression utils";
+    media = mkEnableOption "Have the usual media consumption stuffs installed";
+    music = mkEnableOption "Install (terminal) music applications";
+    encoding = mkEnableOption "Install tools to work with video / audio";
   };
 
   config = (mkMerge [
@@ -97,15 +93,7 @@ in {
     })
 
     (mkIf cfg.media {
-      environment.systemPackages = with pkgs; [links2 vlc feh peek];
-    })
-
-    (mkIf cfg.firefox {
-      environment.systemPackages = with pkgs; [firefox];
-    })
-
-    (mkIf cfg.librewolf {
-      environment.systemPackages = with pkgs; [librewolf];
+      environment.systemPackages = with pkgs; [vlc feh peek];
     })
 
     (mkIf cfg.encoding {
@@ -160,10 +148,6 @@ in {
       services.fprintd.enable = true;
     })
 
-    (mkIf cfg.qute {
-      environment.systemPackages = with pkgs; [qutebrowser];
-    })
-
     (mkIf cfg.polkit {
       environment.systemPackages = with pkgs; [ lxqt.lxqt-policykit ];
     })
@@ -171,10 +155,6 @@ in {
     (mkIf cfg.notes {
       ##### Depends on too old electron, should currently not be used #####
       #environment.systemPackages = with pkgs; [ logseq ];
-    })
-
-    (mkIf cfg.yt-dlp {
-      environment.systemPackages = with pkgs; [ yt-dlp ];
     })
 
     (mkIf cfg.compression {

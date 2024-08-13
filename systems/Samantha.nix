@@ -78,6 +78,10 @@ inputs: {
               glances = true;
             };
 
+            internet = {
+              qute = true;
+            };
+
             util = {
               lock = true;
               xmonadUtil = true;
@@ -102,7 +106,6 @@ inputs: {
               maths = false;
               fingerprint = false;
               cloud = true;
-              qute = true;
               notes = true;
             };
 

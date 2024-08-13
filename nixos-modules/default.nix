@@ -22,6 +22,7 @@
     ./android.nix
     ./emulation.nix
     ./monitoring.nix
+    ./internet.nix
     ../hardware/default.nix
   ];
 }

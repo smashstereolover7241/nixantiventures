@@ -82,9 +82,15 @@ inputs: {
               tdesktop = false;
             };
 
+            internet = {
+              firefox = false;
+              librewolf = false;
+              qute = false;
+              yt-dlp = false;
+            };
+
             util = {
               lock = false;
-              yt-dlp = false;
               cloud = false;
               xmonadUtil = false;
               swayUtil = false;
@@ -95,8 +101,6 @@ inputs: {
               driveUtil = false;
               emacs = false;
               media = false;
-              firefox = false;
-              librewolf = false;
               encoding = false;
               pulseUtil = false;
               textUtil = false;
@@ -107,7 +111,6 @@ inputs: {
               termUtil = false;
               painting = false;
               gpg = false;
-              qute = false;
               openvpn = false;
               maths = false;
               fingerprint = false;

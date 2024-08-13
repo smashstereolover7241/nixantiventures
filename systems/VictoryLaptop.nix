@@ -62,6 +62,10 @@ inputs: {
           glances = true;
         };
 
+        internet = {
+         qute = true;
+        };
+
         util = {
           xmonadUtil = true;
           neofetch = true;
@@ -81,7 +85,6 @@ inputs: {
           termUtil = true;
           painting = true;
           cloud = true;
-          qute = true;
           polkit = true;
         };
 

@@ -83,6 +83,12 @@ inputs: {
           missioncenter = true;
         };
 
+        internet = {
+          firefox = true;
+          librewolf = true;
+          qute = false;
+        };
+
         util = {
           polkit = true;
           xmonadUtil = true;
@@ -93,8 +99,6 @@ inputs: {
           driveUtil = true;
           emacs = false;
           media = true;
-          librewolf = true;
-          firefox = true;
           encoding = true;
           pulseUtil = true;
           textUtil = true;
@@ -106,7 +110,6 @@ inputs: {
           maths = true;
           painting = true;
           cloud = false;
-          qute = false;
           swaylockFix = true;
           swayUtil = true;
         };

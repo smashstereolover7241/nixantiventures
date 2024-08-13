@@ -86,6 +86,12 @@ inputs: {
           glances = true;
         };
 
+        internet = {
+          firefox = false;
+          librewolf = true;
+          qute = true;
+        };
+
         util = {
           lock = true;
           xmonadUtil = true;
@@ -110,8 +116,6 @@ inputs: {
           maths = true;
           fingerprint = true;
           cloud = true;
-          qute = true;
-          librewolf = true;
         };
 
         xorg = {

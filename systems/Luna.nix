@@ -78,9 +78,13 @@ inputs: {
               glances = true;
             };
 
+            internet = {
+              qute = true;
+              yt-dlp = true;
+            };
+
             util = {
               lock = true;
-              yt-dlp = true;
               cloud = false;
               xmonadUtil = true;
               swayUtil = false;
@@ -101,7 +105,6 @@ inputs: {
               termUtil = true;
               painting = false;
               gpg = true;
-              qute = true;
               openvpn = false;
               maths = false;
               fingerprint = false;

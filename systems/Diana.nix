@@ -91,8 +91,12 @@ inputs: {
               glances = true;
             };
 
-            util = {
+            internet = {
+              qute = true;
               yt-dlp = true;
+            };
+
+            util = {
               polkit = true;
               lock = true;
               xmonadUtil = false;
@@ -118,7 +122,6 @@ inputs: {
               maths = true;
               fingerprint = false;
               cloud = true;
-              qute = true;
               swaylockFix = true;
             };
 

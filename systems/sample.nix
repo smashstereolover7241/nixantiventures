@@ -91,9 +91,15 @@ inputs: {
               missioncenter = true;
             };
 
+            internet = {
+              firefox = true;
+              librewolf = true;
+              qute = true;
+              yt-dlp = true;
+            };
+
             util = {
               lock = true;
-              yt-dlp = true;
               cloud = true;
               xmonadUtil = true;
               swayUtil = true;
@@ -104,8 +110,6 @@ inputs: {
               driveUtil = true;
               emacs = true;
               media = true;
-              firefox = true;
-              librewolf = true;
               encoding = true;
               pulseUtil = true;
               textUtil = true;
@@ -116,7 +120,6 @@ inputs: {
               termUtil = true;
               painting = true;
               gpg = true;
-              qute = true;
               openvpn = true;
               maths = true;
               fingerprint = true;
