@@ -30,7 +30,7 @@ in {
     })
 
     (mkIf cfg.nvtop {
-      environment.systemPackages = with pkgs; [nvtop];
+      environment.systemPackages = with pkgs; [nvtopPackages.full];
     })
 
     (mkIf cfg.missioncenter {
