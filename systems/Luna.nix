@@ -48,6 +48,8 @@ inputs: {
               steam = false;
               minecraft = true;
               minecraftLibFix = true;
+              wine = false;
+              wineland = false;
             };
 
             pulseaudio.enable = false;
@@ -100,8 +102,6 @@ inputs: {
               painting = false;
               gpg = true;
               qute = true;
-              wine = false;
-              wineland = false;
               openvpn = false;
               maths = false;
               fingerprint = false;

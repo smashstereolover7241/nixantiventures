@@ -59,6 +59,8 @@ inputs: {
               heroic = false;
               wheel = false;
               bottles = false;
+              wine = false;
+              wineland = false;
             };
 
             pulseaudio.enable = false;
@@ -106,8 +108,6 @@ inputs: {
               painting = false;
               gpg = false;
               qute = false;
-              wine = false;
-              wineland = false;
               openvpn = false;
               maths = false;
               fingerprint = false;

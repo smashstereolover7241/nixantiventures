@@ -60,6 +60,8 @@ inputs: {
               lutris = true;
               bottles = true;
               wheel = true;
+              wine = true;
+              wineland = true;
             };
 
             pulseaudio.enable = false;
@@ -111,8 +113,6 @@ inputs: {
               painting = true;
               qute = true;
               gpg = true;
-              wine = true;
-              wineland = true;
               swaylockFix = false;
               compression = true;
             };

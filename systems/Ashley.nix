@@ -49,6 +49,8 @@ inputs: {
           heroic = true;
           bottles = true;
           wheel = true;
+          wine = true;
+          wineland = true;
         };
 
         pulseaudio.enable = false;
@@ -107,8 +109,6 @@ inputs: {
           qute = false;
           swaylockFix = true;
           swayUtil = true;
-          wine = true;
-          wineland = true;
         };
 
         xorg = {

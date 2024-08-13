@@ -11,9 +11,12 @@ in {
     wheel = mkEnableOption "Install wheel utils";
     minecraft = mkEnableOption "Install minecraft launcher";
     minecraftLibFix = mkEnableOption "Install some random libraries required to launch some modpacks";
+    wine = mkEnableOption "Install wine";
+    wineland = mkEnableOption "Install wine with native wayland";
   };
 
   config = (mkMerge [
+
     (mkIf cfg.steam {
       programs.steam.enable = true;
       hardware.graphics.enable32Bit = true;
@@ -41,6 +44,14 @@ in {
 
     (mkIf cfg.minecraftLibFix {
       environment.systemPackages = with pkgs; [xorg.libXxf86vm xorg.libXxf86dga xorg.libXxf86misc];
+    })
+
+    (mkIf cfg.wine {
+      environment.systemPackages = with pkgs; [ wineWowPackages.stable ];
+    })
+
+    (mkIf cfg.wineland {
+      environment.systemPackages = with pkgs; [ wineWowPackages.waylandFull ];
     })
   ]);
 }

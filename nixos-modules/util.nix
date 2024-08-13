@@ -32,8 +32,6 @@ in {
     qute = mkEnableOption "Install qutebrowser";
     lock = mkEnableOption "Install betterlockscreen";
     polkit = mkEnableOption "Install a policykit";
-    wine = mkEnableOption "Install wine";
-    wineland = mkEnableOption "Install wine with native wayland";
     notes = mkEnableOption "Install notetaking apps (logseq)";
     swaylockFix = mkEnableOption "Add fix for swaylock";
     yt-dlp = mkEnableOption "Install yt-dlp";
@@ -168,14 +166,6 @@ in {
 
     (mkIf cfg.polkit {
       environment.systemPackages = with pkgs; [ lxqt.lxqt-policykit ];
-    })
-
-    (mkIf cfg.wine {
-      environment.systemPackages = with pkgs; [ wineWowPackages.stable ];
-    })
-
-    (mkIf cfg.wineland {
-      environment.systemPackages = with pkgs; [ wineWowPackages.waylandFull ];
     })
 
     (mkIf cfg.notes {
