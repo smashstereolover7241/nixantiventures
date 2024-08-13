@@ -90,6 +90,7 @@ inputs: {
           firefox = false;
           librewolf = true;
           qute = true;
+          links2 = true;
         };
 
         util = {

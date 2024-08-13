@@ -94,6 +94,7 @@ inputs: {
             internet = {
               qute = true;
               yt-dlp = true;
+              links2 = true;
             };
 
             util = {

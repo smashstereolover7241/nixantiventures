@@ -63,7 +63,8 @@ inputs: {
         };
 
         internet = {
-         qute = true;
+          qute = true;
+          links2 = true;
         };
 
         util = {

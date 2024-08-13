@@ -87,6 +87,7 @@ inputs: {
           firefox = true;
           librewolf = true;
           qute = false;
+          links2 = true;
         };
 
         util = {
