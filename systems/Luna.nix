@@ -3,11 +3,23 @@ inputs: {
 
   modules = [
     ../nixos-modules/default.nix
+    inputs.home-manager.nixosModules.home-manager
     ({ pkgs, config, lib, ... }:
       let
         inherit (config.teletypeOne.pkgs) nixpkgs-unstable;
       in
         {
+          home-manager.extraSpecialArgs = { inherit inputs;}; # !!! LOOK AT THIS! EMACS!! (emacs does not work without this)
+          home-manager.users."localhost" =
+          { ... } : {
+            imports = [ ../home-manager/modules/default.nix ];
+            teletypeOne.hm = {
+              zsh.enable = true;
+              editors.emacs.enable = true;
+            };
+            home.stateVersion = "20.09";
+          };
+
           teletypeOne = {
 
             pins = inputs;
@@ -79,6 +91,7 @@ inputs: {
             };
 
             internet = {
+              librewolf = true;
               qute = true;
               yt-dlp = true;
               links2 = true;
