@@ -28,6 +28,11 @@ in {
         options = {
           prime = mkEnableOption "Nvidia PRIME";
 
+          version = mkOption {
+            description = "If legacy drivers are required, specify here.";
+            type = types.str;
+            default = "stable";
+          };
           intelBusId = mkOption {
             type = types.str;
             default = "";
@@ -220,11 +225,11 @@ in {
     (mkIf (cfg.gpu == "nvidia") {
       services.xserver.videoDrivers = ["nvidia"];
 
+      hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.${cfg.nvidia.version};
       hardware.graphics= {
         enable = true;
         enable32Bit = true;
       };
-
       environment.systemPackages = mkIf (cfg.nvidia.prime)
       [ nvidia-offload pkgs.libglvnd ];
 

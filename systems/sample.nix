@@ -135,6 +135,7 @@ inputs: {
               backlightFix = true;
               nvidia = {
                 prime = true;
+                version = "stable";
                 intelBusId = "PCI:0:2:0";
                 nvidiaBusId = "PCI:1:0:0";
               };
@@ -182,6 +183,7 @@ inputs: {
       boot.loader.grub.enable = true;
       boot.loader.grub.device = "nodev";
       nixpkgs.config.allowUnfree = true;
+      nixpkgs.config.nvidia.acceptLicense = true;
 
       time.timeZone = "Europe/Berlin";
       system.stateVersion = "21.05";
