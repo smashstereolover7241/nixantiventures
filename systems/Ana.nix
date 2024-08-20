@@ -91,6 +91,7 @@ inputs: {
           librewolf = true;
           qute = true;
           links2 = true;
+          openvpn = true;
         };
 
         util = {
@@ -113,7 +114,6 @@ inputs: {
           termUtil = true;
           painting = true;
           gpg = true;
-          openvpn = true;
           maths = true;
           fingerprint = true;
           cloud = true;

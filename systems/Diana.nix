@@ -95,6 +95,7 @@ inputs: {
               qute = true;
               yt-dlp = true;
               links2 = true;
+              openvpn = true;
             };
 
             util = {
@@ -119,7 +120,6 @@ inputs: {
               termUtil = true;
               painting = true;
               gpg = true;
-              openvpn = true;
               maths = true;
               fingerprint = false;
               cloud = true;

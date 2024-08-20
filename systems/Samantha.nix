@@ -81,6 +81,7 @@ inputs: {
             internet = {
               qute = true;
               links2 = true;
+              openvpn = true;
             };
 
             util = {
@@ -103,7 +104,6 @@ inputs: {
               termUtil = true;
               painting = true;
               gpg = true;
-              openvpn = true;
               maths = false;
               fingerprint = false;
               cloud = true;

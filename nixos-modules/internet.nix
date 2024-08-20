@@ -9,6 +9,7 @@ in {
     qute = mkEnableOption "Install qutebrowser";
     links2 = mkEnableOption "Install links2";
     yt-dlp = mkEnableOption "Install yt-dlp";
+    openvpn = mkEnableOption "install openvpn";
   };
 
   config = (mkMerge [
@@ -30,6 +31,10 @@ in {
 
     (mkIf cfg.yt-dlp {
       environment.systemPackages = with pkgs; [yt-dlp];
+    })
+
+    (mkIf cfg.openvpn {
+      environment.systemPackages = with pkgs; [openvpn];
     })
 
   ]);

@@ -55,6 +55,11 @@ inputs: {
           glances = true;
         };
 
+        internet = {
+          librewolf = true;
+          openvpn = true;
+        };
+
         util = {
           xmonadUtil = true;
           neofetch = true;
@@ -73,7 +78,6 @@ inputs: {
           haskell = true;
           termUtil = true;
           painting = true;
-          openvpn = true;
           maths = false;
         };
 

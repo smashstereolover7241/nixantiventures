@@ -20,11 +20,10 @@ in {
     termUtil = mkEnableOption "Utilites for the terminal";
     painting = mkEnableOption "Some painting applications";
     gpg = mkEnableOption "Stuff for gpg";
-    openvpn = mkEnableOption "install openvpn";
+    lock = mkEnableOption "Install betterlockscreen";
     maths = mkEnableOption "install math stuff";
     fingerprint = mkEnableOption "Install fprintd";
     cloud = mkEnableOption "Install nextcloud";
-    lock = mkEnableOption "Install betterlockscreen";
     polkit = mkEnableOption "Install a policykit";
     notes = mkEnableOption "Install notetaking apps (logseq)";
     swaylockFix = mkEnableOption "Add fix for swaylock";
@@ -130,10 +129,6 @@ in {
 
     (mkIf cfg.painting {
       environment.systemPackages = with pkgs; [kolourpaint krita gimp];
-    })
-
-    (mkIf cfg.openvpn {
-      environment.systemPackages = with pkgs; [openvpn];
     })
 
     (mkIf cfg.cloud {
