@@ -39,6 +39,7 @@ inputs: {
               ssh = true;
               wireguard = false; #otherwise it complains about dual private key
               wireguardServer = true;
+              shadowsocks = true;
               utilPkgs = true;
             };
 

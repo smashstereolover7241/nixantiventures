@@ -7,6 +7,7 @@ in {
     ssh = mkEnableOption "Enable ssh";
     wireguard = mkEnableOption "Install wireguard client";
     wireguardServer = mkEnableOption "Install wireguard server";
+    shadowsocks = mkEnableOption "Install shadowsocks server";
     utilPkgs = mkEnableOption "Option to get basics on servers";
   };
 
@@ -95,6 +96,18 @@ in {
             }
           ];
         };
+      };
+    })
+    (mkIf cfg.shadowsocks {
+      services.shadowsocks = {
+        enable = true;
+        port = 8365; # default
+        passwordFile = "/path/to/passwd"; # put something random there and send it to me
+        mode = "udp_only"; # don't forget to open the firewall
+        localAddress = ["0.0.0.0"]; # bind addr
+      }; # rest should be fine by default
+      networking.firewall = {
+        allowedUDPPorts = [ 8365 ];
       };
     })
     (mkIf cfg.utilPkgs {

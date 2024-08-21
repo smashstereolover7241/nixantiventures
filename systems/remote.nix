@@ -39,6 +39,7 @@ inputs: {
               ssh = true;
               wireguard = false;
               wireguardServer = true;
+              shadowsocks = true;
               utilPkgs = true;
             };
 
