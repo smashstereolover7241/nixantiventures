@@ -59,20 +59,16 @@ in {
       environment.systemPackages = with pkgs; [ncmpcpp mpd mpc-cli];
       services.mpd = {
         enable = true;
-        musicDirectory = "/home/localhost/music";
+        musicDirectory = "/home/localhost/Music";
         user = "localhost";
-        #environment.XDG_RUNTIME_DIR = "/run/user/1000";
         extraConfig = ''
           audio_output {
             type "pipewire"
             name "PipeWire alla"
           }
         '';
-
-        # Optional:
-        #     network.listenAddress = "any"; # if you want to allow non-localhost connections
-        startWhenNeeded = true; # systemd feature: only start MPD service upon connection to its socket
       };
+        systemd.services.mpd.environment.XDG_RUNTIME_DIR = "/run/user/1000";
     })
 
     (mkIf cfg.screenshot {
