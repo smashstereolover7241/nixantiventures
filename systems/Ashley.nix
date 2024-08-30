@@ -165,6 +165,10 @@ inputs: {
       time.timeZone = "Europe/Berlin";
       hardware.enableRedistributableFirmware = true;
       system.stateVersion = "21.05";
+      nixpkgs.config.permittedInsecurePackages = [
+                "jitsi-meet-1.0.8043"
+              ];
+
     })
   ];
 }
