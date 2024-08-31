@@ -75,8 +75,8 @@ inputs: {
             };
 
             communication = {
-              free = false;
-              nonFree = false;
+              free = true;
+              nonFree = true;
               bullshit = false;
               mailTui = false;
               mailGui = false;
