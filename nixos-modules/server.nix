@@ -109,13 +109,14 @@ in {
     (mkIf cfg.shadowsocks {
       services.shadowsocks = {
         enable = true;
-        port = 8365; # default
+        port = 8390; # default
         passwordFile = "/root/keys/shadowsocks"; # put something random there and send it to me
-        mode = "udp_only"; # don't forget to open the firewall
+        mode = "tcp_and_udp"; # don't forget to open the firewall
         localAddress = ["0.0.0.0"]; # bind addr
       }; # rest should be fine by default
       networking.firewall = {
-        allowedUDPPorts = [ 8365 ];
+        allowedUDPPorts = [ 8390 ];
+        allowedTCPPorts = [ 8390 ];
       };
     })
     (mkIf cfg.utilPkgs {
