@@ -94,6 +94,14 @@ in {
               # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
               allowedIPs = [ "10.51.0.2/32" ];
             }
+            { # Luna
+              publicKey = "L+rvPGrgJc5yjhD7mF+uCqKc7hRTkmWCcPftNpgbZVU=";
+              allowedIPs = [ "10.51.0.3/32" ];
+            }
+            { # John Doe
+              publicKey = "ksSAc7+W1/tlju7/h89U6eq4vo9mojLhY7PjbKc8WHQ=";
+              allowedIPs = [ "10.51.0.4/32" ];
+            }
           ];
         };
       };
