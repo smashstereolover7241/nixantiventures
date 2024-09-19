@@ -225,6 +225,7 @@ in {
     (mkIf (cfg.gpu == "nvidia") {
       services.xserver.videoDrivers = ["nvidia"];
 
+      hardware.nvidia.open = false;
       hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.${cfg.nvidia.version};
       hardware.graphics= {
         enable = true;

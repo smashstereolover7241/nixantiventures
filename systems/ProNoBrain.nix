@@ -42,7 +42,7 @@ inputs: {
               minecraft = false;
             };
 
-            pulseaudio.enable = true;
+            pulseaudio.enable = false;
 
             fonts = {
               firaCode = true;
