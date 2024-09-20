@@ -42,6 +42,7 @@ in {
       };
     })
     (mkIf cfg.wireguardAshley {
+      #TODO: make this proper options
       environment.systemPackages = with pkgs; [ wireguard-tools ];
       networking.firewall = {
         allowedUDPPorts = [ 21841 ];

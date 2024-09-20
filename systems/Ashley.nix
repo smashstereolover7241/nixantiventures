@@ -95,6 +95,7 @@ inputs: {
           librewolf = true;
           qute = false;
           links2 = true;
+          mullvad = true;
         };
 
         util = {

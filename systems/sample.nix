@@ -98,6 +98,7 @@ inputs: {
               qute = true;
               yt-dlp = true;
               openvpn = true;
+              mullvad = true;
             };
 
             util = {
