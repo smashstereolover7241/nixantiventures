@@ -53,6 +53,12 @@ inputs: {
           wineland = true;
         };
 
+        server = {
+          ssh = false;
+          wireguard = false;
+          wireguardAshley = true;
+        };
+
         pulseaudio.enable = false;
         pipewire.enable = true;
         pipewire.easyeffects = true;

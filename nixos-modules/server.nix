@@ -6,6 +6,7 @@ in {
   options.teletypeOne.server = {
     ssh = mkEnableOption "Enable ssh";
     wireguard = mkEnableOption "Install wireguard client";
+    wireguardAshley = mkEnableOption "Install wireguard client";
     wireguardServer = mkEnableOption "Install wireguard server";
     shadowsocks = mkEnableOption "Install shadowsocks server";
     utilPkgs = mkEnableOption "Option to get basics on servers";
@@ -34,6 +35,29 @@ in {
               publicKey = "cRk0cF+PHOvBaBmVe9jy9v+8ClVMGNLXmiHqEYFU/kg=";
               allowedIPs = ["192.168.76.0/22"];
               endpoint = "185.162.248.72:12346";
+              persistentKeepalive = 25;
+            }
+          ];
+        };
+      };
+    })
+    (mkIf cfg.wireguardAshley {
+      environment.systemPackages = with pkgs; [ wireguard-tools ];
+      networking.firewall = {
+        allowedUDPPorts = [ 21841 ];
+      };
+      networking.wireguard.interfaces = {
+        wg0 = {
+          ips = [ "10.51.0.3" ];
+          listenPort = 21841;
+          #adress = "192.168.77.6";
+          privateKeyFile = "/home/localhost/wireguard-keys/ashley/private";
+
+          peers = [
+            {
+              publicKey = "W2Ui8QW5nDkOM/GeoWyPdN/5dROT0Lm5GfCrSgxU7W8=";
+              allowedIPs = ["10.51.0.0/24"];
+              endpoint = "185.162.248.72:51938";
               persistentKeepalive = 25;
             }
           ];
@@ -94,11 +118,11 @@ in {
               # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
               allowedIPs = [ "10.51.0.2/32" ];
             }
-            { # Luna
+            { # ashley
               publicKey = "L+rvPGrgJc5yjhD7mF+uCqKc7hRTkmWCcPftNpgbZVU=";
               allowedIPs = [ "10.51.0.3/32" ];
             }
-            { # John Doe
+            { # p6
               publicKey = "ksSAc7+W1/tlju7/h89U6eq4vo9mojLhY7PjbKc8WHQ=";
               allowedIPs = [ "10.51.0.4/32" ];
             }
