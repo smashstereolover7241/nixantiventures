@@ -31,6 +31,7 @@ in {
     media = mkEnableOption "Have the usual media consumption stuffs installed";
     music = mkEnableOption "Install (terminal) music applications";
     encoding = mkEnableOption "Install tools to work with video / audio";
+    anytype = mkEnableOption "Install anytype";
   };
 
   config = (mkMerge [
@@ -165,6 +166,9 @@ in {
         pinentryPackage = pkgs.pinentry-gtk2;
         enableSSHSupport = true;
       };
+    })
+    (mkIf cfg.anytype {
+      environment.systemPackages = with pkgs; [ anytype ];
     })
   ]);
 }

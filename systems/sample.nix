@@ -129,6 +129,7 @@ inputs: {
               polkit = true;
               swaylockFix = true;
               compression = true;
+              anytype = true;
             };
 
             xorg = {

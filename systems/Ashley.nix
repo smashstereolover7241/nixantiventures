@@ -121,6 +121,7 @@ inputs: {
           cloud = false;
           swaylockFix = true;
           swayUtil = true;
+          anytype = true;
         };
 
         xorg = {
