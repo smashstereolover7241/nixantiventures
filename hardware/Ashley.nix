@@ -28,6 +28,17 @@ in
       fsType = "zfs";
     };
 
+  fileSystems."/home/localhost/alternateDisk" =
+    { device = "secondaryFS/data";
+      fsType = "zfs";
+      options = [
+        "users"
+        "nofail"
+#        "uid 1000"
+#        "gid 100"
+      ];
+    };
+
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/3F50-EC00";
       fsType = "vfat";
