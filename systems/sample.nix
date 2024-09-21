@@ -130,6 +130,7 @@ inputs: {
               swaylockFix = true;
               compression = true;
               anytype = true;
+              freecad = true;
             };
 
             xorg = {

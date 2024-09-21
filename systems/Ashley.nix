@@ -122,6 +122,7 @@ inputs: {
           swaylockFix = true;
           swayUtil = true;
           anytype = true;
+          freecad = true;
         };
 
         xorg = {

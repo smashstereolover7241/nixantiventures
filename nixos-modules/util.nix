@@ -32,6 +32,7 @@ in {
     music = mkEnableOption "Install (terminal) music applications";
     encoding = mkEnableOption "Install tools to work with video / audio";
     anytype = mkEnableOption "Install anytype";
+    freecad = mkEnableOption "Install freecad";
   };
 
   config = (mkMerge [
@@ -167,8 +168,13 @@ in {
         enableSSHSupport = true;
       };
     })
+
     (mkIf cfg.anytype {
       environment.systemPackages = with pkgs; [ anytype ];
+    })
+
+    (mkIf cfg.freecad {
+      environment.systemPackages = with pkgs; [ freecad ];
     })
   ]);
 }
