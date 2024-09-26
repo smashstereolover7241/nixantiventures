@@ -110,7 +110,7 @@ inputs: {
               password = false;
               compilerUtil = false;
               haskell = false;
-              termUtil = false;
+              termUtil = true;
               painting = false;
               gpg = false;
               maths = false;
