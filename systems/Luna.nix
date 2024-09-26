@@ -45,6 +45,8 @@ inputs: {
             server = {
               ssh = false;
               wireguard = false;
+              wireguardAshley = true;
+              #bruh
             };
 
             theGrandUtilities = {
@@ -75,7 +77,7 @@ inputs: {
             };
 
             communication = {
-              free = false;
+              free = true;
               nonFree = false;
               bullshit = false;
               mailTui = false;
