@@ -19,6 +19,7 @@ in {
       services.openssh.ports = [ 1529 ];
     })
     (mkIf cfg.wireguard {
+      #legacy wireguard setting
       environment.systemPackages = with pkgs; [ wireguard-tools ];
       networking.firewall = {
         allowedUDPPorts = [ 12346 ];
@@ -49,10 +50,10 @@ in {
       };
       networking.wireguard.interfaces = {
         wg0 = {
-          ips = [ "10.51.0.3" ];
+          ips = [ "10.51.0.3/24" ];
           listenPort = 21841;
           #adress = "192.168.77.6";
-          privateKeyFile = "/home/localhost/wireguard-keys/ashley/private";
+          privateKeyFile = "/home/localhost/wireguard-keys/current-system/private";
 
           peers = [
             {
@@ -126,6 +127,10 @@ in {
             { # p6
               publicKey = "ksSAc7+W1/tlju7/h89U6eq4vo9mojLhY7PjbKc8WHQ=";
               allowedIPs = [ "10.51.0.4/32" ];
+            }
+            { # p6
+              publicKey = "nJUPEKSCUr/oJjdAe36UIeHGlEJ+3TpE7pxOWkS0Yjg=";
+              allowedIPs = [ "10.51.0.5/32" ];
             }
           ];
         };
