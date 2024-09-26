@@ -128,9 +128,13 @@ in {
               publicKey = "ksSAc7+W1/tlju7/h89U6eq4vo9mojLhY7PjbKc8WHQ=";
               allowedIPs = [ "10.51.0.4/32" ];
             }
-            { # p6
+            { # luna
               publicKey = "nJUPEKSCUr/oJjdAe36UIeHGlEJ+3TpE7pxOWkS0Yjg=";
               allowedIPs = [ "10.51.0.5/32" ];
+            }
+            { # owo
+              publicKey = "bccaq3hnXCMNGRILykO225ezENYb9x0qB4AQArD0mXA=";
+              allowedIPs = [ "10.51.0.6/32" ];
             }
           ];
         };
