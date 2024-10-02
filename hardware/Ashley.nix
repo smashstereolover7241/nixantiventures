@@ -32,8 +32,8 @@ in
     { device = "secondaryFS/data";
       fsType = "zfs";
       options = [
-        "users"
-        "nofail"
+#        "users"
+#        "nofail"
 #        "uid 1000"
 #        "gid 100"
       ];
