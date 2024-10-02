@@ -31,12 +31,12 @@ in
   fileSystems."/home/localhost/alternateDisk" =
     { device = "secondaryFS/data";
       fsType = "zfs";
-      options = [
+#      options = [
 #        "users"
 #        "nofail"
 #        "uid 1000"
 #        "gid 100"
-      ];
+#      ];
     };
 
   fileSystems."/boot" =
