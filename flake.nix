@@ -10,38 +10,11 @@
   };
 
   outputs =
-    { self, nixpkgs, ...}@inputs:
+    { self, nixpkgs, home-manager, ...}@inputs:
     let
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
-    in {
-#        lib = import ./systems/stationary/default.nix {
-#        lib.attrsets.genAttrs = (import ./systems/stationary/default.nix {inherit nixpkgs;});
-#        defaultPackage = forAllSystems (system: systems);
-#        inherit (partner);
+    in  {
       nixosConfigurations = (import ./systems inputs).nixosConfigurations;
-
-#        inherit (import ./systems/stationary/default.nix {inherit nixpkgs;});
-#
-#        defaultSystems = import ./systems/stationary/default.nix {inherit nixpkgs;};
-#   };
-        # builtins.debug.trace systems systems;
-          };
-    #  systems = import ./systems/stationary/default.nix;
-#  import ./test.nix;
-   #outputs = { self, nixpkgs, ... }@inputs:
-   #     test = import ./systems/stationary/babysfirstsystem {inherit nixpkgs ;};
-    #import = [
-#      ./systems/stationary/default.nix
-#      systems = import ./systems/stationary/default.nix;
-    # let
-    #  in {
-    #  systems = import systems/stationary/default.nix;
-    #   systems-outputs = systems.outputs;
-    #    inherit self;
-    #    inherit nixpkgs;
-    #  };
-
-#      test = zippy-outputs.packages.${system}.default;
-#  };
+      };
 }

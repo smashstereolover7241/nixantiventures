@@ -3,9 +3,10 @@
     nixosConfigurations.babysfirstsystem = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules =
-        [ ({ pkgs, ... }: {
-            boot.isContainer = true;
-
+        [ ({ pkgs, config, lib, ... }: {
+          boot.isContainer = true;
+#            home-manager.useGlobalPkgs = true;
+#            home-manager.useUserPackages = true;
             # Let 'nixos-version --json' know about the Git revision
             # of this flake.
 #            system.configurationRevision = "";
@@ -20,6 +21,7 @@
               adminAddr = "morty@example.org";
             };
           })
+
         ];
     };
 }
