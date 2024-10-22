@@ -8,13 +8,13 @@
 
           home-manager.nixosModules.home-manager
           {
+          imports = [ ./within.nix ];
             home-manager.useGlobalPkgs = true;
+          vim.enable = true;
             home-manager.useUserPackages = true;
           }
           ({ pkgs, config, lib, home-manager, ... }: {
           boot.isContainer = true;
-          imports = [ ./within.nix ];
-          vim.enable = true;
 
 #            home-manager.useGlobalPkgs = true;
 #            home-manager.useUserPackages = true;
