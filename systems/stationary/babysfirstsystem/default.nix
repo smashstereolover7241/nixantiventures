@@ -21,7 +21,6 @@
             home-manager.useUserPackages = true;
           }
           ({ pkgs, config, lib, home-manager, ... }: {
-#          boot.isContainer = true;
 
   users = {
     users.amy = {
