@@ -4,9 +4,7 @@
      # path = self.path;
       system = "x86_64-linux";
       modules =
-
         [
-
           home-manager.nixosModules.home-manager
           {
           imports = [
