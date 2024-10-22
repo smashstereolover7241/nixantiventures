@@ -1,12 +1,10 @@
-
 { lib, config, pkgs, home-manager, ... }:
 
 with lib;
 
-let cfg = config.shim;
+let cfg = config.hm;
 in {
-  imports = [./test.nix];
-  options.shim.enable = mkEnableOption "Enables Within's vim config";
+  options.hm.enable = mkEnableOption "Enables Within's vim config";
 
   config = mkIf cfg.enable {
 

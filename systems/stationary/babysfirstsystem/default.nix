@@ -8,19 +8,18 @@
 
           home-manager.nixosModules.home-manager
           {
-          imports = [ ./within.nix ];
-            home-manager.useGlobalPkgs = true;
+          imports = [ ./within.nix
+#                      ./homeBasics.nix
+                      ../../../common/shim.nix
+                    ];
           vim.enable = true;
+#          hm.enable = true;
+          shim.test.enable = true;
             home-manager.useUserPackages = true;
           }
           ({ pkgs, config, lib, home-manager, ... }: {
           boot.isContainer = true;
 
-#            home-manager.useGlobalPkgs = true;
-#            home-manager.useUserPackages = true;
-            # Let 'nixos-version --json' know about the Git revision
-            # of this flake.
-#            system.configurationRevision = "";
 
             # Network configuration.
             networking.useDHCP = false;
