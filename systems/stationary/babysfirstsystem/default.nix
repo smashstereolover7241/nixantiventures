@@ -16,7 +16,7 @@
                     ];
           vim.enable = true;
 #          hm.enable = true;
-          shim.test.enable = true;
+          shim.enable = true;
             home-manager.useUserPackages = true;
           }
           ({ pkgs, config, lib, home-manager, ... }: {
