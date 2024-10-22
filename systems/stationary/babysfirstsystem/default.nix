@@ -9,15 +9,10 @@
           {
           imports = [
 #                      ./homeBasics.nix
-                      ../../../common/shim.nix
                       ./hardware.nix
+                      ./settings.nix
                       # somehow make this dynamic using path, as we do not know how many subdirs this is in
                     ];
-          shim.enable = true;
-          shim.users = false;
-          shim.hmusers = true;
-#          shim.homeTest = true;
-            home-manager.useUserPackages = true;
           }
           ({ pkgs, config, lib, home-manager, ... }: {
 
