@@ -2,6 +2,10 @@
 
 {
     imports = [ ../../../common/shim.nix ];
-    shim.enable = true;
-    shim.hmusers = true;
+    shim = {
+        enable = true;
+        home-manager = {
+            users = true;
+        };
+    };
 }
