@@ -2,7 +2,10 @@
 
 with lib;
 
-let cfg = config.shim;
+let
+    cfg = config.shim;
+    cfhm = config.shim.home-manager;
+    cfnm = config.shim.normal;
 in {
 imports = [./modules];
     options.shim = {
@@ -24,23 +27,30 @@ imports = [./modules];
             };
             default = {};
         };
-        flakes = mkOption {
-            description = "Enable flakes. As this is a flake, it is enabled by default.";
-            type = types.bool;
-            default = true;
+        normal = mkOption {
+            description = "all the \"normal\" things";
+            type = types.submodule {
+                options = {
+                    users = mkOption {
+                        description = "Enable normal users. For now just yes or no.";
+                        type = types.bool;
+                        default = false;
+                    };
+                    flakes = mkOption {
+                        description = "Enable flakes. As this is a flake, it is enabled by default.";
+                        type = types.bool;
+                        default = true;
+                    };
+                };
+            };
+            default = {};
         };
-        users = mkOption {
-            description = "Enable users. For now just yes or no.";
-            type = types.bool;
-            default = true;
-        };
-        # TODO: make hm and normal submols
     };
     config = mkIf cfg.enable (mkMerge [
-        (mkIf cfg.users {
+        (mkIf cfnm.users {
             real.normal.system.users.enable = true;
         })
-        (mkIf cfg.home-manager.users {
+        (mkIf cfhm.users {
             real.normal.system.users.enable = true;
             real.home-manager.users.enable = true;
         })

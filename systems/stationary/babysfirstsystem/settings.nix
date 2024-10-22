@@ -7,5 +7,8 @@
         home-manager = {
             users = true;
         };
+        normal = {
+          users = true;
+        };
     };
 }
