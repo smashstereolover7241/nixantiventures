@@ -5,6 +5,8 @@
       modules =
         [ ({ pkgs, config, lib, ... }: {
           boot.isContainer = true;
+    imports = [ ./within.nix ];
+    vim.enable = true;
 #            home-manager.useGlobalPkgs = true;
 #            home-manager.useUserPackages = true;
             # Let 'nixos-version --json' know about the Git revision
