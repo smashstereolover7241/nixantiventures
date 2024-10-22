@@ -34,7 +34,7 @@ imports = [./modules];
                     users = mkOption {
                         description = "Enable normal users. For now just yes or no.";
                         type = types.bool;
-                        default = false;
+                        default = true;
                     };
                     flakes = mkOption {
                         description = "Enable flakes. As this is a flake, it is enabled by default.";
