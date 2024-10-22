@@ -1,8 +1,9 @@
-{ nixpkgs, home-manager, ... }@inputs:
+{ nixpkgs, home-manager, self, ... }@inputs:
 let
   inherit
     (nixpkgs)
     home-manager
+    self
     lib
     ;
     currentDir = builtins.toString ./.;
