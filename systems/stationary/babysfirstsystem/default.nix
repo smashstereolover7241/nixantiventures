@@ -1,12 +1,21 @@
-{ nixpkgs, ... }:
+{ nixpkgs, home-manager, ... }:
 {
     nixosConfigurations.babysfirstsystem = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules =
-        [ ({ pkgs, config, lib, ... }: {
+
+        [
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+          }
+          ({ pkgs, config, lib, home-manager, ... }: {
           boot.isContainer = true;
-    imports = [ ./within.nix ];
-    vim.enable = true;
+          imports = [ ./within.nix ];
+          vim.enable = true;
+
 #            home-manager.useGlobalPkgs = true;
 #            home-manager.useUserPackages = true;
             # Let 'nixos-version --json' know about the Git revision
