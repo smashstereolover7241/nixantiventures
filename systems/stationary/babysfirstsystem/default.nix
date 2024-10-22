@@ -17,6 +17,7 @@
           vim.enable = true;
 #          hm.enable = true;
           shim.enable = true;
+#          shim.homeTest = true;
             home-manager.useUserPackages = true;
           }
           ({ pkgs, config, lib, home-manager, ... }: {
