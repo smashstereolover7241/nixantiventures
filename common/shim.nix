@@ -29,7 +29,7 @@ in {
         shim.test.enable = false;
     })
     (mkIf cfg.userss {
-        real.enable = true;
+        real.normal.system.users.enable = true;
 #         shim.userss.enable = true;
 #        normals.system.userss = true;
     })

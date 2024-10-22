@@ -2,9 +2,9 @@
 
 with lib;
 
-let cfg = config.real;
+let cfg = config.real.normal.system.users;
 in {
-  options.real.enable = mkEnableOption "Enables users, for now just yes or no";
+  options.real.normal.system.users.enable = mkEnableOption "Enables users, for now just yes or no";
 
   config = mkIf cfg.enable {
 
