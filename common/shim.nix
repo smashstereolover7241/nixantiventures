@@ -23,6 +23,12 @@ imports = [./test.nix ./modules];
             type = types.bool;
             default = true;
         };
+        # TODO: make hm and normal submols
+        hmusers = mkOption {
+            description = "Enable hm users. For now just yes or no.";
+            type = types.bool;
+            default = false;
+        };
     };
     config = mkIf cfg.enable (mkMerge [
         (mkIf cfg.boolTest {
@@ -30,6 +36,10 @@ imports = [./test.nix ./modules];
         })
         (mkIf cfg.users {
             real.normal.system.users.enable = true;
+        })
+        (mkIf cfg.hmusers {
+            real.normal.system.users.enable = true;
+            real.home-manager.users.enable = true;
         })
     ]);
 }
