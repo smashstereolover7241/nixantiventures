@@ -21,9 +21,22 @@ imports = [./modules];
             type = types.submodule {
                 options = {
                     users = mkOption {
-                        description = "Enable hm users. For now just yes or no.";
-                        type = types.bool;
-                        default = false;
+                        description = "Users";
+                        type = types.submodule {
+                            options = {
+                                enable = mkOption {
+                                    description = "Enable home managed users. Activates system user of same name.";
+                                    type = types.bool;
+                                    default = false;
+                                };
+                                name = mkOption {
+                                    description = "Username? You only get one tho. Also is group name.";
+                                    type = types.str;
+                                    default = "localhost";
+                                };
+                            };
+                        };
+                        default = {};
                     };
                 };
             };
@@ -34,13 +47,26 @@ imports = [./modules];
             type = types.submodule {
                 options = {
                     system = mkOption {
-                        description = "all the specific home-manager things";
+                        description = "all the system specific things";
                         type = types.submodule {
                             options = {
                                 users = mkOption {
-                                    description = "Enable normal users. For now just yes or no.";
-                                    type = types.bool;
-                                    default = true;
+                                    description = "Users";
+                                    type = types.submodule {
+                                        options = {
+                                            enable = mkOption {
+                                                description = "Enable users.";
+                                                type = types.bool;
+                                                default = true;
+                                            };
+                                            name = mkOption {
+                                                description = "Username? You only get one tho. Also is group name.";
+                                                type = types.str;
+                                                default = "localhost";
+                                            };
+                                        };
+                                    };
+                                    default = {};
                                 };
                                 flakes = mkOption {
                                     description = "Enable flakes. As this is a flake, it is enabled by default.";
@@ -59,14 +85,17 @@ imports = [./modules];
     config = mkIf cfg.enable (mkMerge [
 
         ####HOME MANAGED MODULES
-        (mkIf cfhm.users {
-            real.normal.system.users.enable = true;
+        (mkIf cfhm.users.enable {
+            shim.normal.system.users.enable = true;
+            shim.normal.system.users.name = cfhm.users.name;
             real.home-manager.users.enable = true;
+            real.home-manager.users.name = cfhm.users.name;
         })
 
         ####NORMAL MODULES
-        (mkIf system.users {
-            real.normal.system.users.enable = false;
+        (mkIf system.users.enable {
+            real.normal.system.users.enable = true;
+            real.normal.system.users.name = system.users.name;
         })
 
         (mkIf system.flakes {

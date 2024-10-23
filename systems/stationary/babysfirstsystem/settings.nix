@@ -7,12 +7,14 @@ in
     shim = {
         enable = true;
         home-manager = {
-            users = true;
+            users.enable = true;
+#           users.name = "localhost"; #Use default
         };
         normal = {
           system = {
-#            users = true; #Use default.
-#            flakes = true; #Use default.
+#           users.enable = true; #Use default.
+#           users.name = "localhost"; #Use default.
+#           flakes = true; #Use default.
           };
         };
     };

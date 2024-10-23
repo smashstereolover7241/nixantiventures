@@ -4,18 +4,24 @@ with lib;
 
 let cfg = config.real.normal.system.users;
 in {
-    options.real.normal.system.users.enable = mkEnableOption "Enables users, for now just yes or no";
+    options.real.normal.system.users = {
+        enable = mkEnableOption "Enables users";
+        name = mkOption {
+            description = "Username? You only get one tho.";
+            type = types.str;
+        };
+    };
     config = mkIf cfg.enable {
         users = {
-            users.amy = {
-                    isNormalUser = true;
-                    uid = 1000;
-                    extraGroups = [ "kvm" "networkmanager" "wheel" "audio" "video" "network" "input" ];
-                    #                 ++ (optional nm-enable "network-manager");
-                };
-                groups.localhost = {
-                    gid = 1000;
-                };
+            users.${cfg.name} = {
+                isNormalUser = true;
+                uid = 1000;
+                extraGroups = [ "kvm" "networkmanager" "wheel" "audio" "video" "network" "input" ];
+                #                 ++ (optional nm-enable "network-manager");
+            };
+            groups.${cfg.name} = {
+                gid = 1000;
             };
         };
+    };
 }
