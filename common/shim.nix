@@ -9,7 +9,7 @@ let
     cfnm = config.shim.normal;
     system = cfnm.system;
 in {
-imports = [./modules];
+    imports = [./modules];
     options.shim = {
         enable = mkOption {
             description = "Enables the shim or something, why would this be deactivated?";
@@ -20,6 +20,11 @@ imports = [./modules];
             description = "all the specific home-manager things";
             type = types.submodule {
                 options = {
+                    defaults = mkOption {
+                        description = "Basic home-manager settings, should be enabled when home-manager is used.";
+                        type = types.bool;
+                        default = true;
+                    };
                     users = mkOption {
                         description = "Users";
                         type = types.submodule {
@@ -85,6 +90,10 @@ imports = [./modules];
     config = mkIf cfg.enable (mkMerge [
 
         ####HOME MANAGED MODULES
+        (mkIf cfhm.defaults {
+            real.home-manager.defaults = true;
+        })
+
         (mkIf cfhm.users.enable {
             shim.normal.system.users.enable = true;
             shim.normal.system.users.name = cfhm.users.name;

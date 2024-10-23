@@ -7,6 +7,7 @@ in
     shim = {
         enable = true;
         home-manager = {
+            defaults = true;
             users.enable = true;
 #           users.name = "localhost"; #Use default
         };

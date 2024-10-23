@@ -12,11 +12,9 @@ in {
         };
     };
     config = mkIf cfg.enable {
-        home-manager.extraSpecialArgs = { inherit inputs;};
-        home-manager.useGlobalPkgs = true;
         home-manager.users.${cfg.name} = {
             home.username = cfg.name;
-            home.stateVersion = "24.11";
+            home.stateVersion = "24.11"; #TODO: get this outta here
         };
     };
 }
