@@ -1,4 +1,4 @@
-{ lib, config, pkgs, home-manager, ... }:
+{ lib, config, pkgs, home-manager, ... }@inputs:
 
 with lib;
 
@@ -66,7 +66,7 @@ imports = [./modules];
 
         ####NORMAL MODULES
         (mkIf system.users {
-            real.normal.system.users.enable = true;
+            real.normal.system.users.enable = false;
         })
 
         (mkIf system.flakes {

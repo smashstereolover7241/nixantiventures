@@ -15,9 +15,10 @@ in
           ];
           }
           ({ pkgs, config, lib, ... }@inputs: {
-            imports = [
-              (import (toString self + "/systems/common.nix") {inherit pkgs config lib; systemName = systemName;})
-            ];
+              home-manager.extraSpecialArgs = { inherit inputs;};
+              imports = [
+                (import (toString self + "/systems/common.nix") {inherit pkgs config lib; systemName = systemName;})
+              ];
           })
         ];
     };

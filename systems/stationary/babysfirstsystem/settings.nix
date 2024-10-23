@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, ... }@inputs:
 let
     rootPath = (lib.filesystem.locateDominatingFile "flake.nix" ./.).path; # this is severly stupid, couldn't find a better way tho;
 in
@@ -11,7 +11,7 @@ in
         };
         normal = {
           system = {
-#            users = false; #Use default.
+#            users = true; #Use default.
 #            flakes = true; #Use default.
           };
         };
