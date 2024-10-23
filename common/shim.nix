@@ -6,8 +6,9 @@ let
     cfg = config.shim;
     # make things easy to change, less repeat
     cfhm = config.shim.home-manager;
+    hmsystem = config.shim.home-manager.system;
     cfnm = config.shim.normal;
-    system = cfnm.system;
+    nmsystem = cfnm.system;
 in {
     imports = [./modules];
     options.shim = {
@@ -102,12 +103,12 @@ in {
         })
 
         ####NORMAL MODULES
-        (mkIf system.users.enable {
+        (mkIf nmsystem.users.enable {
             real.normal.system.users.enable = true;
-            real.normal.system.users.name = system.users.name;
+            real.normal.system.users.name = nmsystem.users.name;
         })
 
-        (mkIf system.flakes {
+        (mkIf nmsystem.flakes {
             real.normal.system.flakes.enable = true;
         })
     ]);
