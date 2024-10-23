@@ -1,15 +1,14 @@
 { config, lib, pkgs, systemName, ... }:
 
 {
-            networking = {
-                hostName = systemName;
-                useDHCP = false;
-                hostId = "5457b35a";
-            };
-            #TODO: make this it's own module with pass-through args, so defaults can be changed easily
+    networking = {
+        hostName = systemName;
+        useDHCP = false;
+    };
 
-            nixpkgs.config.allowUnfree = true;
+    nixpkgs.config.allowUnfree = true;
 
-            time.timeZone = "Europe/Berlin";
-            system.stateVersion = "21.05";
+    time.timeZone = "Europe/Berlin";
+    system.stateVersion = "21.05";
+    # this is probably gonna get moved somewhere else
 }
