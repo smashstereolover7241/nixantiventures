@@ -44,6 +44,28 @@ in {
                         };
                         default = {};
                     };
+                    cli = mkOption {
+                        description = "CLI things";
+                        type = types.submodule {
+                            options = {
+                                zsh = mkOption {
+                                    description = "zsh specific settings";
+                                    type = types.submodule {
+                                        options = {
+                                            enable = mkEnableOption "Enable zsh"; #TODO: Allow for theme disable
+                                            username = mkOption {
+                                                description = "Username? You only get one tho. Also is group name.";
+                                                type = types.str;
+                                                default = "localhost";
+                                            };
+                                        };
+                                    };
+                                    default = {};
+                                };
+                            };
+                        };
+                        default = {};
+                    };
                 };
             };
             default = {};
@@ -100,6 +122,11 @@ in {
             shim.normal.system.users.name = cfhm.users.name;
             real.home-manager.users.enable = true;
             real.home-manager.users.name = cfhm.users.name;
+        })
+
+        (mkIf cfhm.cli.zsh.enable {
+            real.home-manager.cli.zsh.enable = true;
+            real.home-manager.cli.zsh.username = cfhm.users.name;
         })
 
         ####NORMAL MODULES

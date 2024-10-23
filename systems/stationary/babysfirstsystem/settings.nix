@@ -10,6 +10,10 @@ in
             defaults = true;
             users.enable = true;
 #           users.name = "localhost"; #Use default
+            cli = {
+              zsh.enable = true;
+#              zsh.username = "localhost";
+            };
         };
         normal = {
           system = {
