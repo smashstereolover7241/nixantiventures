@@ -1,8 +1,7 @@
-{ nixpkgs, home-manager, self, ... }@inputs:
+{ nixpkgs, self, ... }@inputs:
 let
   inherit
     (nixpkgs)
-    home-manager
     self
     lib
     ;

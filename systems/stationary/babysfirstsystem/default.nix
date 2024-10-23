@@ -20,9 +20,7 @@ in
             imports = [
               (import ./common.nix {inherit pkgs config lib; systemName = systemName;}) # (1)
             ];
-
           })
-
         ];
     };
 }
