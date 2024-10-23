@@ -14,7 +14,8 @@
     let
       systems = [ "x86_64-linux" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
+      yallah = "y";
     in  {
       nixosConfigurations = (import ./systems inputs).nixosConfigurations;
-      };
+    };
 }

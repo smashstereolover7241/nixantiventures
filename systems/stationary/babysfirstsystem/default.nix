@@ -1,6 +1,7 @@
 { nixpkgs, home-manager, self, ... }:
 let
   systemName = builtins.toString  (builtins.match ".*[/](.*)$" (builtins.toString ./.));
+  rootets = "./.../";
 in
 {
     nixosConfigurations.${systemName}  = nixpkgs.lib.nixosSystem {
@@ -12,7 +13,7 @@ in
           imports = [
                       ./hardware.nix
                       ./settings.nix
-                    ];
+          ];
           }
           ({ pkgs, config, lib, home-manager, ... }: {
             networking = {

@@ -1,7 +1,9 @@
 { config, lib, pkgs, ... }:
-
+let
+    rootPath = (lib.filesystem.locateDominatingFile "flake.nix" ./.).path; # this is severly stupid, couldn't find a better way tho;
+in
 {
-    imports = [ ../../../common/shim.nix ];
+  imports = [ (rootPath + "/common/shim.nix") ];
     shim = {
         enable = true;
         home-manager = {

@@ -7,17 +7,8 @@ let
     lib
     ;
     currentDir = builtins.toString ./.;
-    currentDirContents = builtins.readDir currentDir;
-    flipped = inputs.nixpkgs.lib.mapAttrs' (name: value: inputs.nixpkgs.lib.nameValuePair (value+name) (name)) currentDirContents;
-    filtered = inputs.nixpkgs.lib.filterAttrs (n: v: (builtins.match "^directory.+" n) == [] ) flipped;
-    theList = inputs.nixpkgs.lib.attrsets.attrValues filtered;
-    list = inputs.nixpkgs.lib.lists.forEach theList (x: ./. + ( "/" + x));
-
-
-#  list = [
-#   ./babysfirstsystem
-#    ./container
-#  ];
+    rootPath = toString inputs.self; #need this as string, otherwise weird things happen
+    list = ((import (rootPath + "/common/functions/scanDir.nix")) { inherit nixpkgs; dirToScan = currentDir; }).list;
 in
 {
   nixosConfigurations = lib.pipe list [
