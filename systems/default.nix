@@ -1,16 +1,14 @@
+#TODO: Scan recursively, without requiring default.nix in each folder.
 { nixpkgs, self, ... }@inputs:
 let
   inherit
     (nixpkgs)
-    home-manager
     self
     lib
     ;
-
-  list = [
-    ./mobile
-    ./stationary
-  ];
+    currentDir = builtins.toString ./.;
+    rootPath = toString inputs.self; #need this as string, otherwise weird things happen
+    list = ((import (rootPath + "/common/functions/scanDir.nix")) { inherit nixpkgs; dirToScan = currentDir; }).list;
 in
 {
   nixosConfigurations = lib.pipe list [
@@ -20,3 +18,4 @@ in
     (lib.foldl' (acc: x: acc // x) {})
   ];
 }
+

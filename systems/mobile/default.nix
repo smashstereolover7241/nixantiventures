@@ -1,12 +1,13 @@
-{ nixpkgs, ... }@inputs:
+{ nixpkgs, self, ... }@inputs:
 let
   inherit
     (nixpkgs)
+    self
     lib
     ;
-
-  list = [
-  ];
+    currentDir = builtins.toString ./.;
+    rootPath = toString inputs.self; #need this as string, otherwise weird things happen
+    list = ((import (rootPath + "/common/functions/scanDir.nix")) { inherit nixpkgs; dirToScan = currentDir; }).list;
 in
 {
   nixosConfigurations = lib.pipe list [
