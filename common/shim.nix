@@ -4,8 +4,10 @@ with lib;
 
 let
     cfg = config.shim;
+    # make things easy to change, less repeat
     cfhm = config.shim.home-manager;
     cfnm = config.shim.normal;
+    system = cfnm.system;
 in {
 imports = [./modules];
     options.shim = {
@@ -31,15 +33,23 @@ imports = [./modules];
             description = "all the \"normal\" things";
             type = types.submodule {
                 options = {
-                    users = mkOption {
-                        description = "Enable normal users. For now just yes or no.";
-                        type = types.bool;
-                        default = true;
-                    };
-                    flakes = mkOption {
-                        description = "Enable flakes. As this is a flake, it is enabled by default.";
-                        type = types.bool;
-                        default = true;
+                    system = mkOption {
+                        description = "all the specific home-manager things";
+                        type = types.submodule {
+                            options = {
+                                users = mkOption {
+                                    description = "Enable normal users. For now just yes or no.";
+                                    type = types.bool;
+                                    default = true;
+                                };
+                                flakes = mkOption {
+                                    description = "Enable flakes. As this is a flake, it is enabled by default.";
+                                    type = types.bool;
+                                    default = true;
+                                };
+                            };
+                        };
+                        default = {};
                     };
                 };
             };
@@ -47,12 +57,20 @@ imports = [./modules];
         };
     };
     config = mkIf cfg.enable (mkMerge [
-        (mkIf cfnm.users {
-            real.normal.system.users.enable = true;
-        })
+
+        ####HOME MANAGED MODULES
         (mkIf cfhm.users {
             real.normal.system.users.enable = true;
             real.home-manager.users.enable = true;
+        })
+
+        ####NORMAL MODULES
+        (mkIf system.users {
+            real.normal.system.users.enable = true;
+        })
+
+        (mkIf system.flakes {
+            real.normal.system.flakes.enable = true;
         })
     ]);
 }

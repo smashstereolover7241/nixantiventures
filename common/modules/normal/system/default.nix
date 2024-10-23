@@ -5,5 +5,6 @@ in
 {
   imports = [
     ./users.nix
+    ./flakes.nix
   ];
 }

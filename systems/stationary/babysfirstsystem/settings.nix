@@ -8,7 +8,10 @@
             users = true;
         };
         normal = {
-          users = false;
+          system = {
+#            users = false; #Use default.
+#            flakes = true; #Use default.
+          };
         };
     };
 }
