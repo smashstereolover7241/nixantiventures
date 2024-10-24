@@ -54,7 +54,29 @@ in {
                                         options = {
                                             enable = mkEnableOption "Enable zsh"; #TODO: Allow for theme disable
                                             username = mkOption {
-                                                description = "Username? You only get one tho. Also is group name.";
+                                                description = "just in case you want to change it...";
+                                                type = types.str;
+                                                default = "localhost";
+                                            };
+                                        };
+                                    };
+                                    default = {};
+                                };
+                            };
+                        };
+                        default = {};
+                    };
+                    editors = mkOption {
+                        description = "editor things";
+                        type = types.submodule {
+                            options = {
+                                emacs = mkOption {
+                                    description = "emacs specific settings";
+                                    type = types.submodule {
+                                        options = {
+                                            enable = mkEnableOption "Enable emacs";
+                                            username = mkOption {
+                                                description = "not because I'm too lazy to just use the default one";
                                                 type = types.str;
                                                 default = "localhost";
                                             };
@@ -126,7 +148,12 @@ in {
 
         (mkIf cfhm.cli.zsh.enable {
             real.home-manager.cli.zsh.enable = true;
-            real.home-manager.cli.zsh.username = cfhm.users.name;
+            real.home-manager.cli.zsh.username = cfhm.users.name; #TODO: respect the users choice maybe, or remove option
+        })
+
+        (mkIf cfhm.editors.emacs.enable {
+ #           real.home-manager.editors.emacs.enable = true;
+#            real.home-manager.editors.emacs.username = cfhm.users.name; # see zsh
         })
 
         ####NORMAL MODULES
