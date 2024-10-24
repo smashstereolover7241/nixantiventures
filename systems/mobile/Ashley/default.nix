@@ -10,8 +10,8 @@ in
           home-manager.nixosModules.home-manager
           {
           imports = [
-                      ./hardware.nix
-                      ./settings.nix
+            ./hardware.nix
+            ./settings.nix
           ];
           }
           ({ pkgs, config, lib, ... }@inputs: {
