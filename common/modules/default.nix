@@ -1,10 +1,13 @@
-{ lib, config, ... }:
-with lib;
-let cfg = config.real;
+{ lib, self, ... }:
+let
+  inherit
+    self
+    lib
+    ;
+    currentDir = builtins.toString ./.;
+    rootPath = (lib.filesystem.locateDominatingFile "flake.nix" ./.).path;
+    importList = ((import (rootPath + "/common/functions/importDir.nix")) { inherit lib; dirToScan = currentDir; }).importList;
 in
 {
-  imports = [
-    ./home-manager
-    ./normal
-  ];
+  imports = importList;
 }
