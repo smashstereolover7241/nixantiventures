@@ -1,9 +1,0 @@
-{ nixpkgs }:
-let
-  list = [
-    
-  ];
-in
-{
-  
-}
