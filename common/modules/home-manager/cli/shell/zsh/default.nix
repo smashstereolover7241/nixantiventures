@@ -1,10 +1,10 @@
 { pkgs, config, lib, inputs, options, ... }:
 with lib;
-let cfg = config.real.home-manager.cli.zsh;
+let cfg = config.real.home-manager.cli.shell.zsh;
 in
 
 {
-  options.real.home-manager.cli.zsh = {
+  options.real.home-manager.cli.shell.zsh = {
     enable = mkEnableOption "Enable managed zsh";
     username = mkOption {
         description = "What user to apply this to. Defaults to default user.";

@@ -8,7 +8,7 @@ let
     customEmacsPackages = emacs: ((pkgs.emacsPackagesFor emacs).emacsWithPackages (epkgs: [ epkgs.vterm ])); # don't compile vertm from source on first launch
 in
 {
-    options.config.real.home-manager.editors.emacs = {
+    options.real.home-manager.editors.emacs = {
         enable = mkEnableOption "Enable managed doom-emacs";
         username = mkOption {
             description = "What user to apply this to. Defaults to default user.";

@@ -11,6 +11,7 @@ let
     nmsystem = cfnm.system;
 in {
     imports = [./modules];
+    #TODO: This is horrible. Find a way to automatically do this....
     options.shim = {
         enable = mkOption {
             description = "Enables the shim or something, why would this be deactivated?";
@@ -45,22 +46,29 @@ in {
                         default = {};
                     };
                     cli = mkOption {
-                        description = "CLI things";
+                        description = "cli things";
                         type = types.submodule {
                             options = {
-                                zsh = mkOption {
-                                    description = "zsh specific settings";
+                                shell = mkOption {
+                                    description = "shell things";
                                     type = types.submodule {
                                         options = {
-                                            enable = mkEnableOption "Enable zsh"; #TODO: Allow for theme disable
-                                            username = mkOption {
-                                                description = "just in case you want to change it...";
-                                                type = types.str;
-                                                default = "localhost";
+                                            zsh = mkOption {
+                                                description = "zsh specific settings";
+                                                type = types.submodule {
+                                                    options = {
+                                                        enable = mkEnableOption "Enable zsh"; #TODO: Allow for theme disable
+                                                        username = mkOption {
+                                                            description = "just in case you want to change it...";
+                                                            type = types.str;
+                                                            default = "localhost";
+                                                        };
+                                                    };
+                                                };
+                                                default = {};
                                             };
                                         };
                                     };
-                                    default = {};
                                 };
                             };
                         };
@@ -96,6 +104,31 @@ in {
             description = "all the \"normal\" things";
             type = types.submodule {
                 options = {
+                    cli = mkOption {
+                            description = "cli things";
+                            type = types.submodule {
+                                options = {
+                                    shell = mkOption {
+                                        description = "shell things";
+                                        type = types.submodule {
+                                            options = {
+                                                zsh = mkOption {
+                                                    description = "zsh specific settings";
+                                                    type = types.submodule {
+                                                        options = {
+                                                            enable = mkEnableOption "Can has zsh";
+                                                            ohMy = mkEnableOption "my oh my (zsh)!";
+                                                        };
+                                                    };
+                                                    default = {};
+                                                };
+                                        };
+                                    };
+                                };
+                            };
+                        };
+                        default = {};
+                    };
                     system = mkOption {
                         description = "all the system specific things";
                         type = types.submodule {
@@ -136,24 +169,24 @@ in {
 
         ####HOME MANAGED MODULES
         (mkIf cfhm.defaults {
-            real.home-manager.defaults = true;
+             real.home-manager.defaults = true;
         })
 
         (mkIf cfhm.users.enable {
-            shim.normal.system.users.enable = true;
-            shim.normal.system.users.name = cfhm.users.name;
-            real.home-manager.users.enable = true;
-            real.home-manager.users.name = cfhm.users.name;
+             shim.normal.system.users.enable = true;
+             shim.normal.system.users.name = cfhm.users.name;
+             real.home-manager.users.enable = true;
+             real.home-manager.users.name = cfhm.users.name;
         })
 
-        (mkIf cfhm.cli.zsh.enable {
-            real.home-manager.cli.zsh.enable = true;
-            real.home-manager.cli.zsh.username = cfhm.users.name; #TODO: respect the users choice maybe, or remove option
+        (mkIf cfhm.cli.shell.zsh.enable {
+             real.home-manager.cli.shell.zsh.enable = true;
+             real.home-manager.cli.shell.zsh.username = cfhm.users.name; #TODO: respect the users choice maybe, or remove option
         })
 
         (mkIf cfhm.editors.emacs.enable {
- #           real.home-manager.editors.emacs.enable = true;
-#            real.home-manager.editors.emacs.username = cfhm.users.name; # see zsh
+             real.home-manager.editors.emacs.enable = true;
+             real.home-manager.editors.emacs.username = cfhm.users.name; # see zsh
         })
 
         ####NORMAL MODULES
@@ -165,5 +198,12 @@ in {
         (mkIf nmsystem.flakes {
             real.normal.system.flakes.enable = true;
         })
+
+        (mkIf cfnm.cli.shell.zsh.enable (mkMerge [
+            {real.normal.cli.shell.zsh.enable = true;}
+            (mkIf cfnm.cli.shell.zsh.ohMy{
+                real.normal.system.flakes.enable = true;
+            })
+        ]))
     ]);
 }

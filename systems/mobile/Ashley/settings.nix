@@ -4,23 +4,32 @@ let
 in
 {
   imports = [ (rootPath + "/common/shim.nix") ];
-    shim = {
-        enable = true;
-        home-manager = {
-            defaults = true;
-            users.enable = true;
-#           users.name = "localhost"; #Use default
-            cli = {
-              zsh.enable = true;
-#              zsh.username = "localhost";
-            };
+  shim = {
+    enable = true;
+    home-manager = {
+      defaults = true;
+      users.enable = true;
+#      users.name = "localhost"; #Use default
+      cli = {
+        shell = {
+          zsh.enable = true;
         };
-        normal = {
-          system = {
-#           users.enable = true; #Use default.
-#           users.name = "localhost"; #Use default.
-#           flakes = true; #Use default.
+#        zsh.username = "localhost"; #Use default
+      };
+    };
+    normal = {
+      cli = {
+        shell = {
+          zsh = {
+            enable = true;
           };
         };
+      };
+      system = {
+#         users.enable = true; #Use default.
+#         users.name = "localhost"; #Use default.
+#         flakes = true; #Use default.
+        };
     };
+  };
 }

@@ -1,6 +1,8 @@
 { ... }:
+
 {
   imports = [
-    ./shell
+    ./kde6.nix
+    ./kde5.nix
   ];
 }

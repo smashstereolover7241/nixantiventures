@@ -4,6 +4,6 @@ let cfg = config.real.home-manager.editors;
 in
 {
   imports = [
-#    ./emacs
+    ./emacs
   ];
 }
