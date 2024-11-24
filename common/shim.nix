@@ -109,6 +109,33 @@ in {
                         description = "Display settings";
                         type = types.submodule {
                             options = {
+                                desktop-environments = mkOption {
+                                    description = "DEs (Cinnamon, KDE, XFCE, etc)";
+                                    type = types.submodule {
+                                        options = {
+                                            kde5 = mkOption {
+                                                description = "kde5 (legacy)";
+                                                type = types.submodule {
+                                                    options = {
+                                                        enable = mkEnableOption "enable kde5";
+                                                        gtk-config = mkEnableOption "use gtk-config for config";
+                                                    };
+                                                };
+                                                default = {};
+                                            };
+                                            kde6 = mkOption {
+                                                description = "kde6";
+                                                type = types.submodule {
+                                                    options = {
+                                                        enable = mkEnableOption "enable kde6";
+                                                    };
+                                                };
+                                                default = {};
+                                            };
+                                        };
+                                    };
+                                    default = {};
+                                };
                                 window-managers = mkOption {
                                     description = "window managers (xmonad, hyprland, etc)";
                                     type = types.submodule {
@@ -261,6 +288,16 @@ in {
             })
         ]))
 
+        (mkIf nmdisplay.desktop-environments.kde5.enable (mkMerge [
+            {real.normal.display.desktop-environments.kde5.enable = true;}
+            (mkIf nmdisplay.desktop-environments.kde5.gtk-config {
+                real.normal.display.desktop-environments.kde5.gtk-config = true;
+            })
+        ]))
+
+        (mkIf nmdisplay.desktop-environments.kde6.enable {
+            real.normal.display.desktop-environments.kde6.enable = true;
+        })
         (mkIf nmdisplay.window-managers.xmonad.enable {
             real.normal.display.window-managers.xmonad.enable = true;
         })
