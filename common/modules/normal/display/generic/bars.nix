@@ -10,7 +10,7 @@ in
   };
 
   config = (mkMerge [
-     { environment.systemPackages = mkIf cfg.xmobar (with pkgs; [xmobar]); }
      { environment.systemPackages = mkIf cfg.waybar (with pkgs; [waybar]); }
+     { environment.systemPackages = mkIf cfg.xmobar (with pkgs; [xmobar]); }
   ]);
 }

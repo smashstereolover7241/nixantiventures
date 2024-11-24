@@ -29,7 +29,14 @@ in
 #         users.enable = true; #Use default.
 #         users.name = "localhost"; #Use default.
 #         flakes = true; #Use default.
+      };
+      display = {
+        generic = {
+          stalonetray = true;
+          dunst = true;
+          passthrough = true;
         };
+      };
     };
   };
 }

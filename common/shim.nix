@@ -9,6 +9,7 @@ let
     hmsystem = config.shim.home-manager.system;
     cfnm = config.shim.normal;
     nmsystem = cfnm.system;
+    nmdisplay = cfnm.display;
 in {
     imports = [./modules];
     #TODO: This is horrible. Find a way to automatically do this....
@@ -104,6 +105,25 @@ in {
             description = "all the \"normal\" things";
             type = types.submodule {
                 options = {
+                    display = mkOption {
+                        description = "Display settings";
+                        type = types.submodule {
+                            options = {
+                                generic = mkOption {
+                                    description = "generic things that don't fit elsewhere";
+                                    type = types.submodule {
+                                        options = {
+                                            stalonetray = mkEnableOption "Install stalonetray (system tray)";
+                                            dunst = mkEnableOption "Install dunst (notifications)";
+                                            passthrough = mkEnableOption "GPU is passed through, xserver config";
+                                        };
+                                    };
+                                    default = {};
+                                };
+                            };
+                        };
+                        default = {};
+                    };
                     cli = mkOption {
                             description = "cli things";
                             type = types.submodule {
@@ -205,5 +225,17 @@ in {
                 real.normal.system.flakes.enable = true;
             })
         ]))
+
+        (mkIf nmdisplay.generic.stalonetray {
+            real.normal.display.generic.util.stalonetray = true;
+        })
+
+        (mkIf nmdisplay.generic.dunst {
+            real.normal.display.generic.util.dunst = true;
+        })
+
+        (mkIf nmdisplay.generic.passtrough {
+            real.normal.display.generic.util.passthrough = true;
+        })
     ]);
 }
