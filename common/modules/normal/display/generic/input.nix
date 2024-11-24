@@ -11,8 +11,8 @@ in
   };
 
   config = (mkMerge [
-      { services.libinput.enable = mkIf cfg.libinput true; }
-      { services.xserver.wacom.enable = mkIf cfg.wacom true; }
+      { services.libinput.enable = cfg.libinput; }
+      { services.xserver.wacom.enable = cfg.wacom; }
 
       (mkIf cfg.flatInput {
         #TODO: Wayland (hyprland; maybe set in shim)

@@ -9,6 +9,6 @@ in
   };
 
   config = (mkMerge [
-     { services.xserver.displayManager.lightdm.enable = mkIf cfg.enable true; }
+     { services.xserver.displayManager.lightdm.enable = cfg.enable; }
   ]);
 }

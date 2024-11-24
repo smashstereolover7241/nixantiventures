@@ -9,6 +9,6 @@ in
   };
 
   config = (mkMerge [
-     { services.xserver.displayManager.sddm.enable = mkIf cfg.enable true; }
+     { services.displayManager.sddm.enable = cfg.enable; }
   ]);
 }

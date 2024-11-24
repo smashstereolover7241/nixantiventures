@@ -38,6 +38,18 @@ in
           };
         };
 
+        drivers = {
+          enable = true;
+          gpu = "nvidia";
+          nvidia = {
+            open = false;
+            prime = true;
+            version = "stable";
+            intelBusId = "PCI:0:2:0";
+            nvidiaBusId = "PCI:14:0:0";
+          };
+        };
+
         desktop-environments = {
           kde5 = {
             enable = false;

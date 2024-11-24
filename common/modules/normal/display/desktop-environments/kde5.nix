@@ -10,7 +10,7 @@ in
   };
   config = (mkMerge [
     {
-    services.xserver.desktopManager.plasma5.enable = mkIf cfg.enable (true);
+    services.xserver.desktopManager.plasma5.enable = cfg.enable;
     }
 
     (mkIf cfg.gtk-config {

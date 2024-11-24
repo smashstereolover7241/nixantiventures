@@ -126,6 +126,43 @@ in {
                                     };
                                     default = {};
                                 };
+                                drivers = mkOption {
+                                    description = "Usually seperate drivers are required for video";
+                                    type = types.submodule {
+                                        options = {
+                                            enable = mkEnableOption "Enable the X window system";
+                                            gpu = mkOption {
+                                                description = "Which gpu?";
+                                                type = types.enum ["modesetting" "nvidia" "nouveau" "intel" "amd" "ati" "radeon" "intelAccelerated" "null" "none" ""];
+                                                default = "";
+                                            };
+                                            nvidia = mkOption {
+                                                description = "Novideo drivers";
+                                                type = types.submodule {
+                                                    options = {
+                                                        open = mkEnableOption "The open source nvidia drivers";
+                                                        prime = mkEnableOption "Nvidia PRIME";
+                                                        version = mkOption {
+                                                            description = "What version of the drivers to use. Defaults to stable.";
+                                                            type = types.str;
+                                                            default = "stable";
+                                                        };
+                                                        intelBusId = mkOption {
+                                                            type = types.str;
+                                                            default = "PCI:0:2:0";
+                                                        };
+                                                        nvidiaBusId = mkOption {
+                                                            type = types.str;
+                                                            default = "PCI:14:0:0";
+                                                        };
+                                                    };
+                                                };
+                                            default = {};
+                                            };
+                                        };
+                                    };
+                                    default = {};
+                                };
                                 desktop-environments = mkOption {
                                     description = "DEs (Cinnamon, KDE, XFCE, etc)";
                                     type = types.submodule {
@@ -355,6 +392,21 @@ in {
             real.normal.display.servers.xorg.enable = true;
         })
 
+        (mkIf nmdisplay.drivers.enable {
+            real.normal.display.drivers.enable = true;
+            real.normal.display.drivers.gpu = nmdisplay.drivers.gpu;
+            real.normal.display.drivers.nvidia = {
+                open = nmdisplay.drivers.nvidia.open;
+                prime = nmdisplay.drivers.nvidia.prime;
+                version = nmdisplay.drivers.nvidia.version;
+                intelBusId = nmdisplay.drivers.nvidia.intelBusId;
+                nvidiaBusId = nmdisplay.drivers.nvidia.nvidiaBusId;
+            };
+            #real.normal.display.drivers
+            #real.normal.display.drivers
+            #real.normal.display.drivers
+        })
+
         (mkIf nmdisplay.desktop-environments.kde5.enable (mkMerge [
             {real.normal.display.desktop-environments.kde5.enable = true;}
             (mkIf nmdisplay.desktop-environments.kde5.gtk-config {
@@ -373,7 +425,6 @@ in {
         (mkIf nmdisplay.login-managers.lightdm.enable {
             real.normal.display.login-managers.lightdm.enable = true;
             real.normal.display.servers.xorg.enable = true;
-            #TODO: Enable x, its required
         })
 
         (mkIf nmdisplay.login-managers.sddm.enable {

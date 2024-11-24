@@ -8,6 +8,6 @@ in
     enable = mkEnableOption "Enable kde6";
   };
   config = {
-    services.desktopManager.plasma6.enable = mkIf cfg.enable (true);
+    services.desktopManager.plasma6.enable = cfg.enable;
   };
 }

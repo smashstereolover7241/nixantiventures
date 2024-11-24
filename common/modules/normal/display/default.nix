@@ -7,5 +7,6 @@
     ./generic
     ./login-managers
     ./servers
+    ./drivers.nix
   ];
 }
