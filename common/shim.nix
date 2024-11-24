@@ -131,6 +131,8 @@ in {
                                     type = types.submodule {
                                         options = {
                                             enable = mkEnableOption "Enable the X window system";
+                                            firmware = mkEnableOption "install additional firmware";
+                                            rocm = mkEnableOption "install amd rocm (enables firmware)";
                                             gpu = mkOption {
                                                 description = "Which gpu?";
                                                 type = types.enum ["modesetting" "nvidia" "nouveau" "intel" "amd" "ati" "radeon" "intelAccelerated" "null" "none" ""];
@@ -392,20 +394,25 @@ in {
             real.normal.display.servers.xorg.enable = true;
         })
 
-        (mkIf nmdisplay.drivers.enable {
-            real.normal.display.drivers.enable = true;
-            real.normal.display.drivers.gpu = nmdisplay.drivers.gpu;
-            real.normal.display.drivers.nvidia = {
-                open = nmdisplay.drivers.nvidia.open;
-                prime = nmdisplay.drivers.nvidia.prime;
-                version = nmdisplay.drivers.nvidia.version;
-                intelBusId = nmdisplay.drivers.nvidia.intelBusId;
-                nvidiaBusId = nmdisplay.drivers.nvidia.nvidiaBusId;
-            };
-            #real.normal.display.drivers
-            #real.normal.display.drivers
-            #real.normal.display.drivers
-        })
+        (mkIf nmdisplay.drivers.enable (mkMerge [
+            (mkIf nmdisplay.drivers.rocm {
+                real.normal.display.drivers.firmware = true;
+                real.normal.display.drivers.rocm = true;
+            })
+            {
+                real.normal.display.drivers.enable = true;
+                real.normal.display.drivers.gpu = nmdisplay.drivers.gpu;
+                real.normal.display.drivers.firmware = mkDefault nmdisplay.drivers.firmware;
+
+                real.normal.display.drivers.nvidia = {
+                    open = nmdisplay.drivers.nvidia.open;
+                    prime = nmdisplay.drivers.nvidia.prime;
+                    version = nmdisplay.drivers.nvidia.version;
+                    intelBusId = nmdisplay.drivers.nvidia.intelBusId;
+                    nvidiaBusId = nmdisplay.drivers.nvidia.nvidiaBusId;
+                };
+            }
+        ]))
 
         (mkIf nmdisplay.desktop-environments.kde5.enable (mkMerge [
             {real.normal.display.desktop-environments.kde5.enable = true;}

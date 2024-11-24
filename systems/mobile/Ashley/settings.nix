@@ -40,6 +40,8 @@ in
 
         drivers = {
           enable = true;
+          firmware = true;
+          rocm = true;
           gpu = "nvidia";
           nvidia = {
             open = false;

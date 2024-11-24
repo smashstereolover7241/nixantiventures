@@ -13,6 +13,8 @@ in
 {
   options.real.normal.display.drivers = {
     enable = mkEnableOption "Enable custom drivers";
+    firmware = mkEnableOption "install additional firmware";
+    rocm = mkEnableOption "install amd rocm";
     gpu = mkOption {
       description = "Which gpu?";
       type = types.enum ["modesetting" "nvidia" "nouveau" "intel" "amd" "ati" "radeon" "intelAccelerated" "null" "none" ""];
@@ -40,6 +42,20 @@ in
   };
 
   config = mkIf cfg.enable (mkMerge [
+
+    (mkIf cfg.firmware {
+      environment.systemPackages = (with pkgs; [linux-firmware]);
+      hardware.enableAllFirmware = true;
+      hardware.enableRedistributableFirmware = true;
+      hardware.graphics.enable = true;
+    })
+
+    (mkIf cfg.rocm {
+      hardware.graphics.extraPackages = with pkgs; [
+        rocmPackages.clr.icd
+      ];
+    })
+
     (mkIf (cfg.gpu == "nvidia") {
       services.xserver.videoDrivers = ["nvidia"];
       hardware.nvidia.open = cfg.nvidia.open;
