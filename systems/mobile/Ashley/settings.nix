@@ -50,10 +50,18 @@ in
         };
 
         generic = {
+
           bars = {
             waybar = true;
             xmobar = true;
           };
+
+          input = {
+            libinput = true;
+            flatInput = true;
+            wacom = true;
+          };
+
           util = {
             stalonetray = true;
             dunst = true;

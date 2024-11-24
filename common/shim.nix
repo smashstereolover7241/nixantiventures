@@ -202,6 +202,17 @@ in {
                                                 };
                                                 default = {};
                                             };
+                                            input = mkOption {
+                                                description = "input specific settings";
+                                                type = types.submodule {
+                                                    options = {
+                                                        libinput = mkEnableOption "Enable libinput";
+                                                        flatInput = mkEnableOption "Add extra config for non-accelerated mouse input.";
+                                                        wacom = mkEnableOption "Install & enable wacom drivers";
+                                                    };
+                                                };
+                                                default = {};
+                                            };
                                             util = mkOption {
                                                 description = "util settings";
                                                 type = types.submodule {
@@ -370,6 +381,18 @@ in {
 
         (mkIf nmdisplay.generic.bars.xmobar {
             real.normal.display.generic.bars.xmobar = true;
+        })
+
+        (mkIf nmdisplay.generic.input.libinput {
+            real.normal.display.generic.input.libinput = true;
+        })
+
+        (mkIf nmdisplay.generic.input.flatInput {
+            real.normal.display.generic.input.flatInput = true;
+        })
+
+        (mkIf nmdisplay.generic.input.wacom {
+            real.normal.display.generic.input.wacom = true;
         })
     ]);
 }
