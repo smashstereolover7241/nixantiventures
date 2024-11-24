@@ -113,9 +113,27 @@ in {
                                     description = "generic things that don't fit elsewhere";
                                     type = types.submodule {
                                         options = {
-                                            stalonetray = mkEnableOption "Install stalonetray (system tray)";
-                                            dunst = mkEnableOption "Install dunst (notifications)";
-                                            passthrough = mkEnableOption "GPU is passed through, xserver config";
+                                            bars = mkOption {
+                                                description = "bars (xmobar, waybar, etc)";
+                                                type = types.submodule {
+                                                    options = {
+                                                        waybar = mkEnableOption "waybar";
+                                                        xmobar = mkEnableOption "xmobar";
+                                                    };
+                                                };
+                                                default = {};
+                                            };
+                                            util = mkOption {
+                                                description = "util settings";
+                                                type = types.submodule {
+                                                    options = {
+                                                        stalonetray = mkEnableOption "Install stalonetray (system tray)";
+                                                        dunst = mkEnableOption "Install dunst (notifications)";
+                                                        passthrough = mkEnableOption "GPU is passed through, xserver config";
+                                                    };
+                                                };
+                                                default = {};
+                                            };
                                         };
                                     };
                                     default = {};
@@ -226,16 +244,24 @@ in {
             })
         ]))
 
-        (mkIf nmdisplay.generic.stalonetray {
+        (mkIf nmdisplay.generic.util.stalonetray {
             real.normal.display.generic.util.stalonetray = true;
         })
 
-        (mkIf nmdisplay.generic.dunst {
+        (mkIf nmdisplay.generic.util.dunst {
             real.normal.display.generic.util.dunst = true;
         })
 
-        (mkIf nmdisplay.generic.passtrough {
+        (mkIf nmdisplay.generic.util.passtrough {
             real.normal.display.generic.util.passthrough = true;
+        })
+
+        (mkIf nmdisplay.generic.bars.waybar {
+            real.normal.display.generic.bars.waybar = true;
+        })
+
+        (mkIf nmdisplay.generic.bars.xmobar {
+            real.normal.display.generic.bars.xmobar = true;
         })
     ]);
 }

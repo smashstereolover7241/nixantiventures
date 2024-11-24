@@ -32,9 +32,15 @@ in
       };
       display = {
         generic = {
-          stalonetray = true;
-          dunst = true;
-          passthrough = true;
+          bars = {
+            xmobar = true;
+            waybar = true;
+          }
+          util = {
+            stalonetray = true;
+            dunst = true;
+            passthrough = true;
+          };
         };
       };
     };
