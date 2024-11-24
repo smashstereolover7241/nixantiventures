@@ -153,6 +153,41 @@ in {
                                     };
                                     default = {};
                                 };
+                                login-managers = mkOption {
+                                    description = "login managers";
+                                    type = types.submodule {
+                                        options = {
+                                            lightdm = mkOption {
+                                                description = "lightdm";
+                                                type = types.submodule {
+                                                    options = {
+                                                        enable = mkEnableOption "enable & install lightdm";
+                                                    };
+                                                };
+                                                default = {};
+                                            };
+                                            sddm = mkOption {
+                                                description = "sddm";
+                                                type = types.submodule {
+                                                    options = {
+                                                        enable = mkEnableOption "enable & install sddm";
+                                                    };
+                                                };
+                                                default = {};
+                                            };
+                                            gtkgreet = mkOption {
+                                                description = "gtkgreet";
+                                                type = types.submodule {
+                                                    options = {
+                                                        enable = mkEnableOption "enable & install gtkgreet";
+                                                    };
+                                                };
+                                                default = {};
+                                            };
+                                        };
+                                    };
+                                    default = {};
+                                };
                                 generic = mkOption {
                                     description = "generic things that don't fit elsewhere";
                                     type = types.submodule {
@@ -298,8 +333,23 @@ in {
         (mkIf nmdisplay.desktop-environments.kde6.enable {
             real.normal.display.desktop-environments.kde6.enable = true;
         })
+
         (mkIf nmdisplay.window-managers.xmonad.enable {
             real.normal.display.window-managers.xmonad.enable = true;
+        })
+
+        (mkIf nmdisplay.login-managers.lightdm.enable {
+            real.normal.display.login-managers.lightdm.enable = true;
+            #TODO: Enable x, its required
+        })
+
+        (mkIf nmdisplay.login-managers.sddm.enable {
+            real.normal.display.login-managers.sddm.enable = true;
+            #TODO: Enable wayland, x or both;
+        })
+
+        (mkIf nmdisplay.login-managers.gtkgreet.enable {
+            real.normal.display.login-managers.gtkgreet.enable = true;
         })
 
         (mkIf nmdisplay.generic.util.stalonetray {

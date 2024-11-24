@@ -31,11 +31,24 @@ in
 #         flakes = true; #Use default.
       };
       display = {
-        window-managers = {
-          xmonad = {
-#            enable = false;
+        desktop-environments = {
+          kde5 = {
+            enable = false;
+            gtk-config = false;
           };
+          kde6.enable = true;
         };
+
+        window-managers = {
+          xmonad.enable = true;
+        };
+
+        login-managers = {
+          lightdm.enable = false;
+          sddm.enable = false;
+          gtkgreet.enable = true;
+        };
+
         generic = {
           bars = {
             waybar = true;
