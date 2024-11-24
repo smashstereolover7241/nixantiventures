@@ -6,5 +6,6 @@
     ./window-managers
     ./generic
     ./login-managers
+    ./servers
   ];
 }

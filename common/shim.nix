@@ -109,6 +109,23 @@ in {
                         description = "Display settings";
                         type = types.submodule {
                             options = {
+                                servers = mkOption {
+                                    description = "X.Org, wayland";
+                                    type = types.submodule {
+                                        options = {
+                                            xorg = mkOption {
+                                                description = "the X window system";
+                                                type = types.submodule {
+                                                    options = {
+                                                        enable = mkEnableOption "Enable the X window system";
+                                                    };
+                                                };
+                                                default = {};
+                                            };
+                                        };
+                                    };
+                                    default = {};
+                                };
                                 desktop-environments = mkOption {
                                     description = "DEs (Cinnamon, KDE, XFCE, etc)";
                                     type = types.submodule {
@@ -334,6 +351,10 @@ in {
             })
         ]))
 
+        (mkIf nmdisplay.servers.xorg.enable {
+            real.normal.display.servers.xorg.enable = true;
+        })
+
         (mkIf nmdisplay.desktop-environments.kde5.enable (mkMerge [
             {real.normal.display.desktop-environments.kde5.enable = true;}
             (mkIf nmdisplay.desktop-environments.kde5.gtk-config {
@@ -351,6 +372,7 @@ in {
 
         (mkIf nmdisplay.login-managers.lightdm.enable {
             real.normal.display.login-managers.lightdm.enable = true;
+            real.normal.display.servers.xorg.enable = true;
             #TODO: Enable x, its required
         })
 
@@ -371,7 +393,7 @@ in {
             real.normal.display.generic.util.dunst = true;
         })
 
-        (mkIf nmdisplay.generic.util.passtrough {
+        (mkIf nmdisplay.generic.util.passthrough {
             real.normal.display.generic.util.passthrough = true;
         })
 

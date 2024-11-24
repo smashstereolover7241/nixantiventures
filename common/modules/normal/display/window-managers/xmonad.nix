@@ -14,7 +14,7 @@ in
           xmonad.enable = true;
           xmonad.enableContribAndExtras = true;
         };
-        displayManager.defaultSession = "best-wm-xmonad";
+        displayManager.defaultSession = "none+xmonad";
       };
     })
   ]);

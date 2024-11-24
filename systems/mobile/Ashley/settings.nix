@@ -31,6 +31,13 @@ in
 #         flakes = true; #Use default.
       };
       display = {
+
+        servers = {
+          xorg = {
+            enable = true;
+          };
+        };
+
         desktop-environments = {
           kde5 = {
             enable = false;
@@ -44,7 +51,7 @@ in
         };
 
         login-managers = {
-          lightdm.enable = false;
+          lightdm.enable = true;
           sddm.enable = false;
           gtkgreet.enable = true;
         };
