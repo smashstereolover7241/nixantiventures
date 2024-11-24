@@ -284,6 +284,16 @@ in {
                                     };
                                     default = {};
                                 };
+                                fixes = mkOption {
+                                    description = "things never work, so we fix things";
+                                    type = types.submodule {
+                                        options = {
+                                            backlightFix = mkEnableOption "fix backlight, maybe";
+                                            wacomFix = mkEnableOption "Fix wacom (X200T)";
+                                        };
+                                    };
+                                    default = {};
+                                };
                             };
                         };
                         default = {};
@@ -473,6 +483,12 @@ in {
 
         (mkIf nmdisplay.generic.input.wacom {
             real.normal.display.generic.input.wacom = true;
+        })
+        (mkIf nmdisplay.fixes.backlightFix {
+            real.normal.display.fixes.backlightFix = true;
+        })
+        (mkIf nmdisplay.fixes.wacomFix {
+            real.normal.display.fixes.wacomFix = true;
         })
     ]);
 }

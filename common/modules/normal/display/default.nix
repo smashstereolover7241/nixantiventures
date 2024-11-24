@@ -8,5 +8,6 @@
     ./login-managers
     ./servers
     ./drivers.nix
+    ./fixes.nix
   ];
 }

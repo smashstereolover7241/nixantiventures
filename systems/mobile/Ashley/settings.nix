@@ -71,7 +71,6 @@ in
         };
 
         generic = {
-
           bars = {
             waybar = true;
             xmobar = true;
@@ -88,6 +87,11 @@ in
             dunst = true;
             passthrough = true;
           };
+        };
+
+        fixes = {
+          backlightFix = true;
+          wacomFix = true;
         };
       };
     };
