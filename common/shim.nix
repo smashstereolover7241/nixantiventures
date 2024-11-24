@@ -109,6 +109,23 @@ in {
                         description = "Display settings";
                         type = types.submodule {
                             options = {
+                                window-managers = mkOption {
+                                    description = "window managers (xmonad, hyprland, etc)";
+                                    type = types.submodule {
+                                        options = {
+                                            xmonad = mkOption {
+                                                description = "xmonad";
+                                                type = types.submodule {
+                                                    options = {
+                                                        enable = mkEnableOption "enable xmonad";
+                                                    };
+                                                };
+                                                default = {};
+                                            };
+                                        };
+                                    };
+                                    default = {};
+                                };
                                 generic = mkOption {
                                     description = "generic things that don't fit elsewhere";
                                     type = types.submodule {
@@ -243,6 +260,10 @@ in {
                 real.normal.system.flakes.enable = true;
             })
         ]))
+
+        (mkIf nmdisplay.window-managers.xmonad.enable {
+            real.normal.display.window-managers.xmonad.enable = true;
+        })
 
         (mkIf nmdisplay.generic.util.stalonetray {
             real.normal.display.generic.util.stalonetray = true;

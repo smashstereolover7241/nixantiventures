@@ -31,11 +31,16 @@ in
 #         flakes = true; #Use default.
       };
       display = {
+        window-managers = {
+          xmonad = {
+#            enable = false;
+          };
+        };
         generic = {
           bars = {
-            xmobar = true;
             waybar = true;
-          }
+            xmobar = true;
+          };
           util = {
             stalonetray = true;
             dunst = true;
