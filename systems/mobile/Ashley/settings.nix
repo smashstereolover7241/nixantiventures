@@ -34,7 +34,7 @@ in
 
         servers = {
           xorg = {
-            enable = true;
+#            enable = true;
           };
         };
 
@@ -65,8 +65,9 @@ in
         };
 
         login-managers = {
-          lightdm.enable = true;
-          sddm.enable = false;
+#          lightdm.enable = true;
+          sddm.enable = true;
+          sddm.wayland = true;
           gtkgreet.enable = true;
         };
 

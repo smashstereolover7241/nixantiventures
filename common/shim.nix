@@ -227,6 +227,7 @@ in {
                                                 type = types.submodule {
                                                     options = {
                                                         enable = mkEnableOption "enable & install sddm";
+                                                        wayland = mkEnableOption "tell it to way the lands";
                                                     };
                                                 };
                                                 default = {};
@@ -446,6 +447,7 @@ in {
 
         (mkIf nmdisplay.login-managers.sddm.enable {
             real.normal.display.login-managers.sddm.enable = true;
+            real.normal.display.login-managers.sddm.wayland = nmdisplay.login-managers.sddm.wayland;
             #TODO: Enable wayland, x or both;
         })
 
@@ -484,9 +486,11 @@ in {
         (mkIf nmdisplay.generic.input.wacom {
             real.normal.display.generic.input.wacom = true;
         })
+
         (mkIf nmdisplay.fixes.backlightFix {
             real.normal.display.fixes.backlightFix = true;
         })
+
         (mkIf nmdisplay.fixes.wacomFix {
             real.normal.display.fixes.wacomFix = true;
         })
