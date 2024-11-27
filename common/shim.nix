@@ -10,6 +10,12 @@ let
     cfnm = config.shim.normal;
     nmsystem = cfnm.system;
     nmdisplay = cfnm.display;
+    nmmon = cfnm.monitoring;
+    generateStandard = (lib.lists.forEach [ "btop" ]( x:
+        (mkIf nmmon.tops.${x}.enable {
+            real.normal.monitoring.tops.${x}.enable = true;
+        })
+    ));
 in {
     imports = [./modules];
     #TODO: This is horrible. Find a way to automatically do this....
@@ -355,12 +361,40 @@ in {
                         };
                         default = {};
                     };
+                                                monitoring = mkOption {
+                                                    description = "zsh specific settings";
+                                                    type = types.submodule {
+                                                        options = {
+                                                tops = mkOption {
+                                                    description = "zsh specific settings";
+                                                    type = types.submodule {
+                                                        options = {
+                                                btop = mkOption {
+                                                    description = "zsh specific settings";
+                                                    type = types.submodule {
+                                                        options = {
+                                                            enable = mkEnableOption "Can has zsh";
+                                                        };
+                                                    };
+                                                    default = {};
+                                                };
+                                                        };
+                                                    };
+                                                    default = {};
+                                                };
+                                                        };
+                                                    };
+                                                    default = {};
+                                                };
                 };
             };
             default = {};
         };
     };
-    config = mkIf cfg.enable (mkMerge [
+    config = mkIf cfg.enable (
+        (mkMerge [
+
+            (mkMerge generateStandard)
 
         ####HOME MANAGED MODULES
         (mkIf cfhm.defaults {
@@ -448,7 +482,6 @@ in {
         (mkIf nmdisplay.login-managers.sddm.enable {
             real.normal.display.login-managers.sddm.enable = true;
             real.normal.display.login-managers.sddm.wayland = nmdisplay.login-managers.sddm.wayland;
-            #TODO: Enable wayland, x or both;
         })
 
         (mkIf nmdisplay.login-managers.gtkgreet.enable {
@@ -494,5 +527,6 @@ in {
         (mkIf nmdisplay.fixes.wacomFix {
             real.normal.display.fixes.wacomFix = true;
         })
-    ]);
+
+        ]));
 }

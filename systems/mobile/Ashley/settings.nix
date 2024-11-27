@@ -25,6 +25,12 @@ in
           };
         };
       };
+
+        monitoring = {
+          tops = {
+            btop.enable = true;
+          };
+        };
       system = {
 #         users.enable = true; #Use default.
 #         users.name = "localhost"; #Use default.
