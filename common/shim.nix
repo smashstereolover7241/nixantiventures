@@ -11,7 +11,8 @@ let
     nmsystem = cfnm.system;
     nmdisplay = cfnm.display;
     nmmon = cfnm.monitoring;
-    generateStandard = (lib.lists.forEach [ "btop" ]( x:
+    #could do a single function for all, ran into trouble so it now is a TODO
+    genTops = (lib.lists.forEach [ "btop" "htop" "iotop" ]( x:
         (mkIf nmmon.tops.${x}.enable {
             real.normal.monitoring.tops.${x}.enable = true;
         })
@@ -19,6 +20,8 @@ let
 in {
     imports = [./modules];
     #TODO: This is horrible. Find a way to automatically do this....
+    #TODO: I still hate this and my ideas on making this less horrible require restructuring
+    #TLDR: Nothing is happening, rewrite taking long enough as is. Fix later. (So never)
     options.shim = {
         enable = mkOption {
             description = "Enables the shim or something, why would this be deactivated?";
@@ -361,31 +364,49 @@ in {
                         };
                         default = {};
                     };
-                                                monitoring = mkOption {
-                                                    description = "zsh specific settings";
-                                                    type = types.submodule {
-                                                        options = {
-                                                tops = mkOption {
-                                                    description = "zsh specific settings";
-                                                    type = types.submodule {
-                                                        options = {
-                                                btop = mkOption {
-                                                    description = "zsh specific settings";
-                                                    type = types.submodule {
-                                                        options = {
-                                                            enable = mkEnableOption "Can has zsh";
-                                                        };
+                    monitoring = mkOption {
+                        description = "monitor stuffs idk";
+                        type = types.submodule {
+                            options = {
+                                tops = mkOption {
+                                    description = "not bottoms";
+                                    type = types.submodule {
+                                        options = {
+                                            btop = mkOption {
+                                                description = "no yes you know the point";
+                                                type = types.submodule {
+                                                    options = {
+                                                        enable = mkEnableOption "duh";
                                                     };
-                                                    default = {};
                                                 };
-                                                        };
+                                                default = {};
+                                            };
+                                            iotop = mkOption {
+                                                description = "no yes you know the point";
+                                                type = types.submodule {
+                                                    options = {
+                                                        enable = mkEnableOption "duh";
                                                     };
-                                                    default = {};
                                                 };
-                                                        };
+                                                default = {};
+                                            };
+                                            htop = mkOption {
+                                                description = "no yes you know the point";
+                                                type = types.submodule {
+                                                    options = {
+                                                        enable = mkEnableOption "duh";
                                                     };
-                                                    default = {};
                                                 };
+                                                default = {};
+                                            };
+                                        };
+                                    };
+                                    default = {};
+                                };
+                            };
+                        };
+                        default = {};
+                    };
                 };
             };
             default = {};
@@ -394,7 +415,7 @@ in {
     config = mkIf cfg.enable (
         (mkMerge [
 
-            (mkMerge generateStandard)
+            (mkMerge genTops)
 
         ####HOME MANAGED MODULES
         (mkIf cfhm.defaults {

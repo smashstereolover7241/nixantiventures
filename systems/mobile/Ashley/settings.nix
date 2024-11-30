@@ -29,6 +29,8 @@ in
         monitoring = {
           tops = {
             btop.enable = true;
+            htop.enable = true;
+            iotop.enable = true;
           };
         };
       system = {

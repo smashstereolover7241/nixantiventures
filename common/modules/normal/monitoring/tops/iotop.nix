@@ -1,13 +1,14 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.real.normal.monitoring.tops.iotop;
+  cfgName = strings.nameFromURL (__curPos.file) ".";
+  cfg = real.normal.monitoring.tops.${cfgName};
 in
 {
-  options.real.normal.monitoring.tops.iotop = {
-    enable = mkEnableOption "Enable iotop";
+  options.real.normal.monitoring.tops.${cfgName} = {
+    enable = mkEnableOption "Enable ${cfgName}";
   };
-  config = mkIf cfg.enable {
-    environment.systemPackages = with pkgs; [iotop];
+  config = {
+    environment.systemPackages = [ pkgs.${cfgName} ];
   };
 }
