@@ -15,6 +15,7 @@ let
 in {
     imports = [./modules];
     options.modules.normal.media.music.all = mkEnableOption "Enable all the music";
+    options.modules.normal.media.screenshot.all = mkEnableOption "Enable all the screenshots";
     config = (
         (mkMerge [
 
@@ -67,6 +68,11 @@ in {
                 modules.normal.media.music.mpd.enable = true;
                 modules.normal.media.music.ncmpcpp.enable = true;
                 modules.normal.media.music.mpc-cli.enable = true;
+            })
+
+            (mkIf cfg2.normal.media.screenshot.all {
+                modules.normal.media.screenshot.gnome-screenshot.enable = true;
+                modules.normal.media.screenshot.scrot.enable = true;
             })
 
         ]));

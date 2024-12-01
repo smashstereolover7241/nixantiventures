@@ -141,6 +141,21 @@ in
             yt-dlp.enable = true;
           };
         };
+
+        video = {
+          vlc.enable = true;
+        };
+
+        image = {
+          feh.enable = true;
+          peek.enable = true;
+        };
+
+        screenshot = {
+          all = true;
+          gnome-screenshot.enable = true;
+          scrot.enable = true;
+        };
       };
     };
   };
