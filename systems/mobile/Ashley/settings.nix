@@ -26,18 +26,20 @@ in
         };
       };
 
-        monitoring = {
-          tops = {
-            btop.enable = true;
-            htop.enable = true;
-            iotop.enable = true;
-          };
+      monitoring = {
+        tops = {
+          btop.enable = true;
+          htop.enable = true;
+          iotop.enable = true;
         };
+      };
+
       system = {
 #         users.enable = true; #Use default.
 #         users.name = "localhost"; #Use default.
 #         flakes = true; #Use default.
       };
+
       display = {
 
         servers = {
@@ -101,6 +103,14 @@ in
         fixes = {
           backlightFix = true;
           wacomFix = true;
+        };
+      };
+
+      gaming = {
+        launchers = {
+          lutris.enable = true;
+          heroic.enable = true;
+          bottles.enable = true;
         };
       };
     };
