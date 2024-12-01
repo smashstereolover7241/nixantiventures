@@ -122,6 +122,11 @@ in
           qutebrowser.enable = true;
           links2.enable = true;
         };
+
+        vpn = {
+          openvpn.enable = true;
+          mullvad.enable = true;
+        };
       };
     };
   };
