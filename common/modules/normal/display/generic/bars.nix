@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.real.normal.display.generic.bars;
+  cfg = config.modules.normal.display.generic.bars;
 in
 {
-  options.real.normal.display.generic.bars = {
+  options.modules.normal.display.generic.bars = {
     waybar = mkEnableOption "Install waybar";
     xmobar = mkEnableOption "Install xmobar";
   };

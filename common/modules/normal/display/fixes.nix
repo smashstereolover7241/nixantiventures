@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.real.normal.display.fixes;
+  cfg = config.modules.normal.display.fixes;
 in
 {
-  options.real.normal.display.fixes = {
+  options.modules.normal.display.fixes = {
     backlightFix = mkEnableOption "fix backlight, maybe";
     wacomFix = mkEnableOption "Fix wacom (X200T)";
   };

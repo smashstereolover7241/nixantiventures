@@ -1,10 +1,10 @@
 { pkgs, config, lib, inputs, options, ... }:
 with lib;
-let cfg = config.real.home-manager.cli.shell.zsh;
+let cfg = config.modules.home-manager.cli.shell.zsh;
 in
 
 {
-  options.real.home-manager.cli.shell.zsh = {
+  options.modules.home-manager.cli.shell.zsh = {
     enable = mkEnableOption "Enable managed zsh";
     username = mkOption {
         description = "What user to apply this to. Defaults to default user.";
@@ -12,8 +12,8 @@ in
     };
   };
 
-  config = mkIf cfg.enable (mkMerge [
-  {
+  config = (mkMerge [
+    (mkIf cfg.enable {
     home-manager.users.${cfg.username} = {
       programs.zsh = {
         enable = true;
@@ -74,5 +74,5 @@ in
       };
       home.file.".p10k.zsh".source = ./p10k.zsh;
     };
-  }]);
+    })]);
 }

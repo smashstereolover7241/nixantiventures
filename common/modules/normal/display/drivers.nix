@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.real.normal.display.drivers ;
+  cfg = config.modules.normal.display.drivers ;
   nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
     export __NV_PRIME_RENDER_OFFLOAD=1
     export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
@@ -11,7 +11,7 @@ let
   '';
 in
 {
-  options.real.normal.display.drivers = {
+  options.modules.normal.display.drivers = {
     enable = mkEnableOption "Enable custom drivers";
     firmware = mkEnableOption "install additional firmware";
     rocm = mkEnableOption "install amd rocm";

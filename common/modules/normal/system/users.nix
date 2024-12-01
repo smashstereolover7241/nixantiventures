@@ -2,9 +2,9 @@
 
 with lib;
 
-let cfg = config.real.normal.system.users;
+let cfg = config.modules.normal.system.users;
 in {
-    options.real.normal.system.users = {
+    options.modules.normal.system.users = {
         enable = mkEnableOption "Enables users";
         name = mkOption {
             description = "Username? You only get one tho.";

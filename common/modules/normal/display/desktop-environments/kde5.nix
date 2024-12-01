@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.real.normal.display.desktop-environments.kde5;
+  cfg = config.modules.normal.display.desktop-environments.kde5;
 in
 {
-  options.real.normal.display.desktop-environments.kde5 = {
+  options.modules.normal.display.desktop-environments.kde5 = {
     enable = mkEnableOption "Enable kde5";
     gtk-config = mkEnableOption "Enable config";
   };

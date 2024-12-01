@@ -3,9 +3,9 @@ let
     rootPath = (lib.filesystem.locateDominatingFile "flake.nix" ./.).path; # this is severly stupid, couldn't find a better way tho;
 in
 {
-  imports = [ (rootPath + "/common/shim.nix") ];
-  shim = {
-    enable = true;
+  imports = [ (rootPath + "/common/depmgr.nix") ];
+  modules = {
+    #enable = true;
     home-manager = {
       defaults = true;
       users.enable = true;

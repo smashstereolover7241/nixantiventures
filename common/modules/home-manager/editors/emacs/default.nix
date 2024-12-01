@@ -1,14 +1,14 @@
 { pkgs, config, lib, inputs, ... }:
 with lib;
 let 
-    cfg = config.real.home-manager.editors.emacs;
+    cfg = config.modules.home-manager.editors.emacs;
     envExtra = ''
         export PATH="${config.xdg.configHome}/emacs/bin:$PATH"
     '';
     customEmacsPackages = emacs: ((pkgs.emacsPackagesFor emacs).emacsWithPackages (epkgs: [ epkgs.vterm ])); # don't compile vertm from source on first launch
 in
 {
-    options.real.home-manager.editors.emacs = {
+    options.modules.home-manager.editors.emacs = {
         enable = mkEnableOption "Enable managed doom-emacs";
         username = mkOption {
             description = "What user to apply this to. Defaults to default user.";

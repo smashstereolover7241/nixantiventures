@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.real.normal.display.generic.input;
+  cfg = config.modules.normal.display.generic.input;
 in
 {
-  options.real.normal.display.generic.input = {
+  options.modules.normal.display.generic.input = {
     libinput = mkEnableOption "Enable libinput";
     flatInput = mkEnableOption "Add extra config for non-accelerated mouse input.";
     wacom = mkEnableOption "Install & enable wacom drivers";

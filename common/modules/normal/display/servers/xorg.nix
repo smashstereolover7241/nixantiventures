@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.real.normal.display.servers.xorg;
+  cfg = config.modules.normal.display.servers.xorg;
 in
 {
-  options.real.normal.display.servers.xorg = {
+  options.modules.normal.display.servers.xorg = {
     enable = mkEnableOption "Enable the X window system";
   };
   config = (mkMerge [

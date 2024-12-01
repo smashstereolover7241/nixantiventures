@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.real.normal.display.generic.util;
+  cfg = config.modules.normal.display.generic.util;
 in
 {
-  options.real.normal.display.generic.util = {
+  options.modules.normal.display.generic.util = {
     stalonetray = mkEnableOption "install stalonetray";
     dunst = mkEnableOption "Enable dunst";
     passthrough = mkEnableOption "Gpu is passed thru";

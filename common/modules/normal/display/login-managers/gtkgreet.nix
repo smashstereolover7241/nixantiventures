@@ -1,14 +1,14 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.real.normal.display.login-managers.gtkgreet;
+  cfg = config.modules.normal.display.login-managers.gtkgreet;
   swayConfig = pkgs.writeText "greetd-sway-config" ''
   # `-l` activates layer-shell mode. Notice that `swaymsg exit` will run after gtkgreet.
   exec "${pkgs.greetd.gtkgreet}/bin/gtkgreet;"
   '';
 in
 {
-  options.real.normal.display.login-managers.gtkgreet = {
+  options.modules.normal.display.login-managers.gtkgreet = {
     enable = mkEnableOption "Install & enable gtkgreet";
   };
 

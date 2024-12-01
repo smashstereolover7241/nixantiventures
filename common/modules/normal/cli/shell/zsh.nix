@@ -1,9 +1,9 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-    cfg = config.real.normal.cli.shell.zsh;
+    cfg = config.modules.normal.cli.shell.zsh;
 in {
-    options.real.normal.cli.shell.zsh = {
+    options.modules.normal.cli.shell.zsh = {
         enable = mkEnableOption "Install zsh";
         ohMy = mkEnableOption "Install ohmyzsh";
     };
