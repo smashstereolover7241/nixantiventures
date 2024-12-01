@@ -28,8 +28,9 @@ in {
                 modules.normal.system.users.enable = true;
                 modules.normal.system.users.name = cfg2.home-manager.users.name;
             }
+
             (mkIf cfg2.home-manager.cli.shell.zsh.enable {
-            modules.home-manager.cli.shell.zsh.username =  cfg2.home-manager.users.name; #TODO: respect the users choice maybe, or remove option
+                modules.home-manager.cli.shell.zsh.username = mkDefault cfg2.home-manager.users.name;
             })]
             ))
 
