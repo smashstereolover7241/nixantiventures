@@ -127,6 +127,9 @@ in
           openvpn.enable = true;
           mullvad.enable = true;
         };
+        downloading = {
+          yt-dlp.enable = true;
+        };
       };
     };
   };
