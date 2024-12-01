@@ -73,6 +73,7 @@ in {
             (mkIf cfg2.normal.media.screenshot.all {
                 modules.normal.media.screenshot.gnome-screenshot.enable = true;
                 modules.normal.media.screenshot.scrot.enable = true;
+                modules.normal.media.screenshot.peek.enable = true;
             })
 
         ]));

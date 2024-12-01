@@ -2,10 +2,10 @@
 with lib;
 let
   cfgName = strings.nameFromURL (__curPos.file) ".";
-  cfg = config.modules.normal.media.image.${cfgName};
+  cfg = config.modules.normal.media.screenshot.${cfgName};
 in
 {
-  options.modules.normal.media.image.${cfgName} = {
+  options.modules.normal.media.screenshot.${cfgName} = {
     enable = mkEnableOption "Enable ${cfgName}";
   };
   config = {

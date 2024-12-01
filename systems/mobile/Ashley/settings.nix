@@ -148,13 +148,13 @@ in
 
         image = {
           feh.enable = true;
-          peek.enable = true;
         };
 
         screenshot = {
           all = true;
           gnome-screenshot.enable = true;
           scrot.enable = true;
+          peek.enable = true;
         };
       };
     };
