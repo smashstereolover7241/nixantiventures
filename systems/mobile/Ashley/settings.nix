@@ -38,6 +38,11 @@ in
 #         users.enable = true; #Use default.
 #         users.name = "localhost"; #Use default.
 #         flakes = true; #Use default.
+        terminals = {
+          kitty.enable = true;
+          termite.enable = true;
+          alacritty.enable = true;
+        };
       };
 
       display = {
