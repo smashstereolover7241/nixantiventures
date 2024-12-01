@@ -14,7 +14,7 @@ let
     nmmon = cfnm.monitoring;
 in {
     imports = [./modules];
-    options.modules.normal.media.music.all = mkEnableOption "Enable all the music";
+    options.modules.normal.media.audio.music.all = mkEnableOption "Enable all the music";
     options.modules.normal.media.screenshot.all = mkEnableOption "Enable all the screenshots";
     config = (
         (mkMerge [
@@ -56,18 +56,18 @@ in {
                 modules.normal.display.servers.xorg.enable = true; #TODO: Split out graphics (32) to generic servers option, disable requriement of x.org for steam
             })
 
-            (mkIf cfg2.normal.media.music.ncmpcpp.enable {
-                modules.normal.media.music.mpd.enable = true;
+            (mkIf cfg2.normal.media.audio.music.ncmpcpp.enable {
+                modules.normal.media.audio.music.mpd.enable = true;
             })
 
-            (mkIf cfg2.normal.media.music.mpc-cli.enable {
-                modules.normal.media.music.mpd.enable = true;
+            (mkIf cfg2.normal.media.audio.music.mpc-cli.enable {
+                modules.normal.media.audio.music.mpd.enable = true;
             })
 
-            (mkIf cfg2.normal.media.music.all {
-                modules.normal.media.music.mpd.enable = true;
-                modules.normal.media.music.ncmpcpp.enable = true;
-                modules.normal.media.music.mpc-cli.enable = true;
+            (mkIf cfg2.normal.media.audio.music.all {
+                modules.normal.media.audio.music.mpd.enable = true;
+                modules.normal.media.audio.music.ncmpcpp.enable = true;
+                modules.normal.media.audio.music.mpc-cli.enable = true;
             })
 
             (mkIf cfg2.normal.media.screenshot.all {

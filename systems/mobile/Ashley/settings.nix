@@ -117,11 +117,14 @@ in
 
 
       media = {
-        music = {
-          all = true;
-          ncmpcpp.enable = true;
-          mpc-cli.enable = true;
-          mpd.enable = true;
+        audio = {
+          pavucontrol.enable = true;
+          music = {
+            all = true;
+            ncmpcpp.enable = true;
+            mpc-cli.enable = true;
+            mpd.enable = true;
+          };
         };
 
         internet = {

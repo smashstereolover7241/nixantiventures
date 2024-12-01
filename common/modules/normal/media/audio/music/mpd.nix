@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.modules.normal.media.music.mpd;
+  cfg = config.modules.normal.media.audio.music.mpd;
 in
 {
-  options.modules.normal.media.music.mpd = {
+  options.modules.normal.media.audio.music.mpd = {
     enable = mkEnableOption "Enable mpd";
   };
   config = mkIf cfg.enable {

@@ -2,10 +2,10 @@
 with lib;
 let
   cfgName = strings.nameFromURL (__curPos.file) ".";
-  cfg = config.modules.normal.media.music.${cfgName};
+  cfg = config.modules.normal.media.audio.music.${cfgName};
 in
 {
-  options.modules.normal.media.music.${cfgName} = {
+  options.modules.normal.media.audio.music.${cfgName} = {
     enable = mkEnableOption "Enable ${cfgName}";
   };
   config = {
