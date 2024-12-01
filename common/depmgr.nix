@@ -51,5 +51,9 @@ in {
                 modules.normal.display.servers.xorg.enable = true;
             })
 
+            (mkIf cfg2.normal.gaming.launchers.steam.enable {
+                modules.normal.display.servers.xorg.enable = true; #TODO: Split out graphics (32) to generic servers option, disable requriement of x.org for steam
+            })
+
         ]));
 }
