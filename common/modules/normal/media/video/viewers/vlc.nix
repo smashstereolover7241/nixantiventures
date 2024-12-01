@@ -2,10 +2,10 @@
 with lib;
 let
   cfgName = strings.nameFromURL (__curPos.file) ".";
-  cfg = config.modules.normal.media.video.${cfgName};
+  cfg = config.modules.normal.media.video.viewers.${cfgName};
 in
 {
-  options.modules.normal.media.video.${cfgName} = {
+  options.modules.normal.media.video.viewers.${cfgName} = {
     enable = mkEnableOption "Enable ${cfgName}";
   };
   config = {

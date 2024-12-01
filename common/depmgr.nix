@@ -15,6 +15,10 @@ let
 in {
     imports = [./modules];
     options.modules.normal.media.audio.music.all = mkEnableOption "Enable all the music";
+    options.modules.normal.media.image.viewers.all = mkEnableOption "Enable all the image viewing";
+    options.modules.normal.media.image.creation.all = mkEnableOption "Enable all the image creation";
+    options.modules.normal.media.video.viewers.all = mkEnableOption "Enable all the video viewing";
+#    options.modules.normal.media.video.creation.all = mkEnableOption "Enable all the video creation";
     options.modules.normal.media.screenshot.all = mkEnableOption "Enable all the screenshots";
     config = (
         (mkMerge [
@@ -68,6 +72,16 @@ in {
                 modules.normal.media.audio.music.mpd.enable = true;
                 modules.normal.media.audio.music.ncmpcpp.enable = true;
                 modules.normal.media.audio.music.mpc-cli.enable = true;
+            })
+
+            (mkIf cfg2.normal.media.image.viewers.all {
+                modules.normal.media.image.viewers.feh.enable = true;
+            })
+
+            (mkIf cfg2.normal.media.image.creation.all {
+                modules.normal.media.image.creation.kolourpaint.enable = true;
+                modules.normal.media.image.creation.krita.enable = true;
+                modules.normal.media.image.creation.gimp.enable = true;
             })
 
             (mkIf cfg2.normal.media.screenshot.all {

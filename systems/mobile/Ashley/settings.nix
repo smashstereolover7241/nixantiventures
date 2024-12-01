@@ -146,11 +146,21 @@ in
         };
 
         video = {
-          vlc.enable = true;
+          viewers = {
+            vlc.enable = true;
+          };
         };
 
         image = {
-          feh.enable = true;
+          viewers = {
+            feh.enable = true;
+          };
+
+          creation = {
+            kolourpaint.enable = true;
+            krita.enable = true;
+            gimp.enable = true;
+          };
         };
 
         screenshot = {
