@@ -98,6 +98,7 @@ in {
                 modules.normal.system.monitoring.cli.all = true;
                 modules.normal.system.monitoring.gui.all = true;
             })
+
             (mkIf cfg2.normal.system.monitoring.gui.all {
                 modules.normal.system.monitoring.gui.mission-center.enable = true;
             })

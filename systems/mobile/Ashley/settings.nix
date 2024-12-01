@@ -191,6 +191,14 @@ in
         encoding = {
           ffmpeg-full.enable = true;
         };
+
+        productivity = {
+          anytype.enable = true;
+          freecad.enable = true;
+          freecad-wayland.enable = true;
+          libreoffice-fresh.enable = true;
+          xournalpp.enable = true;
+        };
       };
     };
   };
