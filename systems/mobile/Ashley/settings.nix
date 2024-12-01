@@ -26,13 +26,6 @@ in
         };
       };
 
-      monitoring = {
-        tops = {
-          btop.enable = true;
-          htop.enable = true;
-          iotop.enable = true;
-        };
-      };
 
       system = {
 #         users.enable = true; #Use default.
@@ -42,6 +35,18 @@ in
           kitty.enable = true;
           termite.enable = true;
           alacritty.enable = true;
+        };
+
+        monitoring = {
+          cli = {
+            nvtop.enable = true;
+            glances.enable = true;
+            tops = {
+              btop.enable = true;
+              htop.enable = true;
+              iotop.enable = true;
+            };
+          };
         };
       };
 

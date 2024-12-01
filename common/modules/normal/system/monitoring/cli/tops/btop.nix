@@ -2,10 +2,10 @@
 with lib;
 let
   cfgName = strings.nameFromURL (__curPos.file) ".";
-  cfg = config.modules.normal.monitoring.tops.${cfgName};
+  cfg = config.modules.normal.system.monitoring.cli.tops.${cfgName};
 in
 {
-  options.modules.normal.monitoring.tops.${cfgName} = {
+  options.modules.normal.system.monitoring.cli.tops.${cfgName} = {
     enable = mkEnableOption "Enable ${cfgName}";
   };
   config = {
