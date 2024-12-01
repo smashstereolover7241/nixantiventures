@@ -2,10 +2,10 @@
 with lib;
 let
   cfgName = strings.nameFromURL (__curPos.file) ".";
-  cfg = config.modules.normal.internet.downloading.${cfgName};
+  cfg = config.modules.normal.media.internet.downloading.${cfgName};
 in
 {
-  options.modules.normal.internet.downloading.${cfgName} = {
+  options.modules.normal.media.internet.downloading.${cfgName} = {
     enable = mkEnableOption "Enable ${cfgName}";
   };
   config = {

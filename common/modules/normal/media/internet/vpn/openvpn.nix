@@ -2,10 +2,10 @@
 with lib;
 let
   cfgName = strings.nameFromURL (__curPos.file) ".";
-  cfg = config.modules.normal.internet.browsers.${cfgName};
+  cfg = config.modules.normal.media.internet.vpn.${cfgName};
 in
 {
-  options.modules.normal.internet.browsers.${cfgName} = {
+  options.modules.normal.media.internet.vpn.${cfgName} = {
     enable = mkEnableOption "Enable ${cfgName}";
   };
   config = {

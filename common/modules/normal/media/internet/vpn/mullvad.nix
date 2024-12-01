@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.modules.normal.internet.vpn.mullvad;
+  cfg = config.modules.normal.media.internet.vpn.mullvad;
 in
 {
-  options.modules.normal.internet.vpn.mullvad = {
+  options.modules.normal.media.internet.vpn.mullvad = {
     enable = mkEnableOption "Enable mullvad";
   };
   config =

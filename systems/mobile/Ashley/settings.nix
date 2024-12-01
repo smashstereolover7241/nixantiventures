@@ -115,23 +115,6 @@ in
         };
       };
 
-      internet = {
-        browsers = {
-          firefox.enable = true;
-          librewolf.enable = true;
-          qutebrowser.enable = true;
-          links2.enable = true;
-        };
-
-        vpn = {
-          openvpn.enable = true;
-          mullvad.enable = true;
-        };
-
-        downloading = {
-          yt-dlp.enable = true;
-        };
-      };
 
       media = {
         music = {
@@ -139,6 +122,24 @@ in
           ncmpcpp.enable = true;
           mpc-cli.enable = true;
           mpd.enable = true;
+        };
+
+        internet = {
+          browsers = {
+            firefox.enable = true;
+            librewolf.enable = true;
+            qutebrowser.enable = true;
+            links2.enable = true;
+          };
+
+          vpn = {
+            openvpn.enable = true;
+            mullvad.enable = true;
+          };
+
+          downloading = {
+            yt-dlp.enable = true;
+          };
         };
       };
     };
