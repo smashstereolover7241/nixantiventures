@@ -114,6 +114,15 @@ in
           bottles.enable = true;
         };
       };
+
+      internet = {
+        browsers = {
+          firefox.enable = true;
+          librewolf.enable = true;
+          qutebrowser.enable = true;
+          links2.enable = true;
+        };
+      };
     };
   };
 }
