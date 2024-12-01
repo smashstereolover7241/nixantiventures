@@ -2,13 +2,13 @@
 with lib;
 let
   cfgName = strings.nameFromURL (__curPos.file) ".";
-  cfg = modules.normal.monitoring.tops.${cfgName};
+  cfg = config.modules.normal.monitoring.tops.${cfgName};
 in
 {
   options.modules.normal.monitoring.tops.${cfgName} = {
     enable = mkEnableOption "Enable ${cfgName}";
   };
   config = {
-    environment.systemPackages = [ pkgs.${cfgName} ];
+    environment.systemPackages = mkIf cfg.enable [ pkgs.${cfgName} ];
   };
 }
