@@ -108,6 +108,7 @@ in
 
       gaming = {
         launchers = {
+          steam.enable = true;
           lutris.enable = true;
           heroic.enable = true;
           bottles.enable = true;

@@ -2,7 +2,7 @@
 with lib;
 let
   cfgName = strings.nameFromURL (__curPos.file) ".";
-  cfg = modules.normal.gaming.launchers.${cfgName};
+  cfg = config.modules.normal.gaming.launchers.${cfgName};
 in
 {
   options.modules.normal.gaming.launchers.${cfgName} = {
