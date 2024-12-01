@@ -75,6 +75,5 @@ in {
                 modules.normal.media.screenshot.scrot.enable = true;
                 modules.normal.media.screenshot.peek.enable = true;
             })
-
         ]));
 }

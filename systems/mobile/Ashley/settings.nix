@@ -156,6 +156,10 @@ in
           scrot.enable = true;
           peek.enable = true;
         };
+
+        encoding = {
+          ffmpeg-full.enable = true;
+        };
       };
     };
   };
