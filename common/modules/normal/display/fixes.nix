@@ -7,6 +7,7 @@ in
   options.modules.normal.display.fixes = {
     backlightFix = mkEnableOption "fix backlight, maybe";
     wacomFix = mkEnableOption "Fix wacom (X200T)";
+    swaylockFix = mkEnableOption "Add fix for swaylock";
   };
 
   config = (mkMerge [
@@ -43,6 +44,14 @@ in
           ExecStartPre="/run/current-system/sw/bin/sleep 5"; # takes a moment to show up
           ExecStart="/run/current-system/sw/bin/isdv4-serial-inputattach /dev/ttyS0";
         };
+      };
+    })
+
+    (mkIf cfg.swaylockFix {
+      security.pam.services.swaylock = {
+        text = ''
+          auth include login
+        '';
       };
     })
 

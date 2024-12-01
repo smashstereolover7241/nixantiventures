@@ -103,6 +103,7 @@ in
         fixes = {
           backlightFix = true;
           wacomFix = true;
+          swaylockFix = true;
         };
       };
 
