@@ -127,8 +127,18 @@ in
           openvpn.enable = true;
           mullvad.enable = true;
         };
+
         downloading = {
           yt-dlp.enable = true;
+        };
+      };
+
+      media = {
+        music = {
+          all = true;
+          ncmpcpp.enable = true;
+          mpc-cli.enable = true;
+          mpd.enable = true;
         };
       };
     };

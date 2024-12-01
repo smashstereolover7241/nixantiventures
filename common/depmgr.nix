@@ -14,9 +14,9 @@ let
     nmmon = cfnm.monitoring;
 in {
     imports = [./modules];
+    options.modules.normal.media.music.all = mkEnableOption "Enable all the music";
     config = (
         (mkMerge [
-
 
         ####HOME MANAGED MODULES
 #        (mkIf cfhm.defaults {
@@ -47,12 +47,26 @@ in {
                 modules.normal.display.servers.xorg.enable = true;
             })
 
-            (mkIf config.modules.normal.display.window-managers.xmonad.enable {
+            (mkIf cfg2.normal.display.window-managers.xmonad.enable {
                 modules.normal.display.servers.xorg.enable = true;
             })
 
             (mkIf cfg2.normal.gaming.launchers.steam.enable {
                 modules.normal.display.servers.xorg.enable = true; #TODO: Split out graphics (32) to generic servers option, disable requriement of x.org for steam
+            })
+
+            (mkIf cfg2.normal.media.music.ncmpcpp.enable {
+                modules.normal.media.music.mpd.enable = true;
+            })
+
+            (mkIf cfg2.normal.media.music.mpc-cli.enable {
+                modules.normal.media.music.mpd.enable = true;
+            })
+
+            (mkIf cfg2.normal.media.music.all {
+                modules.normal.media.music.mpd.enable = true;
+                modules.normal.media.music.ncmpcpp.enable = true;
+                modules.normal.media.music.mpc-cli.enable = true;
             })
 
         ]));
