@@ -20,6 +20,10 @@ in {
     options.modules.normal.media.video.viewers.all = mkEnableOption "Enable all the video viewing";
 #    options.modules.normal.media.video.creation.all = mkEnableOption "Enable all the video creation";
     options.modules.normal.media.screenshot.all = mkEnableOption "Enable all the screenshots";
+    options.modules.normal.system.monitoring.cli.tops.all = mkEnableOption "Enable all the screenshots";
+    options.modules.normal.system.monitoring.cli.all = mkEnableOption "Enable all the screenshots";
+    options.modules.normal.system.monitoring.gui.all = mkEnableOption "Enable all the screenshots";
+    options.modules.normal.system.monitoring.all = mkEnableOption "Enable all the screenshots";
     config = (
         (mkMerge [
 
@@ -88,6 +92,26 @@ in {
                 modules.normal.media.screenshot.gnome-screenshot.enable = true;
                 modules.normal.media.screenshot.scrot.enable = true;
                 modules.normal.media.screenshot.peek.enable = true;
+            })
+
+            (mkIf cfg2.normal.system.monitoring.all {
+                modules.normal.system.monitoring.cli.all = true;
+                modules.normal.system.monitoring.gui.all = true;
+            })
+            (mkIf cfg2.normal.system.monitoring.gui.all {
+                modules.normal.system.monitoring.gui.mission-center.enable = true;
+            })
+
+            (mkIf cfg2.normal.system.monitoring.cli.all {
+                modules.normal.system.monitoring.cli.tops.all = true;
+                modules.normal.system.monitoring.cli.nvtop.enable = true;
+                modules.normal.system.monitoring.cli.glances.enable = true;
+            })
+
+            (mkIf cfg2.normal.system.monitoring.cli.tops.all {
+                modules.normal.system.monitoring.cli.tops.btop.enable = true;
+                modules.normal.system.monitoring.cli.tops.htop.enable = true;
+                modules.normal.system.monitoring.cli.tops.iotop.enable = true;
             })
         ]));
 }

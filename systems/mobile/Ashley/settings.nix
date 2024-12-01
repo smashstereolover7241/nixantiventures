@@ -38,14 +38,21 @@ in
         };
 
         monitoring = {
+          all = true;
           cli = {
+            all = true;
             nvtop.enable = true;
             glances.enable = true;
             tops = {
+              all = true;
               btop.enable = true;
               htop.enable = true;
               iotop.enable = true;
             };
+          };
+          gui = {
+            all = true;
+            mission-center.enable = true;
           };
         };
       };
