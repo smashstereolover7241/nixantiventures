@@ -67,8 +67,32 @@ in
             mission-center.enable = true;
           };
         };
+
         compression = {
           pigz.enable = true;
+        };
+
+        storage = {
+          sync = {
+            nextcloud-client.enable = true;
+          };
+
+          partition = {
+            gui = {
+              gparted.enable = true;
+            };
+
+          };
+
+          hardware = {
+            hdparm.enable = true;
+            libatasmart.enable = true;
+          };
+
+          managing = {
+            ncdu.enable = true;
+            meld.enable = true;
+          };
         };
       };
 
