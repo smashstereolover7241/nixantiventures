@@ -94,6 +94,18 @@ in
             meld.enable = true;
           };
         };
+
+        programming = {
+          git.enable = true;
+          compute = {
+            cmake.enable = true;
+            ninja.enable = true;
+            gcc.enable = true;
+            gnumake.enable = true;
+            pkg-config.enable = true;
+            zlib.enable = true;
+          };
+        };
       };
 
       display = {

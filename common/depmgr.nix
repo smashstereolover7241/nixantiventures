@@ -26,6 +26,8 @@ in {
     options.modules.normal.system.monitoring.all = mkEnableOption "Enable all the screenshots";
     options.modules.normal.cli.fetches.all = mkEnableOption "Enable all the fetches";
     options.modules.normal.cli.utilities.all = mkEnableOption "Enable all the fetches";
+    options.modules.normal.system.programming.all = mkEnableOption "All things programming";
+    options.modules.normal.system.programming.compute.all = mkEnableOption "All things compute programming";
     config = (
         (mkMerge [
 
@@ -127,6 +129,20 @@ in {
                 modules.normal.cli.utilities.eza.enable = true;
                 modules.normal.cli.utilities.tmux.enable = true;
                 modules.normal.cli.utilities.pv.enable = true;
+            })
+
+            (mkIf cfg2.normal.system.programming.all {
+                modules.normal.system.programming.git.enable = true;
+                modules.normal.system.programming.compute.all= true;
+            })
+
+            (mkIf cfg2.normal.system.programming.compute.all {
+                modules.normal.system.programming.compute.cmake.enable = true;
+                modules.normal.system.programming.compute.ninja.enable = true;
+                modules.normal.system.programming.compute.gcc.enable = true;
+                modules.normal.system.programming.compute.gnumake.enable = true;
+                modules.normal.system.programming.compute.pkg-config.enable = true;
+                modules.normal.system.programming.compute.zlib.enable = true;
             })
         ]));
 }
