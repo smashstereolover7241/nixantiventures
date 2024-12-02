@@ -2,13 +2,17 @@
 with lib;
 let
   cfgName = strings.nameFromURL (__curPos.file) ".";
-  cfg = config.modules.normal.system.monitoring.cli.tops.${cfgName};
+  currPath = lib.strings.splitString "/" (toString ./.);
+  findIndex = (lib.lists.findFirstIndex (x: x == "modules") null (currPath));
+  cfgList = (lib.lists.drop (findIndex) currPath) ++ [ "${cfgName}" ];
+  cfgGen = attrsets.setAttrByPath cfgList
+    {
+      enable = mkEnableOption "Enable ${cfgName}";
+    };
 in
 {
-  options.modules.normal.system.monitoring.cli.tops.${cfgName} = {
-    enable = mkEnableOption "Enable ${cfgName}";
-  };
+  options = cfgGen;
   config = {
-    environment.systemPackages = mkIf cfg.enable [ pkgs.${cfgName} ];
+    environment.systemPackages = mkIf ( attrsets.getAttrFromPath (cfgList ++ ["enable"]) config ) [ pkgs.${cfgName} ];
   };
 }
