@@ -24,6 +24,8 @@ in {
     options.modules.normal.system.monitoring.cli.all = mkEnableOption "Enable all the screenshots";
     options.modules.normal.system.monitoring.gui.all = mkEnableOption "Enable all the screenshots";
     options.modules.normal.system.monitoring.all = mkEnableOption "Enable all the screenshots";
+    options.modules.normal.cli.fetches.all = mkEnableOption "Enable all the fetches";
+    options.modules.normal.cli.utilities.all = mkEnableOption "Enable all the fetches";
     config = (
         (mkMerge [
 
@@ -113,6 +115,17 @@ in {
                 modules.normal.system.monitoring.cli.tops.btop.enable = true;
                 modules.normal.system.monitoring.cli.tops.htop.enable = true;
                 modules.normal.system.monitoring.cli.tops.iotop.enable = true;
+            })
+
+            (mkIf cfg2.normal.cli.fetches.all {
+                modules.normal.cli.fetches.neofetch.enable = true;
+                modules.normal.cli.fetches.hyfetch.enable = true;
+                modules.normal.cli.fetches.fastfetch.enable = true;
+            })
+
+            (mkIf cfg2.normal.cli.utilities.all {
+                modules.normal.cli.utilities.eza.enable = true;
+                modules.normal.cli.utilities.tmux.enable = true;
             })
         ]));
 }

@@ -24,8 +24,19 @@ in
             enable = true;
           };
         };
-      };
 
+        fetches = {
+          neofetch.enable = true;
+          hyfetch.enable = true;
+          fastfetch.enable = true;
+        };
+
+        utilities = {
+          all = true;
+          eza.enable = true;
+          tmux.enable = true;
+        };
+      };
 
       system = {
 #         users.enable = true; #Use default.
