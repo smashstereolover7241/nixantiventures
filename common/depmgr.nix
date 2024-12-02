@@ -126,6 +126,7 @@ in {
             (mkIf cfg2.normal.cli.utilities.all {
                 modules.normal.cli.utilities.eza.enable = true;
                 modules.normal.cli.utilities.tmux.enable = true;
+                modules.normal.cli.utilities.pv.enable = true;
             })
         ]));
 }

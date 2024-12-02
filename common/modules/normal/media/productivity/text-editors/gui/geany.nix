@@ -13,6 +13,6 @@ in
 {
   options = cfgGen;
   config = {
-    programs.steam.enable = ( attrsets.getAttrFromPath (cfgList ++ ["enable"]) config );
+    environment.systemPackages = mkIf ( attrsets.getAttrFromPath (cfgList ++ ["enable"]) config ) [ pkgs.${cfgName} ];
   };
 }

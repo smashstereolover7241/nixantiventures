@@ -35,6 +35,7 @@ in
           all = true;
           eza.enable = true;
           tmux.enable = true;
+          pv.enable = true;
         };
       };
 
@@ -65,6 +66,9 @@ in
             all = true;
             mission-center.enable = true;
           };
+        };
+        compression = {
+          pigz.enable = true;
         };
       };
 
@@ -209,6 +213,18 @@ in
           freecad-wayland.enable = true;
           libreoffice-fresh.enable = true;
           xournalpp.enable = true;
+
+          text-editors = {
+            gui = {
+              geany.enable = true;
+              emacs.enable = true;
+            };
+
+            cli = {
+              neovim.enable = true;
+              vim.enable = true;
+            };
+          };
         };
       };
     };
