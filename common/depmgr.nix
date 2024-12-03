@@ -30,6 +30,7 @@ in {
     options.modules.normal.system.compute.all = mkEnableOption "All things compute";
     options.modules.normal.system.compute.lang.all = mkEnableOption "All things compute";
     options.modules.normal.system.compute.lang.c.all = mkEnableOption "All things compute";
+    options.modules.normal.system.compute.lang.utils.all = mkEnableOption "All things compute";
     options.modules.normal.system.compute.database.all = mkEnableOption "All things compute";
     options.modules.normal.system.compute.compression.all = mkEnableOption "All compression";
     options.modules.normal.media.productivity.text-editors.gui.emacsGoodies = mkEnableOption "Goodies for emacs";
@@ -157,6 +158,7 @@ in {
 
             (mkIf cfg2.normal.system.compute.lang.all {
                 modules.normal.system.compute.lang.c.all = true;
+                modules.normal.system.compute.lang.utils.all = true;
             })
 
             (mkIf cfg2.normal.system.compute.lang.c.all {
@@ -167,12 +169,19 @@ in {
                 modules.normal.system.compute.lang.c.pkg-config.enable = true;
             })
 
+            (mkIf cfg2.normal.system.compute.lang.utils.all {
+                modules.normal.system.compute.lang.utils.libtool.enable = true;
+            })
+
             (mkIf cfg2.normal.media.productivity.text-editors.gui.emacsGoodies {
                 modules.normal.display.servers.xorg.utilities.xclip.enable = mkDefault true;
                 modules.normal.display.servers.xorg.utilities.xdotool.enable = mkDefault true;
                 modules.normal.display.servers.xorg.utilities.xwininfo.enable = mkDefault true;
                 modules.normal.system.compute.compression.unzip.enable = mkDefault true;
                 modules.normal.system.compute.database.sqlite.enable = mkDefault true;
+                modules.normal.system.compute.lang.utils.libtool.enable = mkDefault true;
+                modules.normal.cli.shell.utils.direnv.enable = mkDefault true;
+                modules.normal.cli.shell.utils.nix-direnv.enable = mkDefault true;
             })
         ]));
 }

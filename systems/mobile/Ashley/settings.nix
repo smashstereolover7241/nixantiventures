@@ -23,6 +23,10 @@ in
           zsh = {
             enable = true;
           };
+          utils = {
+            direnv.enable = true;
+            nix-direnv.enable = true;
+          };
         };
 
         fetches = {
@@ -86,6 +90,11 @@ in
               gcc.enable = true;
               gnumake.enable = true;
               pkg-config.enable = true;
+            };
+
+            utils = {
+              all = true;
+              libtool.enable = true;
             };
           };
 
