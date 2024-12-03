@@ -13,6 +13,6 @@ in
 {
   options = cfgGen;
   config = {
-    environment.systemPackages = mkIf ( attrsets.getAttrFromPath (cfgList ++ ["enable"]) config ) [ pkgs.${cfgName} ];
+    environment.systemPackages = mkIf ( attrsets.getAttrFromPath (cfgList ++ ["enable"]) config ) [ pkgs.haskellPackages.digest ];
   };
 }

@@ -92,6 +92,13 @@ in
               pkg-config.enable = true;
             };
 
+            haskell = {
+              all = true;
+              cabal-install.enable = true;
+              ghc.enable = true;
+              digest.enable = true;
+            };
+
             utils = {
               all = true;
               libtool.enable = true;
@@ -144,6 +151,8 @@ in
               xclip.enable = true;
               xdotool.enable = true;
               xwininfo.enable = true;
+              xkill.enable = true;
+              arandr.enable = true;
             };
           };
         };
@@ -172,6 +181,13 @@ in
 
         window-managers = {
           xmonad.enable = true;
+
+          util = {
+            stalonetray.enable = true;
+            dunst.enable = true;
+            passthrough.enable = true;
+            wmctrl.enable = true;
+          };
         };
 
         login-managers = {
@@ -193,11 +209,6 @@ in
             wacom = true;
           };
 
-          util = {
-            stalonetray = true;
-            dunst = true;
-            passthrough = true;
-          };
         };
 
         fixes = {

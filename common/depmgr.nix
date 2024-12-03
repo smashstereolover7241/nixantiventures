@@ -14,26 +14,28 @@ let
     nmmon = cfnm.monitoring;
 in {
     imports = [./modules];
+    options.modules.normal.display.window-managers.xmonadGoodies  = mkEnableOption "Some stuff probably wanted with xmonad";
     options.modules.normal.media.audio.music.all = mkEnableOption "Enable all the music";
     options.modules.normal.media.image.viewers.all = mkEnableOption "Enable all the image viewing";
     options.modules.normal.media.image.creation.all = mkEnableOption "Enable all the image creation";
     options.modules.normal.media.video.viewers.all = mkEnableOption "Enable all the video viewing";
 #    options.modules.normal.media.video.creation.all = mkEnableOption "Enable all the video creation";
     options.modules.normal.media.screenshot.all = mkEnableOption "Enable all the screenshots";
+    options.modules.normal.media.productivity.programming.all = mkEnableOption "All things programming";
+    options.modules.normal.media.productivity.text-editors.gui.emacsGoodies = mkEnableOption "Goodies for emacs";
     options.modules.normal.system.monitoring.cli.tops.all = mkEnableOption "Enable all the screenshots";
     options.modules.normal.system.monitoring.cli.all = mkEnableOption "Enable all the screenshots";
     options.modules.normal.system.monitoring.gui.all = mkEnableOption "Enable all the screenshots";
     options.modules.normal.system.monitoring.all = mkEnableOption "Enable all the screenshots";
     options.modules.normal.cli.fetches.all = mkEnableOption "Enable all the fetches";
     options.modules.normal.cli.utilities.all = mkEnableOption "Enable all the fetches";
-    options.modules.normal.media.productivity.programming.all = mkEnableOption "All things programming";
     options.modules.normal.system.compute.all = mkEnableOption "All things compute";
     options.modules.normal.system.compute.lang.all = mkEnableOption "All things compute";
     options.modules.normal.system.compute.lang.c.all = mkEnableOption "All things compute";
+    options.modules.normal.system.compute.lang.haskell.all = mkEnableOption "All things compute";
     options.modules.normal.system.compute.lang.utils.all = mkEnableOption "All things compute";
     options.modules.normal.system.compute.database.all = mkEnableOption "All things compute";
     options.modules.normal.system.compute.compression.all = mkEnableOption "All compression";
-    options.modules.normal.media.productivity.text-editors.gui.emacsGoodies = mkEnableOption "Goodies for emacs";
     config = (
         (mkMerge [
 
@@ -68,6 +70,14 @@ in {
 
             (mkIf cfg2.normal.display.window-managers.xmonad.enable {
                 modules.normal.display.servers.xorg.enable = true;
+                modules.normal.system.compute.lang.haskell.all = true;
+            })
+
+            (mkIf cfg2.normal.display.window-managers.xmonadGoodies {
+                modules.normal.display.servers.xorg.utilities.xkill.enable = true;
+                modules.normal.display.servers.xorg.utilities.arandr.enable = true;
+                modules.normal.display.window-managers.util.stalonetray.enable = true;
+                modules.normal.display.window-managers.util.dunst.enable = true;
             })
 
             (mkIf cfg2.normal.gaming.launchers.steam.enable {
@@ -158,6 +168,7 @@ in {
 
             (mkIf cfg2.normal.system.compute.lang.all {
                 modules.normal.system.compute.lang.c.all = true;
+                modules.normal.system.compute.lang.haskell.all = true;
                 modules.normal.system.compute.lang.utils.all = true;
             })
 
@@ -167,6 +178,12 @@ in {
                 modules.normal.system.compute.lang.c.gcc.enable = true;
                 modules.normal.system.compute.lang.c.gnumake.enable = true;
                 modules.normal.system.compute.lang.c.pkg-config.enable = true;
+            })
+
+            (mkIf cfg2.normal.system.compute.lang.haskell.all {
+                modules.normal.system.compute.lang.haskell.cabal-install.enable = true;
+                modules.normal.system.compute.lang.haskell.ghc.enable = true;
+                modules.normal.system.compute.lang.haskell.digest.enable = true;
             })
 
             (mkIf cfg2.normal.system.compute.lang.utils.all {
