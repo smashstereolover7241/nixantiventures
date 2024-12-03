@@ -2,17 +2,13 @@
 with lib;
 let
   cfgName = strings.nameFromURL (__curPos.file) ".";
-  currPath = lib.strings.splitString "/" (toString ./.);
-  findIndex = (lib.lists.findFirstIndex (x: x == "modules") null (currPath));
-  cfgList = (lib.lists.drop (findIndex) currPath) ++ [ "${cfgName}" ];
-  cfgGen = attrsets.setAttrByPath cfgList
-    {
-      enable = mkEnableOption "Enable ${cfgName}";
-    };
+  cfg = config.modules.normal.gaming.launchers.${cfgName};
 in
 {
-  options = cfgGen;
+  options.modules.normal.gaming.launchers.${cfgName} = {
+    enable = mkEnableOption "Enable ${cfgName}";
+  };
   config = {
-    programs.steam.enable = ( attrsets.getAttrFromPath (cfgList ++ ["enable"]) config );
+    programs.steam.enable = cfg.enable;
   };
 }

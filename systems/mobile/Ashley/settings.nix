@@ -106,10 +106,15 @@ in
             zlib.enable = true;
           };
         };
+
+        security = {
+          gpg.enable = true;
+          keepassxc.enable = true;
+          betterlockscreen.enable = true;
+        };
       };
 
       display = {
-
         servers = {
           xorg = {
 #            enable = true;
