@@ -70,15 +70,28 @@ in
 
         compute = {
           all = true;
-          cmake.enable = true;
-          ninja.enable = true;
-          gcc.enable = true;
-          gnumake.enable = true;
-          pkg-config.enable = true;
-          zlib.enable = true;
           compression = {
             all = true;
             pigz.enable = true;
+            unzip.enable = true;
+            zlib.enable = true;
+          };
+
+          lang = {
+            all = true;
+            c = {
+              all = true;
+              cmake.enable = true;
+              ninja.enable = true;
+              gcc.enable = true;
+              gnumake.enable = true;
+              pkg-config.enable = true;
+            };
+          };
+
+          database = {
+            all = true;
+            sqlite.enable = true;
           };
         };
 

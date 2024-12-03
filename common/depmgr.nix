@@ -28,6 +28,9 @@ in {
     options.modules.normal.cli.utilities.all = mkEnableOption "Enable all the fetches";
     options.modules.normal.media.productivity.programming.all = mkEnableOption "All things programming";
     options.modules.normal.system.compute.all = mkEnableOption "All things compute";
+    options.modules.normal.system.compute.lang.all = mkEnableOption "All things compute";
+    options.modules.normal.system.compute.lang.c.all = mkEnableOption "All things compute";
+    options.modules.normal.system.compute.database.all = mkEnableOption "All things compute";
     options.modules.normal.system.compute.compression.all = mkEnableOption "All compression";
     options.modules.normal.media.productivity.text-editors.gui.emacsGoodies = mkEnableOption "Goodies for emacs";
     config = (
@@ -139,23 +142,37 @@ in {
             })
 
             (mkIf cfg2.normal.system.compute.all {
-                modules.normal.system.compute.cmake.enable = true;
-                modules.normal.system.compute.ninja.enable = true;
-                modules.normal.system.compute.gcc.enable = true;
-                modules.normal.system.compute.gnumake.enable = true;
-                modules.normal.system.compute.pkg-config.enable = true;
-                modules.normal.system.compute.zlib.enable = true;
                 modules.normal.system.compute.compression.all = mkDefault true;
+            })
+
+            (mkIf cfg2.normal.system.compute.database.all {
+                modules.normal.system.compute.database.sqlite.enable = mkDefault true;
             })
 
             (mkIf cfg2.normal.system.compute.compression.all {
                 modules.normal.system.compute.compression.pigz.enable = true;
+                modules.normal.system.compute.compression.unzip.enable = true;
+                modules.normal.system.compute.compression.zlib.enable = true;
+            })
+
+            (mkIf cfg2.normal.system.compute.lang.all {
+                modules.normal.system.compute.lang.c.all = true;
+            })
+
+            (mkIf cfg2.normal.system.compute.lang.c.all {
+                modules.normal.system.compute.lang.c.cmake.enable = true;
+                modules.normal.system.compute.lang.c.ninja.enable = true;
+                modules.normal.system.compute.lang.c.gcc.enable = true;
+                modules.normal.system.compute.lang.c.gnumake.enable = true;
+                modules.normal.system.compute.lang.c.pkg-config.enable = true;
             })
 
             (mkIf cfg2.normal.media.productivity.text-editors.gui.emacsGoodies {
                 modules.normal.display.servers.xorg.utilities.xclip.enable = mkDefault true;
                 modules.normal.display.servers.xorg.utilities.xdotool.enable = mkDefault true;
                 modules.normal.display.servers.xorg.utilities.xwininfo.enable = mkDefault true;
+                modules.normal.system.compute.compression.unzip.enable = mkDefault true;
+                modules.normal.system.compute.database.sqlite.enable = mkDefault true;
             })
         ]));
 }
