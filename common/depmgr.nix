@@ -26,8 +26,10 @@ in {
     options.modules.normal.system.monitoring.all = mkEnableOption "Enable all the screenshots";
     options.modules.normal.cli.fetches.all = mkEnableOption "Enable all the fetches";
     options.modules.normal.cli.utilities.all = mkEnableOption "Enable all the fetches";
-    options.modules.normal.system.programming.all = mkEnableOption "All things programming";
-    options.modules.normal.system.programming.compute.all = mkEnableOption "All things compute programming";
+    options.modules.normal.media.productivity.programming.all = mkEnableOption "All things programming";
+    options.modules.normal.system.compute.all = mkEnableOption "All things compute";
+    options.modules.normal.system.compute.compression.all = mkEnableOption "All compression";
+    options.modules.normal.media.productivity.text-editors.gui.emacsGoodies = mkEnableOption "Goodies for emacs";
     config = (
         (mkMerge [
 
@@ -131,18 +133,29 @@ in {
                 modules.normal.cli.utilities.pv.enable = true;
             })
 
-            (mkIf cfg2.normal.system.programming.all {
-                modules.normal.system.programming.git.enable = true;
-                modules.normal.system.programming.compute.all= true;
+            (mkIf cfg2.normal.media.productivity.programming.all {
+                modules.normal.media.productivity.programming.git.enable = true;
+                modules.normal.system.compute.all= true;
             })
 
-            (mkIf cfg2.normal.system.programming.compute.all {
-                modules.normal.system.programming.compute.cmake.enable = true;
-                modules.normal.system.programming.compute.ninja.enable = true;
-                modules.normal.system.programming.compute.gcc.enable = true;
-                modules.normal.system.programming.compute.gnumake.enable = true;
-                modules.normal.system.programming.compute.pkg-config.enable = true;
-                modules.normal.system.programming.compute.zlib.enable = true;
+            (mkIf cfg2.normal.system.compute.all {
+                modules.normal.system.compute.cmake.enable = true;
+                modules.normal.system.compute.ninja.enable = true;
+                modules.normal.system.compute.gcc.enable = true;
+                modules.normal.system.compute.gnumake.enable = true;
+                modules.normal.system.compute.pkg-config.enable = true;
+                modules.normal.system.compute.zlib.enable = true;
+                modules.normal.system.compute.compression.all = mkDefault true;
+            })
+
+            (mkIf cfg2.normal.system.compute.compression.all {
+                modules.normal.system.compute.compression.pigz.enable = true;
+            })
+
+            (mkIf cfg2.normal.media.productivity.text-editors.gui.emacsGoodies {
+                modules.normal.display.servers.xorg.utilities.xclip.enable = mkDefault true;
+                modules.normal.display.servers.xorg.utilities.xdotool.enable = mkDefault true;
+                modules.normal.display.servers.xorg.utilities.xwininfo.enable = mkDefault true;
             })
         ]));
 }

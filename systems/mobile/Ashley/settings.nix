@@ -68,8 +68,18 @@ in
           };
         };
 
-        compression = {
-          pigz.enable = true;
+        compute = {
+          all = true;
+          cmake.enable = true;
+          ninja.enable = true;
+          gcc.enable = true;
+          gnumake.enable = true;
+          pkg-config.enable = true;
+          zlib.enable = true;
+          compression = {
+            all = true;
+            pigz.enable = true;
+          };
         };
 
         storage = {
@@ -95,22 +105,12 @@ in
           };
         };
 
-        programming = {
-          git.enable = true;
-          compute = {
-            cmake.enable = true;
-            ninja.enable = true;
-            gcc.enable = true;
-            gnumake.enable = true;
-            pkg-config.enable = true;
-            zlib.enable = true;
-          };
-        };
-
         security = {
           gpg.enable = true;
           keepassxc.enable = true;
           betterlockscreen.enable = true;
+          policykit.enable = true;
+          fprintd.enable = true;
         };
       };
 
@@ -118,6 +118,11 @@ in
         servers = {
           xorg = {
 #            enable = true;
+            utilities = {
+              xclip.enable = true;
+              xdotool.enable = true;
+              xwininfo.enable = true;
+            };
           };
         };
 
@@ -255,10 +260,16 @@ in
           libreoffice-fresh.enable = true;
           xournalpp.enable = true;
 
+          programming = {
+            all = true;
+            git.enable = true;
+          };
+
           text-editors = {
             gui = {
               geany.enable = true;
               emacs.enable = true;
+              emacsGoodies = true;
             };
 
             cli = {
