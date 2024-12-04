@@ -323,6 +323,29 @@ in
           };
         };
 
+        communication = {
+          all = true;
+          free = true;
+          nonFree = true;
+          messaging = {
+            all = true;
+            revolt-desktop.enable = true;
+            element-desktop.enable = true;
+            signal-desktop.enable = true;
+            telegram-desktop.enable = true;
+          };
+
+          voice = {
+            all = true;
+            mumble.enable = true;
+          };
+
+          mail = {
+            all = true;
+            thunderbird.enable = true;
+          };
+        };
+
         video = {
           viewers = {
             vlc.enable = true;

@@ -21,6 +21,12 @@ in {
     options.modules.normal.display.theming.themes.all = mkEnableOption "All the theming";
     options.modules.normal.display.theming.themes.color.all = mkEnableOption "All the theming";
     options.modules.normal.display.theming.themes.icon.all = mkEnableOption "All the theming";
+    options.modules.normal.media.communication.all = mkEnableOption "All messaging";
+    options.modules.normal.media.communication.free = mkEnableOption "All free comms";
+    options.modules.normal.media.communication.nonFree = mkEnableOption "All nonFree comms";
+    options.modules.normal.media.communication.mail.all = mkEnableOption "All messaging";
+    options.modules.normal.media.communication.messaging.all = mkEnableOption "All messaging";
+    options.modules.normal.media.communication.voice.all = mkEnableOption "I hate talking";
     options.modules.normal.media.audio.music.all = mkEnableOption "Enable all the music";
     options.modules.normal.media.image.viewers.all = mkEnableOption "Enable all the image viewing";
     options.modules.normal.media.image.creation.all = mkEnableOption "Enable all the image creation";
@@ -91,6 +97,7 @@ in {
                 modules.normal.media.audio.control.playerctl.enable = true;
                 modules.normal.media.audio.util.alsa-utils.enable = true;
             })
+
             (mkIf cfg2.normal.display.window-managers.swayGoodies {
                 modules.normal.display.servers.wayland.util.wdisplays.enable = true;
                 modules.normal.display.window-managers.util.wmctrl.enable = true; #todo: waybar?
@@ -105,6 +112,40 @@ in {
 
             (mkIf cfg2.normal.gaming.launchers.steam.enable {
                 modules.normal.display.servers.xorg.enable = true; #TODO: Split out graphics (32) to generic servers option, disable requriement of x.org for steam
+            })
+
+            (mkIf cfg2.normal.media.communication.free {
+                modules.normal.media.communication.messaging.revolt-desktop.enable = mkDefault true;
+                modules.normal.media.communication.messaging.element-desktop.enable = mkDefault true;
+                modules.normal.media.communication.messaging.signal-desktop.enable = mkDefault true;
+                modules.normal.media.communication.messaging.telegram-desktop.enable = mkDefault true;
+                modules.normal.media.communication.voice.mumble.enable = mkDefault true;
+                modules.normal.media.communication.mail.thunderbird.enable = mkDefault true;
+            })
+
+            (mkIf cfg2.normal.media.communication.nonFree {
+
+            })
+
+            (mkIf cfg2.normal.media.communication.all {
+                modules.normal.media.communication.mail.all = true;
+                modules.normal.media.communication.messaging.all = true;
+                modules.normal.media.communication.voice.all = true;
+            })
+
+            (mkIf cfg2.normal.media.communication.mail.all {
+                modules.normal.media.communication.mail.thunderbird.enable = mkDefault true;
+            })
+
+            (mkIf cfg2.normal.media.communication.messaging.all {
+                modules.normal.media.communication.messaging.revolt-desktop.enable = mkDefault true;
+                modules.normal.media.communication.messaging.element-desktop.enable = mkDefault true;
+                modules.normal.media.communication.messaging.signal-desktop.enable = mkDefault true;
+                modules.normal.media.communication.messaging.telegram-desktop.enable = mkDefault true;
+            })
+
+            (mkIf cfg2.normal.media.communication.voice.all {
+                modules.normal.media.communication.voice.mumble.enable = mkDefault true;
             })
 
             (mkIf cfg2.normal.media.audio.music.ncmpcpp.enable {
