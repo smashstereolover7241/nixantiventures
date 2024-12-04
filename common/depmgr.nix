@@ -81,6 +81,9 @@ in {
                 modules.normal.display.window-managers.util.notifications.dunst.enable = true;
                 modules.normal.display.window-managers.util.launchers.rofi.enable = true;
                 modules.normal.display.window-managers.util.launchers.gmrun.enable = true;
+                modules.normal.display.window-managers.util.brightness.acpilight.enable = true;
+                modules.normal.media.audio.control.playerctl.enable = true;
+                modules.normal.media.audio.util.alsa-utils.enable = true;
             })
 
             (mkIf cfg2.normal.gaming.launchers.steam.enable {

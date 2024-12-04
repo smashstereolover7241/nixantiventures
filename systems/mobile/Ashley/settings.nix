@@ -196,6 +196,15 @@ in
               gmrun.enable = true;
             };
 
+            bars = {
+              waybar.enable = true;
+              xmobar.enable = true;
+            };
+
+            brightness = {
+              acpilight.enable = true;
+            };
+
             passthrough.enable = true;
             wmctrl.enable = true;
           };
@@ -209,10 +218,6 @@ in
         };
 
         generic = {
-          bars = {
-            waybar = true;
-            xmobar = true;
-          };
 
           input = {
             libinput = true;
@@ -241,12 +246,20 @@ in
 
       media = {
         audio = {
-          pavucontrol.enable = true;
           music = {
             all = true;
             ncmpcpp.enable = true;
             mpc-cli.enable = true;
             mpd.enable = true;
+          };
+
+          control = {
+            pavucontrol.enable = true;
+            playerctl.enable = true;
+          };
+
+          util = {
+            alsa-utils.enable = true;
           };
         };
 
