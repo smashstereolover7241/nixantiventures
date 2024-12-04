@@ -202,6 +202,9 @@ in
               xwininfo.enable = true;
               xkill.enable = true;
               arandr.enable = true;
+              libXxf86dga.enable = true;
+              libXxf86vm.enable = true;
+              libXxf86misc.enable = true;
             };
           };
         };
@@ -289,10 +292,18 @@ in
 
       gaming = {
         launchers = {
-          steam.enable = true;
-          lutris.enable = true;
-          heroic.enable = true;
-          bottles.enable = true;
+          generic = {
+            steam.enable = true;
+            lutris.enable = true;
+            heroic.enable = true;
+            bottles.enable = true;
+          };
+
+          minecraft = {
+            prismlauncher.enable = true;
+            lunar-client.enable = true;
+            libFix = true;
+          };
         };
       };
 

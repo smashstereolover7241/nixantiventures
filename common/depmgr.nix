@@ -16,6 +16,8 @@ in {
 
     imports = [./modules];
 
+    options.modules.normal.gaming.launchers.minecraft.libFix = mkEnableOption "Fix some borked minecraft libs";
+
     options.modules.normal.display.window-managers.xmonadGoodies  = mkEnableOption "Some stuff probably wanted with xmonad";
     options.modules.normal.display.window-managers.swayGoodies = mkEnableOption "Some stuff probably wanted with swavyland";
     options.modules.normal.display.theming.all = mkEnableOption "All the theming";
@@ -119,7 +121,7 @@ in {
                 modules.normal.media.audio.util.alsa-utils.enable = true;
             })
 
-            (mkIf cfg2.normal.gaming.launchers.steam.enable {
+            (mkIf cfg2.normal.gaming.launchers.generic.steam.enable {
                 modules.normal.display.servers.xorg.enable = true; #TODO: Split out graphics (32) to generic servers option, disable requriement of x.org for steam
             })
 
@@ -315,6 +317,12 @@ in {
                 modules.normal.display.theming.fonts.font-awesome.enable = mkDefault true;
                 modules.normal.display.theming.fonts.noto-fonts.enable = mkDefault true;
                 modules.normal.display.theming.fonts.fira-code-symbols.enable = mkDefault true;
+            })
+
+            (mkIf cfg2.normal.gaming.launchers.minecraft.libFix {
+                modules.normal.display.servers.xorg.util.libXxf86dga.enable = true;
+                modules.normal.display.servers.xorg.util.libXxf86vm.enable = true;
+                modules.normal.display.servers.xorg.util.libXxf86misc.enable = true;
             })
         ]));
 }
