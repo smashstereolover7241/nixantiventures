@@ -23,7 +23,7 @@ in
           zsh = {
             enable = true;
           };
-          utils = {
+          util = {
             direnv.enable = true;
             nix-direnv.enable = true;
           };
@@ -35,7 +35,7 @@ in
           fastfetch.enable = true;
         };
 
-        utilities = {
+        util = {
           all = true;
           eza.enable = true;
           tmux.enable = true;
@@ -99,7 +99,7 @@ in
               digest.enable = true;
             };
 
-            utils = {
+            util = {
               all = true;
               libtool.enable = true;
             };
@@ -147,7 +147,7 @@ in
         servers = {
           xorg = {
 #            enable = true;
-            utilities = {
+            util = {
               xclip.enable = true;
               xdotool.enable = true;
               xwininfo.enable = true;

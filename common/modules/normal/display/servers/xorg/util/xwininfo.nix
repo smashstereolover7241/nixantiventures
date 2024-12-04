@@ -1,10 +1,10 @@
 { config, lib, pkgs, ... }:
 with lib;
 let
-  cfg = config.modules.normal.display.servers.xorg.utilities.xwininfo;
+  cfg = config.modules.normal.display.servers.xorg.util.xwininfo;
 in
 {
-  options.modules.normal.display.servers.xorg.utilities.xwininfo = {
+  options.modules.normal.display.servers.xorg.util.xwininfo = {
     enable = mkEnableOption "Enable xwininfo";
   };
   config = (mkMerge [

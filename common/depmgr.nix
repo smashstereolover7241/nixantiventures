@@ -28,12 +28,12 @@ in {
     options.modules.normal.system.monitoring.gui.all = mkEnableOption "Enable all the screenshots";
     options.modules.normal.system.monitoring.all = mkEnableOption "Enable all the screenshots";
     options.modules.normal.cli.fetches.all = mkEnableOption "Enable all the fetches";
-    options.modules.normal.cli.utilities.all = mkEnableOption "Enable all the fetches";
+    options.modules.normal.cli.util.all = mkEnableOption "Enable all the fetches";
     options.modules.normal.system.compute.all = mkEnableOption "All things compute";
     options.modules.normal.system.compute.lang.all = mkEnableOption "All things compute";
     options.modules.normal.system.compute.lang.c.all = mkEnableOption "All things compute";
     options.modules.normal.system.compute.lang.haskell.all = mkEnableOption "All things compute";
-    options.modules.normal.system.compute.lang.utils.all = mkEnableOption "All things compute";
+    options.modules.normal.system.compute.lang.util.all = mkEnableOption "All things compute";
     options.modules.normal.system.compute.database.all = mkEnableOption "All things compute";
     options.modules.normal.system.compute.compression.all = mkEnableOption "All compression";
     config = (
@@ -74,8 +74,8 @@ in {
             })
 
             (mkIf cfg2.normal.display.window-managers.xmonadGoodies {
-                modules.normal.display.servers.xorg.utilities.xkill.enable = true;
-                modules.normal.display.servers.xorg.utilities.arandr.enable = true;
+                modules.normal.display.servers.xorg.util.xkill.enable = true;
+                modules.normal.display.servers.xorg.util.arandr.enable = true;
                 modules.normal.display.window-managers.util.trays.stalonetray.enable = true; #todo: xmobar?
                 modules.normal.display.window-managers.util.wmctrl.enable = true; #todo: xmobar?
                 modules.normal.display.window-managers.util.notifications.dunst.enable = true;
@@ -147,10 +147,10 @@ in {
                 modules.normal.cli.fetches.fastfetch.enable = true;
             })
 
-            (mkIf cfg2.normal.cli.utilities.all {
-                modules.normal.cli.utilities.eza.enable = true;
-                modules.normal.cli.utilities.tmux.enable = true;
-                modules.normal.cli.utilities.pv.enable = true;
+            (mkIf cfg2.normal.cli.util.all {
+                modules.normal.cli.util.eza.enable = true;
+                modules.normal.cli.util.tmux.enable = true;
+                modules.normal.cli.util.pv.enable = true;
             })
 
             (mkIf cfg2.normal.media.productivity.programming.all {
@@ -175,7 +175,7 @@ in {
             (mkIf cfg2.normal.system.compute.lang.all {
                 modules.normal.system.compute.lang.c.all = true;
                 modules.normal.system.compute.lang.haskell.all = true;
-                modules.normal.system.compute.lang.utils.all = true;
+                modules.normal.system.compute.lang.util.all = true;
             })
 
             (mkIf cfg2.normal.system.compute.lang.c.all {
@@ -192,19 +192,19 @@ in {
                 modules.normal.system.compute.lang.haskell.digest.enable = true;
             })
 
-            (mkIf cfg2.normal.system.compute.lang.utils.all {
-                modules.normal.system.compute.lang.utils.libtool.enable = true;
+            (mkIf cfg2.normal.system.compute.lang.util.all {
+                modules.normal.system.compute.lang.util.libtool.enable = true;
             })
 
             (mkIf cfg2.normal.media.productivity.text-editors.gui.emacsGoodies {
-                modules.normal.display.servers.xorg.utilities.xclip.enable = mkDefault true;
-                modules.normal.display.servers.xorg.utilities.xdotool.enable = mkDefault true;
-                modules.normal.display.servers.xorg.utilities.xwininfo.enable = mkDefault true;
+                modules.normal.display.servers.xorg.util.xclip.enable = mkDefault true;
+                modules.normal.display.servers.xorg.util.xdotool.enable = mkDefault true;
+                modules.normal.display.servers.xorg.util.xwininfo.enable = mkDefault true;
                 modules.normal.system.compute.compression.unzip.enable = mkDefault true;
                 modules.normal.system.compute.database.sqlite.enable = mkDefault true;
-                modules.normal.system.compute.lang.utils.libtool.enable = mkDefault true;
-                modules.normal.cli.shell.utils.direnv.enable = mkDefault true;
-                modules.normal.cli.shell.utils.nix-direnv.enable = mkDefault true;
+                modules.normal.system.compute.lang.util.libtool.enable = mkDefault true;
+                modules.normal.cli.shell.util.direnv.enable = mkDefault true;
+                modules.normal.cli.shell.util.nix-direnv.enable = mkDefault true;
             })
         ]));
 }
