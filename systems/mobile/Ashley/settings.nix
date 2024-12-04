@@ -145,6 +145,12 @@ in
 
       display = {
         servers = {
+          wayland = {
+            util = {
+              wdisplays.enable = true;
+            };
+          };
+
           xorg = {
 #            enable = true;
             util = {
@@ -181,6 +187,8 @@ in
 
         window-managers = {
           xmonad.enable = true;
+          swayGoodies = true;
+          xmonadGoodies = true;
 
           util = {
             notifications = {
@@ -193,7 +201,9 @@ in
 
             launchers = {
               rofi.enable = true;
+              wofi.enable = true;
               gmrun.enable = true;
+              nwg-drawer.enable = true;
             };
 
             bars = {

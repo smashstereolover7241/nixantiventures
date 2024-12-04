@@ -15,6 +15,7 @@ let
 in {
     imports = [./modules];
     options.modules.normal.display.window-managers.xmonadGoodies  = mkEnableOption "Some stuff probably wanted with xmonad";
+    options.modules.normal.display.window-managers.swayGoodies = mkEnableOption "Some stuff probably wanted with swavyland";
     options.modules.normal.media.audio.music.all = mkEnableOption "Enable all the music";
     options.modules.normal.media.image.viewers.all = mkEnableOption "Enable all the image viewing";
     options.modules.normal.media.image.creation.all = mkEnableOption "Enable all the image creation";
@@ -23,18 +24,18 @@ in {
     options.modules.normal.media.screenshot.all = mkEnableOption "Enable all the screenshots";
     options.modules.normal.media.productivity.programming.all = mkEnableOption "All things programming";
     options.modules.normal.media.productivity.text-editors.gui.emacsGoodies = mkEnableOption "Goodies for emacs";
-    options.modules.normal.system.monitoring.cli.tops.all = mkEnableOption "Enable all the screenshots";
-    options.modules.normal.system.monitoring.cli.all = mkEnableOption "Enable all the screenshots";
-    options.modules.normal.system.monitoring.gui.all = mkEnableOption "Enable all the screenshots";
-    options.modules.normal.system.monitoring.all = mkEnableOption "Enable all the screenshots";
+    options.modules.normal.system.monitoring.cli.tops.all = mkEnableOption "Enable all the tops";
+    options.modules.normal.system.monitoring.cli.all = mkEnableOption "Enable all the cli monitoring";
+    options.modules.normal.system.monitoring.gui.all = mkEnableOption "Enable all the gui monitoring";
+    options.modules.normal.system.monitoring.all = mkEnableOption "Enable all the monitoring";
     options.modules.normal.cli.fetches.all = mkEnableOption "Enable all the fetches";
-    options.modules.normal.cli.util.all = mkEnableOption "Enable all the fetches";
+    options.modules.normal.cli.util.all = mkEnableOption "Enable all the cli utils";
     options.modules.normal.system.compute.all = mkEnableOption "All things compute";
-    options.modules.normal.system.compute.lang.all = mkEnableOption "All things compute";
-    options.modules.normal.system.compute.lang.c.all = mkEnableOption "All things compute";
-    options.modules.normal.system.compute.lang.haskell.all = mkEnableOption "All things compute";
-    options.modules.normal.system.compute.lang.util.all = mkEnableOption "All things compute";
-    options.modules.normal.system.compute.database.all = mkEnableOption "All things compute";
+    options.modules.normal.system.compute.lang.all = mkEnableOption "All things lang";
+    options.modules.normal.system.compute.lang.c.all = mkEnableOption "All things clang";
+    options.modules.normal.system.compute.lang.haskell.all = mkEnableOption "All things haskell";
+    options.modules.normal.system.compute.lang.util.all = mkEnableOption "All things languitilil";
+    options.modules.normal.system.compute.database.all = mkEnableOption "All things database";
     options.modules.normal.system.compute.compression.all = mkEnableOption "All compression";
     config = (
         (mkMerge [
@@ -77,10 +78,21 @@ in {
                 modules.normal.display.servers.xorg.util.xkill.enable = true;
                 modules.normal.display.servers.xorg.util.arandr.enable = true;
                 modules.normal.display.window-managers.util.trays.stalonetray.enable = true; #todo: xmobar?
-                modules.normal.display.window-managers.util.wmctrl.enable = true; #todo: xmobar?
+                modules.normal.display.window-managers.util.wmctrl.enable = true;
                 modules.normal.display.window-managers.util.notifications.dunst.enable = true;
                 modules.normal.display.window-managers.util.launchers.rofi.enable = true;
                 modules.normal.display.window-managers.util.launchers.gmrun.enable = true;
+                modules.normal.display.window-managers.util.brightness.acpilight.enable = true;
+                modules.normal.media.audio.control.playerctl.enable = true;
+                modules.normal.media.audio.util.alsa-utils.enable = true;
+            })
+            (mkIf cfg2.normal.display.window-managers.swayGoodies {
+                modules.normal.display.servers.wayland.util.wdisplays.enable = true;
+                modules.normal.display.window-managers.util.wmctrl.enable = true; #todo: waybar?
+                modules.normal.display.window-managers.util.launchers.wofi.enable = true;
+                modules.normal.display.window-managers.util.launchers.gmrun.enable = true;
+                modules.normal.display.window-managers.util.launchers.nwg-drawer.enable = true;
+                modules.normal.display.window-managers.util.notifications.dunst.enable = true;
                 modules.normal.display.window-managers.util.brightness.acpilight.enable = true;
                 modules.normal.media.audio.control.playerctl.enable = true;
                 modules.normal.media.audio.util.alsa-utils.enable = true;
