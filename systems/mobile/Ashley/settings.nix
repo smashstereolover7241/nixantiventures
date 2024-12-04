@@ -315,11 +315,21 @@ in
 
       media = {
         audio = {
+          servers = {
+            pipewire.enable = true;
+            pulseaudio.enable = false;
+            pulseaudio.bluetooth = false;
+          };
+
           music = {
             all = true;
             ncmpcpp.enable = true;
             mpc-cli.enable = true;
             mpd.enable = true;
+          };
+
+          effects = {
+            easyeffects.enable = false;
           };
 
           control = {
