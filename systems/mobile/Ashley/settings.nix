@@ -119,6 +119,26 @@ in
         };
 
         storage = {
+          filemanagers = {
+            all = true;
+            gui = {
+              all = true;
+              nemo.enable = true;
+            };
+
+            tui = {
+              all = true;
+              w3m.enable = true;
+              ranger.enable = true;
+            };
+
+            util = {
+              all = true;
+              gvfs.enable = true;
+              smb.enable = true;
+            };
+          };
+
           sync = {
             nextcloud-client.enable = true;
           };

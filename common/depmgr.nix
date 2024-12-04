@@ -59,6 +59,11 @@ in {
     options.modules.normal.system.compute.database.all = mkEnableOption "All things database";
     options.modules.normal.system.compute.compression.all = mkEnableOption "All compression";
 
+    options.modules.normal.system.storage.filemanagers.all = mkEnableOption "All things filemanager";
+    options.modules.normal.system.storage.filemanagers.gui.all = mkEnableOption "All gui filemanager"; #english is my passion
+    options.modules.normal.system.storage.filemanagers.tui.all = mkEnableOption "All tui filemanager";
+    options.modules.normal.system.storage.filemanagers.util.all = mkEnableOption "All util filemanager";
+
     config = (
         (mkMerge [
 
@@ -324,5 +329,29 @@ in {
                 modules.normal.display.servers.xorg.util.libXxf86vm.enable = true;
                 modules.normal.display.servers.xorg.util.libXxf86misc.enable = true;
             })
-        ]));
+
+            (mkIf cfg2.normal.system.storage.filemanagers.all {
+                modules.normal.system.storage.filemanagers.gui.all = true;
+                modules.normal.system.storage.filemanagers.tui.all = true;
+                modules.normal.system.storage.filemanagers.util.all = true;
+            })
+
+            (mkIf cfg2.normal.system.storage.filemanagers.gui.all {
+                modules.normal.system.storage.filemanagers.gui.nemo.enable = true;
+            })
+
+            (mkIf cfg2.normal.system.storage.filemanagers.tui.all {
+                modules.normal.system.storage.filemanagers.tui.w3m.enable = true;
+                modules.normal.system.storage.filemanagers.tui.ranger.enable = true;
+            })
+            (mkIf cfg2.normal.system.storage.filemanagers.util.all {
+                modules.normal.system.storage.filemanagers.util.gvfs.enable = true;
+                modules.normal.system.storage.filemanagers.util.smb.enable = true;
+            })
+            (mkIf cfg2.normal.system.storage.filemanagers.util.smb.enable {
+                modules.normal.system.storage.filemanagers.util.gvfs.enable = true;
+                modules.normal.system.security.policykit.enable = true; #need polkit for auth
+            })
+        ])
+    );
 }
