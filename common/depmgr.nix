@@ -76,8 +76,11 @@ in {
             (mkIf cfg2.normal.display.window-managers.xmonadGoodies {
                 modules.normal.display.servers.xorg.utilities.xkill.enable = true;
                 modules.normal.display.servers.xorg.utilities.arandr.enable = true;
-                modules.normal.display.window-managers.util.stalonetray.enable = true;
-                modules.normal.display.window-managers.util.dunst.enable = true;
+                modules.normal.display.window-managers.util.trays.stalonetray.enable = true; #todo: xmobar?
+                modules.normal.display.window-managers.util.wmctrl.enable = true; #todo: xmobar?
+                modules.normal.display.window-managers.util.notifications.dunst.enable = true;
+                modules.normal.display.window-managers.util.launchers.rofi.enable = true;
+                modules.normal.display.window-managers.util.launchers.gmrun.enable = true;
             })
 
             (mkIf cfg2.normal.gaming.launchers.steam.enable {

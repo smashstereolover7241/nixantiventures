@@ -183,8 +183,19 @@ in
           xmonad.enable = true;
 
           util = {
-            stalonetray.enable = true;
-            dunst.enable = true;
+            notifications = {
+              dunst.enable = true;
+            };
+
+            trays = {
+              stalonetray.enable = true;
+            };
+
+            launchers = {
+              rofi.enable = true;
+              gmrun.enable = true;
+            };
+
             passthrough.enable = true;
             wmctrl.enable = true;
           };
