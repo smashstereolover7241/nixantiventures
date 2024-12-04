@@ -8,6 +8,6 @@ in
     enable = mkEnableOption "Enable adb";
   };
   config = {
-    programs.adb.enable = true;
+    programs.adb.enable = mkIf cfg.enable true;
   };
 }

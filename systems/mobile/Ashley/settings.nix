@@ -157,16 +157,33 @@ in
             all = true;
             lxappearance.enable = true;
           };
+
           themes = {
             all = true;
             color = {
               all = true;
               arc-theme.enable = true;
             };
+
             icon = {
               all = true;
               papirus-icon-theme.enable = true;
             };
+          };
+
+          fonts = {
+            all = true;
+            emacs-all-the-icons-fonts.enable = true;
+            ricing_fonts = true;
+            fira-code.enable = true;
+            powerline-symbols.enable = true;
+            dejavu_fonts.enable = true;
+            iosevka.enable = true;
+            material-design-icons.enable = true;
+            nerdfonts.enable = true;
+            font-awesome.enable = true;
+            noto-fonts.enable = true;
+            fira-code-symbols.enable = true;
           };
         };
 

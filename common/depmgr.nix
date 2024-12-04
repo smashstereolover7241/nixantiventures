@@ -13,7 +13,9 @@ let
     nmdisplay = cfnm.display;
     nmmon = cfnm.monitoring;
 in {
+
     imports = [./modules];
+
     options.modules.normal.display.window-managers.xmonadGoodies  = mkEnableOption "Some stuff probably wanted with xmonad";
     options.modules.normal.display.window-managers.swayGoodies = mkEnableOption "Some stuff probably wanted with swavyland";
     options.modules.normal.display.theming.all = mkEnableOption "All the theming";
@@ -21,6 +23,9 @@ in {
     options.modules.normal.display.theming.themes.all = mkEnableOption "All the theming";
     options.modules.normal.display.theming.themes.color.all = mkEnableOption "All the theming";
     options.modules.normal.display.theming.themes.icon.all = mkEnableOption "All the theming";
+    options.modules.normal.display.theming.fonts.all = mkEnableOption "All the fonts";
+    options.modules.normal.display.theming.fonts.ricing_fonts = mkEnableOption "All the ricing fonts";
+
     options.modules.normal.media.communication.all = mkEnableOption "All messaging";
     options.modules.normal.media.communication.free = mkEnableOption "All free comms";
     options.modules.normal.media.communication.nonFree = mkEnableOption "All nonFree comms";
@@ -35,12 +40,15 @@ in {
     options.modules.normal.media.screenshot.all = mkEnableOption "Enable all the screenshots";
     options.modules.normal.media.productivity.programming.all = mkEnableOption "All things programming";
     options.modules.normal.media.productivity.text-editors.gui.emacsGoodies = mkEnableOption "Goodies for emacs";
+
     options.modules.normal.system.monitoring.cli.tops.all = mkEnableOption "Enable all the tops";
     options.modules.normal.system.monitoring.cli.all = mkEnableOption "Enable all the cli monitoring";
     options.modules.normal.system.monitoring.gui.all = mkEnableOption "Enable all the gui monitoring";
     options.modules.normal.system.monitoring.all = mkEnableOption "Enable all the monitoring";
+
     options.modules.normal.cli.fetches.all = mkEnableOption "Enable all the fetches";
     options.modules.normal.cli.util.all = mkEnableOption "Enable all the cli utils";
+
     options.modules.normal.system.compute.all = mkEnableOption "All things compute";
     options.modules.normal.system.compute.lang.all = mkEnableOption "All things lang";
     options.modules.normal.system.compute.lang.c.all = mkEnableOption "All things clang";
@@ -48,6 +56,7 @@ in {
     options.modules.normal.system.compute.lang.util.all = mkEnableOption "All things languitilil";
     options.modules.normal.system.compute.database.all = mkEnableOption "All things database";
     options.modules.normal.system.compute.compression.all = mkEnableOption "All compression";
+
     config = (
         (mkMerge [
 
@@ -263,6 +272,7 @@ in {
                 modules.normal.system.compute.lang.util.libtool.enable = mkDefault true;
                 modules.normal.cli.shell.util.direnv.enable = mkDefault true;
                 modules.normal.cli.shell.util.nix-direnv.enable = mkDefault true;
+                modules.normal.display.theming.fonts.emacs-all-the-icons-fonts.enable = mkDefault true;
             })
 
             (mkIf cfg2.normal.display.theming.all {
@@ -270,6 +280,7 @@ in {
                 modules.normal.display.theming.themes.all = true;
                 modules.normal.display.theming.themes.color.all = true;
                 modules.normal.display.theming.themes.icon.all = true;
+                modules.normal.display.theming.fonts.all = true;
             })
 
             (mkIf cfg2.normal.display.theming.settings.all {
@@ -287,6 +298,23 @@ in {
 
             (mkIf cfg2.normal.display.theming.themes.icon.all {
                 modules.normal.display.theming.themes.icon.papirus-icon-theme.enable = true;
+            })
+
+            (mkIf cfg2.normal.display.theming.fonts.all {
+                modules.normal.display.theming.fonts.ricing_fonts = true;
+                modules.normal.display.theming.fonts.emacs-all-the-icons-fonts.enable = mkDefault true;
+                modules.normal.display.theming.fonts.fira-code.enable = mkDefault true;
+            })
+
+            (mkIf cfg2.normal.display.theming.fonts.ricing_fonts {
+                modules.normal.display.theming.fonts.powerline-symbols.enable = mkDefault true;
+                modules.normal.display.theming.fonts.dejavu_fonts.enable = mkDefault true;
+                modules.normal.display.theming.fonts.iosevka.enable = mkDefault true;
+                modules.normal.display.theming.fonts.material-design-icons.enable = mkDefault true;
+                modules.normal.display.theming.fonts.nerdfonts.enable = mkDefault true;
+                modules.normal.display.theming.fonts.font-awesome.enable = mkDefault true;
+                modules.normal.display.theming.fonts.noto-fonts.enable = mkDefault true;
+                modules.normal.display.theming.fonts.fira-code-symbols.enable = mkDefault true;
             })
         ]));
 }
