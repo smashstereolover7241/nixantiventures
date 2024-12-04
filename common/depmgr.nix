@@ -52,9 +52,11 @@ in {
     options.modules.normal.cli.util.all = mkEnableOption "Enable all the cli utils";
 
     options.modules.normal.system.compute.all = mkEnableOption "All things compute";
+    options.modules.normal.system.compute.emulation.all = mkEnableOption "All things emulation";
     options.modules.normal.system.compute.lang.all = mkEnableOption "All things lang";
     options.modules.normal.system.compute.lang.c.all = mkEnableOption "All things clang";
     options.modules.normal.system.compute.lang.haskell.all = mkEnableOption "All things haskell";
+    options.modules.normal.system.compute.lang.java.all = mkEnableOption "All things java";
     options.modules.normal.system.compute.lang.util.all = mkEnableOption "All things languitilil";
     options.modules.normal.system.compute.database.all = mkEnableOption "All things database";
     options.modules.normal.system.compute.compression.all = mkEnableOption "All compression";
@@ -229,11 +231,19 @@ in {
 
             (mkIf cfg2.normal.media.productivity.programming.all {
                 modules.normal.media.productivity.programming.git.enable = true;
-                modules.normal.system.compute.all= true;
+                modules.normal.system.compute.lang.all= true;
             })
 
             (mkIf cfg2.normal.system.compute.all {
+                modules.normal.system.compute.emulation.all = mkDefault true;
+                modules.normal.system.compute.database.all = mkDefault true;
                 modules.normal.system.compute.compression.all = mkDefault true;
+                modules.normal.system.compute.lang.all = mkDefault true;
+            })
+
+            (mkIf cfg2.normal.system.compute.emulation.all {
+                modules.normal.system.compute.emulation.qemu.enable = mkDefault true;
+                modules.normal.system.compute.emulation.virtmanager.enable = mkDefault true;
             })
 
             (mkIf cfg2.normal.system.compute.database.all {
@@ -249,6 +259,7 @@ in {
             (mkIf cfg2.normal.system.compute.lang.all {
                 modules.normal.system.compute.lang.c.all = true;
                 modules.normal.system.compute.lang.haskell.all = true;
+                modules.normal.system.compute.lang.java.all = true;
                 modules.normal.system.compute.lang.util.all = true;
             })
 
@@ -264,6 +275,11 @@ in {
                 modules.normal.system.compute.lang.haskell.cabal-install.enable = true;
                 modules.normal.system.compute.lang.haskell.ghc.enable = true;
                 modules.normal.system.compute.lang.haskell.digest.enable = true;
+            })
+
+            (mkIf cfg2.normal.system.compute.lang.java.all {
+                modules.normal.system.compute.lang.java.openjdk11.enable = true;
+                modules.normal.system.compute.lang.java.openjdk17.enable = true;
             })
 
             (mkIf cfg2.normal.system.compute.lang.util.all {
@@ -344,10 +360,12 @@ in {
                 modules.normal.system.storage.filemanagers.tui.w3m.enable = true;
                 modules.normal.system.storage.filemanagers.tui.ranger.enable = true;
             })
+
             (mkIf cfg2.normal.system.storage.filemanagers.util.all {
                 modules.normal.system.storage.filemanagers.util.gvfs.enable = true;
                 modules.normal.system.storage.filemanagers.util.smb.enable = true;
             })
+
             (mkIf cfg2.normal.system.storage.filemanagers.util.smb.enable {
                 modules.normal.system.storage.filemanagers.util.gvfs.enable = true;
                 modules.normal.system.security.policykit.enable = true; #need polkit for auth

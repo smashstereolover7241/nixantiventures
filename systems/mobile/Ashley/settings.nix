@@ -81,6 +81,13 @@ in
 
         compute = {
           all = true;
+
+          emulation = {
+            all = true;
+            qemu.enable = true;
+            virtmanager.enable = true;
+          };
+
           compression = {
             all = true;
             pigz.enable = true;
@@ -104,6 +111,12 @@ in
               cabal-install.enable = true;
               ghc.enable = true;
               digest.enable = true;
+            };
+
+            java = {
+              all = true;
+              openjdk11.enable = true;
+              openjdk17.enable = true;
             };
 
             util = {
