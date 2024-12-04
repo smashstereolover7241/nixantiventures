@@ -305,6 +305,11 @@ in
             libFix = true;
           };
         };
+
+        not-emulators = {
+          wine-stable.enable = true;
+          wine-wayland.enable = true;
+        };
       };
 
 
