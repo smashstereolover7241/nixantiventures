@@ -16,6 +16,11 @@ in {
     imports = [./modules];
     options.modules.normal.display.window-managers.xmonadGoodies  = mkEnableOption "Some stuff probably wanted with xmonad";
     options.modules.normal.display.window-managers.swayGoodies = mkEnableOption "Some stuff probably wanted with swavyland";
+    options.modules.normal.display.theming.all = mkEnableOption "All the theming";
+    options.modules.normal.display.theming.settings.all = mkEnableOption "All the theming";
+    options.modules.normal.display.theming.themes.all = mkEnableOption "All the theming";
+    options.modules.normal.display.theming.themes.color.all = mkEnableOption "All the theming";
+    options.modules.normal.display.theming.themes.icon.all = mkEnableOption "All the theming";
     options.modules.normal.media.audio.music.all = mkEnableOption "Enable all the music";
     options.modules.normal.media.image.viewers.all = mkEnableOption "Enable all the image viewing";
     options.modules.normal.media.image.creation.all = mkEnableOption "Enable all the image creation";
@@ -217,6 +222,30 @@ in {
                 modules.normal.system.compute.lang.util.libtool.enable = mkDefault true;
                 modules.normal.cli.shell.util.direnv.enable = mkDefault true;
                 modules.normal.cli.shell.util.nix-direnv.enable = mkDefault true;
+            })
+
+            (mkIf cfg2.normal.display.theming.all {
+                modules.normal.display.theming.settings.all = true;
+                modules.normal.display.theming.themes.all = true;
+                modules.normal.display.theming.themes.color.all = true;
+                modules.normal.display.theming.themes.icon.all = true;
+            })
+
+            (mkIf cfg2.normal.display.theming.settings.all {
+                modules.normal.display.theming.settings.lxappearance.enable = true;
+            })
+
+            (mkIf cfg2.normal.display.theming.themes.all {
+                modules.normal.display.theming.themes.color.all = true;
+                modules.normal.display.theming.themes.icon.all = true;
+            })
+
+            (mkIf cfg2.normal.display.theming.themes.color.all {
+                modules.normal.display.theming.themes.color.arc-theme.enable = true;
+            })
+
+            (mkIf cfg2.normal.display.theming.themes.icon.all {
+                modules.normal.display.theming.themes.icon.papirus-icon-theme.enable = true;
             })
         ]));
 }

@@ -144,6 +144,25 @@ in
       };
 
       display = {
+        theming = {
+          all = true;
+          settings = {
+            all = true;
+            lxappearance.enable = true;
+          };
+          themes = {
+            all = true;
+            color = {
+              all = true;
+              arc-theme.enable = true;
+            };
+            icon = {
+              all = true;
+              papirus-icon-theme.enable = true;
+            };
+          };
+        };
+
         servers = {
           wayland = {
             util = {
