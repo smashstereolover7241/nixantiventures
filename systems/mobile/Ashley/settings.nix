@@ -47,6 +47,13 @@ in
 #         users.enable = true; #Use default.
 #         users.name = "localhost"; #Use default.
 #         flakes = true; #Use default.
+        network = {
+          networkmanager.enable = true;
+          wireless = {
+            bluetooth.enable = true;
+          };
+        };
+
         terminals = {
           kitty.enable = true;
           termite.enable = true;
@@ -290,6 +297,12 @@ in
           util = {
             alsa-utils.enable = true;
           };
+        };
+
+        android = {
+          android-studio.enable = true;
+          adb.enable = true;
+          scrcpy.enable = true;
         };
 
         internet = {
