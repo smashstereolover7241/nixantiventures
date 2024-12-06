@@ -449,12 +449,101 @@ in
               ];
             };
           };
+
+          downloading = {
+            yt-dlp.enable = true;
+          };
         };
 
+        communication = {
+          all = true;
+          free = true;
+          nonFree = true;
+          messaging = {
+            all = true;
+            revolt-desktop.enable = true;
+            element-desktop.enable = true;
+            signal-desktop.enable = true;
+            telegram-desktop.enable = true;
+          };
+
+          voice = {
+            all = true;
+            mumble.enable = true;
+          };
+
+          mail = {
+            all = true;
+            thunderbird.enable = true;
+          };
+        };
+
+        video = {
+          viewers = {
+            vlc.enable = true;
+          };
+        };
+
+        image = {
+          viewers = {
+            feh.enable = true;
+          };
+
+          creation = {
+            kolourpaint.enable = true;
+            krita.enable = true;
+            gimp.enable = true;
+          };
+        };
+
+        screenshot = {
+          all = true;
+          gnome-screenshot.enable = true;
+          scrot.enable = true;
+          peek.enable = true;
+        };
+
+        encoding = {
+          ffmpeg-full.enable = true;
+        };
+
+        productivity = {
+          knowledge = {
+            anytype.enable = true;
+            xournalpp.enable = true;
+          };
+
+          cad = {
+            freecad.enable = true;
+            freecad-wayland.enable = true;
+          };
+
+          printing = {
+            slicers = {
+              prusa-slicer.enable = true;
+              orca-slicer.enable = true;
+            };
+          };
+
+          office = {
+            libreoffice-fresh.enable = true;
+          };
+
+          programming = {
+            all = true;
+            git.enable = true;
+          };
+
           text-editors = {
+            gui = {
+              geany.enable = true;
+              emacs.enable = true;
+              emacsGoodies = true;
+            };
+
             cli = {
               neovim.enable = true;
-              vim.enable = false;
+              vim.enable = true;
             };
           };
         };
