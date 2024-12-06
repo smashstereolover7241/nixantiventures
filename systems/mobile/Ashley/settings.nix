@@ -507,11 +507,26 @@ in
         };
 
         productivity = {
-          anytype.enable = true;
-          freecad.enable = true;
-          freecad-wayland.enable = true;
-          libreoffice-fresh.enable = true;
-          xournalpp.enable = true;
+          knowledge = {
+            anytype.enable = true;
+            xournalpp.enable = true;
+          };
+
+          cad = {
+            freecad.enable = true;
+            freecad-wayland.enable = true;
+          };
+
+          printing = {
+            slicers = {
+              prusa-slicer.enable = true;
+              orca-slicer.enable = true;
+            };
+          };
+
+          office = {
+            libreoffice-fresh.enable = true;
+          };
 
           programming = {
             all = true;

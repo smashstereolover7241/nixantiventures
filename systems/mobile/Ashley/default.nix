@@ -11,6 +11,7 @@ in
       {
         imports = [
           ./hardware.nix
+          ./standardConfig.nix
           ./settings.nix
         ];
       }
