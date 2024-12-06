@@ -392,6 +392,10 @@ in
           vpn = {
             openvpn.enable = true;
             mullvad.enable = true;
+            shadowsocks = {
+              enable = true;
+              port = 9999;
+            };
           };
 
           downloading = {
