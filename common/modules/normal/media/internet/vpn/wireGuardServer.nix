@@ -36,6 +36,12 @@ in
       type = types.listOf (types.anything); # if messed up, type checker will complain anyways
       default = [];
     };
+
+    keyFile = mkOption {
+      description = "where is keyfile";
+      type = types.str;
+      default = "/secrets/current-system/wgpriv";
+    };
   };
 
   config =
@@ -84,11 +90,11 @@ in
           # Note: The private key can also be included inline via the privateKey option,
           # but this makes the private key world-readable; thus, using privateKeyFile is
           # recommended.
-          privateKeyFile = "/root/wireguard-keys/private";
+          privateKeyFile = cfg.keyFile;
 
           peers = cfg.peers;
         };
       };
     }
-  );
+    );
 }

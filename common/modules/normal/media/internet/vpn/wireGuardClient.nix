@@ -17,6 +17,12 @@ in
       type = types.str;
       default = "wg0";
     };
+
+    keyFile = mkOption {
+      description = "where is keyfile";
+      type = types.str;
+      default = "/secrets/current-system/wgpriv";
+    };
   };
 
   config =
@@ -25,7 +31,7 @@ in
       networking.wireguard.interfaces = {
         ${cfg.internalInterface}= {
           ips = [ cfg.ip ];
-          privateKeyFile = "/home/localhost/wireguard-keys/current-system/private";
+          privateKeyFile = cfg.keyFile;
 
           peers = [
             {
