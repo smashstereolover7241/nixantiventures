@@ -396,6 +396,37 @@ in
               enable = true;
               port = 9999;
             };
+            wireguardServer = {
+              enable = true;
+              listenPort = 51938;
+              internalInterface = "wg0";
+              externalInterface = "ens3";
+              subNet = "51";
+              peers = [
+                { # Feel free to give a meaning full name
+                  # Public key of the peer (not a file path).
+                  publicKey = "FRhws1kkiUBQ91UGTMWzuPH5wUn9v16tfJFQnu7r4TM=";
+                  # List of IPs assigned to this peer within the tunnel subnet. Used to configure routing.
+                  allowedIPs = [ "10.51.0.2/32" ];
+                }
+                { # ashley
+                  publicKey = "L+rvPGrgJc5yjhD7mF+uCqKc7hRTkmWCcPftNpgbZVU=";
+                  allowedIPs = [ "10.51.0.3/32" ];
+                }
+                { # p6
+                  publicKey = "ksSAc7+W1/tlju7/h89U6eq4vo9mojLhY7PjbKc8WHQ=";
+                  allowedIPs = [ "10.51.0.4/32" ];
+                }
+                { # luna
+                  publicKey = "nJUPEKSCUr/oJjdAe36UIeHGlEJ+3TpE7pxOWkS0Yjg=";
+                  allowedIPs = [ "10.51.0.5/32" ];
+                }
+                { # owo
+                  publicKey = "bccaq3hnXCMNGRILykO225ezENYb9x0qB4AQArD0mXA=";
+                  allowedIPs = [ "10.51.0.6/32" ];
+                }
+              ];
+            };
           };
 
           downloading = {
