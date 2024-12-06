@@ -23,6 +23,13 @@ in
           zsh = {
             enable = true;
           };
+
+          sshd = {
+            enable = true;
+            passAuth = false;
+            port = 7894;
+          };
+
           util = {
             direnv.enable = true;
             nix-direnv.enable = true;
@@ -132,6 +139,13 @@ in
         };
 
         storage = {
+          remoteUnlock = {
+            enable = true;
+            port = 7777;
+            netDrivers = "virtio_net";
+            authorizedKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL4l4g4cP18QYi29pes7qXaWspme9u5fIM1m9RmxWCIP" ];
+          };
+
           filemanagers = {
             all = true;
             gui = {
@@ -396,6 +410,12 @@ in
               enable = true;
               port = 9999;
             };
+
+            wireguardClient = {
+              ip = "10.51.0.74";
+              internalInterface = "wg0";
+            };
+
             wireguardServer = {
               enable = true;
               listenPort = 51938;
