@@ -65,6 +65,20 @@ in
           };
         };
 
+        tweaks = {
+          power = {
+            lidClose = {
+              enable = true;
+              handle = "ignore";
+            };
+          };
+        };
+
+        containers = {
+          docker.enable = true;
+          docker.storageDriver = "zfs";
+        };
+
         compute = {
           compression = {
             all = true;

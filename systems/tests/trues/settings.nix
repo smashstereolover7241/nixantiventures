@@ -80,10 +80,25 @@ in
               iotop.enable = true;
             };
           };
+
           gui = {
             all = true;
             mission-center.enable = true;
           };
+        };
+
+        tweaks = {
+          power = {
+            lidClose = {
+              enable = true;
+              handle = "ignore";
+            };
+          };
+        };
+
+        containers = {
+          docker.enable = true;
+          docker.storageDriver = "overlay2";
         };
 
         compute = {
