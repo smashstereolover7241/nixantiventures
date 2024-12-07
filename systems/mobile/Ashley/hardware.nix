@@ -26,6 +26,16 @@
       options = [ "fmask=0022" "dmask=0022" ];
     };
 
+  fileSystems."/var/lib/docker" =
+    { device = "serverRaid/root/dockerLib";
+      fsType = "zfs";
+    };
+
+  fileSystems."/docker" =
+    { device = "serverRaid/root/docker";
+      fsType = "zfs";
+    };
+
   swapDevices = [ ];
 
   boot.initrd.luks.devices."ata-CT500MX500SSD1_2246E68532F1_crypt" = {
