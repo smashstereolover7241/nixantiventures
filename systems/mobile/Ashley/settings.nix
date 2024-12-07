@@ -140,6 +140,10 @@ in
         };
 
         productivity = {
+          programming = {
+            git.enable = true;
+          };
+
           text-editors = {
             cli = {
               neovim.enable = true;
