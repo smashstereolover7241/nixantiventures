@@ -8,6 +8,6 @@ in
     enable = mkEnableOption "Enable some nerdfonts thingys idk";
   };
   config = mkIf cfg.enable {
-    fonts.packages = with pkgs; [ (nerdfonts.override { fonts = [ "FiraMono" "JetBrainsMono" ]; })];
+    fonts.packages = with pkgs; [ nerd-fonts.fira-mono nerd-fonts.jetbrains-mono ];
   };
 }
