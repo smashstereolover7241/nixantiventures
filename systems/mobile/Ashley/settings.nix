@@ -86,8 +86,18 @@ in
             unzip.enable = true;
             zlib.enable = true;
           };
-        };
 
+          lang = {
+            c = {
+              all = true;
+              cmake.enable = true;
+              ninja.enable = true;
+              gcc.enable = true;
+              gnumake.enable = true;
+              pkg-config.enable = true;
+            };
+          };
+        };
         storage = {
           remoteUnlock = {
             enable = false;
