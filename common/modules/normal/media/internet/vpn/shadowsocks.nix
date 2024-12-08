@@ -15,16 +15,17 @@ in
 
   config =
     (mkIf cfg.enable {
+      environment.systemPackages = with pkgs; [ openssl ]; #TODO: Move this outta here
       services.shadowsocks = {
         enable = true;
         port = cfg.port; # default
-        passwordFile = "/root/keys/shadowsocks"; # put something random there and send it to me
+        passwordFile = "/root/keys/shadowsocks";
         mode = "tcp_and_udp"; # don't forget to open the firewall
         localAddress = ["0.0.0.0"]; # bind addr
-      }; # rest should be fine by default
+      };
       networking.firewall = {
         allowedUDPPorts = [ cfg.port ];
-        allowedTCPPorts = [ cfg.port ];
+        allowedTCPPorts = [ cfg.port 80 443 ];
       };
     }
   );
