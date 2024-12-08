@@ -80,10 +80,10 @@ in
           '';
 
           # This undoes the above command
-          postShutdown = ''
-            ${pkgs.iptables}/bin/iptables -D FORWARD -i ${cfg.internalInterface} -j ACCEPT
-            ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.${cfg.subNet}.0.0/24 -o eth0 -j MASQUERADE
-          '';
+#          postShutdown = ''
+#            ${pkgs.iptables}/bin/iptables -D FORWARD -i ${cfg.internalInterface} -j ACCEPT
+#            ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.${cfg.subNet}.0.0/24 -o eth0 -j MASQUERADE
+#          '';
 
           # Path to the private key file.
           #
