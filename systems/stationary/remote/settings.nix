@@ -59,7 +59,7 @@ in
         monitoring = {
           all = false;
           cli = {
-            all = ;
+            all = false;
             nvtop.enable = false;
             glances.enable = true;
             tops = {
@@ -136,8 +136,8 @@ in
                   allowedIPs = [ "10.51.0.2/32" ];
                 }
                 { # ashley
-                  publicKey = "L+rvPGrgJc5yjhD7mF+uCqKc7hRTkmWCcPftNpgbZVU=";
-                  allowedIPs = [ "10.51.0.3/32" ];
+                  publicKey = "zRN1PQZYYfk42pHBtR0VrhjzOM9mC9MRWGwF73Pb02M=";
+                  allowedIPs = [ "10.51.0.10/32" ];
                 }
                 { # p6
                   publicKey = "ksSAc7+W1/tlju7/h89U6eq4vo9mojLhY7PjbKc8WHQ=";

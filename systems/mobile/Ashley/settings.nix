@@ -26,7 +26,7 @@ in
 
           sshd = {
             enable = true;
-            passAuth = true;
+            passAuth = false;
             port = 7894;
           };
         };
@@ -123,10 +123,11 @@ in
 
           vpn = {
             wireguardClient = {
-              enable = false; # for now
-              ip = "10.51.0.74";
+              enable = true;
+              ip = "10.51.0.10";
               internalInterface = "wg0";
             };
+
             wireguardServer.enable = false;
           };
 
