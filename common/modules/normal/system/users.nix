@@ -9,6 +9,7 @@ in {
         name = mkOption {
             description = "Username? You only get one tho.";
             type = types.str;
+            default = "localhost";
         };
     };
     config = mkIf cfg.enable {
