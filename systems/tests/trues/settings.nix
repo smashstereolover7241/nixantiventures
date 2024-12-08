@@ -157,7 +157,7 @@ in
           remoteUnlock = {
             enable = true;
             port = 7777;
-            netDrivers = "virtio_net";
+            netDrivers = [ "virtio_net" ];
             authorizedKeys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL4l4g4cP18QYi29pes7qXaWspme9u5fIM1m9RmxWCIP" ];
           };
 
