@@ -59,8 +59,8 @@ in
         monitoring = {
           all = false;
           cli = {
-            all = true;
-            nvtop.enable = true;
+            all = ;
+            nvtop.enable = false;
             glances.enable = true;
             tops = {
               all = true;
