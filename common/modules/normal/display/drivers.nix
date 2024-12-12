@@ -70,7 +70,7 @@ in
 
     # all of these we can just pass through without special changes
     (mkIf (cfg.gpu == "intel" || cfg.gpu == "modesetting" || cfg.gpu == "amd" || cfg.gpu == "nouveau" || cfg.gpu == "ati" || cfg.gpu == "radeon" ){
-      services.xserver.videoDrivers = cfg.gpu;
+      services.xserver.videoDrivers = [ cfg.gpu ];
     })
 
     (mkIf (cfg.gpu == "null" || cfg.gpu == "" || cfg.gpu == "none") {

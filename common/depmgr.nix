@@ -231,7 +231,7 @@ in {
 
             (mkIf cfg2.normal.media.productivity.programming.all {
                 modules.normal.media.productivity.programming.git.enable = true;
-                modules.normal.system.compute.lang.all= true;
+                modules.normal.system.compute.lang.all= mkDefault true;
             })
 
             (mkIf cfg2.normal.system.compute.all {
