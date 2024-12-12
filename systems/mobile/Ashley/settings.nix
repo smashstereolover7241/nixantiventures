@@ -96,6 +96,12 @@ in
               gnumake.enable = true;
               pkg-config.enable = true;
             };
+
+            java = {
+              all = false;
+              openjdk11.enable = false;
+              openjdk17.enable = true;
+            };
           };
         };
         storage = {
